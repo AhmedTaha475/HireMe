@@ -25,9 +25,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/css/colors/blue.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/assets/js/jquery-3.6.0.min.js",
+              "node_modules/assets/js/jquery-migrate-3.3.2.min.js",
+              "node_modules/assets/js/mmenu.min.js",
+              "node_modules/assets/js/tippy.all.min.js",
+              "node_modules/assets/js/simplebar.min.js",
+              "node_modules/assets/js/bootstrap-slider.min.js",
+              "node_modules/assets/js/bootstrap-select.min.js",
+              "node_modules/assets/js/snackbar.js",
+              "node_modules/assets/js/clipboard.min.js",
+              "node_modules/assets/js/counterup.min.js",
+              "node_modules/assets/js/magnific-popup.min.js",
+              "node_modules/assets/js/slick.min.js",
+              "node_modules/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {
