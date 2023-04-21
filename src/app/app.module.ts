@@ -11,6 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Home/home/home.component';
+import { SingupComponent } from './Components/singup/singup.component';
+import { LoginComponent } from './Components/Login/login/login.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -21,7 +23,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectPostComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    SingupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

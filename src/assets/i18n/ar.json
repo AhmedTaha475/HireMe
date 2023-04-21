@@ -2,6 +2,10 @@
   "welcome": "مرحباً بك في موقعي!",
   "description": "هذا موقع تجريبي تم بناؤه باستخدام أنغولار.",
   "home": "الرئيسية",
-  "language": "اللغة"
+  "language": "اللغة",
+  "We're glad to see you again!":"سعداء برويتكم",
+    "Register":"التسجيل",
+    "Already have an account?":"هل لديك حساب بالفعل؟",
+    "Let's create your account!":"هيا ننشي حساب"
 
 }
