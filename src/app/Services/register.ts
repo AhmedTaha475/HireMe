@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
+import { StaticURl } from '../Models/static-url';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MyServiseService {
-  Url:any="https://localhost:7047/api/Users/RegisterClient";
-  constructor(public client:HttpClient) { }
+  // Url: any = 'https://localhost:7047/api/Users/RegisterClient';
+  Url: any = StaticURl.URL;
+  constructor(public client: HttpClient) {}
   // GetAllUsers()
   // {
   //   return this.client.get(this.Url)
@@ -19,9 +20,8 @@ export class MyServiseService {
   // {
   //   return this.client.put(this.Url+'/'+id,User)
   // }
-  CreateUser(User:any)
-  {
-    return this.client.post(this.Url,User)
+  CreateUser(User: any) {
+    return this.client.post(this.Url + 'Users/RegisterClient', User);
   }
   // DeleteUser(id:any)
   // {
