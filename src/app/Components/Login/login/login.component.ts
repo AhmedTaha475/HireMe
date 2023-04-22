@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { UserLoginServiceService } from 'src/app/Services/user-login-service.service';
+import { UserLoginServiceService } from 'src/app/Services/Freelancer/user-login-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

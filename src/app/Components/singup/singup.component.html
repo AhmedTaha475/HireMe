@@ -41,43 +41,64 @@
                     <!-- Account Type -->
                     <div class="account-type">
                         <div>
-                            <input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio" checked/>
+                            <input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio" value="Freelancer" [(ngModel)]="checkvalue" checked />
                             <label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Freelancer</label>
                         </div>
     
                         <div>
-                            <input type="radio" name="account-type-radio" id="employer-radio" class="account-type-radio"/>
-                            <label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Employer</label>
+                            <input type="radio" name="account-type-radio" id="employer-radio" class="account-type-radio" value="Client" [(ngModel)]="checkvalue"/>
+                            <label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Client</label>
                         </div>
                     </div>
                         
+
+                    <div *ngFor="let key of Keys">
+                        <h3>{{ key }}</h3>
+                        <ul ng-if="obj"> 
+                          <li *ngFor="let error of obj[key]" style="color: red;">
+                            {{ error }}
+                            </li> 
+                        </ul>
+                        </div>
+
                     <!-- Form -->
-                    <form method="post" id="register-account-form">
+                    <form  [formGroup]="formValidation" method="post" id="register-account-form">
                         <div class="input-with-icon-left">
                             <i class="icon-material-baseline-mail-outline"></i>
-                            <input type="text" #fname class="input-text with-border" name="firstName" id="emailaddress-register" placeholder="First Name" required/>
+                            <input type="text" #fname class="input-text with-border" formControlName="firstName" name="firstName" id="emailaddress-register" placeholder="First Name" required/>
+                            <div *ngIf="!fnamevalid&&fname.value!=''" style="color: red;" >First Name Must be more than 3 characters </div>
                         </div>
                         <div class="input-with-icon-left">
                             <i class="icon-material-baseline-mail-outline"></i>
-                            <input type="text" #lname class="input-text with-border" name="lastname" id="emailaddress-register" placeholder="Last Name" required/>
+                            <input type="text" #lname class="input-text with-border" formControlName="lastName"  name="lastname" id="emailaddress-register" placeholder="Last Name" required/>
+                            <div *ngIf="!lnamevalid&&lname.value!=''" style="color: red;" >Last Name Must be more than 3 characters </div>
+
                         </div>
                         <div class="input-with-icon-left">
                             <i class="icon-material-baseline-mail-outline"></i>
-                            <input type="text" #uname class="input-text with-border" name="userName" id="emailaddress-register" placeholder="Username" required/>
+                            <input type="text" #uname class="input-text with-border" formControlName="UserName"  name="userName" id="emailaddress-register" placeholder="Username" required/>
+                            <div *ngIf="!UserNamevalid&&uname.value!=''" style="color: red;" >UserName Must be more than 3 characters </div>
+                            
                         </div>
                         <div class="input-with-icon-left">
                             <i class="icon-material-baseline-mail-outline"></i>
-                            <input type="text" #email class="input-text with-border" name="email" id="emailaddress-register" placeholder="Email Address" required/>
+                            <input type="text" #email class="input-text with-border" formControlName="Email" name="email" id="emailaddress-register" placeholder="Email Address" required/>
+                            <div *ngIf="!Emailvalid&&email.value!=''" style="color: red;" >Must be valid email </div>
+                            
                         </div>
     
                         <div class="input-with-icon-left" title="Should be at least 8 characters long" data-tippy-placement="bottom">
                             <i class="icon-material-outline-lock"></i>
-                            <input type="password" #password class="input-text with-border" name="password" id="password-register" placeholder="Password" required/>
+                            <input type="password" #password class="input-text with-border" formControlName="Password" name="password" id="password-register" placeholder="Password" required/>
+                            <div *ngIf="!passwordvalid&&password.value!=''" style="color: red;" >must Contain number and upper&Lower case and special character  </div>
+                            
                         </div>
     
                         <div class="input-with-icon-left">
                             <i class="icon-material-outline-lock"></i>
-                            <input type="password" #cpassword class="input-text with-border" name="confirmPassword" id="password-repeat-register" placeholder="Repeat Password" required/>
+                            <input type="password" #cpassword class="input-text with-border" formControlName="cpassword" name="confirmPassword" id="password-repeat-register" placeholder="Repeat Password" required/>
+                            <div *ngIf="cpassword.value!=password.value&&cpassword.value!=''" style="color: red;" >Confirm Password Dont Match Password</div>
+                            
                         </div>
                         <button class="button full-width button-sliding-icon ripple-effect margin-top-10"  form="login-form" (click)="Add(fname.value,lname.value,uname.value, email.value, password.value,cpassword.value)"> {{ translate.instant("Register") }}<i class="icon-material-outline-arrow-right-alt"></i></button>
                     </form>
