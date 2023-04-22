@@ -13,8 +13,12 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Home/home/home.component';
 import { SingupComponent } from './Components/singup/singup.component';
 import { LoginComponent } from './Components/Login/login/login.component';
+
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -33,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
