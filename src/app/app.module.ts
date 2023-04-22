@@ -13,6 +13,10 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/Home/home/home.component';
 import { SingupComponent } from './Components/singup/singup.component';
 import { LoginComponent } from './Components/Login/login/login.component';
+import { ClientSidebarComponent } from './Client/client-sidebar/client-sidebar.component';
+import { UpdateProjectPostComponent } from './Components/ProjectPost/update-project-post/update-project-post.component';
+import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
+import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -25,7 +29,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     HomeComponent,
     SingupComponent,
-    LoginComponent
+    LoginComponent,
+    ClientSidebarComponent,
+    UpdateProjectPostComponent,
+    DeleteProjectPostComponent,
+    AllProjectPostsComponent
   ],
   imports: [
     BrowserModule,
