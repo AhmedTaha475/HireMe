@@ -17,6 +17,13 @@ import { ClientSidebarComponent } from './Client/client-sidebar/client-sidebar.c
 import { UpdateProjectPostComponent } from './Components/ProjectPost/update-project-post/update-project-post.component';
 import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
 import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
+
+
+import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
+import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -34,20 +41,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateProjectPostComponent,
     DeleteProjectPostComponent,
     AllProjectPostsComponent
+    PlanComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

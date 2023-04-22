@@ -8,6 +8,8 @@ import { UpdateProjectPostComponent } from './Components/ProjectPost/update-proj
 import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
 import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
 import { ProjectPostComponent } from './Components/ProjectPost/project-post/project-post.component';
+import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
+import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
   { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
   { path: 'ProjectPost/:id', component: ProjectPostComponent },
+  { path: 'plan', component: PlanComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({
