@@ -25,7 +25,7 @@ export class LookupTableService {
   };
   options = { headers: this.headers };
 
-  Url: any = StaticURl.URL + 'LookupTable/';
+  Url: any = StaticURl.URL + 'LookupTables/';
 
   //#endregion
 
@@ -35,17 +35,21 @@ export class LookupTableService {
 
   // Get All Lookup Tables :
   GetAllLookupTables() {
-    return this.myclient.get(this.Url);
+    return this.myclient.get(this.Url + 'GetAllLookupTables');
   }
 
   // Get Lookup Table By Id :
   GetLookupTableById(lookuptableId: Number) {
-    return this.myclient.get(this.Url + 'LookupTable' + lookuptableId);
+    return this.myclient.get(this.Url + 'GetLookupTableById' + lookuptableId);
   }
 
   // Create Lookup Table :
   CreateLookupTable(NewLookupTable: CreateLookupTable) {
-    return this.myclient.post(this.Url, NewLookupTable, this.options);
+    return this.myclient.post(
+      this.Url + 'CreateNewLookupTable',
+      NewLookupTable,
+      this.options
+    );
   }
 
   // Update Lookup Table :
@@ -63,7 +67,7 @@ export class LookupTableService {
   // Delete Lookup Table By Id :
   DeleteLookupTableById(lookuptableId: Number) {
     return this.myclient.delete(
-      this.Url + 'DeleteLookupTable' + lookuptableId,
+      this.Url + 'DeleteLookupTableById' + lookuptableId,
       this.options
     );
   }
