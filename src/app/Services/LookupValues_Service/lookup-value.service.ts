@@ -40,20 +40,20 @@ export class LookupValueService {
 
   // Get Lookup Value By its Id :
   GetLookupValueById(lookupValueId: Number) {
-    return this.myclient.get(this.Url + 'GetValueById' + lookupValueId);
+    return this.myclient.get(this.Url + 'GetValueById/' + lookupValueId);
   }
 
   // Get All Lookupvalue By Lookup table Id:
   GetAllLookupvalueByLookuptableId(lookuptableId: Number) {
     return this.myclient.get(
-      this.Url + 'GetLookupValuesByLookupId' + lookuptableId
+      this.Url + 'GetLookupValuesByLookupId/' + lookuptableId
     );
   }
 
   // Get All Lookupvalue By Lookup table Name:
   GetAllLookupvalueByLookuptableName(lookuptablename: string) {
     return this.myclient.get(
-      this.Url + 'GetLookupValuesByLookupName' + lookuptablename
+      this.Url + 'GetLookupValuesByLookupName/' + lookuptablename
     );
   }
 
@@ -72,7 +72,7 @@ export class LookupValueService {
     updatedLookupValue: UpdateLookupValue
   ) {
     return this.myclient.put(
-      this.Url + 'UpdateLookupValueById' + lookupValueId,
+      this.Url + 'UpdateLookupValueById/' + lookupValueId,
       updatedLookupValue,
       this.options
     );
@@ -81,7 +81,7 @@ export class LookupValueService {
   // Delete Lookup value By its Id :
   DeleteLookupValue(lookupValueId: Number) {
     return this.myclient.delete(
-      this.Url + 'DeleteLookupValueById' + lookupValueId,
+      this.Url + 'DeleteLookupValueById/' + lookupValueId,
       this.options
     );
   }

@@ -40,7 +40,7 @@ export class LookupTableService {
 
   // Get Lookup Table By Id :
   GetLookupTableById(lookuptableId: Number) {
-    return this.myclient.get(this.Url + 'GetLookupTableById' + lookuptableId);
+    return this.myclient.get(this.Url + 'GetLookupTableById/' + lookuptableId);
   }
 
   // Create Lookup Table :
@@ -58,7 +58,7 @@ export class LookupTableService {
     lookuptableId: Number
   ) {
     return this.myclient.put(
-      this.Url + 'UpdateLookupTableById' + lookuptableId,
+      this.Url + 'UpdateLookupTableById/' + lookuptableId,
       UpdateLookupTable,
       this.options
     );
@@ -67,7 +67,7 @@ export class LookupTableService {
   // Delete Lookup Table By Id :
   DeleteLookupTableById(lookuptableId: Number) {
     return this.myclient.delete(
-      this.Url + 'DeleteLookupTableById' + lookuptableId,
+      this.Url + 'DeleteLookupTableById/' + lookuptableId,
       this.options
     );
   }
