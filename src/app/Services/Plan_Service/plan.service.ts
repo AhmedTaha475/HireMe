@@ -28,7 +28,7 @@ export class PlanService {
   Url: any = StaticURl.URL + 'Plan/';
 
   //#endregion
-  constructor(private readonly myclient: HttpClient) {}
+  constructor(public myclient: HttpClient) {}
 
   //#region All Cruds of Plan :
 
