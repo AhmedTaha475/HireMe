@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
-import { MyServiseService } from 'src/app/Services/Freelancer/register';
+import { MyServiseService } from 'src/app/Services/Registeraion/register';
 import { Register } from 'src/app/Models/Register/register';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
