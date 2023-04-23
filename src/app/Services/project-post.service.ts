@@ -8,7 +8,7 @@ import { CreateProjectPost } from '../Models/ProjectPost/create-projectpost';
   providedIn: 'root'
 })
 export class ProjectPostService {
-  Token:string=" ";
+  Token:string=localStorage.getItem("Token")??"";
   headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.Token}`
