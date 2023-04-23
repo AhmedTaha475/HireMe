@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientSidebarComponent,
     UpdateProjectPostComponent,
     DeleteProjectPostComponent,
-    AllProjectPostsComponent
+    AllProjectPostsComponent,
     PlanComponent,
     CheckoutComponent,
   ],
