@@ -35,7 +35,7 @@
                     <!-- Welcome Text -->
                     <div class="welcome-text">
                         <h3 style="font-size: 26px;"> {{ translate.instant("Let's create your account!") }}</h3>
-                        <span> {{ translate.instant("Already have an account?") }} <a  routerLink="/Register">Log In!</a></span>
+                        <span> {{ translate.instant("Already have an account?") }} <a  routerLink="/Login">Log In!</a></span>
                     </div>
     
                     <!-- Account Type -->
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                         
-
+<!-- 
                     <div *ngFor="let key of Keys">
                         <h3>{{ key }}</h3>
                         <ul ng-if="obj"> 
@@ -59,7 +59,7 @@
                             {{ error }}
                             </li> 
                         </ul>
-                        </div>
+                        </div> -->
 
                     <!-- Form -->
                     <form  [formGroup]="formValidation" method="post" id="register-account-form">

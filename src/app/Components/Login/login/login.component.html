@@ -35,25 +35,28 @@
         </div>
 
         <!-- Form -->
-        <!-- <form method="post" id="login-form" > -->
+        <form  [formGroup]="formValidation2" method="post" id="login-form" >
         <div class="input-with-icon-left">
           <i class="icon-material-baseline-mail-outline"></i>
-          <input type="text" #email class="input-text with-border" name="email" id="emailaddress"
+          <input type="text" #email class="input-text with-border" formControlName="email" name="email" id="emailaddress"
             placeholder="Email Address" required />
+            <div *ngIf="validemail==false" style="color: red;" >Email is required  </div> 
+
         </div>
 
         <div class="input-with-icon-left">
           <i class="icon-material-outline-lock"></i>
-          <input type="password" #password class="input-text with-border" name="password" id="password"
-            placeholder="Password" required />
-        </div>
+          <input type="password" required #password class="input-text with-border" formControlName="password" name="password" id="password"
+            placeholder="Password"  />
+            <div *ngIf="validpass==false" style="color: red;" >Password is required  </div>        </div> 
+
+        <div *ngIf="errormsg!=''" style="color: red;" >UserName Or Password Dont Match Any Account</div>
+
         <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
         <button form="login-form" class="button full-width button-sliding-icon ripple-effect margin-top-10"
           (click)="add(email.value,password.value)">Log In <i
             class="icon-material-outline-arrow-right-alt"></i></button>
-        <!-- </form> -->
-        <!--  -->
-        <!-- Button -->
+        </form>
 
         <!-- Social Login -->
         <div class="social-login-separator"><span>or</span></div>

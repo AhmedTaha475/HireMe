@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { MyServiseService } from 'src/app/Services/Freelancer/register';
-import { Register } from 'src/app/Models/register';
+import { Register } from 'src/app/Models/Register/register';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -22,11 +22,11 @@ export class SingupComponent {
   Keys:any
 
   formValidation=new FormGroup({
-    firstName:new FormControl(null,[Validators.minLength(4),Validators.required]),
+    firstName:new FormControl("",[Validators.minLength(4),Validators.required]),
     lastName:new FormControl(null,[Validators.minLength(4),Validators.required]),
     UserName:new FormControl(null,[Validators.minLength(4),Validators.required]),
     Email:new FormControl(null,[Validators.minLength(4),Validators.email,Validators.required]),
-    Password:new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z ]+[0-9]")]),
+    Password:new FormControl(null,[Validators.required,Validators.pattern("^(?=.*[A-Z])(?=.*[0-9]).{6,}$")]),
     cpassword:new FormControl(null,[Validators.required])
     
   })
@@ -51,9 +51,18 @@ export class SingupComponent {
     {
       return this.formValidation.controls["Password"].valid ;
     }
-    
+    // Create(){
+    //   // var User=new Register(
+    //   // this.formValidation.controls["firstName"].value??"",
+    //   // this.formValidation.controls["lastName"].value??"",
+    //   // this.formValidation.controls["UserName"].value??"",
+    //   // this.formValidation.controls["Email"].value ??"",
+    //   // this.formValidation.controls["Password"].value??"",
+    //   // this.formValidation.controls["cpassword"].value??"")
+    //   console.log("Ashraf")
+    // }
   Add(fname:any,lname:any,uname:any, email:any, password:any,cpassword:any){
-    console.log(this.formValidation)
+    // console.log(this.formValidation.controls["firstName"].value)
     var user=new Register(fname, lname,uname,email,password,cpassword)
     if(this.checkvalue=='Freelancer')
     {
