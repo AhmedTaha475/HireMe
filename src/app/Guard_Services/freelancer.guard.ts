@@ -7,12 +7,13 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../Services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FreelancerGuard implements CanActivate {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _AuthService: AuthService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -21,10 +22,10 @@ export class FreelancerGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (localStorage.getItem('Roles')?.split(',').includes('Freelancer')) {
+    if (this._AuthService.getRoles()?.split(',').includes('Freelancer')) {
       return true;
     } else {
-      this._router.navigateByUrl('/UnAuthorized');
+      this._router.navigateByUrl('/page403');
       return false;
     }
   }
