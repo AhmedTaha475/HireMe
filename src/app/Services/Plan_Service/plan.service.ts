@@ -18,13 +18,6 @@ import { Injectable } from '@angular/core';
 export class PlanService {
   //#region  Some Helpers Variables :
 
-  Token: string = ' ';
-  headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
-  };
-  options = { headers: this.headers };
-
   Url: any = StaticURl.URL + 'Plan/';
 
   //#endregion
@@ -44,17 +37,17 @@ export class PlanService {
 
   // Create Plan :
   CreatePlan(newPlan: CreatePlan) {
-    return this.myclient.post(this.Url + newPlan, this.options);
+    return this.myclient.post(this.Url, newPlan);
   }
 
   // Update Plan by its id  :
   UpdatePlanById(PlanId: number, updatedPlan: UpdatePlan) {
-    return this.myclient.put(this.Url + PlanId, updatedPlan, this.options);
+    return this.myclient.put(this.Url + PlanId, updatedPlan);
   }
 
   // Delete Plan By its Id :
   DeletePlan(PlanId: Number) {
-    return this.myclient.delete(this.Url + PlanId, this.options);
+    return this.myclient.delete(this.Url + PlanId);
   }
 
   //#endregion

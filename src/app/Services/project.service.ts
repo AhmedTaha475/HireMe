@@ -5,37 +5,30 @@ import { CreateProject } from '../Models/Project/create-project';
 // import { GetProjectById } from '../Models/Project/get-project-by-id';
 import { UpdateProject } from '../Models/Project/update-project-by-id';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectService {
-   Token:string = " ";
   headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${this.Token}`
-  };
-   options = {headers : this.headers };
-
-   headersf = {
     'Content-Type': 'multipart/form-data',
-    'Authorization': `Bearer ${this.Token}`
   };
+  options = { headers: this.headers };
 
-  Url: any = StaticURl.URL+'Projects/';
-  constructor(public client: HttpClient) { }
+  Url: any = StaticURl.URL + 'Projects/';
+  constructor(public client: HttpClient) {}
 
   CreateProject(Project: CreateProject) {
-    return this.client.post(this.Url , Project ,{headers: this.headersf});
+    return this.client.post(this.Url, Project, this.options);
   }
   GetProjectById(P_Id: number) {
-    return this.client.get(this.Url + 'Project/' + P_Id,this.options);
+    return this.client.get(this.Url + 'Project/' + P_Id);
   }
   GetProjectsByPortfolioId(portfolio_id: number) {
-    return this.client.get(this.Url + 'ProjectByPortfolioId/' + portfolio_id,this.options);
+    return this.client.get(this.Url + 'ProjectByPortfolioId/' + portfolio_id);
   }
-  UpdateProject(P_Id:number,NewProject:UpdateProject){
-    return this.client.put(this.Url + 'UpdateProjectById/'+P_Id,NewProject,this.options);
+  UpdateProject(P_Id: number, NewProject: UpdateProject) {
+    return this.client.put(this.Url + 'UpdateProjectById/' + P_Id, NewProject);
   }
-  DeleteProject(P_Id:number){
-    return this.client.delete(this.Url+'Delete/'+P_Id,this.options);
+  DeleteProject(P_Id: number) {
+    return this.client.delete(this.Url + 'Delete/' + P_Id);
   }
 }
