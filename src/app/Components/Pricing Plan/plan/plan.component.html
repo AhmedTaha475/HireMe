@@ -1,0 +1,170 @@
+<!--  Plan Page Content After Header  -->
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ translate.instant("Pricing Plans") }}</h2>
+
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs" class="dark">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li>Pricing Plans</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12">
+      <!-- Billing Cycle  -->
+      <div class="billing-cycle-radios margin-bottom-70">
+        <div class="radio billed-monthly-radio">
+          <input id="radio-5" name="radio-payment-type" type="radio" checked />
+          <label for="radio-5"
+            ><span class="radio-label"></span> Billed Monthly</label
+          >
+        </div>
+
+        <div class="radio billed-yearly-radio">
+          <input id="radio-6" name="radio-payment-type" type="radio" />
+          <label for="radio-6"
+            ><span class="radio-label"></span> Billed Yearly
+            <span class="small-label">Save 10%</span></label
+          >
+        </div>
+      </div>
+
+      <!-- Pricing Plans Container -->
+      <div class="pricing-plans-container">
+        <!-- Plan -->
+        <!-- <div *ngFor="let plan of plans" class="pricing-plan">
+          <h3>{{ plan.name }}</h3>
+          <p class="margin-top-10">
+            {{ plan.description }}
+          </p>
+          <div class="pricing-plan-label billed-monthly-label">
+            <strong>${{ plan.price }}</strong
+            >/ monthly
+          </div>
+          <div class="pricing-plan-label billed-yearly-label">
+            <strong>$205</strong>/ yearly
+          </div>
+          <div class="pricing-plan-features">
+            <strong>Features of Basic Plan</strong>
+            <ul>
+              <li>You will have {{ plan.bids }} Bids</li>
+              <li>30 Days Visibility</li>
+              <li>Highlighted in Search Results</li>
+            </ul>
+          </div> -->
+
+        <!-- <a routerLink="/checkout" class="button full-width margin-top-20"
+            >Buy Now</a
+          >
+        </div> -->
+
+        <!-- Plan -->
+        <div
+          *ngFor="let plan of plans"
+          class="pricing-plan"
+          [ngClass]="{
+            'pricing-plan': true,
+            recommended: plan.name === 'Plan2'
+          }"
+        >
+          <div *ngIf="plan.name == 'Plan2'" class="recommended-badge">
+            Recommended
+          </div>
+          <h3>{{ plan.name }}</h3>
+          <p class="margin-top-10">
+            {{ plan.description }}
+          </p>
+          <div class="pricing-plan-label billed-monthly-label">
+            <strong>{{ plan.price }}</strong
+            >/ monthly
+          </div>
+          <div class="pricing-plan-label billed-yearly-label">
+            <strong>{{ plan.price * 12 - plan.price }}</strong
+            >/ yearly
+          </div>
+          <div class="pricing-plan-features">
+            <strong>Features of {{ plan.name }}</strong>
+            <ul>
+              <li>
+                <p class="billed-monthly-label">
+                  You will have
+                  <span style="font-weight: 600; color: black">{{
+                    plan.bids
+                  }}</span>
+                  Bids / month
+                </p>
+                <p class="billed-yearly-label">
+                  You will have
+                  <span style="font-weight: 600; color: black">{{
+                    plan.bids * 12
+                  }}</span>
+                  Bids / year
+                </p>
+              </li>
+
+              <!-- <li>60 Days Visibility</li> -->
+              <li>Highlighted in Search Results</li>
+            </ul>
+          </div>
+          <a
+            routerLink="/checkout"
+            [ngClass]="{
+              button: true,
+              'full-width': true,
+              'recommended-button': plan.name === 'Plan2'
+            }"
+            class="button margin-top-20"
+            >Buy Now</a
+          >
+        </div>
+
+        <!-- Plan -->
+        <!-- <div class="pricing-plan">
+          <h3>Extended Plan</h3>
+          <p class="margin-top-10">
+            One time fee for one listing or task highlighted in search results.
+          </p>
+          <div class="pricing-plan-label billed-monthly-label">
+            <strong>$99</strong>/ monthly
+          </div>
+          <div class="pricing-plan-label billed-yearly-label">
+            <strong>$1069</strong>/ yearly
+          </div>
+          <div class="pricing-plan-features">
+            <strong>Features of Extended Plan</strong>
+            <ul>
+              <li>Unlimited Listings Listing</li>
+              <li>90 Days Visibility</li>
+              <li>Highlighted in Search Results</li>
+            </ul>
+          </div>
+          <a routerLink="/checkout" class="button full-width margin-top-20"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div> -->
+      </div>
+
+      <div class="margin-top-80"></div>
+
+      <!--  Footer of Plan Page is ⬇  -->
+    </div>
+  </div>
+</div>
