@@ -47,13 +47,14 @@
       <!-- Pricing Plans Container -->
       <div class="pricing-plans-container">
         <!-- Plan -->
-        <div class="pricing-plan">
-          <h3>Basic Plan</h3>
+        <!-- <div *ngFor="let plan of plans" class="pricing-plan">
+          <h3>{{ plan.name }}</h3>
           <p class="margin-top-10">
-            One time fee for one listing or task highlighted in search results.
+            {{ plan.description }}
           </p>
           <div class="pricing-plan-label billed-monthly-label">
-            <strong>$19</strong>/ monthly
+            <strong>${{ plan.price }}</strong
+            >/ monthly
           </div>
           <div class="pricing-plan-label billed-yearly-label">
             <strong>$205</strong>/ yearly
@@ -61,44 +62,79 @@
           <div class="pricing-plan-features">
             <strong>Features of Basic Plan</strong>
             <ul>
-              <li>1 Listing</li>
+              <li>You will have {{ plan.bids }} Bids</li>
               <li>30 Days Visibility</li>
               <li>Highlighted in Search Results</li>
             </ul>
-          </div>
-          <a routerLink="/checkout" class="button full-width margin-top-20"
+          </div> -->
+
+        <!-- <a routerLink="/checkout" class="button full-width margin-top-20"
             >Buy Now</a
           >
-        </div>
+        </div> -->
 
         <!-- Plan -->
-        <div class="pricing-plan recommended">
-          <div class="recommended-badge">Recommended</div>
-          <h3>Standard Plan</h3>
+        <div
+          *ngFor="let plan of plans"
+          class="pricing-plan"
+          [ngClass]="{
+            'pricing-plan': true,
+            recommended: plan.name === 'Plan2'
+          }"
+        >
+          <div *ngIf="plan.name == 'Plan2'" class="recommended-badge">
+            Recommended
+          </div>
+          <h3>{{ plan.name }}</h3>
           <p class="margin-top-10">
-            One time fee for one listing or task highlighted in search results.
+            {{ plan.description }}
           </p>
           <div class="pricing-plan-label billed-monthly-label">
-            <strong>$49</strong>/ monthly
+            <strong>{{ plan.price }}</strong
+            >/ monthly
           </div>
           <div class="pricing-plan-label billed-yearly-label">
-            <strong>$529</strong>/ yearly
+            <strong>{{ plan.price * 12 - plan.price }}</strong
+            >/ yearly
           </div>
           <div class="pricing-plan-features">
-            <strong>Features of Standard Plan</strong>
+            <strong>Features of {{ plan.name }}</strong>
             <ul>
-              <li>5 Listings</li>
-              <li>60 Days Visibility</li>
+              <li>
+                <p class="billed-monthly-label">
+                  You will have
+                  <span style="font-weight: 600; color: black">{{
+                    plan.bids
+                  }}</span>
+                  Bids / month
+                </p>
+                <p class="billed-yearly-label">
+                  You will have
+                  <span style="font-weight: 600; color: black">{{
+                    plan.bids * 12
+                  }}</span>
+                  Bids / year
+                </p>
+              </li>
+
+              <!-- <li>60 Days Visibility</li> -->
               <li>Highlighted in Search Results</li>
             </ul>
           </div>
-          <a routerLink="/checkout" class="button full-width margin-top-20"
+          <a
+            routerLink="/checkout"
+            [ngClass]="{
+              button: true,
+              'full-width': true,
+              'recommended-button': plan.name === 'Plan2'
+            }"
+            class="button margin-top-20"
             >Buy Now</a
           >
         </div>
 
         <!-- Plan -->
-        <div class="pricing-plan">
+        <!-- <div class="pricing-plan">
           <h3>Extended Plan</h3>
           <p class="margin-top-10">
             One time fee for one listing or task highlighted in search results.
@@ -123,9 +159,12 @@
         </div>
       </div>
     </div>
+  </div> -->
+      </div>
+
+      <div class="margin-top-80"></div>
+
+      <!--  Footer of Plan Page is ⬇  -->
+    </div>
   </div>
 </div>
-
-<div class="margin-top-80"></div>
-
-<!--  Footer of Plan Page is ⬇  -->

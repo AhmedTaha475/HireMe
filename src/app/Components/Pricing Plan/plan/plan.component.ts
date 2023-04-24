@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { GetPlan } from 'src/app/Models/Plan/Get_Plan';
 import { PlanService } from 'src/app/Services/Plan_Service/plan.service';
 
 @Component({
@@ -8,6 +9,9 @@ import { PlanService } from 'src/app/Services/Plan_Service/plan.service';
   styleUrls: ['./plan.component.css'],
 })
 export class PlanComponent implements OnInit {
+  plans: any;
+  errors: any;
+
   constructor(
     public translate: TranslateService,
     public myplanservice: PlanService
@@ -17,11 +21,20 @@ export class PlanComponent implements OnInit {
   }
   ngOnInit(): void {
     this.myplanservice.GetAllPlans().subscribe({
-      next: (data) => {
-        console.log(data);
+      next: (data: any) => {
+        // data.forEach((element: any) => {
+        //   this.plans = new GetPlan(
+        //     data.id,
+        //     data.name,
+        //     data.escription,
+        //     data.price,
+        //     data.bids
+        //   );
+        // });
+        this.plans = data;
       },
       error: (err) => {
-        console.log(err);
+        this.errors = err;
       },
     });
   }
