@@ -18,14 +18,6 @@ import { UpdateLookupValue } from 'src/app/Models/LookupValues/Update-LokkupValu
 })
 export class LookupValueService {
   //#region  Some Helpers Variables :
-
-  Token: string = ' ';
-  headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
-  };
-  options = { headers: this.headers };
-
   Url: any = StaticURl.URL + 'LookupValues/';
 
   //#endregion
@@ -59,11 +51,7 @@ export class LookupValueService {
 
   // Create Lookup value :
   CreateLookupValue(newlookupvalue: CreateLookupValue) {
-    return this.myclient.post(
-      this.Url + 'CreateLookupValue',
-      newlookupvalue,
-      this.options
-    );
+    return this.myclient.post(this.Url + 'CreateLookupValue', newlookupvalue);
   }
 
   // Update Lookup Value by its id  :
@@ -73,16 +61,14 @@ export class LookupValueService {
   ) {
     return this.myclient.put(
       this.Url + 'UpdateLookupValueById/' + lookupValueId,
-      updatedLookupValue,
-      this.options
+      updatedLookupValue
     );
   }
 
   // Delete Lookup value By its Id :
   DeleteLookupValue(lookupValueId: Number) {
     return this.myclient.delete(
-      this.Url + 'DeleteLookupValueById/' + lookupValueId,
-      this.options
+      this.Url + 'DeleteLookupValueById/' + lookupValueId
     );
   }
 

@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'ProjectPost/:id', component: ProjectPostComponent },
   { path: 'plan', component: PlanComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

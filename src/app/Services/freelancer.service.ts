@@ -4,48 +4,53 @@ import { HttpClient } from '@angular/common/http';
 import { UpdateFreelancertMoney } from '../Models/Freelancer/update-freelancert-money';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FreelancerService {
   constructor(private _httpClient: HttpClient) {}
 
   Url: any = StaticURl.URL;
-  Token: string = localStorage.getItem('Token') ?? '';
-  headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
-  };
-  // options = { headers: this.headers };
 
-  headersf = {
+  headers = {
     'Content-Type': 'multipart/form-data',
-    Authorization: `Bearer ${this.Token}`,
   };
+  options = { headers: this.headers };
 
   public GetAllFreelancers() {
-    return this._httpClient.get(this.Url + 'Users/GetAllFreelancer', {headers: this.headers,});
+    return this._httpClient.get(this.Url + 'Users/GetAllFreelancer');
   }
   public GetFreelancerById(FreelancerId: string) {
-    return this._httpClient.get(this.Url + `Users/GetFreelancerById/${FreelancerId}`,{headers: this.headers,});
+    return this._httpClient.get(
+      this.Url + `Users/GetFreelancerById/${FreelancerId}`
+    );
   }
 
   public GetCurrentFreelancer() {
-    return this._httpClient.get(this.Url + `Users/GetCurrentFreelancer`, {headers: this.headers,});
+    return this._httpClient.get(this.Url + `Users/GetCurrentFreelancer`);
   }
 
   public UpdateFreelancer(data: FormData) {
-    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer', data, {headers: this.headersf,});
+    return this._httpClient.put(
+      this.Url + 'Users/UpdateFreelancer',
+      data,
+      this.options
+    );
   }
 
   public UpdateClientMoney(UpdateMoney: UpdateFreelancertMoney) {
-    return this._httpClient.put(this.Url + 'Users/UpdateFreelancerMoney',UpdateMoney,{ headers: this.headers });
+    return this._httpClient.put(
+      this.Url + 'Users/UpdateFreelancerMoney',
+      UpdateMoney
+    );
   }
 
   public DeleteCurrentFreelancer() {
-    return this._httpClient.delete(this.Url + 'Users/DeleteCurrentFreelancer', {headers: this.headers,});
+    return this._httpClient.delete(this.Url + 'Users/DeleteCurrentFreelancer');
   }
 
   public DeleteFreelancerById(clientId: string) {
-    return this._httpClient.delete(this.Url + `Users/DeleteFreelancer/${clientId}`,{ headers: this.headers });
+    return this._httpClient.delete(
+      this.Url + `Users/DeleteFreelancer/${clientId}`
+    );
   }
 }

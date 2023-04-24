@@ -5,30 +5,13 @@ import { StaticURl } from '../../Models/static-url';
   providedIn: 'root',
 })
 export class MyServiseService {
-  // Url: any = 'https://localhost:7047/api/Users/RegisterClient';
   Url: any = StaticURl.URL;
   constructor(public client: HttpClient) {}
-  // GetAllUsers()
-  // {
-  //   return this.client.get(this.Url)
-  // }
-  // UserDetails(id:Number)
-  // {
-  //     return this.client.get(this.Url+'/'+id)
-  // }
-  // UpdateUser(id:number,User:any)
-  // {
-  //   return this.client.put(this.Url+'/'+id,User)
-  // }
-  
+
   CreateFreelancer(User: any) {
     return this.client.post(this.Url + 'Users/RegisterFreelancer', User);
   }
   CreateClient(User: any) {
     return this.client.post(this.Url + 'Users/RegisterClient', User);
   }
-  // DeleteUser(id:any)
-  // {
-  //   return this.client.delete(this.Url+'/'+id)
-  // }
 }

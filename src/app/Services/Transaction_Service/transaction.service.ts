@@ -16,14 +16,6 @@ import { Token } from '@angular/compiler';
 })
 export class TransactionService {
   //#region  Some Helpers Variables :
-
-  Token: string = ' ';
-  headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
-  };
-  options = { headers: this.headers };
-
   Url: any = StaticURl.URL + 'Transactions/';
 
   //#endregion
@@ -33,36 +25,25 @@ export class TransactionService {
 
   // Get All Transactions by user id :   *** Need To check with ahmed taha ***
   GetAllTranscationsByUserId() {
-    return this.myclient.get(
-      this.Url + 'GetAllTranscationsByUserId',
-      this.options
-    );
+    return this.myclient.get(this.Url + 'GetAllTranscationsByUserId');
   }
 
   // Get Transaction By its Id :
   GetTransactionById(transactionId: number) {
-    return this.myclient.get(
-      this.Url + 'GetTransactionById/' + transactionId,
-      this.options
-    );
+    return this.myclient.get(this.Url + 'GetTransactionById/' + transactionId);
   }
 
   // Create New Transaction :
   CreateNewTransaction(userId: string, newtransaction: CreateTransaction) {
     return this.myclient.post(
       this.Url + 'CreateNewTransaction/' + userId,
-      newtransaction,
-      this.options
+      newtransaction
     );
   }
-
-  // Update Transaction by its id  :
-
   // Delete Transaction By its Id :
   DeleteTransaction(transactionId: number) {
     return this.myclient.delete(
-      this.Url + 'DeleteTransaction/' + transactionId,
-      this.options
+      this.Url + 'DeleteTransaction/' + transactionId
     );
   }
 

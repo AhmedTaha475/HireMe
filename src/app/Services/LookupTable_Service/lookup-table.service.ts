@@ -17,14 +17,6 @@ import { Token } from '@angular/compiler';
 })
 export class LookupTableService {
   //#region  Some Helpers Variables :
-
-  Token: string = ' ';
-  headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
-  };
-  options = { headers: this.headers };
-
   Url: any = StaticURl.URL + 'LookupTables/';
 
   //#endregion
@@ -47,8 +39,7 @@ export class LookupTableService {
   CreateLookupTable(NewLookupTable: CreateLookupTable) {
     return this.myclient.post(
       this.Url + 'CreateNewLookupTable',
-      NewLookupTable,
-      this.options
+      NewLookupTable
     );
   }
 
@@ -59,16 +50,14 @@ export class LookupTableService {
   ) {
     return this.myclient.put(
       this.Url + 'UpdateLookupTableById/' + lookuptableId,
-      UpdateLookupTable,
-      this.options
+      UpdateLookupTable
     );
   }
 
   // Delete Lookup Table By Id :
   DeleteLookupTableById(lookuptableId: Number) {
     return this.myclient.delete(
-      this.Url + 'DeleteLookupTableById/' + lookuptableId,
-      this.options
+      this.Url + 'DeleteLookupTableById/' + lookuptableId
     );
   }
   //#endregion
