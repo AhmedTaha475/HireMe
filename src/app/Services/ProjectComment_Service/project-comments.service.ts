@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UpdateProject } from 'src/app/Models/Project/update-project-by-id';
-import { CreateProjectComment } from 'src/app/Models/ProjectComments/CreateProjectComment';
-import { UpdateProjectComment } from 'src/app/Models/ProjectComments/UpdateProjectComment';
+import { CreateProjectComment } from 'src/app/Models/ProjectComment/CreateProjectComment';
+import { UpdateProjectComment } from 'src/app/Models/ProjectComment/UpdateProjectComment';
 import { StaticURl } from 'src/app/Models/static-url';
 
 @Injectable({

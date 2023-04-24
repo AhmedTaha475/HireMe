@@ -20,16 +20,16 @@ export class LoginComponent {
     translate.setDefaultLang('en');
     translate.use('en');
   }
-  
+
   errormsg:any='';
   validpass:any=true
   validemail=true;
 
 
-  formValidation2=new FormGroup({ 
+  formValidation2=new FormGroup({
     email:new FormControl(null,Validators.required),
     password:new FormControl(null,Validators.required),
-    
+
   })
 
   add(email: any, password: any) {
@@ -40,7 +40,7 @@ this.validemail=this.formValidation2.controls['email'].valid
       next: (data:any) => {
         var formdata=new FormData()
         formdata.append("Key","Test")
-        
+
         console.log(data.roles[0]);
         localStorage.setItem("Token",data.token)
         localStorage.setItem("Roles",data.roles)
