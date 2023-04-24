@@ -4,7 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,11 +22,11 @@ import { UpdateProjectPostComponent } from './Components/ProjectPost/update-proj
 import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
 import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
 
-
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './Guard_Services/auth.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -58,7 +62,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
