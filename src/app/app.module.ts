@@ -27,6 +27,12 @@ import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.c
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './Guard_Services/auth.interceptor';
+import { Error404Component } from './Components/ErrorComponents/error404/error404.component';
+import { Error403Component } from './Components/ErrorComponents/error403/error403.component';
+import { AdminSidebarComponent } from './Components/AdminDashBoard/admin-sidebar/admin-sidebar.component';
+import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
+import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
+import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,6 +53,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AllProjectPostsComponent,
     PlanComponent,
     CheckoutComponent,
+    Error404Component,
+    Error403Component,
+    AdminSidebarComponent,
+    AdminEntryComponent,
+    AdminHomeComponent,
+    UsersWebsiteEntryComponent,
   ],
   imports: [
     BrowserModule,
