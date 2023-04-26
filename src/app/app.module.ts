@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
@@ -38,6 +38,7 @@ import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin
 import { AdminHeaderComponent } from './Components/AdminDashBoard/admin-header/admin-header.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -63,7 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
-
+    FreelancersByCategoryComponent,
     FreelancerProfileComponent,
 
     AdminLookuptablecrudComponent,
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
