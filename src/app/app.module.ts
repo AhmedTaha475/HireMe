@@ -33,6 +33,7 @@ import { AdminSidebarComponent } from './Components/AdminDashBoard/admin-sidebar
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
+    FreelancerProfileComponent,
   ],
   imports: [
     BrowserModule,

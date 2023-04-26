@@ -15,6 +15,7 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,8 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
+      { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+
     ],
   },
   {
