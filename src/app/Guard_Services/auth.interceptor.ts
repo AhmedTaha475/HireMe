@@ -31,8 +31,6 @@ export class AuthInterceptor implements HttpInterceptor {
           this._Router.navigateByUrl('/Login');
         } else if (error.status === 403) {
           this._Router.navigateByUrl('/Page403');
-        } else if (error.status === 404) {
-          this._Router.navigateByUrl('/Page404');
         }
         return throwError(() => error);
       })
