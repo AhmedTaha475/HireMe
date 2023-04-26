@@ -13,8 +13,6 @@ export class HomeComponent {
     translate.use('en');
   }
 
-
-
   switchLanguage(language: string) {
     this.translate.use(language);
   }
