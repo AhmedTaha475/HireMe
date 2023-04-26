@@ -15,6 +15,7 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminHomeComponent },
       { path: 'Home', component: AdminHomeComponent },
+      { path: 'lookuptable', component: AdminLookuptablecrudComponent },
     ],
   },
 
