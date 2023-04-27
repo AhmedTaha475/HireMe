@@ -15,9 +15,15 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
-import { FreelancerProfileComponent } from './Components/FreeLancer_Profile/freelancer-profile/freelancer-profile.component';
+
 import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent/stripe/stripe.component';
-// import { PaypalButtonComponentComponent } from './Components/Pricing Plan/PaypalButtonComponent/paypal-button-component/paypal-button-component.component';
+
+import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
+import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
+import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -37,8 +43,12 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
-      { path: 'FreelnacerProfile', component: FreelancerProfileComponent },
+
       { path: 'stripe', component: StripeComponent },
+
+      { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+      { path: 'Category/:id', component: FreelancersByCategoryComponent },
+
     ],
   },
   {
@@ -47,6 +57,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminHomeComponent },
       { path: 'Home', component: AdminHomeComponent },
+      { path: 'lookuptable', component: AdminLookuptablecrudComponent },
     ],
   },
 

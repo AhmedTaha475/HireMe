@@ -48,5 +48,17 @@
   "Settings": "الإعدادات",
   "Dashboard": "داش بورد",
   "Online": " أونلاين",
-  "Invisible": "غير مرئي"
+  "Invisible": "غير مرئي",
+  "Verified":"موثق",
+  "About Me":"معلومات عنى",
+  "Make an Offer":"اعقد صفقة",
+  "Attachments":"ملصقات",
+  "Work History and Feedback":" تاريخ العمل والتعليقات",
+  "CV":"السيرة الذاتية",
+  "Employment History":"التاريخ الوظيفى",
+  "Contact Info":"معلومات للتواصل",
+  "Remaining Bids":"المزايدات المتبقية",
+  "Jobs Done":"الوظائف التى تم تنفيذها"
+
+
 }
