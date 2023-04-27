@@ -35,6 +35,9 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+
+import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent/stripe/stripe.component';
+
 import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
 import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
 import { AdminHeaderComponent } from './Components/AdminDashBoard/admin-header/admin-header.component';
@@ -44,6 +47,7 @@ import { ButtonModule } from 'primeng/button';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -70,12 +74,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
+
+    StripeComponent,
+
     FreelancersByCategoryComponent,
     FreelancerProfileComponent,
 
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+
   ],
   imports: [
     BrowserModule,
