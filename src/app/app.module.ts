@@ -33,6 +33,11 @@ import { AdminSidebarComponent } from './Components/AdminDashBoard/admin-sidebar
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+import { FreelancerProfileComponent } from './Components/FreeLancer_Profile/freelancer-profile/freelancer-profile.component';
+import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent/stripe/stripe.component';
+// import { PaymentComponent } from './Components/Pricing Plan/PaypalButtonComponent/paypal/payment/payment.component';
+// import { PaypalComponent } from './Components/Pricing Plan/PaypalButtonComponent/paypal/paypal.component';
+// // import { PaypalButtonComponentComponent } from './Components/Pricing Plan/PaypalButtonComponent/paypal-button-component/paypal-button-component.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,6 +64,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
+    FreelancerProfileComponent,
+    StripeComponent,
   ],
   imports: [
     BrowserModule,
