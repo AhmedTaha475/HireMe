@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common'
+
+import { SidebarModule } from 'primeng/sidebar';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
 import {
   HTTP_INTERCEPTORS,
@@ -36,6 +41,11 @@ import { AdminHeaderComponent } from './Components/AdminDashBoard/admin-header/a
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
+import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+
+import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -60,21 +70,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
-
+    FreelancersByCategoryComponent,
     FreelancerProfileComponent,
 
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
-
+    JQueryLoaderDirective,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     TableModule,
     ButtonModule,
+    SidebarModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

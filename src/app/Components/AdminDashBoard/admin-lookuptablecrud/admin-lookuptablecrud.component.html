@@ -1,1 +1,77 @@
-<p>admin-lookuptablecrud works!</p>
+<div appJQueryLoader>
+  <div class="dashboard-container">
+    <div class="dashboard-content-container" data-simplebar>
+      <div class="dashboard-content-inner">
+
+        <div class="card" *ngIf="lookupList.length > 0 ">
+          <p-table [value]="lookupList" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '50rem' }"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[5,15,50]">
+
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="lookupTableId" style="width:40%">Lookup Id <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th pSortableColumn="lookupTableName" style="width:50%">Lookup Name <p-sortIcon
+                    field="code"></p-sortIcon>
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-lookuptable>
+              <tr>
+                <td>{{ lookuptable.lookupTableId }}</td>
+                <td>{{ lookuptable.lookupTableName }}</td>
+
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+              <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+              <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+          </p-table>
+        </div>
+
+
+
+        <!-- Footer -->
+        <div class="dashboard-footer-spacer"></div>
+
+
+        <div class="small-footer margin-top-15">
+          <div class="small-footer-copyrights">
+            © 2019 <strong>Hireo</strong>. All Rights Reserved.
+          </div>
+          <ul class="footer-social-links">
+            <li>
+              <a href="#" title="Facebook">
+                <i class="icon-brand-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Twitter">
+                <i class="icon-brand-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Google Plus">
+                <i class="icon-brand-google-plus-g"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="LinkedIn">
+                <i class="icon-brand-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Footer / End -->
+
+      </div>
+    </div>
+  </div>
+</div>

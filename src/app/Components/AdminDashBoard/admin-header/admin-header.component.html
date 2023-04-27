@@ -16,27 +16,24 @@
         <nav id="navigation">
           <ul id="responsive">
 
-            <li><a class="current" routerLink="/Admin/Home">Home</a>
+            <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Admin">Home</a>
 
             </li>
 
-            <li><a routerLink="">Lookup Tables</a>
+            <li><a routerLinkActive="active" routerLink="/Admin/lookuptable">Lookup Tables</a>
 
             </li>
 
-            <li><a href="#">Lookup Values</a>
+            <li><a routerLinkActive="active" routerLink="/Admin/LookupValue">Lookup Values</a>
             </li>
-            <li><a routerLink="">Plans</a>
+            <li><a routerLinkActive="active" routerLink="/Admin/Plans">Plans</a>
             </li>
             <li><a>Users</a>
               <ul class="dropdown-nav">
-                <li><a routerLink="">Clients</a></li>
-                <li><a routerLink="">Freelancers</a></li>
+                <li><a routerLinkActive="active" routerLink="/Admin/Clients">Clients</a></li>
+                <li><a routerLinkActive="active" routerLink="/Admin/Freelancers">Freelancers</a></li>
               </ul>
             </li>
-
-
-
           </ul>
         </nav>
         <div class="clearfix"></div>
@@ -246,12 +243,12 @@
         <!-- User Menu / End -->
 
         <!-- Mobile Navigation Button -->
-        <span class="mmenu-trigger">
-          <button class="hamburger hamburger--collapse" type="button">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </button>
+        <span class="row justify-content-center ps-2 pt-4 ps-md-4 ps-sm-2 pt-sm-4">
+
+          <span
+            class="  fs-2 text-primary d-md-flex d-lg-none justify-content-center  col-md-1 col-sm-1 align-content-center">
+            <button class="icon-feather-align-justify " (click)="sidebarVisible = true"></button>
+          </span>
         </span>
 
       </div>
@@ -263,3 +260,22 @@
 
 </header>
 <div class="clearfix"></div>
+
+<p-sidebar [(visible)]="sidebarVisible" class="my-sidebar">
+  <div class="sidebar-header ">
+    <span>SideBar</span>
+  </div>
+  <ul class=" sidebar-nav">
+    <li><a routerLink="/Admin/Home">Home</a></li>
+    <li><a routerLink="/Admin/lookuptable">Lookup Tables</a></li>
+    <li><a routerLink="">Lookup Values</a></li>
+    <li><a routerLink="">Plan</a></li>
+    <li>
+      <a>Users</a>
+      <ul class="sidebar-dropdown">
+        <li><a routerLink="">Clients</a></li>
+        <li><a routerLink="">Freelancers</a></li>
+      </ul>
+    </li>
+  </ul>
+</p-sidebar>
