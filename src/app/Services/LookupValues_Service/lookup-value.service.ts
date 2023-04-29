@@ -55,12 +55,10 @@ export class LookupValueService {
   }
 
   // Update Lookup Value by its id  :
-  UpdateLookupValueById(
-    lookupValueId: number,
-    updatedLookupValue: UpdateLookupValue
-  ) {
+  UpdateLookupValueById(lookupValueId: number, updatedLookupValue: string) {
     return this.myclient.put(
-      this.Url + 'UpdateLookupValueById/' + lookupValueId,
+      this.Url +
+        `UpdateLookupValueById/${lookupValueId}?ValueName=${updatedLookupValue}`,
       updatedLookupValue
     );
   }

@@ -22,15 +22,7 @@ export class PlanComponent implements OnInit {
   ngOnInit(): void {
     this.myplanservice.GetAllPlans().subscribe({
       next: (data: any) => {
-        // data.forEach((element: any) => {
-        //   this.plans = new GetPlan(
-        //     data.id,
-        //     data.name,
-        //     data.escription,
-        //     data.price,
-        //     data.bids
-        //   );
-        // });
+   
         this.plans = data;
       },
       error: (err) => {

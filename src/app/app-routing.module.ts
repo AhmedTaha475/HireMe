@@ -10,23 +10,20 @@ import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-p
 import { ProjectPostComponent } from './Components/ProjectPost/project-post/project-post.component';
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
+import { AuthGuard } from './Guard_Services/auth.guard';
+import { Error404Component } from './Components/ErrorComponents/error404/error404.component';
+import { Error403Component } from './Components/ErrorComponents/error403/error403.component';
+import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
+import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
+import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
+
+import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent/stripe/stripe.component';
+
+import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
+import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
+import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 
 const routes: Routes = [
-<<<<<<< Updated upstream
-  { path: '', component: HomeComponent },
-  { path: 'Home', component: HomeComponent },
-  // {path:"Register",component:RegisterComponent},
-  { path: 'Login', component: LoginComponent },
-  { path: 'SignUp', component: SingupComponent },
-  { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
-  { path: 'ProjectPost/:id/Update', component: UpdateProjectPostComponent },
-  { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
-  { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
-  { path: 'ProjectPost/:id', component: ProjectPostComponent },
-  { path: 'plan', component: PlanComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: '**', component: HomeComponent },
-=======
   {
     path: '',
     component: UsersWebsiteEntryComponent,
@@ -44,7 +41,9 @@ const routes: Routes = [
       { path: 'checkout', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
+
       { path: 'stripe', component: StripeComponent },
+
       { path: 'FreelancerProfile', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
@@ -60,7 +59,6 @@ const routes: Routes = [
   },
 
   { path: '**', component: Error404Component },
->>>>>>> Stashed changes
 ];
 
 @NgModule({

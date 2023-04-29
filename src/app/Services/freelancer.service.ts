@@ -30,18 +30,11 @@ export class FreelancerService {
   }
 
   public UpdateFreelancer(data: FormData) {
-    return this._httpClient.put(
-      this.Url + 'Users/UpdateFreelancer',
-      data,
-      this.options
-    );
+    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer',data,this.options);
   }
 
   public UpdateClientMoney(UpdateMoney: UpdateFreelancertMoney) {
-    return this._httpClient.put(
-      this.Url + 'Users/UpdateFreelancerMoney',
-      UpdateMoney
-    );
+    return this._httpClient.put(this.Url + 'Users/UpdateFreelancerMoney',UpdateMoney);
   }
 
   public DeleteCurrentFreelancer() {
@@ -49,8 +42,6 @@ export class FreelancerService {
   }
 
   public DeleteFreelancerById(clientId: string) {
-    return this._httpClient.delete(
-      this.Url + `Users/DeleteFreelancer/${clientId}`
-    );
+    return this._httpClient.delete(this.Url + `Users/DeleteFreelancer/${clientId}`);
   }
 }

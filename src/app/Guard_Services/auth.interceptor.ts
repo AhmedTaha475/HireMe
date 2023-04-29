@@ -29,12 +29,11 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           this._Router.navigateByUrl('/Login');
-          //To be changed later on
-          console.log('Not Authenticated');
         } else if (error.status === 403) {
-          console.log('Not Authorized');
           this._Router.navigateByUrl('/Page403');
+
         }
+
         return throwError(() => error);
       })
     );
