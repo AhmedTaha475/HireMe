@@ -7,60 +7,49 @@ import { UpdateClientMoney } from '../Models/Client/update-client-money';
 })
 export class ClientService {
   Url: any = StaticURl.URL;
-  Token: string = localStorage.getItem('Token') ?? '';
+  // Token: string = localStorage.getItem('Token') ?? '';
+  // headers = {
+  //   'Content-Type': 'application/json',
+  //   Authorization: `Bearer ${this.Token}`,
+  // };
+
   headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${this.Token}`,
+    'Content-Type': 'multipart/form-data',
   };
   options = { headers: this.headers };
-
-  headersf = {
-    'Content-Type': 'multipart/form-data',
-    Authorization: `Bearer ${this.Token}`,
-  };
   constructor(private _httpClient: HttpClient) {}
 
   public GetAllClients() {
-    return this._httpClient.get(this.Url + 'Users/GetAllClients', {
-      headers: this.headers,
-    });
+    return this._httpClient.get(this.Url + 'Users/GetAllClients');
   }
   public GetClientById(ClientId: string) {
-    return this._httpClient.get(this.Url + `Users/GetClientById/${ClientId}`, {
-      headers: this.headers,
-    });
+    return this._httpClient.get(this.Url + `Users/GetClientById/${ClientId}`);
   }
 
   public GetCurrentClient() {
-    return this._httpClient.get(this.Url + `Users/GetCurrentClient`, {
-      headers: this.headers,
-    });
+    return this._httpClient.get(this.Url + `Users/GetCurrentClient`);
   }
 
   public UpdateClient(data: FormData) {
-    return this._httpClient.put(this.Url + 'Users/UpdateClient', data, {
-      headers: this.headersf,
-    });
+    return this._httpClient.put(
+      this.Url + 'Users/UpdateClient',
+      data,
+      this.options
+    );
   }
 
   public UpdateClientMoney(UpdateMoney: UpdateClientMoney) {
     return this._httpClient.put(
       this.Url + 'Users/UpdateClientMoney',
-      UpdateMoney,
-      { headers: this.headers }
+      UpdateMoney
     );
   }
 
   public DeleteCurrentClient() {
-    return this._httpClient.delete(this.Url + 'Users/DeleteCurrentClient', {
-      headers: this.headers,
-    });
+    return this._httpClient.delete(this.Url + 'Users/DeleteCurrentClient');
   }
 
   public DeleteClientById(clientId: string) {
-    return this._httpClient.delete(
-      this.Url + `Users/DeleteClient/${clientId}`,
-      { headers: this.headers }
-    );
+    return this._httpClient.delete(this.Url + `Users/DeleteClient/${clientId}`);
   }
 }
