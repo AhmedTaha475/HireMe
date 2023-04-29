@@ -11,7 +11,6 @@ import {
   HttpClientModule,
 } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -31,9 +30,7 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
-
 import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
-
 import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
 import { AdminHeaderComponent } from './Components/AdminDashBoard/admin-header/admin-header.component';
 import { TableModule } from 'primeng/table';
@@ -70,9 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminEntryComponent,
     AdminHomeComponent,
     UsersWebsiteEntryComponent,
-
     FreelancerProfileComponent,
-
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
