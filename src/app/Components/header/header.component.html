@@ -1,22 +1,22 @@
 <!-- Header Container
     ================================================== -->
 <header id="header-container" class="fullwidth">
-    <!-- Header -->
-    <div id="header">
-        <div class="container">
-            <!-- Left Side Content -->
-            <div class="left-side">
-                <!-- Logo -->
-                <div id="logo">
-                    <a routerLink="/"><img src="assets/images/logo.png" alt="" /></a>
-                </div>
+  <!-- Header -->
+  <div id="header">
+    <div class="container">
+      <!-- Left Side Content -->
+      <div class="left-side">
+        <!-- Logo -->
+        <div id="logo">
+          <a routerLink="/"><img src="assets/images/logo.png" alt="" /></a>
+        </div>
 
-                <!-- Main Navigation -->
-                <nav id="navigation">
-                    <ul id="responsive">
-                        <li>
-                            <a routerLink="/" class="current">{{ translate.instant("home") }}</a>
-                            <!-- <ul class="dropdown-nav">
+        <!-- Main Navigation -->
+        <nav id="navigation">
+          <ul id="responsive">
+            <li>
+              <a routerLink="/" class="current">{{ translate.instant("home") }}</a>
+              <!-- <ul class="dropdown-nav">
 								<li><a href="index.html">Home 1</a></li>
 								<li><a href="index-2.html">Home 2</a></li>
 								<li><a href="index-3.html">Home 3</a></li>
@@ -139,205 +139,206 @@
 
             <button (click)="switchLanguage('ar')">العربية</button> -->
 
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="dropdown-nav">
-                                <li>
-                                    <a href="#">Open Street Map</a>
-                                    <ul class="dropdown-nav">
-                                        <li>
-                                            <a href="jobs-list-layout-full-page-map-OpenStreetMap.html">Full Page List + Map</a>
-                                        </li>
-                                        <li>
-                                            <a href="jobs-grid-layout-full-page-map-OpenStreetMap.html">Full Page Grid + Map</a>
-                                        </li>
-                                        <li>
-                                            <a href="single-job-page-OpenStreetMap.html">Job Page</a>
-                                        </li>
-                                        <li>
-                                            <a href="single-company-profile-OpenStreetMap.html">Company Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="pages-contact-OpenStreetMap.html">Contact</a>
-                                        </li>
-                                        <li>
-                                            <a href="jobs-list-layout-1-OpenStreetMap.html">Location Autocomplete</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="pages-blog.html">Blog</a></li>
-                                <li><a routerLink="/plan">Pricing Plans</a></li>
-                                <!-- <li><a href="pages-pricing-plans.html">Pricing Plans</a></li> -->
-                                <!-- <li><a href="pages-checkout-page.html">Checkout Page</a></li> -->
-                                <li><a routerLink="/checkout">Checkout Page</a></li>
-                                <li>
-                                    <a href="pages-invoice-template.html">Invoice Template</a>
-                                </li>
-                                <li>
-                                    <a href="pages-user-interface-elements.html">User Interface Elements</a>
-                                </li>
-                                <li>
-                                    <a href="pages-icons-cheatsheet.html">Icons Cheatsheet</a>
-                                </li>
-                                <li><a routerLink="/Login">Login & Register</a></li>
-                                <li><a href="pages-404.html">404 Page</a></li>
-                                <li><a href="pages-contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+            <li>
+              <a href="#">Pages</a>
+              <ul class="dropdown-nav">
+                <li>
+                  <a href="#">Open Street Map</a>
+                  <ul class="dropdown-nav">
+                    <li>
+                      <a href="jobs-list-layout-full-page-map-OpenStreetMap.html">Full Page List + Map</a>
+                    </li>
+                    <li>
+                      <a href="jobs-grid-layout-full-page-map-OpenStreetMap.html">Full Page Grid + Map</a>
+                    </li>
+                    <li>
+                      <a href="single-job-page-OpenStreetMap.html">Job Page</a>
+                    </li>
+                    <li>
+                      <a href="single-company-profile-OpenStreetMap.html">Company Profile</a>
+                    </li>
+                    <li>
+                      <a href="pages-contact-OpenStreetMap.html">Contact</a>
+                    </li>
+                    <li>
+                      <a href="jobs-list-layout-1-OpenStreetMap.html">Location Autocomplete</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="pages-blog.html">Blog</a></li>
+                <li><a routerLink="/plan">Pricing Plans</a></li>
+                <!-- <li><a href="pages-pricing-plans.html">Pricing Plans</a></li> -->
+                <!-- <li><a href="pages-checkout-page.html">Checkout Page</a></li> -->
+                <li><a routerLink="/checkout">Checkout Page</a></li>
+                <li>
+                  <a href="pages-invoice-template.html">Invoice Template</a>
+                </li>
+                <li>
+                  <a href="pages-user-interface-elements.html">User Interface Elements</a>
+                </li>
+                <li>
+                  <a href="pages-icons-cheatsheet.html">Icons Cheatsheet</a>
+                </li>
+                <li><a routerLink="/Login">Login & Register</a></li>
+                <li><a href="pages-404.html">404 Page</a></li>
+                <li><a href="pages-contact.html">Contact</a></li>
+              </ul>
+            </li>
 
-                        <li>
-                            <a href="#">{{ translate.instant("language") }}</a>
-                            <ul class="dropdown-nav">
-                                <li><a (click)="switchLanguage('en')">English</a></li>
-                                <li><a (click)="switchLanguage('ar')">العربية</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="clearfix"></div>
-                <!-- Main Navigation / End -->
+            <li>
+              <a href="#">{{ translate.instant("language") }}</a>
+              <ul class="dropdown-nav">
+                <li><a (click)="switchLanguage('en')">English</a></li>
+                <li><a (click)="switchLanguage('ar')">العربية</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>
+        <!-- Main Navigation / End -->
+      </div>
+      <!-- Left Side Content / End -->
+
+      <!-- Right Side Content / End -->
+      <div class="right-side">
+        <!--  User Notifications -->
+        <div class="header-widget hide-on-mobile">
+          <!-- Notifications -->
+          <div class="header-notifications">
+            <!-- Trigger -->
+            <div class="header-notifications-trigger">
+              <a href="#"><i class="icon-feather-bell"></i><span>4</span></a>
             </div>
-            <!-- Left Side Content / End -->
 
-            <!-- Right Side Content / End -->
-            <div class="right-side">
-                <!--  User Notifications -->
-                <div class="header-widget hide-on-mobile">
-                    <!-- Notifications -->
-                    <div class="header-notifications">
-                        <!-- Trigger -->
-                        <div class="header-notifications-trigger">
-                            <a href="#"><i class="icon-feather-bell"></i><span>4</span></a>
-                        </div>
-
-                        <!-- Dropdown -->
-                        <div class="header-notifications-dropdown">
-                            <div class="header-notifications-headline">
-                                <h4>Notifications</h4>
-                                <button class="mark-as-read ripple-effect-dark" title="Mark all as read" data-tippy-placement="left">
+            <!-- Dropdown -->
+            <div class="header-notifications-dropdown">
+              <div class="header-notifications-headline">
+                <h4>Notifications</h4>
+                <button class="mark-as-read ripple-effect-dark" title="Mark all as read" data-tippy-placement="left">
                   <i class="icon-feather-check-square"></i>
                 </button>
-                            </div>
+              </div>
 
-                            <div class="header-notifications-content">
-                                <div class="header-notifications-scroll" data-simplebar>
-                                    <ul>
-                                        <!-- Notification -->
-                                        <li class="notifications-not-read">
-                                            <a href="dashboard-manage-candidates.html">
-                                                <span class="notification-icon"><i class="icon-material-outline-group"></i></span>
-                                                <span class="notification-text">
+              <div class="header-notifications-content">
+                <div class="header-notifications-scroll" data-simplebar>
+                  <ul>
+                    <!-- Notification -->
+                    <li class="notifications-not-read">
+                      <a href="dashboard-manage-candidates.html">
+                        <span class="notification-icon"><i class="icon-material-outline-group"></i></span>
+                        <span class="notification-text">
                           <strong>Michael Shannah</strong> applied for a job
                           <span class="color">Full Stack Software Engineer</span>
-                                                </span>
-                                            </a>
-                                        </li>
+                        </span>
+                      </a>
+                    </li>
 
-                                        <!-- Notification -->
-                                        <li>
-                                            <a href="dashboard-manage-bidders.html">
-                                                <span class="notification-icon"><i class="icon-material-outline-gavel"></i></span>
-                                                <span class="notification-text">
+                    <!-- Notification -->
+                    <li>
+                      <a href="dashboard-manage-bidders.html">
+                        <span class="notification-icon"><i class="icon-material-outline-gavel"></i></span>
+                        <span class="notification-text">
                           <strong>Gilbert Allanis</strong> placed a bid on your
                           <span class="color">iOS App Development</span> project
-                                                </span>
-                                            </a>
-                                        </li>
+                        </span>
+                      </a>
+                    </li>
 
-                                        <!-- Notification -->
-                                        <li>
-                                            <a href="dashboard-manage-jobs.html">
-                                                <span class="notification-icon"><i class="icon-material-outline-autorenew"></i></span>
-                                                <span class="notification-text">
+                    <!-- Notification -->
+                    <li>
+                      <a href="dashboard-manage-jobs.html">
+                        <span class="notification-icon"><i class="icon-material-outline-autorenew"></i></span>
+                        <span class="notification-text">
                           Your job listing
                           <span class="color">Full Stack PHP Developer</span> is expiring.
-                                                </span>
-                                            </a>
-                                        </li>
+                        </span>
+                      </a>
+                    </li>
 
-                                        <!-- Notification -->
-                                        <li>
-                                            <a href="dashboard-manage-candidates.html">
-                                                <span class="notification-icon"><i class="icon-material-outline-group"></i></span>
-                                                <span class="notification-text">
+                    <!-- Notification -->
+                    <li>
+                      <a href="dashboard-manage-candidates.html">
+                        <span class="notification-icon"><i class="icon-material-outline-group"></i></span>
+                        <span class="notification-text">
                           <strong>Sindy Forrest</strong> applied for a job
                           <span class="color">Full Stack Software Engineer</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                    <!-- Messages -->
-                    <div class="header-notifications">
-                        <div class="header-notifications-trigger">
-                            <a href="#"><i class="icon-feather-mail"></i><span>3</span></a>
-                        </div>
+          <!-- Messages -->
+          <div class="header-notifications">
+            <div class="header-notifications-trigger">
+              <a href="#"><i class="icon-feather-mail"></i><span>3</span></a>
+            </div>
 
-                        <!-- Dropdown -->
-                        <div class="header-notifications-dropdown">
-                            <div class="header-notifications-headline">
-                                <h4>Messages</h4>
-                                <button class="mark-as-read ripple-effect-dark" title="Mark all as read" data-tippy-placement="left">
+            <!-- Dropdown -->
+            <div class="header-notifications-dropdown">
+              <div class="header-notifications-headline">
+                <h4>Messages</h4>
+                <button class="mark-as-read ripple-effect-dark" title="Mark all as read" data-tippy-placement="left">
                   <i class="icon-feather-check-square"></i>
                 </button>
-                            </div>
+              </div>
 
-                            <div class="header-notifications-content">
-                                <div class="header-notifications-scroll" data-simplebar>
-                                    <ul>
-                                        <!-- Notification -->
-                                        <li class="notifications-not-read">
-                                            <a href="dashboard-messages.html">
-                                                <span class="notification-avatar status-online"><img
+              <div class="header-notifications-content">
+                <div class="header-notifications-scroll" data-simplebar>
+                  <ul>
+                    <!-- Notification -->
+                    <li class="notifications-not-read">
+                      <a href="dashboard-messages.html">
+                        <span class="notification-avatar status-online"><img
                             src="assets/images/user-avatar-small-03.jpg" alt="" /></span>
-                                                <div class="notification-text">
-                                                    <strong>David Peterson</strong>
-                                                    <p class="notification-msg-text">
-                                                        Thanks for reaching out. I'm quite busy right now on many...
-                                                    </p>
-                                                    <span class="color">4 hours ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                        <div class="notification-text">
+                          <strong>David Peterson</strong>
+                          <p class="notification-msg-text">
+                            Thanks for reaching out. I'm quite busy right now on many...
+                          </p>
+                          <span class="color">4 hours ago</span>
+                        </div>
+                      </a>
+                    </li>
 
-                                        <!-- Notification -->
-                                        <li class="notifications-not-read">
-                                            <a href="dashboard-messages.html">
-                                                <span class="notification-avatar status-offline"><img
+                    <!-- Notification -->
+                    <li class="notifications-not-read">
+                      <a href="dashboard-messages.html">
+                        <span class="notification-avatar status-offline"><img
                             src="assets/images/user-avatar-small-02.jpg" alt="" /></span>
-                                                <div class="notification-text">
-                                                    <strong>Sindy Forest</strong>
-                                                    <p class="notification-msg-text">
-                                                        Hi Tom! Hate to break it to you, but I'm actually on vacation until...
-                                                    </p>
-                                                    <span class="color">Yesterday</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                        <div class="notification-text">
+                          <strong>Sindy Forest</strong>
+                          <p class="notification-msg-text">
+                            Hi Tom! Hate to break it to you, but I'm actually on vacation until...
+                          </p>
+                          <span class="color">Yesterday</span>
+                        </div>
+                      </a>
+                    </li>
 
-                                        <!-- Notification -->
-                                        <li class="notifications-not-read">
-                                            <a href="dashboard-messages.html">
-                                                <span class="notification-avatar status-online"><img
+                    <!-- Notification -->
+                    <li class="notifications-not-read">
+                      <a href="dashboard-messages.html">
+                        <span class="notification-avatar status-online"><img
                             src="assets/images/user-avatar-placeholder.png" alt="" /></span>
-                                                <div class="notification-text">
-                                                    <strong>Marcin Kowalski</strong>
-                                                    <p class="notification-msg-text">
-                                                        I received payment. Thanks for cooperation!
-                                                    </p>
-                                                    <span class="color">Yesterday</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="notification-text">
+                          <strong>Marcin Kowalski</strong>
+                          <p class="notification-msg-text">
+                            I received payment. Thanks for cooperation!
+                          </p>
+                          <span class="color">Yesterday</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-                            <a href="dashboard-messages.html" class="header-notifications-button ripple-effect button-sliding-icon">View All Messages<i
+              <a href="dashboard-messages.html"
+                class="header-notifications-button ripple-effect button-sliding-icon">View All Messages<i
                   class="icon-material-outline-arrow-right-alt"></i></a>
 
             </div>
@@ -381,161 +382,71 @@
 
                 <!-- User Menu -->
                 <div class="header-widget">
-                    <!-- Messages -->
-                    <div class="header-notifications user-menu">
-                        <div class="header-notifications-trigger">
-                            <a href="#">
-                                <div class="user-avatar status-online">
-                                    <img src="assets/images/13.enc" alt="" />
-                                </div>
-                            </a>
+                  <!-- Messages -->
+                  <div class="header-notifications user-menu">
+                    <div class="header-notifications-trigger">
+                      <a href="#">
+                        <div class="user-avatar status-online">
+                          <img src="assets/images/13.enc" alt="" />
                         </div>
-
-                        <!-- Dropdown -->
-                        <div class="header-notifications-dropdown">
-                            <!-- User Status -->
-                            <div class="user-status">
-                                <!-- User Name / Avatar -->
-                                <div class="user-details">
-                                    <div class="user-avatar status-online">
-                                        <img src="assets/images/13.enc" alt="" />
-                                    </div>
-                                    <div class="user-name">Tom Smith <span>Freelancer</span></div>
-                                </div>
-
-                                <!-- User Status Switcher -->
-                                <div class="status-switch" id="snackbar-user-status">
-                                    <label class="user-online current-status">Online</label>
-                                    <label class="user-invisible">Invisible</label>
-                                    <!-- Status Indicator -->
-                                    <span class="status-indicator" aria-hidden="true"></span>
-                                </div>
-                            </div>
-
-                            <ul class="user-menu-small-nav">
-                                <li>
-                                    <a href="dashboard.html"><i class="icon-material-outline-dashboard"></i>
-                    Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="dashboard-settings.html"><i class="icon-material-outline-settings"></i> Settings</a>
-                                </li>
-                                <li>
-                                    <a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i>
-                    Logout</a>
-                                </li>
-                            </ul>
-                        </div>
+                      </a>
                     </div>
+
+                    <!-- Dropdown -->
+                    <div class="header-notifications-dropdown">
+                      <!-- User Status -->
+                      <div class="user-status">
+                        <!-- User Name / Avatar -->
+                        <div class="user-details">
+                          <div class="user-avatar status-online">
+                            <img src="assets/images/13.enc" alt="" />
+                          </div>
+                          <div class="user-name">Tom Smith <span>Freelancer</span></div>
+                        </div>
+
+                        <!-- User Status Switcher -->
+                        <div class="status-switch" id="snackbar-user-status">
+                          <label class="user-online current-status">Online</label>
+                          <label class="user-invisible">Invisible</label>
+                          <!-- Status Indicator -->
+                          <span class="status-indicator" aria-hidden="true"></span>
+                        </div>
+                      </div>
+
+                      <ul class="user-menu-small-nav">
+                        <li>
+                          <a href="dashboard.html"><i class="icon-material-outline-dashboard"></i>
+                            Dashboard</a>
+                        </li>
+                        <li>
+                          <a href="dashboard-settings.html"><i class="icon-material-outline-settings"></i> Settings</a>
+                        </li>
+                        <li>
+                          <a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i>
+                            Logout</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <!-- User Menu / End -->
 
                 <!-- Mobile Navigation Button -->
                 <span class="mmenu-trigger">
-          <button class="hamburger hamburger--collapse" type="button">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
+                  <button class="hamburger hamburger--collapse" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
                 </span>
-                </button>
-                </span>
+
+              </div>
+              <!-- Right Side Content / End -->
             </div>
-            <!-- Right Side Content / End -->
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Header / End -->
+  </div>
+  <!-- Header / End -->
 </header>
-<!-- <div class="clearfix"></div>
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="intro-banner-search-form margin-top-95">
-
-					<div class="intro-search-field with-autocomplete">
-						<label for="autocomplete-input" class="field-title ripple-effect">Where?</label>
-						<div class="input-with-icon">
-							<input id="autocomplete-input" type="text" placeholder="Online Job">
-							<i class="icon-material-outline-location-on"></i>
-						</div>
-					</div>
-
-
-					<div class="intro-search-field">
-						<label for ="intro-keywords" class="field-title ripple-effect">What job you want?</label>
-						<input id="intro-keywords" type="text" placeholder="Job Title or Keywords">
-					</div>
-
-
-					<div class="intro-search-button">
-						<button class="button ripple-effect" onclick="window.location.href='jobs-list-layout-full-page-map.html'">Search</button>
-					</div>
-				</div>
-			</div>
-		</div> -->
-<!-- Header Container / End -->
-
-<!-- Intro Banner
-================================================== -->
-<!-- add class "disable-gradient" to enable consistent background overlay -->
-<!-- <div class="intro-banner" data-background-image="assets/images/home-background.jpg">
-	<div class="container">
-
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="banner-headline">
-					<h3>
-						<strong>Hire experts or be hired for any job, any time.</strong>
-						<br>
-						<span>Thousands of small businesses use <strong class="color">Hireo</strong> to turn their ideas into reality.</span>
-					</h3>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="intro-banner-search-form margin-top-95">
-
-					<div class="intro-search-field with-autocomplete">
-						<label for="autocomplete-input" class="field-title ripple-effect">Where?</label>
-						<div class="input-with-icon">
-							<input id="autocomplete-input" type="text" placeholder="Online Job">
-							<i class="icon-material-outline-location-on"></i>
-						</div>
-					</div>
-
-
-					<div class="intro-search-field">
-						<label for ="intro-keywords" class="field-title ripple-effect">What job you want?</label>
-						<input id="intro-keywords" type="text" placeholder="Job Title or Keywords">
-					</div>
-
-					<div class="intro-search-button">
-						<button class="button ripple-effect" onclick="window.location.href='jobs-list-layout-full-page-map.html'">Search</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="intro-stats margin-top-45 hide-under-992px">
-					<li>
-						<strong class="counter">1,586</strong>
-						<span>Jobs Posted</span>
-					</li>
-					<li>
-						<strong class="counter">3,543</strong>
-						<span>Tasks Posted</span>
-					</li>
-					<li>
-						<strong class="counter">1,232</strong>
-						<span>Freelancers</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-</div> -->
