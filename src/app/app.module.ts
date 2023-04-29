@@ -28,7 +28,6 @@ import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-p
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { AuthInterceptor } from './Guard_Services/auth.interceptor';
 import { Error404Component } from './Components/ErrorComponents/error404/error404.component';
 import { Error403Component } from './Components/ErrorComponents/error403/error403.component';
