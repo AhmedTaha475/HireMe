@@ -10,6 +10,20 @@ import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-p
 import { ProjectPostComponent } from './Components/ProjectPost/project-post/project-post.component';
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
+import { AuthGuard } from './Guard_Services/auth.guard'
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'Home', component: HomeComponent},
+  // {path:"Register",component:RegisterComponent},
+  { path: 'Login', component: LoginComponent },
+  { path: 'SignUp', component: SingupComponent },
+  { path: 'ProjectPost/Create', component: CreateProjectPostComponent, canActivate:[AuthGuard] },
+  { path: 'ProjectPost/:id/Update', component: UpdateProjectPostComponent, canActivate:[AuthGuard] },
+  { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent, canActivate:[AuthGuard] },
+  { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
+  { path: 'ProjectPost/:id', component: ProjectPostComponent },
+  { path: 'plan', component: PlanComponent },
+  { path: 'checkout', component: CheckoutComponent },
 import { Error404Component } from './Components/ErrorComponents/error404/error404.component';
 import { Error403Component } from './Components/ErrorComponents/error403/error403.component';
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
