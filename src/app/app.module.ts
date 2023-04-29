@@ -23,6 +23,7 @@ import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ProjectPostComponent,
     HeaderComponent,
+    CreateProjectPostComponent,
     FooterComponent,
     HomeComponent,
     SingupComponent,
@@ -46,8 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
