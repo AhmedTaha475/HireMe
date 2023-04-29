@@ -35,7 +35,13 @@ import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin
 import { AdminHeaderComponent } from './Components/AdminDashBoard/admin-header/admin-header.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
+import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -53,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateProjectPostComponent,
     DeleteProjectPostComponent,
     AllProjectPostsComponent,
+    CreateProjectPostComponent,
     PlanComponent,
     CheckoutComponent,
     Error404Component,
@@ -66,6 +73,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    ToastModule,
+    ConfirmPopupModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
@@ -73,7 +82,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule,
     ButtonModule,
     SidebarModule,
+    DialogModule,
     BrowserAnimationsModule,
+    MessagesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -84,6 +95,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ConfirmationService,
+    MessageService,
   ],
   bootstrap: [AppComponent],
 })
