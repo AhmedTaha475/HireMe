@@ -12,6 +12,7 @@ import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
 
 const routes: Routes = [
+<<<<<<< Updated upstream
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
   // {path:"Register",component:RegisterComponent},
@@ -25,6 +26,41 @@ const routes: Routes = [
   { path: 'plan', component: PlanComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: '**', component: HomeComponent },
+=======
+  {
+    path: '',
+    component: UsersWebsiteEntryComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'Home', component: HomeComponent },
+      { path: 'Login', component: LoginComponent },
+      { path: 'SignUp', component: SingupComponent },
+      { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
+      { path: 'ProjectPost/:id/Update', component: UpdateProjectPostComponent },
+      { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
+      { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
+      { path: 'ProjectPost/:id', component: ProjectPostComponent },
+      { path: 'plan', component: PlanComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'Page404', component: Error404Component },
+      { path: 'Page403', component: Error403Component },
+      { path: 'stripe', component: StripeComponent },
+      { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+      { path: 'Category/:id', component: FreelancersByCategoryComponent },
+    ],
+  },
+  {
+    path: 'Admin',
+    component: AdminEntryComponent,
+    children: [
+      { path: '', component: AdminHomeComponent },
+      { path: 'Home', component: AdminHomeComponent },
+      { path: 'lookuptable', component: AdminLookuptablecrudComponent },
+    ],
+  },
+
+  { path: '**', component: Error404Component },
+>>>>>>> Stashed changes
 ];
 
 @NgModule({
