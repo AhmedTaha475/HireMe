@@ -21,6 +21,7 @@ import { FreelancersByCategoryComponent } from './Components/FreeLancersByCatego
 
 
 
+
 const routes: Routes = [
   {
     path: '',

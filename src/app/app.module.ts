@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { PaginatorModule } from 'primeng/paginator';
 import { CommonModule } from '@angular/common'
 
 import { SidebarModule } from 'primeng/sidebar';
@@ -47,6 +47,9 @@ import { ButtonModule } from 'primeng/button';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+import { PaginatorComponent } from './Components/paginator/paginator.component';
+
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -79,9 +82,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+    PaginatorComponent,
+
   ],
   imports: [
     BrowserModule,
+    PaginatorModule,
     ReactiveFormsModule,
     CommonModule,
     FormsModule,

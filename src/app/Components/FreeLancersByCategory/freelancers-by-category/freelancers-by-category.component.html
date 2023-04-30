@@ -1,11 +1,6 @@
 
-<!-- Wrapper -->
 <div id="wrapper">
-
-
-    <!-- Page Content
-    ================================================== -->
-    <div class="full-page-container">
+<div class="full-page-container">
     
         <div class="full-page-sidebar">
             <div class="full-page-sidebar-inner" data-simplebar>
@@ -198,18 +193,9 @@
                 <!-- Freelancers Container / End -->
     
                 <!-- Pagination -->
-                <div class="clearfix"></div>
-                <div class="pagination-container margin-top-20 margin-bottom-20">
-                    <nav class="pagination">
-                        <ul>
-                            <li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
-                            <li><a href="#" class="ripple-effect">1</a></li>
-                            <li><a href="#" class="ripple-effect current-page">2</a></li>
-                            <li><a href="#" class="ripple-effect">3</a></li>
-                            <li><a href="#" class="ripple-effect">4</a></li>
-                            <li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
-                        </ul>
-                    </nav>
+               
+                <div class="card flex justify-content-center">
+                    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="10" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
                 </div>
                 <div class="clearfix"></div>
                 <!-- Pagination / End -->
@@ -220,8 +206,5 @@
         <!-- Full Page Content / End -->
     
     </div>
-    
-    
     </div>
-    <!-- Wrapper / End -->
     
