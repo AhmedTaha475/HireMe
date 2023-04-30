@@ -61,7 +61,14 @@
 .sidebar-dropdown a:hover {
   background-color: #f36060;
 }
-.active {
+.activeHeader {
   color: blue !important;
   box-shadow: 1px 1px 4px blue;
+}
+
+body {
+  overflow: hidden !important;
+}
+html {
+  overflow: hidden !important;
 }
