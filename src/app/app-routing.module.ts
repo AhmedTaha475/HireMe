@@ -16,12 +16,11 @@ import { Error403Component } from './Components/ErrorComponents/error403/error40
 import { AdminEntryComponent } from './Components/AdminDashBoard/admin-entry/admin-entry.component';
 import { AdminHomeComponent } from './Components/AdminDashBoard/admin-home/admin-home.component';
 import { UsersWebsiteEntryComponent } from './Components/users-website-entry/users-website-entry.component';
-
 import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent/stripe/stripe.component';
-
 import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
 import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
 
 const routes: Routes = [
   {
@@ -55,6 +54,7 @@ const routes: Routes = [
       { path: '', component: AdminHomeComponent },
       { path: 'Home', component: AdminHomeComponent },
       { path: 'lookuptable', component: AdminLookuptablecrudComponent },
+      { path: 'lookupvalues', component: AdminLookupvaluesComponent },
     ],
   },
 

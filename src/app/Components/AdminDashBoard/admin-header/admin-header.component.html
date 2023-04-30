@@ -16,22 +16,23 @@
         <nav id="navigation">
           <ul id="responsive">
 
-            <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Admin">Home</a>
+            <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="activeHeader" routerLink="/Admin">Home</a>
 
             </li>
 
-            <li><a routerLinkActive="active" routerLink="/Admin/lookuptable">Lookup Tables</a>
+            <li><a routerLinkActive="activeHeader" routerLink="/Admin/lookuptable">Lookup Tables</a>
 
             </li>
 
-            <li><a routerLinkActive="active" routerLink="/Admin/LookupValue">Lookup Values</a>
+            <li><a routerLinkActive="activeHeader" routerLink="/Admin/lookupvalues">Lookup Values</a>
             </li>
-            <li><a routerLinkActive="active" routerLink="/Admin/Plans">Plans</a>
+            <li><a routerLinkActive="activeHeader" routerLink="/Admin/Plans">Plans</a>
             </li>
             <li><a>Users</a>
               <ul class="dropdown-nav">
-                <li><a routerLinkActive="active" routerLink="/Admin/Clients">Clients</a></li>
-                <li><a routerLinkActive="active" routerLink="/Admin/Freelancers">Freelancers</a></li>
+                <li><a routerLinkActive="activeHeader" routerLink="/Admin/Clients">Clients</a></li>
+                <li><a routerLinkActive="activeHeader" routerLink="/Admin/Freelancers">Freelancers</a></li>
+                <li><a routerLinkActive="activeHeader" routerLink="/">Freelancers</a></li>
               </ul>
             </li>
           </ul>
@@ -213,7 +214,8 @@
 
                 <!-- User Name / Avatar -->
                 <div class="user-details">
-                  <div class="user-avatar status-online"><img src="assets/images/user-avatar-small-01.jpg" alt=""></div>
+                  <div class="user-avatar status-online"><img src="assets/images/user-avatar-small-01.jpg" alt="">
+                  </div>
                   <div class="user-name">
                     Tom Smith <span>Freelancer</span>
                   </div>
@@ -232,7 +234,8 @@
                 <li><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i>
                     Dashboard</a></li>
                 <li><a href="dashboard-settings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
-                <li><a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a>
+                <li><a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i>
+                    Logout</a>
                 </li>
               </ul>
 
@@ -268,7 +271,7 @@
   <ul class=" sidebar-nav">
     <li><a routerLink="/Admin/Home">Home</a></li>
     <li><a routerLink="/Admin/lookuptable">Lookup Tables</a></li>
-    <li><a routerLink="">Lookup Values</a></li>
+    <li><a routerLink="/Admin/lookupvalues">Lookup Values</a></li>
     <li><a routerLink="">Plan</a></li>
     <li>
       <a>Users</a>

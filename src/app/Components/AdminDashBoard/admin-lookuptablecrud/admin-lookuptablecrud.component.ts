@@ -12,6 +12,7 @@ import { CreateLookupTable } from 'src/app/Models/LookupTable/Create-LookupTable
 })
 export class AdminLookuptablecrudComponent implements OnInit {
   lookupList: GetLookupTable[] = [];
+  lookupById: any;
   CreateDialogVisible: boolean = false;
   UpdateDialogVisible: boolean = false;
   DeleteDialogVisible: boolean = false;
@@ -164,5 +165,9 @@ export class AdminLookuptablecrudComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+  getDetails(id: number, name: string) {
+    this.DetailsDialogVisible = true;
+    this.lookupById = new GetLookupTable(id, name);
   }
 }

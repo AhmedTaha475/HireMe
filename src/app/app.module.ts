@@ -48,6 +48,7 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -81,6 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+    AdminLookupvaluesComponent,
   ],
   imports: [
     BrowserModule,
