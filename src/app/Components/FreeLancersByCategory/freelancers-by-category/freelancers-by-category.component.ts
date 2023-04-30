@@ -14,6 +14,16 @@ export class FreelancersByCategoryComponent implements OnInit {
   constructor(myActivated: ActivatedRoute, private myService: FreelancerService) {
     this.CatId = myActivated.snapshot.params["id"];
   }
+  first: number = 0;
+
+    rows: number =3;
+
+    onPageChange(event:any) {
+        this.first = event.first;
+        this.rows = event.rows;
+      }
+
+
   ngOnInit(): void {
     this.myService.GetAllFreelancers().subscribe({
       next: (data: any) => {
