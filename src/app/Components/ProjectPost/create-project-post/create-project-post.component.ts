@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { CreateProjectPost } from 'src/app/Models/ProjectPost/create-projectpost';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-post',
@@ -9,7 +10,13 @@ import { CreateProjectPost } from 'src/app/Models/ProjectPost/create-projectpost
   styleUrls: ['./create-project-post.component.css']
 })
 export class CreateProjectPostComponent {
+  createProjectPost = new FormGroup({
+     title: new FormControl(null,[Validators.required,Validators.minLength(5)]),
+     description:new FormControl(null,[Validators.required, Validators.minLength(10)]),
+     price:new FormControl(null,[Validators.required]),
+    //  categoryId:new FormControl(null,[Validators.required]),
 
+  });
   constructor(private projectPostService: ProjectPostService, private router: Router) { }
   addProjectPost(
     postTitle:string,

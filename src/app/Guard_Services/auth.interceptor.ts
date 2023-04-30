@@ -24,14 +24,16 @@ export class AuthInterceptor implements HttpInterceptor {
     const authReq = request.clone({
       headers: request.headers.set('Authorization', `Bearer ${authToken}`),
     });
-
+    console.log(authReq);
     return next.handle(authReq).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           this._Router.navigateByUrl('/Login');
         } else if (error.status === 403) {
           this._Router.navigateByUrl('/Page403');
+
         }
+
         return throwError(() => error);
       })
     );

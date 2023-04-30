@@ -1,4 +1,7 @@
+<script>
 
+  console.log("++++++++++++++++++")
+</script>
 <!-- Wrapper -->
 <div>
 
@@ -6,7 +9,7 @@
   <!-- Header Container / End -->
 <!-- Titlebar
 ================================================== -->
-<div class="single-page-header freelancer-header" data-background-image="images/single-freelancer.jpg">
+<div class="single-page-header freelancer-header" data-background-image="assets/images/freelancerCover.png">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -14,10 +17,10 @@
 					<div class="left-side">
 						<div class="header-image freelancer-avatar"><img src="{{myFreelancer.image}}" alt=""></div>
 						<div class="header-details">
-							<h3>{{myFreelancer.username}} <span>{{myFreelancer.jobtitle}}</span><!-- <span>{{myFreelancer.age}} years old</span>--></h3>
+							<h3>{{myFreelancer.username}} <span>{{myFreelancer.jobtitle}}</span><span *ngIf="myFreelancer.age!=0">{{myFreelancer.age}} years old</span></h3>
 							<ul>
 								<li><div class="star-rating" data-rating="5.0" ></div></li>
-								<li><!-- <img class="flag" src="images/flags/de.svg" alt="" >--> {{myFreelancer.country}} , {{myFreelancer.city}} , {{myFreelancer.street}} </li>
+								<li><!-- <img class="flag" src="images/flags/de.svg" alt="" >--><span *ngIf="myFreelancer.country!=null"> {{myFreelancer.country}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.city}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.street}}</span> </li>
 								<li><div class="verified-badge-with-title">{{ translate.instant('Verified') }}</div></li>
 							</ul>
 						</div>
@@ -51,67 +54,26 @@
 					<h3><i class="icon-material-outline-thumb-up"></i> {{ translate.instant('Work History and Feedback') }}</h3>
 				</div>
 				<ul class="boxed-list-ul">
-					<li>
+					<li *ngFor="let p of myProjects">
 						<div class="boxed-list-item">
 							<!-- Content -->
-							<div class="item-content">
-								<h4>Web, Database and API Developer <span>Rated as Freelancer</span></h4>
+							<div class="item-content" >
+								<h4 >{{p.Title}}<span>Rated as Freelancer</span></h4>
 								<div class="item-details margin-top-10">
 									<div class="star-rating" data-rating="5.0"></div>
-									<div class="detail-item"><i class="icon-material-outline-date-range"></i> August 2019</div>
+									<div class="detail-item"><i class="icon-material-outline-date-range" id="date"></i>{{p.Date}}</div>
 								</div>
 								<div class="item-description">
-									<p>Excellent programmer - fully carried out my project in a very professional manner. </p>
+									<p>{{p.Description}}</p>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li>
-						<div class="boxed-list-item">
-							<!-- Content -->
-							<div class="item-content">
-								<h4>WordPress Theme Installation <span>Rated as Freelancer</span></h4>
-								<div class="item-details margin-top-10">
-									<div class="star-rating" data-rating="5.0"></div>
-									<div class="detail-item"><i class="icon-material-outline-date-range"></i> June 2019</div>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="boxed-list-item">
-							<!-- Content -->
-							<div class="item-content">
-								<h4>Fix Python Selenium Code <span>Rated as Employer</span></h4>
-								<div class="item-details margin-top-10">
-									<div class="star-rating" data-rating="5.0"></div>
-									<div class="detail-item"><i class="icon-material-outline-date-range"></i> May 2019</div>
-								</div>
-								<div class="item-description">
-									<p>I was extremely impressed with the quality of work AND how quickly he got it done. He then offered to help with another side part of the project that we didn't even think about originally.</p>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="boxed-list-item">
-							<!-- Content -->
-							<div class="item-content">
-								<h4>PHP Core Website Fixes <span>Rated as Freelancer</span></h4>
-								<div class="item-details margin-top-10">
-									<div class="star-rating" data-rating="5.0"></div>
-									<div class="detail-item"><i class="icon-material-outline-date-range"></i> May 2019</div>
-								</div>
-								<div class="item-description">
-									<p>Awesome work, definitely will rehire. Poject was completed not only with the requirements, but on time, within our small budget.</p>
-								</div>
-							</div>
-						</div>
-					</li>
+
 				</ul>
 
 				<!-- Pagination -->
-				<div class="clearfix"></div>
+				<!-- <div class="clearfix"></div>
 				<div class="pagination-container margin-top-40 margin-bottom-10">
 					<nav class="pagination">
 						<ul>
@@ -121,26 +83,24 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="clearfix"></div>
+				<div class="clearfix"></div> -->
 				<!-- Pagination / End -->
 
 			</div>
 			<!-- Boxed List / End -->
 
 			<!-- Boxed List -->
-			<div class="boxed-list margin-bottom-60">
+			<!-- <div class="boxed-list margin-bottom-60">
 				<div class="boxed-list-headline">
 					<h3><i class="icon-material-outline-business"></i>{{ translate.instant('Employment History') }}  </h3>
 				</div>
 				<ul class="boxed-list-ul">
 					<li>
 						<div class="boxed-list-item">
-							<!-- Avatar -->
 							<div class="item-image">
 								<img src="images/browse-companies-03.png" alt="">
 							</div>
 
-							<!-- Content -->
 							<div class="item-content">
 								<h4>Development Team Leader</h4>
 								<div class="item-details margin-top-7">
@@ -155,12 +115,10 @@
 					</li>
 					<li>
 						<div class="boxed-list-item">
-							<!-- Avatar -->
 							<div class="item-image">
 								<img src="images/browse-companies-04.png" alt="">
 							</div>
 
-							<!-- Content -->
 							<div class="item-content">
 								<h4><a routerLink="#">Lead UX/UI Designer</a></h4>
 								<div class="item-details margin-top-7">
@@ -174,7 +132,7 @@
 						</div>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<!-- Boxed List / End -->
 
 		</div>
@@ -186,9 +144,9 @@
 
 				<!-- Profile Overview -->
 				<div class="profile-overview">
-					<div class="overview-item"><strong>{{myFreelancer.bids}}</strong><span>Bids</span></div>
-					<div class="overview-item"><strong>53</strong><span>Jobs Done</span></div>
-					<div class="overview-item"><strong>22</strong><span>Rehired</span></div>
+					<div class="overview-item"><strong>{{myFreelancer.bids}}</strong><span>{{ translate.instant('Remaining Bids') }}</span></div>
+					<div class="overview-item"><strong>{{myProjects.length}}</strong><span>{{ translate.instant('Jobs Done') }}</span></div>
+					<!-- <div class="overview-item"><strong></strong><span>Rehired</span></div> -->
 				</div>
 
 				<!-- Button -->
@@ -237,20 +195,15 @@
 				</div> -->
 
 
-				<!-- Widget -->
-				<!-- <div class="sidebar-widget">
-					<h3>Skills</h3>
-					<div class="task-tags">
-						<span>iOS</span>
-						<span>Android</span>
-						<span>mobile apps</span>
-						<span>design</span>
-						<span>Python</span>
-						<span>Flask</span>
-						<span>PHP</span>
-						<span>WordPress</span>
-					</div>
-				</div> -->
+		<!-- Widget -->
+    <div class="sidebar-widget">
+      <h3>{{ translate.instant('Contact Info') }}</h3>
+      <div class="task-tags">
+        <p *ngIf="myFreelancer.phonenumber!=null">Mobile number : {{myFreelancer.phonenumber}}</p>
+        <p *ngIf="myFreelancer.email!=null">Email : <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{myFreelancer.email}}">{{myFreelancer.email}}</a></p>
+      </div>
+    </div>
+    <!-- Sidebar Widget -->
 
 				<!-- Widget -->
 				<div class="sidebar-widget">
@@ -261,7 +214,6 @@
 					</div>
 				</div>
 
-				<!-- Sidebar Widget -->
 				<!-- <div class="sidebar-widget">
 					<h3>Bookmark or Share</h3>
 

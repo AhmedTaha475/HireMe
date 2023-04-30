@@ -1,44 +1,154 @@
 <div appJQueryLoader>
+  <app-admin-header></app-admin-header>
   <div class="dashboard-container">
-    <div class="dashboard-content-container" data-simplebar>
+    <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
 
         <div class="card" *ngIf="lookupList.length > 0 ">
           <p-table [value]="lookupList" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-            [tableStyle]="{ 'min-width': '50rem' }"
+            [tableStyle]="{ 'min-width': '28rem' }"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[5,15,50]">
 
 
             <ng-template pTemplate="header">
               <tr>
-                <th pSortableColumn="lookupTableId" style="width:40%">Lookup Id <p-sortIcon field="code"></p-sortIcon>
+                <th pSortableColumn="lookupTableId" style="width:30%">Lookup Id <p-sortIcon field="code"></p-sortIcon>
                 </th>
-                <th pSortableColumn="lookupTableName" style="width:50%">Lookup Name <p-sortIcon
+                <th pSortableColumn="lookupTableName" style="width:30%">Lookup Name <p-sortIcon
                     field="code"></p-sortIcon>
                 </th>
+                <th style="width:10%">&ThinSpace;</th>
+                <th style="width:10%">&ThinSpace;</th>
+                <th style="width:10%">&ThinSpace;</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-lookuptable>
               <tr>
                 <td>{{ lookuptable.lookupTableId }}</td>
                 <td>{{ lookuptable.lookupTableName }}</td>
+                <td><button (click)="update(lookuptable.lookupTableId,lookuptable.lookupTableName)"
+                    class="btn btn-outline-dark">Update</button>
+                </td>
+                <td><button class="btn btn-outline-primary"
+                    (click)="getDetails(lookuptable.lookupTableId,lookuptable.lookupTableName)">Details</button></td>
+                <td><button class="btn btn-outline-danger" (click)="delete(lookuptable.lookupTableId)">Delete</button>
+                </td>
 
               </tr>
             </ng-template>
             <ng-template pTemplate="paginatorleft">
-              <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+              <p-button type="button" icon="pi pi-plus" (onClick)="ShowCreateDialog()"
+                styleClass="p-button-text"></p-button>
             </ng-template>
             <ng-template pTemplate="paginatorright">
               <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
             </ng-template>
           </p-table>
         </div>
+        <!-- Create Modal -->
+        <div class="card flex justify-content-center">
+          <p-dialog header="Create New Lookup Table" [(visible)]="CreateDialogVisible"
+            [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }"
+            [draggable]="true" [resizable]="true">
+            <form [formGroup]="createForm" (ngSubmit)="AddingNew()" class="row g-3 needs-validation">
+              <div class="col-md-4">
+                <label for="lookupanme" class="form-label">Lookup table Name</label>
+                <input type="text" class="form-control " formControlName="lookupname"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="lookupanme">
+                <div *ngIf="createForm.get('lookupname')?.invalid">
+                  <span class="alert alert-danger " *ngIf="createForm.get('lookupname')?.errors?.['required']">
+                    Lookup name is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="createForm.get('lookupname')?.errors?.['minlength']">
+                    name must be bigger than 3 characters
+                  </span>
+                  <span class="alert alert-danger " *ngIf="createForm.get('lookupname')?.errors?.['maxlength']">
+                    name must be less than 15 characters
+                  </span>
+                </div>
 
 
+              </div>
+              <div class="col-12">
+                <button class="btn btn-outline-primary" type="submit">Add</button>
+              </div>
+            </form>
+          </p-dialog>
+        </div>
+        <!-- Update Modal -->
+
+        <div class="card flex justify-content-center">
+          <p-dialog header=" Update Lookup Table" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+            <form [formGroup]="UpdateForm" (ngSubmit)="ConfirmUpdate()" class="row g-3 needs-validation">
+              <div class="col-md-4">
+                <label for="lookupanme" class="form-label">Lookup table Name</label>
+                <input type="text" class="form-control " formControlName="lookupname"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="lookupanme">
+                <div *ngIf="UpdateForm.get('lookupname')?.invalid">
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('lookupname')?.errors?.['required']">
+                    Lookup name is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('lookupname')?.errors?.['minlength']">
+                    name must be bigger than 3 characters
+                  </span>
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('lookupname')?.errors?.['maxlength']">
+                    name must be less than 15 characters
+                  </span>
+                </div>
+
+
+              </div>
+              <input type="text" hidden formControlName="lookupId">
+              <div class="col-12">
+                <button class="btn btn-outline-dark" type="submit">Update</button>
+              </div>
+            </form>
+          </p-dialog>
+        </div>
+
+        <!-- Delete Modal -->
+
+        <div class="card flex justify-content-center">
+          <p-dialog header=" Delete lookup" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
+            <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
+            <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
+          </p-dialog>
+        </div>
+
+
+        <!-- Details Modal -->
+        <div *ngIf="lookupById" class="card flex justify-content-center">
+          <p-dialog header="Lookup Table Details" [(visible)]="DetailsDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+            <h2 class="text-info">Lookup Details</h2>
+
+            <div class="my-3">
+              <div class="form-group">
+                <label for="lookupid">Lookup Id</label>
+                <input type="text" class="form-control" disabled id="lookupid" [value]="lookupById.lookupTableId">
+              </div>
+              <div class="form-group">
+                <label for="lookupname">lookup name</label>
+                <input type="text" class="form-control" disabled id="lookupname" [value]="lookupById.lookupTableName">
+              </div>
+              <div>
+                <button class="btn btn-outline-primary my-3 me-2" (click)="DetailsDialogVisible=false"> Close</button>
+              </div>
+            </div>
+
+          </p-dialog>
+        </div>
+
+        <p-toast position="center" key="createToast"></p-toast>
+        <p-toast position="center" key="updateToast"></p-toast>
+        <p-toast position="center" key="deleteToast"></p-toast>
 
         <!-- Footer -->
         <div class="dashboard-footer-spacer"></div>
+
 
 
         <div class="small-footer margin-top-15">

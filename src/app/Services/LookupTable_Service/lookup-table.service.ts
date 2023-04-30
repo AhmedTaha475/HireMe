@@ -36,21 +36,19 @@ export class LookupTableService {
   }
 
   // Create Lookup Table :
-  CreateLookupTable(NewLookupTable: CreateLookupTable) {
+  CreateLookupTable(lookupname: string) {
     return this.myclient.post(
-      this.Url + 'CreateNewLookupTable',
-      NewLookupTable
+      this.Url + `CreateNewLookupTable?lookupname=${lookupname}`,
+      {}
     );
   }
 
   // Update Lookup Table :
-  UpdateLookupTableById(
-    UpdateLookupTable: UpdateLookupTable,
-    lookuptableId: Number
-  ) {
+  UpdateLookupTableById(UpdateLookupTable: string, lookuptableId: Number) {
     return this.myclient.put(
-      this.Url + 'UpdateLookupTableById/' + lookuptableId,
-      UpdateLookupTable
+      this.Url +
+        `UpdateLookupTableById/${lookuptableId}?name=${UpdateLookupTable}`,
+      {}
     );
   }
 
