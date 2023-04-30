@@ -1,25 +1,4 @@
-<!-- (ngSubmit)="ConfirmUpdate()" -->
-<!-- <form [formGroup]="UpdateProfile" (ngSubmit)="ConfirmUpdate()">
-  <input type="text" formControlName="firstname">
-  <input type="text" formControlName="lastname">
-  <input type="text" formControlName="username">
-  <input type="number" formControlName="averagerate">
-  <input type="text" formControlName="country">
-  <input type="text" formControlName="city">
-  <input type="text" formControlName="street">
-  <input type="number" formControlName="age">
-  <input type="number" formControlName="ssn">
-
-  <input type="number" formControlName="paymentmethodId">
-  <input type="email" formControlName="email">
-  <input type="text" formControlName="jobtitle">
-  <input type="text" formControlName="description">
-  <input type="number" formControlName="phonenumber">
-  <input type="file" formControlName="image">
-  <img [src]="myImgUrl" alt="sddf" width="50px">
-  <input type="file" formControlName="cv">
-  <input type="submit" value="Update">
-</form> -->
+<div appJQueryLoader></div>
 <!-- Dashboard Container -->
 <div class="dashboard-container">
 
@@ -49,9 +28,10 @@
 									<div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
 										<img [src]="myImgUrl" class="profile-pic" alt="" />
 										<div class="upload-button"></div>
-										<input formControlName="image" class="file-upload" type="file" accept="image/*"/>
+										<input formControlName="image"  class="file-upload" type="file" accept="image/*"/>
 									</div>
 								</div>
+                <!-- <input formControlName="image"  type="file" > -->
 
 								<div class="col">
 									<div class="row">
@@ -79,13 +59,13 @@
                     <div class="col-xl-6">
 											<div class="submit-field">
 												<h5>Country</h5>
-                        <input type="text" formControlName="country"class="with-border" placeholder="Egypt">
+                        <input type="text" formControlName="country" class="with-border" placeholder="Egypt">
                       </div>
 										</div>
                     <div class="col-xl-6">
 											<div class="submit-field">
 												<h5>City</h5>
-                        <input type="text" formControlName="city" class="with-border" placeholder="Cairo">
+                        <input type="text" formControlName="city"  class="with-border" placeholder="Cairo">
                       </div>
 										</div>
                     <div class="col-xl-6">
@@ -103,7 +83,7 @@
                     <div class="col-xl-6">
 											<div class="submit-field">
 												<h5>SSN</h5>
-                        <input type="number" formControlName="ssn"class="with-border">
+                        <input type="number" formControlName="ssn" class="with-border">
                       </div>
 										</div>
 
@@ -135,8 +115,8 @@
 												<span class="bidding-detail">Set your <strong>minimal hourly rate</strong></span>
 
 												<!-- Slider -->
-												<div class="bidding-value margin-bottom-10">$<span id="biddingVal"></span></div>
-												<input formControlName="averagerate" class="bidding-slider" type="number" value="" data-slider-handle="custom" data-slider-currency="$" data-slider-min="5" data-slider-max="150" data-slider-value="35" data-slider-step="1" data-slider-tooltip="hide" />
+												
+												<input formControlName="averagerate" class="" type="number"/>
                       </div>
 										</div>
 									</div>
@@ -182,15 +162,27 @@
 									</div>
                   <div class="col-xl-6">
 										<div class="submit-field">
+											<h5>Category</h5>
+											<input formControlName="categoryId" type="number" class="with-border" placeholder="iOS Expert + Node Dev">
+										</div>
+									</div>
+                  <div class="col-xl-6">
+										<div class="submit-field">
+											<h5>Payment Method</h5>
+											<input formControlName="paymentmethodId"  type="number" class="with-border" placeholder="iOS Expert + Node Dev">
+										</div>
+									</div>
+                  <div class="col-xl-6">
+										<div class="submit-field">
 											<h5>Phone Number</h5>
-											<input formControlName="paymentmethodId" type="number" class="with-border" placeholder="+20 1185341234">
+											<input formControlName="phonenumber" type="number" class="with-border" placeholder="+20 1185341234">
                     </div>
 									</div>
                   
 									<div class="col-xl-12">
 										<div class="submit-field">
 											<h5>Introduce Yourself</h5>
-											<textarea formControlName="description" cols="30" rows="5" class="with-border" placeholder="Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."></textarea>
+											<textarea formControlName="description"  cols="30" rows="5" class="with-border" placeholder="Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."></textarea>
                     </div>
 									</div>
 								</div>
