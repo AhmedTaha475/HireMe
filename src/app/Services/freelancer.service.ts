@@ -30,7 +30,7 @@ export class FreelancerService {
   }
 
   public UpdateFreelancer(data: FormData) {
-    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer',data,this.options);
+    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer',data);
   }
 
   public UpdateClientMoney(UpdateMoney: UpdateFreelancertMoney) {
