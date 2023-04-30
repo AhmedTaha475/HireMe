@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { PaginatorModule } from 'primeng/paginator';
+
 import { CommonModule } from '@angular/common';
+
 
 import { SidebarModule } from 'primeng/sidebar';
 
@@ -42,12 +45,25 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+
+import { PaginatorComponent } from './Components/paginator/paginator.component';
+
+
+
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
+import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
+import { FreelancerHeaderComponent } from './Components/FreelanserDashBoard/freelancer-header/freelancer-header.component';
+import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
+import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
+import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
+import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -78,14 +94,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     StripeComponent,
     FreelancersByCategoryComponent,
     FreelancerProfileComponent,
+    FreelancerProfileDashboardComponent,
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+    PaginatorComponent,
+    AdminLookupvaluesComponent,
+    FreelancerEntryComponent,
+    FreelancerHeaderComponent,
+    FreelancerHomeComponent,
+    FreelancerProjectsComponent,
+    FreelancerProfileEditComponent,
   ],
   imports: [
     BrowserModule,
     ToastModule,
     ConfirmPopupModule,
+    PaginatorModule,
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
