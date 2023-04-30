@@ -21,7 +21,12 @@ import { StripeComponent } from './Components/Pricing Plan/PaypalButtonComponent
 
 import { AdminLookuptablecrudComponent } from './Components/AdminDashBoard/admin-lookuptablecrud/admin-lookuptablecrud.component';
 import { FreelancerProfileComponent } from './Components/FreelancerProfile/freelancer-profile/freelancer-profile.component';
+import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
+import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
+import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
+import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 
 const routes: Routes = [
   {
@@ -55,6 +60,17 @@ const routes: Routes = [
       { path: '', component: AdminHomeComponent },
       { path: 'Home', component: AdminHomeComponent },
       { path: 'lookuptable', component: AdminLookuptablecrudComponent },
+    ],
+  },
+  {
+    path: 'Freelancer',
+    component: FreelancerEntryComponent,
+    children: [
+      { path: '', component: FreelancerHomeComponent },
+      { path: 'Home', component: FreelancerHomeComponent },
+      { path: 'Profile', component: FreelancerProfileDashboardComponent },
+      { path: 'Profile/Update', component: FreelancerProfileEditComponent },
+      { path: 'Projects', component: FreelancerProjectsComponent },
     ],
   },
 
