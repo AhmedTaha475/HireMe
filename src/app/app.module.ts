@@ -47,7 +47,7 @@ import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
 
 import { PaginatorComponent } from './Components/paginator/paginator.component';
-
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -63,6 +63,7 @@ import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freela
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -123,6 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DialogModule,
     BrowserAnimationsModule,
     MessagesModule,
+    NgxPayPalModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

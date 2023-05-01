@@ -24,6 +24,7 @@ export class PlanComponent implements OnInit {
       next: (data: any) => {
    
         this.plans = data;
+        console.log(this.plans)
       },
       error: (err) => {
         this.errors = err;

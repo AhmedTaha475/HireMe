@@ -28,6 +28,7 @@ import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/fr
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -43,7 +44,7 @@ const routes: Routes = [
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
       { path: 'plan', component: PlanComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
 
@@ -51,6 +52,7 @@ const routes: Routes = [
 
       { path: 'FreelancerProfile', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
+      
     ],
   },
   {
