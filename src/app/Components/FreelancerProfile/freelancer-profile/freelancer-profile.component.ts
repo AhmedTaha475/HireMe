@@ -40,7 +40,7 @@ this.ports.push(new Portfolio(element.portId,element.freelancerId))
 
 
 // console.log(this.ports);
-   this.freelancer.GetCurrentFreelancer().subscribe({
+   this.freelancer.GetFreelancerById(this.id).subscribe({
     next:(data:any)=>{this.myFreelancer=data.body;
       this.myFreelancer.cv=StaticHelper.ConvertByteArrayToPdf(data.body.cv);
       this.myFreelancer.image=StaticHelper.ConvertByteArrayToImage(data.body.image);

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
-
+import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,12 +41,19 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+
+import { PaginatorComponent } from './Components/paginator/paginator.component';
+
+
+
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ToastModule } from 'primeng/toast';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
+import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
+import { AdminPlansCrudComponent } from './Components/AdminDashBoard/admin-plans-crud/admin-plans-crud.component';
 import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
 import { FreelancerHeaderComponent } from './Components/FreelanserDashBoard/freelancer-header/freelancer-header.component';
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
@@ -89,6 +95,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+    PaginatorComponent,
+    AdminLookupvaluesComponent,
+    AdminPlansCrudComponent,
     FreelancerEntryComponent,
     FreelancerHeaderComponent,
     FreelancerHomeComponent,
@@ -99,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     ToastModule,
     ConfirmPopupModule,
+    PaginatorModule,
     ReactiveFormsModule,
     NgxPayPalModule,
     CommonModule,
@@ -110,6 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonModule,
     SidebarModule,
     DialogModule,
+    ChartModule,
     BrowserAnimationsModule,
     MessagesModule,
     TranslateModule.forRoot({
