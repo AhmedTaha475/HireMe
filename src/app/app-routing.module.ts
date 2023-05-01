@@ -45,7 +45,7 @@ const routes: Routes = [
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
       { path: 'plan', component: PlanComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
