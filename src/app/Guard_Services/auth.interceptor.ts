@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const authReq = request.clone({
       headers: request.headers.set('Authorization', `Bearer ${authToken}`),
     });
-
+    console.log(authReq);
     return next.handle(authReq).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
