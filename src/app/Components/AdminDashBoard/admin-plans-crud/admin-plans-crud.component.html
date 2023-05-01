@@ -1,0 +1,273 @@
+<div appJQueryLoader>
+  <app-admin-header></app-admin-header>
+  <div class="dashboard-container">
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+        <button class="btn btn-outline-success my-3" (click)="CreateDialogVisible=true"
+          *ngIf="allPlans.length==0">Create
+          your first record</button>
+        <div class="card" *ngIf="allPlans.length > 0 ">
+          <p-table [value]="allPlans" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '25rem' }"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[5,15,50]">
+
+
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="id" style="width:15%">Id <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th pSortableColumn="name" style="width:15%"> Name <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th pSortableColumn="price" style="width:15%"> Price <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th pSortableColumn="bids" style="width:15%"> Bids <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th style="width:10%">&ThinSpace;</th>
+                <th style="width:10%">&ThinSpace;</th>
+                <th style="width:10%">&ThinSpace;</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-plan>
+              <tr>
+                <td>{{ plan.id }}</td>
+                <td>{{ plan.name }}</td>
+                <td>{{ plan.price }}</td>
+                <td>{{ plan.bids }}</td>
+                <td><button (click)="update(plan.id)" class="btn btn-outline-dark">Update</button>
+                </td>
+                <td><button class="btn btn-outline-primary" (click)="getDetails(plan.id)">Details</button></td>
+                <td><button class="btn btn-outline-danger" (click)="delete(plan.id)">Delete</button>
+                </td>
+
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+              <p-button type="button" icon="pi pi-plus" (onClick)="ShowCreateDialog()"
+                styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+              <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+          </p-table>
+        </div>
+        <!-- Create Modal -->
+        <div class="card flex justify-content-center">
+          <p-dialog header="Create New plan" [(visible)]="CreateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+            <form [formGroup]="createForm" (ngSubmit)="AddingNew()" class="row g-3 needs-validation">
+              <div class="col-md-6">
+                <label for="planname" class="form-label"> Name</label>
+                <input type="text" class="form-control " formControlName="name"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="planname">
+                <div *ngIf="createForm.get('name')?.invalid">
+                  <span class="alert alert-danger " *ngIf="createForm.get('name')?.errors?.['required']">
+                    Plan name is required
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="descriptionLA" class="form-label">Description</label>
+                <input type="text" class="form-control " formControlName="description"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="descriptionLA">
+                <div *ngIf="createForm.get('description')?.invalid">
+                  <span class="alert alert-danger " *ngIf="createForm.get('description')?.errors?.['required']">
+                    Description is required
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="Price" class="form-label">Price</label>
+                <input type="number" class="form-control" formControlName="price"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="Price">
+                <div *ngIf="createForm.get('price')?.invalid">
+                  <span class="alert alert-danger " *ngIf="createForm.get('price')?.errors?.['required']">
+                    Plan name is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="createForm.get('price')?.errors?.['min']">
+                    Price cant be negative
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="bids" class="form-label">Bids</label>
+                <input type="text" class="form-control " formControlName="bids"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="bids">
+                <div *ngIf="createForm.get('bids')?.invalid">
+                  <span class="alert alert-danger " *ngIf="createForm.get('bids')?.errors?.['required']">
+                    bids number is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="createForm.get('bids')?.errors?.['min']">
+                    bids number can't be negative
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-12">
+                <button class="btn btn-outline-primary" type="submit">Add</button>
+              </div>
+            </form>
+          </p-dialog>
+        </div>
+        <!-- Update Modal -->
+
+        <div class="card flex justify-content-center">
+          <p-dialog header=" Update Current Plan" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+            <form [formGroup]="UpdateForm" (ngSubmit)="ConfirmUpdate()" class="row g-3 needs-validation">
+              <div class="col-md-6">
+                <label for="Updatename" class="form-label">Name</label>
+                <input type="text" class="form-control " formControlName="name"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="Updatename">
+                <div *ngIf="UpdateForm.get('name')?.invalid">
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('name')?.errors?.['required']">
+                    Lookup name is required
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control " formControlName="description"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="description">
+                <div *ngIf="UpdateForm.get('description')?.invalid">
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('description')?.errors?.['required']">
+                    Description is required
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="PriceU" class="form-label">Price</label>
+                <input type="number" class="form-control" formControlName="price"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="PriceU">
+                <div *ngIf="UpdateForm.get('price')?.invalid">
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('price')?.errors?.['required']">
+                    Plan name is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('price')?.errors?.['min']">
+                    Price cant be negative
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-md-6">
+                <label for="bidsU" class="form-label">Bids</label>
+                <input type="text" class="form-control " formControlName="bids"
+                  [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="bidsU">
+                <div *ngIf="UpdateForm.get('bids')?.invalid">
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('bids')?.errors?.['required']">
+                    bids number is required
+                  </span>
+                  <span class="alert alert-danger " *ngIf="UpdateForm.get('bids')?.errors?.['min']">
+                    bids number can't be negative
+                  </span>
+                </div>
+
+
+              </div>
+              <div class="col-12">
+                <button class="btn btn-outline-dark" type="submit">Update</button>
+              </div>
+            </form>
+          </p-dialog>
+        </div>
+
+        <!-- Delete Modal -->
+
+        <div class="card flex justify-content-center">
+          <p-dialog header=" Delete Plan" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
+            <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
+            <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
+          </p-dialog>
+        </div>
+
+
+        <!-- Details Modal -->
+        <div *ngIf="currentPlan" class="card flex justify-content-center">
+          <p-dialog header="Plan Details" [(visible)]="DetailsDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+            [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+
+            <div class="my-3 row">
+              <div class="form-group col-6">
+                <label for="id"> Id</label>
+                <input type="text" class="form-control" disabled id="id" [value]="currentPlan.id">
+              </div>
+              <div class="form-group col-6">
+                <label for="planname"> name</label>
+                <input type="text" class="form-control" disabled id="planname" [value]="currentPlan.name">
+              </div>
+              <div class="form-group col-6">
+                <label for="desc"> Description</label>
+                <input type="text" class="form-control" disabled id="desc" [value]="currentPlan.description">
+              </div>
+              <div class="form-group col-6">
+                <label for="priceD"> Price</label>
+                <input type="text" class="form-control" disabled id="priceD" [value]="currentPlan.price">
+              </div>
+              <div class="form-group col-12">
+                <label for="bids"> Bids</label>
+                <input type="text" class="form-control" disabled id="bids" [value]="currentPlan.bids">
+              </div>
+              <div>
+                <button class="btn btn-outline-primary my-3 me-2" (click)="DetailsDialogVisible=false"> Close</button>
+              </div>
+            </div>
+
+          </p-dialog>
+        </div>
+
+        <p-toast position="center" key="createToast"></p-toast>
+        <p-toast position="center" key="updateToast"></p-toast>
+        <p-toast position="center" key="deleteToast"></p-toast>
+
+        <!-- Footer -->
+        <div class="dashboard-footer-spacer"></div>
+
+
+
+        <div class="small-footer margin-top-15">
+          <div class="small-footer-copyrights">
+            © 2019 <strong>Hireo</strong>. All Rights Reserved.
+          </div>
+          <ul class="footer-social-links">
+            <li>
+              <a href="#" title="Facebook">
+                <i class="icon-brand-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Twitter">
+                <i class="icon-brand-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Google Plus">
+                <i class="icon-brand-google-plus-g"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="LinkedIn">
+                <i class="icon-brand-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Footer / End -->
+
+      </div>
+    </div>
+  </div>
+</div>

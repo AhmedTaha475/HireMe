@@ -40,7 +40,8 @@
               "src/assets/js/counterup.min.js",
               "src/assets/js/magnific-popup.min.js",
               "src/assets/js/slick.min.js",
-              "src/assets/js/custom.js"
+              "src/assets/js/custom.js",
+              "src/assets/js/chart.min.js"
             ]
           },
           "configurations": {

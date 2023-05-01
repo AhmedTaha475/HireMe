@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { PaginatorModule } from 'primeng/paginator';
-
+import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
-
-
+import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,6 +53,7 @@ import { ToastModule } from 'primeng/toast';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
+import { AdminPlansCrudComponent } from './Components/AdminDashBoard/admin-plans-crud/admin-plans-crud.component';
 import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
 import { FreelancerHeaderComponent } from './Components/FreelanserDashBoard/freelancer-header/freelancer-header.component';
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
@@ -64,8 +61,11 @@ import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/fr
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -101,6 +101,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     JQueryLoaderDirective,
     PaginatorComponent,
     AdminLookupvaluesComponent,
+    AdminPlansCrudComponent,
     FreelancerEntryComponent,
     FreelancerHeaderComponent,
     FreelancerHomeComponent,
@@ -122,6 +123,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonModule,
     SidebarModule,
     DialogModule,
+    ChartModule,
     BrowserAnimationsModule,
     MessagesModule,
     NgxPayPalModule,
