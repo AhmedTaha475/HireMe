@@ -47,17 +47,13 @@ import { ToastModule } from 'primeng/toast';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
-<<<<<<< HEAD
 import { AdminPlansCrudComponent } from './Components/AdminDashBoard/admin-plans-crud/admin-plans-crud.component';
-=======
 import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
 import { FreelancerHeaderComponent } from './Components/FreelanserDashBoard/freelancer-header/freelancer-header.component';
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
->>>>>>> ae58c47083423fafdb185dac1fdaedda96ac847c
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -92,15 +88,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminHeaderComponent,
     JQueryLoaderDirective,
     AdminLookupvaluesComponent,
-<<<<<<< HEAD
     AdminPlansCrudComponent,
-=======
     FreelancerEntryComponent,
     FreelancerHeaderComponent,
     FreelancerHomeComponent,
     FreelancerProjectsComponent,
     FreelancerProfileEditComponent,
->>>>>>> ae58c47083423fafdb185dac1fdaedda96ac847c
   ],
   imports: [
     BrowserModule,
