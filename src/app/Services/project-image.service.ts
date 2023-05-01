@@ -15,18 +15,18 @@ export class ProjectImageService {
   Url: any = StaticURl.URL + 'ProjectImage/';
   constructor(public client: HttpClient) {}
   GetAllImagesByProjectId(P_Id: number) {
-    this.client.get(this.Url + 'GetAllImagesByProjectId/' + P_Id);
+    return this.client.get(this.Url + 'GetAllImagesByProjectId/' + P_Id);
   }
   GetProjectImageByid(Img_Id: number) {
-    this.client.get(this.Url + 'GetById/' + Img_Id);
+    return this.client.get(this.Url + 'GetById/' + Img_Id);
   }
   CreateProjectImage(Img: CreateProjectImage) {
-    this.client.post(this.Url + 'AddImage', Img, this.options);
+    return this.client.post(this.Url + 'AddImage', Img, this.options);
   }
   DeleteProjectImageByid(Img_Id: number) {
-    this.client.delete(this.Url + 'DeleteImage/' + Img_Id);
+    return this.client.delete(this.Url + 'DeleteImage/' + Img_Id);
   }
   UpdateProjectImage(NewImg: UpdateProjectImage) {
-    this.client.put(this.Url + 'UpdateImage', NewImg, this.options);
+    return this.client.put(this.Url + 'UpdateImage', NewImg, this.options);
   }
 }

@@ -193,7 +193,7 @@ export class AdminLookupvaluesComponent {
   private GetAllLookupValues() {
     this._lookupvaluesServices.GetAllLookupalues().subscribe({
       next: (data: any) => {
-        console.log(data);
+        this.lookbyValueWithLookupname = [];
         this.lookupvaluelist = data;
         this.lookbyValueWithLookupname = this.lookupvaluelist.map((lookup) => {
           const item = this.lookupList.find(

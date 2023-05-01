@@ -3,10 +3,12 @@
   <div class="dashboard-container">
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
-
+        <button class="btn btn-outline-success my-3" (click)="CreateDialogVisible=true"
+          *ngIf="lookbyValueWithLookupname.length==0">Create
+          your first record</button>
         <div class="card" *ngIf="lookbyValueWithLookupname.length > 0 ">
           <p-table [value]="lookbyValueWithLookupname" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-            [tableStyle]="{ 'min-width': '28rem' }"
+            [tableStyle]="{ 'min-width': '25rem' }"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[5,15,50]">
 
@@ -50,7 +52,7 @@
         </div>
         <!-- Create Modal -->
         <div class="card flex justify-content-center">
-          <p-dialog header="Create New Lookup Table" [(visible)]="CreateDialogVisible"
+          <p-dialog header="Create New Lookup Value" [(visible)]="CreateDialogVisible"
             [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }"
             [draggable]="true" [resizable]="true">
             <form [formGroup]="createForm" (ngSubmit)="AddingNew()" class="row g-3 needs-validation">
@@ -91,7 +93,7 @@
         <!-- Update Modal -->
 
         <div class="card flex justify-content-center" *ngIf="lookupList">
-          <p-dialog header=" Update Lookup Table" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+          <p-dialog header=" Update Lookup Value" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
             [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
             <form [formGroup]="UpdateForm" (ngSubmit)="ConfirmUpdate()" class="row g-3 needs-validation">
               <div class="col-md-4">
@@ -122,7 +124,7 @@
         <!-- Delete Modal -->
 
         <div class="card flex justify-content-center">
-          <p-dialog header=" Delete lookup" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+          <p-dialog header=" Delete lookup Value" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
             [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
             <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
             <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
@@ -134,7 +136,7 @@
         <div *ngIf="lookupValueById" class="card flex justify-content-center">
           <p-dialog header="Lookup Value Details" [(visible)]="DetailsDialogVisible" [breakpoints]="{ '960px': '75vw' }"
             [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
-            <h2 class="text-info">Lookup Details</h2>
+            <!-- <h2 class="text-info">Lookup Details</h2> -->
 
             <div class="my-3">
               <div class="form-group">
