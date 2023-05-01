@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
-import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
