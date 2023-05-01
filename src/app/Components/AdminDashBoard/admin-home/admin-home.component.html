@@ -7,8 +7,10 @@
 
         <!-- Dashboard Headline -->
         <div class="dashboard-headline">
-          <h3>Howdy, Tom!</h3>
+          <h3>Hello, HireMe Admin!</h3>
           <span>We are glad to see you again!</span>
+
+
 
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="dark">
@@ -20,39 +22,49 @@
         </div>
 
         <!-- Fun Facts Container -->
-        <div class="fun-facts-container">
-          <div class="fun-fact" data-fun-fact-color="#36bd78">
+        <div class="fun-facts-container row justify-content-center">
+          <div class="fun-fact col-4" data-fun-fact-color="#36bd78">
             <div class="fun-fact-text">
-              <span>Task Bids Won</span>
-              <h4>22</h4>
+              <span>Number of Clients</span>
+              <h4 *ngIf="ClientsCount">{{ClientsCount}}</h4>
             </div>
-            <div class="fun-fact-icon"><i class="icon-material-outline-gavel"></i></div>
+            <div class="fun-fact-icon"><i class="icon-feather-user
+              "></i></div>
           </div>
-          <div class="fun-fact" data-fun-fact-color="#b81b7f">
+          <div class="fun-fact col-4" data-fun-fact-color="#b81b7f">
             <div class="fun-fact-text">
-              <span>Jobs Applied</span>
-              <h4>4</h4>
+              <span>Number of Freelancers</span>
+              <h4 *ngIf="FreelancersCount">{{FreelancersCount}}</h4>
             </div>
-            <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+            <div class="fun-fact-icon col-3"><i class="icon-feather-user
+              "></i></div>
           </div>
-          <div class="fun-fact" data-fun-fact-color="#efa80f">
+          <div class="fun-fact col-4" data-fun-fact-color="#efa80f">
             <div class="fun-fact-text">
-              <span>Reviews</span>
-              <h4>28</h4>
+              <span>Number of Project Posts</span>
+              <h4 *ngIf="ProjectPostCount">{{ProjectPostCount}}</h4>
             </div>
-            <div class="fun-fact-icon"><i class="icon-material-outline-rate-review"></i></div>
+            <div class="fun-fact-icon"><i class="icon-line-awesome-files-o"></i></div>
           </div>
 
-          <!-- Last one has to be hidden below 1600px, sorry :( -->
-          <div class="fun-fact" data-fun-fact-color="#2a41e6">
+          <div class="fun-fact col-4" data-fun-fact-color="#2a41e6">
             <div class="fun-fact-text">
-              <span>This Month Views</span>
-              <h4>987</h4>
+              <span>Number of Applicants</span>
+              <h4 *ngIf="ApplicantsCount">{{ApplicantsCount}}</h4>
             </div>
-            <div class="fun-fact-icon"><i class="icon-feather-trending-up"></i></div>
+            <div class="fun-fact-icon"><i class="icon-line-awesome-users"></i></div>
+          </div>
+          <div class="fun-fact col-3 " data-fun-fact-color="#2a41e6">
+            <div class="fun-fact-text">
+              <span>Number of Plan subscribers</span>
+              <h4 *ngIf="subscCount">{{subscCount}}</h4>
+            </div>
+            <div class="fun-fact-icon"><i class="icon-line-awesome-paypal"></i></div>
           </div>
         </div>
-
+        <div class="card" style="width:400px;height: 300px;">
+          <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+        </div>
         <!-- Row -->
         <div class="row">
 
@@ -316,5 +328,4 @@
       </div>
     </div>
   </div>
-
 </div>

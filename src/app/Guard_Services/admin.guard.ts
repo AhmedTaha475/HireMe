@@ -25,7 +25,7 @@ export class AdminGuard implements CanActivate {
     if (this._AuthService.getRoles()?.split(',').includes('Admin')) {
       return true;
     } else {
-      this._router.navigateByUrl('/page403');
+      this._router.navigateByUrl('/Page403');
       return false;
     }
   }
