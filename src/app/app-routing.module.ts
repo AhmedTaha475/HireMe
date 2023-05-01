@@ -22,14 +22,13 @@ import { FreelancerProfileComponent } from './Components/FreelancerProfile/freel
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
-
 import { AdminPlansCrudComponent } from './Components/AdminDashBoard/admin-plans-crud/admin-plans-crud.component';
 import { AdminGuard } from './Guard_Services/admin.guard';
-
 import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
+
 
 const routes: Routes = [
   {
@@ -51,6 +50,7 @@ const routes: Routes = [
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
       { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+      { path: 'FreelancerProfile/:id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
   },

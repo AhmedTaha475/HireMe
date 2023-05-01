@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
+import { PaginatorModule } from 'primeng/paginator';
+import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +42,11 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
+
+import { PaginatorComponent } from './Components/paginator/paginator.component';
+
+
+
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
@@ -54,6 +61,7 @@ import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freela
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -87,6 +95,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookuptablecrudComponent,
     AdminHeaderComponent,
     JQueryLoaderDirective,
+    PaginatorComponent,
     AdminLookupvaluesComponent,
     AdminPlansCrudComponent,
     FreelancerEntryComponent,
@@ -99,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     ToastModule,
     ConfirmPopupModule,
+    PaginatorModule,
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
