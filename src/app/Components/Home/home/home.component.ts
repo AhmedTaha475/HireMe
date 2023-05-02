@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit{
     next: (data: any) => {
       // console.log(data.body[0])
       for (let i = 0; i < data.body.length; i++) {        
-        if ((data.body[i].rank == 4 || data.body[i].rank ==5)&& this.Freelancers.length <=6) {
+        if (data.body[i].rank ==5) {
           var freelancerTemp = data.body[i];
           if(freelancerTemp.image != null)
           freelancerTemp.image= StaticHelper.ConvertByteArrayToImage(data.body[i].image) ;
@@ -56,24 +56,4 @@ this.Freelancers.push(freelancerTemp);
   switchLanguage(language: string) {
     this.translate.use(language);
   }
-  // responsiveOptions:any;
-  // private carsoul (){
-  //   this.responsiveOptions = [
-  //     {
-  //         breakpoint: '1400px',
-  //         numVisible: 3,
-  //         numScroll: 3
-  //     },
-  //     {
-  //         breakpoint: '1220px',
-  //         numVisible: 2,
-  //         numScroll: 2
-  //     },
-  //     {
-  //         breakpoint: '1100px',
-  //         numVisible: 1,
-  //         numScroll: 1
-  //     }
-  // ];
-  // }
 }
