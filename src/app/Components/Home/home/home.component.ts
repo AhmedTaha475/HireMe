@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit{
    );
    this.FLService.GetAllFreelancers().subscribe({
     next: (data: any) => {
-      // console.log(data.body[0])
+       console.log(data.body)
       for (let i = 0; i < data.body.length; i++) {        
         if (data.body[i].rank ==5) {
           var freelancerTemp = data.body[i];
