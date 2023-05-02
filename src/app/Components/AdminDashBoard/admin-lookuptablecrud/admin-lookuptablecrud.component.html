@@ -1,8 +1,19 @@
 <div appJQueryLoader>
   <app-admin-header></app-admin-header>
+
+
   <div class="dashboard-container">
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
+        <div class="dashboard-headline">
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/Admin">Home</a></li>
+              <li>Lookup Tables</li>
+            </ul>
+          </nav>
+        </div>
+
         <button class="btn btn-outline-success my-3" (click)="CreateDialogVisible=true"
           *ngIf="lookupList.length==0">Create
           your first record</button>
