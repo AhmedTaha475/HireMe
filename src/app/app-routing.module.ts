@@ -28,6 +28,7 @@ import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freel
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
+import { TransactionComponent } from './Components/FreelanserDashBoard/transaction/transaction.component';
 
 
 const routes: Routes = [
@@ -75,6 +76,7 @@ const routes: Routes = [
       { path: 'Profile', component: FreelancerProfileDashboardComponent },
       { path: 'Profile/Update', component: FreelancerProfileEditComponent },
       { path: 'Projects', component: FreelancerProjectsComponent },
+      { path: 'Transaction', component: TransactionComponent },
     ],
   },
 
