@@ -31,4 +31,7 @@ export class ProjectService {
   DeleteProject(P_Id: number) {
     return this.client.delete(this.Url + 'Delete/' + P_Id);
   }
+  GetAll() {
+    return this.client.get(this.Url + 'GetAll');
+  }
 }

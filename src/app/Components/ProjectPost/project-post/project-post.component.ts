@@ -15,6 +15,7 @@ export class ProjectPostComponent implements OnInit {
   projectPost:any;
   projectPost2:any;
   applicant:any;
+  applicantAllData:any;
   constructor(
     private myActivated:ActivatedRoute,
     private projectPostService:ProjectPostService,
@@ -39,17 +40,19 @@ export class ProjectPostComponent implements OnInit {
           this.projectPost.projectPostApplicants.forEach((applicant:any) => {
             this.freelancerService.GetFreelancerById(applicant.freelancerId).subscribe({
               next:(data:any)=>{
-                  this.freelancerArr.push(data);
+                
+                this.applicantAllData = {
+                  data: data.body,
+                  applicant,
+                }
+                  this.freelancerArr.push(this.applicantAllData);
                   console.log(this.freelancerArr);
                 },
-                error:(err)=>{console.log(err)}
-              })
-            console.log(applicant.freelancerId);
+                error:(err)=>{console.log(err)}})
           });
-
-
         },
         error:(err)=>{console.log(err)}
       });
+      console.log(this.freelancerArr)
   }
 }

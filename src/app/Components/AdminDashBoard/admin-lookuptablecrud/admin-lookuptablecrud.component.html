@@ -1,12 +1,25 @@
 <div appJQueryLoader>
   <app-admin-header></app-admin-header>
+
+
   <div class="dashboard-container">
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
+        <div class="dashboard-headline">
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/Admin">Home</a></li>
+              <li>Lookup Tables</li>
+            </ul>
+          </nav>
+        </div>
 
+        <button class="btn btn-outline-success my-3" (click)="CreateDialogVisible=true"
+          *ngIf="lookupList.length==0">Create
+          your first record</button>
         <div class="card" *ngIf="lookupList.length > 0 ">
           <p-table [value]="lookupList" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-            [tableStyle]="{ 'min-width': '28rem' }"
+            [tableStyle]="{ 'min-width': '25rem' }"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[5,15,50]">
 

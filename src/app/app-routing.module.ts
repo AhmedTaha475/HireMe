@@ -22,6 +22,8 @@ import { FreelancerProfileComponent } from './Components/FreelancerProfile/freel
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancersByCategoryComponent } from './Components/FreeLancersByCategory/freelancers-by-category/freelancers-by-category.component';
 import { AdminLookupvaluesComponent } from './Components/AdminDashBoard/admin-lookupvalues/admin-lookupvalues.component';
+import { AdminPlansCrudComponent } from './Components/AdminDashBoard/admin-plans-crud/admin-plans-crud.component';
+import { AdminGuard } from './Guard_Services/admin.guard';
 import { FreelancerEntryComponent } from './Components/FreelanserDashBoard/freelancer-entry/freelancer-entry.component';
 import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freelancer-home/freelancer-home.component';
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
@@ -43,10 +45,9 @@ const routes: Routes = [
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
       { path: 'plan', component: PlanComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
-
       { path: 'stripe', component: StripeComponent },
 
       { path: 'FreelancerProfile/:id', component: FreelancerProfileComponent },
@@ -61,7 +62,9 @@ const routes: Routes = [
       { path: 'Home', component: AdminHomeComponent },
       { path: 'lookuptable', component: AdminLookuptablecrudComponent },
       { path: 'lookupvalues', component: AdminLookupvaluesComponent },
+      { path: 'plan', component: AdminPlansCrudComponent },
     ],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'Freelancer',
