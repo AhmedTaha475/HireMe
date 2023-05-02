@@ -50,7 +50,7 @@ const routes: Routes = [
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
 
-      { path: 'FreelancerProfile/:id', component: FreelancerProfileComponent },
+      { path: 'FreelancerProfile/:Id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
   },
