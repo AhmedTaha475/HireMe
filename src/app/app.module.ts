@@ -61,6 +61,7 @@ import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/fr
 import { FreelancerProfileDashboardComponent } from './Components/FreelanserDashBoard/freelancer-profile/freelancer-profile.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { RouterModule } from '@angular/router';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -107,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     ToastModule,
+    RouterModule,
     ConfirmPopupModule,
     PaginatorModule,
     ReactiveFormsModule,

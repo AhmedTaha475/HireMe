@@ -10,7 +10,32 @@
 
     <!-- Row -->
     <div class="row">
-      
+      <div *ngFor="let freelancerProject of freelancerProjects">
+        <!-- Job Listing -->
+        <a href="single-job-page.html" class="job-listing">
+
+          <!-- Job Listing Details -->
+          <div class="job-listing-details">
+              <!-- Details -->
+              <div class="job-listing-description">
+                  <h3 class="job-listing-title">{{freelancerProject.postTitle}}</h3>
+                  <p class="job-listing-text">{{freelancerProject.description}}</p>
+              </div>
+
+              <!-- Bookmark -->
+              <span class="bookmark-icon"></span>
+          </div>
+
+          <!-- Job Listing Footer -->
+          <div class="job-listing-footer">
+              <ul>
+                  <li><i class="icon-material-outline-account-balance-wallet"></i>{{freelancerProject.averagePrice}}</li>
+                  <li><i class="icon-material-outline-access-time"></i>{{freelancerProject.categoryId}}</li>
+              </ul>
+          </div>
+      </a>	
+      </div>
+
     </div>
     <!-- Row / End -->
 
