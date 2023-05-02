@@ -14,15 +14,9 @@ export class TransactionComponent implements OnInit {
     {
       
     }
-  
   transaction:any;
-  currentfreelancer:any;
   
   ngOnInit(): void {
-    this.freelancer.GetCurrentFreelancer().subscribe({
-      next:(data:any)=>{this.currentfreelancer=data.body;console.log(this.currentfreelancer.id)},
-      error:()=>{}
-    })
     this.MyTransactionservice.GetAllTranscationsByUserId().subscribe({
       next:(data:any)=>{this.transaction=data},
       error:()=>{}
