@@ -49,7 +49,7 @@ const routes: Routes = [
 
       { path: 'stripe', component: StripeComponent },
 
-      { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+      { path: 'FreelancerProfile/:id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
   },

@@ -195,23 +195,21 @@
           <div class="tasks-list-container compact-list margin-top-35">
 
             <!-- Task -->
-            <a href="single-task-page.html" class="task-listing">
+            <a href="single-task-page.html" class="task-listing" *ngFor="let p of Projects">
 
               <!-- Job Listing Details -->
               <div class="task-listing-details">
 
                 <!-- Details -->
                 <div class="task-listing-description">
-                  <h3 class="task-listing-title">Food Delviery Mobile App</h3>
+                  <h3 class="task-listing-title">{{p.postTitle}}</h3>
                   <ul class="task-icons">
                     <li><i class="icon-material-outline-location-on"></i> San Francisco</li>
                     <li><i class="icon-material-outline-access-time"></i> 2 minutes ago</li>
                   </ul>
                   <div class="task-tags margin-top-15">
-                    <span>iOS</span>
-                    <span>Android</span>
-                    <span>mobile apps</span>
-                    <span>design</span>
+                    <span>{{p.description}}</span>
+                   
                   </div>
                 </div>
 
@@ -220,7 +218,7 @@
               <div class="task-listing-bid">
                 <div class="task-listing-bid-inner">
                   <div class="task-offers">
-                    <strong>$1,000 - $2,500</strong>
+                    <strong>{{p.averagePrice}} - {{p.averagePrice+50}} EGP</strong>
                     <span>Fixed Price</span>
                   </div>
                   <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }} <i
@@ -229,141 +227,7 @@
               </div>
             </a>
 
-            <!-- Task -->
-            <a href="single-task-page.html" class="task-listing">
-
-              <!-- Job Listing Details -->
-              <div class="task-listing-details">
-
-                <!-- Details -->
-                <div class="task-listing-description">
-                  <h3 class="task-listing-title">2000 Words English to German</h3>
-                  <ul class="task-icons">
-                    <li><i class="icon-material-outline-location-off"></i> Online Job</li>
-                    <li><i class="icon-material-outline-access-time"></i> 5 minutes ago</li>
-                  </ul>
-                  <div class="task-tags margin-top-15">
-                    <span>copywriting</span>
-                    <span>translating</span>
-                    <span>editing</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="task-listing-bid">
-                <div class="task-listing-bid-inner">
-                  <div class="task-offers">
-                    <strong>$75</strong>
-                    <span>Fixed Price</span>
-                  </div>
-                  <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }}<i
-                      class="icon-material-outline-arrow-right-alt"></i></span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Task -->
-            <a href="single-task-page.html" class="task-listing">
-
-              <!-- Job Listing Details -->
-              <div class="task-listing-details">
-
-                <!-- Details -->
-                <div class="task-listing-description">
-                  <h3 class="task-listing-title">Fix Python Selenium Code</h3>
-                  <ul class="task-icons">
-                    <li><i class="icon-material-outline-location-off"></i> Online Job</li>
-                    <li><i class="icon-material-outline-access-time"></i> 30 minutes ago</li>
-                  </ul>
-                  <div class="task-tags margin-top-15">
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>API Development</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="task-listing-bid">
-                <div class="task-listing-bid-inner">
-                  <div class="task-offers">
-                    <strong>$100 - $150</strong>
-                    <span>Hourly Rate</span>
-                  </div>
-                  <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }} <i
-                      class="icon-material-outline-arrow-right-alt"></i></span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Task -->
-            <a href="single-task-page.html" class="task-listing">
-
-              <!-- Job Listing Details -->
-              <div class="task-listing-details">
-
-                <!-- Details -->
-                <div class="task-listing-description">
-                  <h3 class="task-listing-title">WordPress Theme Installation</h3>
-                  <ul class="task-icons">
-                    <li><i class="icon-material-outline-location-off"></i> Online Job</li>
-                    <li><i class="icon-material-outline-access-time"></i> 1 hour ago</li>
-                  </ul>
-                  <div class="task-tags margin-top-15">
-                    <span>WordPress</span>
-                    <span>Theme Installation</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="task-listing-bid">
-                <div class="task-listing-bid-inner">
-                  <div class="task-offers">
-                    <strong>$100</strong>
-                    <span>Fixed Price</span>
-                  </div>
-                  <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }} <i
-                      class="icon-material-outline-arrow-right-alt"></i></span>
-                </div>
-              </div>
-            </a>
-
-            <!-- Task -->
-            <a href="single-task-page.html" class="task-listing">
-
-              <!-- Job Listing Details -->
-              <div class="task-listing-details">
-
-                <!-- Details -->
-                <div class="task-listing-description">
-                  <h3 class="task-listing-title">PHP Core Website Fixes</h3>
-                  <ul class="task-icons">
-                    <li><i class="icon-material-outline-location-off"></i> Online Job</li>
-                    <li><i class="icon-material-outline-access-time"></i> 1 hour ago</li>
-                  </ul>
-                  <div class="task-tags margin-top-15">
-                    <span>PHP</span>
-                    <span>MySQL Administration</span>
-                    <span>API Development</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="task-listing-bid">
-                <div class="task-listing-bid-inner">
-                  <div class="task-offers">
-                    <strong>$50 - $80</strong>
-                    <span>Hourly Rate</span>
-                  </div>
-                  <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }} <i
-                      class="icon-material-outline-arrow-right-alt"></i></span>
-                </div>
-              </div>
-            </a>
-
+          
 
           </div>
           <!-- Jobs Container / End -->
@@ -385,7 +249,7 @@
           <div class="col-lg-6 col-md-8 col-sm-12">
             <h2>{{ translate.instant('Hire experts or be hired.') }}</h2>
             <p>{{ translate.instant('Huge community') }}</p>
-            <a href="pages-pricing-plans.html" class="button button-sliding-icon ripple-effect big margin-top-20">{{
+            <a routerLink="/plan" class="button button-sliding-icon ripple-effect big margin-top-20">{{
               translate.instant('Get Started') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
           </div>
         </div>
@@ -460,399 +324,439 @@
   </div>
   <!-- Icon Boxes / End -->
 
-  <!-- Highest Rated Freelancers -->
-  <div class="section gray padding-top-65 padding-bottom-70 full-width-carousel-fix">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-xl-12">
-          <!-- Section Headline -->
-          <div class="section-headline margin-top-0 margin-bottom-25">
-            <h3>{{ translate.instant('Highest Rated Freelancers') }}</h3>
-            <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
-              }}</a>
-          </div>
-        </div>
-
-        <div class="col-xl-12">
-          <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
-
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
-            <!--Freelancer -->
-            <div class="freelancer">
-
-              <!-- Overview -->
-              <div class="freelancer-overview">
-                <div class="freelancer-overview-inner">
-
-                  <!-- Bookmark Icon -->
-                  <span class="bookmark-icon"></span>
-
-                  <!-- Avatar -->
-                  <div class="freelancer-avatar">
-                    <div class="verified-badge"></div>
-                    <a href="single-freelancer-profile.html"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
-                  </div>
-
-                  <!-- Name -->
-                  <div class="freelancer-name">
-                    <h4><a href="single-freelancer-profile.html">Tom Smith <img class="flag"
-                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                    </h4>
-                    <span>UI/UX Designer</span>
-                  </div>
-
-                  <!-- Rating -->
-                  <div class="freelancer-rating">
-                    <div class="star-rating" data-rating="5.0"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Details -->
-              <div class="freelancer-details">
-                <div class="freelancer-details-list">
-                  <ul>
-                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
-                        London</strong></li>
-                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
-                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
-                  </ul>
-                </div>
-                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
-                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-              </div>
-            </div>
-            <!-- Freelancer / End -->
 
 
-          </div>
-        </div>
+		<!-- Highest Rated Freelancers -->
+		<div class="section gray padding-top-65 padding-bottom-70 full-width-carousel-fix">
+			<div class="container">
+				<div class="row">
 
+					<div class="col-xl-12">
+						<!-- Section Headline -->
+						<div class="section-headline margin-top-0 margin-bottom-25">
+              <h3>{{ translate.instant('Highest Rated Freelancers') }}</h3>
+              <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
+                }}</a>
+						</div>
+					</div>
+
+					<div class="col-xl-12">
+						<div class="default-slick-carousel freelancers-container freelancers-grid-layout">
+
+							<!--Freelancer -->
+							<div class="freelancer">
+
+								<!-- Overview -->
+								<div class="freelancer-overview">
+									<div class="freelancer-overview-inner">
+
+										<!-- Bookmark Icon -->
+										<span class="bookmark-icon"></span>
+
+										<!-- Avatar -->
+										<div class="freelancer-avatar">
+											<div class="verified-badge"></div>
+											<a href="single-freelancer-profile.html">
+                        <img *ngIf="Freelancers[0].image ; else staticImage" src="{{Freelancers[0].image}}" alt="">
+                          <ng-template #staticImage>
+                          <img 
+													src="../../../../assets/images/photouser.jpg" alt="">
+                        </ng-template>
+                      </a>
+										</div>
+
+										<!-- Name -->
+										<div class="freelancer-name">
+											<h4><a href="single-freelancer-profile.html">{{Freelancers[0].username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+											<span>{{Freelancers[0].jobtitle}}</span>
+										</div>
+
+										<!-- Rating -->
+										<div class="freelancer-rating">
+											<div class="star-rating" data-rating="5.0"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Details -->
+								<div class="freelancer-details">
+									<div class="freelancer-details-list">
+										<ul>
+											<li>Location <strong><i class="icon-material-outline-location-on"></i>
+													{{Freelancers[0].city}}</strong></li>
+											<li>Rate <strong>$60 / hr</strong></li>
+											<li>Job Success <strong>95%</strong></li>
+										</ul>
+									</div>
+									<a href="single-freelancer-profile.html"
+										class="button button-sliding-icon ripple-effect">View Profile <i
+											class="icon-material-outline-arrow-right-alt"></i></a>
+								</div>
+							</div>
+							<!-- Freelancer / End -->
+
+
+              <!--Freelancer -->
+							<div class="freelancer">
+
+								<!-- Overview -->
+								<div class="freelancer-overview">
+									<div class="freelancer-overview-inner">
+
+										<!-- Bookmark Icon -->
+										<span class="bookmark-icon"></span>
+
+										<!-- Avatar -->
+										<div class="freelancer-avatar">
+											<div class="verified-badge"></div>
+											<a href="single-freelancer-profile.html">
+                        <img *ngIf="Freelancers[1].image ; else staticImage" src="{{Freelancers[1].image}}" alt="">
+                          <ng-template #staticImage>
+                          <img 
+													src="../../../../assets/images/photouser.jpg" alt="">
+                        </ng-template>
+                      </a>
+										</div>
+
+										<!-- Name -->
+										<div class="freelancer-name">
+											<h4><a href="single-freelancer-profile.html">{{Freelancers[1].username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+											<span>{{Freelancers[1].jobtitle}}</span>
+										</div>
+
+										<!-- Rating -->
+										<div class="freelancer-rating">
+											<div class="star-rating" data-rating="5.0"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Details -->
+								<div class="freelancer-details">
+									<div class="freelancer-details-list">
+										<ul>
+											<li>Location <strong><i class="icon-material-outline-location-on"></i>
+													{{Freelancers[1].city}}</strong></li>
+											<li>Rate <strong>$60 / hr</strong></li>
+											<li>Job Success <strong>95%</strong></li>
+										</ul>
+									</div>
+									<a href="single-freelancer-profile.html"
+										class="button button-sliding-icon ripple-effect">View Profile <i
+											class="icon-material-outline-arrow-right-alt"></i></a>
+								</div>
+							</div>
+							<!-- Freelancer / End -->
+
+              <!--Freelancer -->
+							<div class="freelancer">
+
+								<!-- Overview -->
+								<div class="freelancer-overview">
+									<div class="freelancer-overview-inner">
+
+										<!-- Bookmark Icon -->
+										<span class="bookmark-icon"></span>
+
+										<!-- Avatar -->
+										<div class="freelancer-avatar">
+											<div class="verified-badge"></div>
+											<a href="single-freelancer-profile.html">
+                        <img *ngIf="Freelancers[2].image ; else staticImage" src="{{Freelancers[2].image}}" alt="">
+                          <ng-template #staticImage>
+                          <img 
+													src="../../../../assets/images/photouser.jpg" alt="">
+                        </ng-template>
+                      </a>
+										</div>
+
+										<!-- Name -->
+										<div class="freelancer-name">
+											<h4><a href="single-freelancer-profile.html">{{Freelancers[2].username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+											<span>{{Freelancers[2].jobtitle}}</span>
+										</div>
+
+										<!-- Rating -->
+										<div class="freelancer-rating">
+											<div class="star-rating" data-rating="5.0"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Details -->
+								<div class="freelancer-details">
+									<div class="freelancer-details-list">
+										<ul>
+											<li>Location <strong><i class="icon-material-outline-location-on"></i>
+													{{Freelancers[2].city}}</strong></li>
+											<li>Rate <strong>$60 / hr</strong></li>
+											<li>Job Success <strong>95%</strong></li>
+										</ul>
+									</div>
+									<a href="single-freelancer-profile.html"
+										class="button button-sliding-icon ripple-effect">View Profile <i
+											class="icon-material-outline-arrow-right-alt"></i></a>
+								</div>
+							</div>
+							<!-- Freelancer / End -->
+
+              <!--Freelancer -->
+							<div class="freelancer">
+
+								<!-- Overview -->
+								<div class="freelancer-overview">
+									<div class="freelancer-overview-inner">
+
+										<!-- Bookmark Icon -->
+										<span class="bookmark-icon"></span>
+
+										<!-- Avatar -->
+										<div class="freelancer-avatar">
+											<div class="verified-badge"></div>
+											<a href="single-freelancer-profile.html">
+                        <img *ngIf="Freelancers[3].image ; else staticImage" src="{{Freelancers[3].image}}" alt="">
+                          <ng-template #staticImage>
+                          <img 
+													src="../../../../assets/images/photouser.jpg" alt="">
+                        </ng-template>
+                      </a>
+										</div>
+
+										<!-- Name -->
+										<div class="freelancer-name">
+											<h4><a href="single-freelancer-profile.html">{{Freelancers[3].username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+											<span>{{Freelancers[3].jobtitle}}</span>
+										</div>
+
+										<!-- Rating -->
+										<div class="freelancer-rating">
+											<div class="star-rating" data-rating="5.0"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Details -->
+								<div class="freelancer-details">
+									<div class="freelancer-details-list">
+										<ul>
+											<li>Location <strong><i class="icon-material-outline-location-on"></i>
+													{{Freelancers[3].city}}</strong></li>
+											<li>Rate <strong>$60 / hr</strong></li>
+											<li>Job Success <strong>95%</strong></li>
+										</ul>
+									</div>
+									<a href="single-freelancer-profile.html"
+										class="button button-sliding-icon ripple-effect">View Profile <i
+											class="icon-material-outline-arrow-right-alt"></i></a>
+								</div>
+							</div>
+							<!-- Freelancer / End -->
+
+              <!--Freelancer -->
+							<div class="freelancer">
+
+								<!-- Overview -->
+								<div class="freelancer-overview">
+									<div class="freelancer-overview-inner">
+
+										<!-- Bookmark Icon -->
+										<span class="bookmark-icon"></span>
+
+										<!-- Avatar -->
+										<div class="freelancer-avatar">
+											<div class="verified-badge"></div>
+											<a href="single-freelancer-profile.html">
+                        <img *ngIf="Freelancers[4].image ; else staticImage" src="{{Freelancers[4].image}}" alt="">
+                          <ng-template #staticImage>
+                          <img 
+													src="../../../../assets/images/photouser.jpg" alt="">
+                        </ng-template>
+                      </a>
+										</div>
+
+										<!-- Name -->
+										<div class="freelancer-name">
+											<h4><a href="single-freelancer-profile.html">{{Freelancers[4].username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+											<span>{{Freelancers[4].jobtitle}}</span>
+										</div>
+
+										<!-- Rating -->
+										<div class="freelancer-rating">
+											<div class="star-rating" data-rating="5.0"></div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Details -->
+								<div class="freelancer-details">
+									<div class="freelancer-details-list">
+										<ul>
+											<li>Location <strong><i class="icon-material-outline-location-on"></i>
+													{{Freelancers[4].city}}</strong></li>
+											<li>Rate <strong>$60 / hr</strong></li>
+											<li>Job Success <strong>95%</strong></li>
+										</ul>
+									</div>
+									<a href="single-freelancer-profile.html"
+										class="button button-sliding-icon ripple-effect">View Profile <i
+											class="icon-material-outline-arrow-right-alt"></i></a>
+								</div>
+							</div>
+							<!-- Freelancer / End -->
+
+<!--Freelancer -->
+<div class="freelancer">
+
+  <!-- Overview -->
+  <div class="freelancer-overview">
+    <div class="freelancer-overview-inner">
+
+      <!-- Bookmark Icon -->
+      <span class="bookmark-icon"></span>
+
+      <!-- Avatar -->
+      <div class="freelancer-avatar">
+        <div class="verified-badge"></div>
+        <a href="single-freelancer-profile.html">
+          <img *ngIf="Freelancers[5].image ; else staticImage" src="{{Freelancers[5].image}}" alt="">
+            <ng-template #staticImage>
+            <img 
+            src="../../../../assets/images/photouser.jpg" alt="">
+          </ng-template>
+        </a>
+      </div>
+
+      <!-- Name -->
+      <div class="freelancer-name">
+        <h4><a href="single-freelancer-profile.html">{{Freelancers[5].username}}<img class="flag"
+            src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+        <span>{{Freelancers[5].jobtitle}}</span>
+      </div>
+
+      <!-- Rating -->
+      <div class="freelancer-rating">
+        <div class="star-rating" data-rating="5.0"></div>
       </div>
     </div>
   </div>
 
+  <!-- Details -->
+  <div class="freelancer-details">
+    <div class="freelancer-details-list">
+      <ul>
+        <li>Location <strong><i class="icon-material-outline-location-on"></i>
+            {{Freelancers[5].city}}</strong></li>
+        <li>Rate <strong>$60 / hr</strong></li>
+        <li>Job Success <strong>95%</strong></li>
+      </ul>
+    </div>
+    <a href="single-freelancer-profile.html"
+      class="button button-sliding-icon ripple-effect">View Profile <i
+        class="icon-material-outline-arrow-right-alt"></i></a>
+  </div>
 </div>
+<!-- Freelancer / End -->
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Highest Rated Freelancers / End-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <div *ngIf="Freelancers " class="container">
+<div class="row">
+  <div class="col-xl-12">
+
+    <div class="section-headline margin-top-0 margin-bottom-25">
+      <h3>{{ translate.instant('Highest Rated Freelancers') }}</h3>
+      <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
+        }}</a>
+    </div>
+  </div>
+  <div class="col-xl-12">
+<div  class="default-slick-carousel freelancers-container freelancers-grid-layout">
+          
+      
+            </div>
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+        <!---->
+<section>
+<!-- 
+        <p-carousel [value]="Freelancers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+          <ng-template let-f pTemplate="item">
+                     
+            <div class="freelancer"   > -->
+
+              <!-- Overview -->
+              <!-- <div class="freelancer-overview">
+
+                <div class="freelancer-overview-inner"> -->
+
+                  <!-- Bookmark Icon -->
+                  <!-- <span class="bookmark-icon"></span> -->
+
+                  <!-- Avatar -->
+                  <!-- <div class="freelancer-avatar">
+                    <div class="verified-badge"></div>
+                    <a href="single-freelancer-profile.html"><img src="{{Freelancers[3].image}}" alt=""></a>
+                  </div> -->
+
+                  <!-- Name -->
+                  <!-- <div class="freelancer-name">
+                    <h4><a href="single-freelancer-profile.html"> <img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
+                    </h4>
+                    <span>{{f.username}}</span>
+                  </div> -->
+
+                  <!-- Rating -->
+                  <!-- <div class="freelancer-rating">
+                    <div class="star-rating" data-rating="5"></div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Details -->
+              <!-- <div class="freelancer-details">
+                <div class="freelancer-details-list">
+                  <ul>
+                    <li>{{ translate.instant('Location') }} <strong><i class="icon-material-outline-location-on"></i>
+                        {{Freelancers[3].city}}</strong></li>
+                    <li>{{ translate.instant('Rate') }} <strong>$60 / hr</strong></li>
+                    <li>{{ translate.instant('Job Success') }} <strong>95%</strong></li>
+                  </ul>
+                </div>
+                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">{{
+                  translate.instant('View Profile') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
+              </div>
+            </div>
+          </ng-template>
+      </p-carousel> -->
+    </section>
