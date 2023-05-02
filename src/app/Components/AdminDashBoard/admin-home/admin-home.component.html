@@ -15,7 +15,7 @@
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="dark">
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><a routerLink="/Admin">Home</a></li>
               <li>Dashboard</li>
             </ul>
           </nav>
@@ -95,10 +95,58 @@
               <div class="headline">
                 <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
               </div>
-              <div class="content  d-flex justify-content-center">
+              <div class="content   d-flex justify-content-center">
                 <!-- Chart -->
                 <div class="chart w-50">
                   <p-chart type="pie" [data]="PieCLFL" [options]="PieOptionsCLFL"></p-chart>
+                </div>
+              </div>
+            </div>
+            <!-- Dashboard Box / End -->
+          </div>
+
+          <div class="col-xl-6">
+            <!-- Dashboard Box -->
+            <div class="dashboard-box main-box-in-row">
+              <div class="headline">
+                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+              </div>
+              <div class="content  d-flex justify-content-center">
+                <!-- Chart -->
+                <div class="chart w-100">
+                  <p-chart type="bar" [data]="CatData" [options]="CatOption"></p-chart>
+                </div>
+              </div>
+            </div>
+            <!-- Dashboard Box / End -->
+          </div>
+
+          <div class="col-xl-6">
+            <!-- Dashboard Box -->
+            <div class="dashboard-box main-box-in-row">
+              <div class="headline">
+                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+              </div>
+              <div class="content  d-flex justify-content-center">
+                <!-- Chart -->
+                <div class="chart w-100">
+                  <p-chart type="line" [data]="RankData" [options]="RankOption"></p-chart>
+                </div>
+              </div>
+            </div>
+            <!-- Dashboard Box / End -->
+          </div>
+
+          <div class="col-xl-6">
+            <!-- Dashboard Box -->
+            <div class="dashboard-box main-box-in-row">
+              <div class="headline">
+                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+              </div>
+              <div class="content   d-flex justify-content-center">
+                <!-- Chart -->
+                <div class="chart w-50">
+                  <p-chart type="pie" [data]="PieChart2Data" [options]="PieChart2Ooptions"></p-chart>
                 </div>
               </div>
             </div>
