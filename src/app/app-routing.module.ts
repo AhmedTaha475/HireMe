@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
-      { path: 'FreelancerProfile', component: FreelancerProfileComponent },
+
       { path: 'FreelancerProfile/:id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
