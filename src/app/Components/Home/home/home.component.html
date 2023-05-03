@@ -205,7 +205,7 @@
           <div class="tasks-list-container compact-list margin-top-35">
 
             <!-- Task -->
-            <a href="single-task-page.html" class="task-listing" *ngFor="let p of Projects">
+            <a  class="task-listing" *ngFor="let p of Projects">
 
               <!-- Job Listing Details -->
               <div class="task-listing-details">
@@ -386,7 +386,7 @@
                 <!-- Avatar -->
                 <div class="freelancer-avatar">
                   <div class="verified-badge"></div>
-                  <a href="single-freelancer-profile.html">
+                  <a>
                     <img *ngIf="f.image ; else staticImage" src="{{f.image}}" alt="">
                     <ng-template #staticImage>
                       <img src="../../../../assets/images/photouser.jpg" alt="">
@@ -396,7 +396,7 @@
 
                 <!-- Name -->
                 <div class="freelancer-name">
-                  <h4><a href="single-freelancer-profile.html">{{f.username}}<img class="flag"
+                  <h4><a routerLink="/FreelancerProfile/{{f.id}}">{{f.username}}<img class="flag"
                         src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
                   </h4>
                   <span>{{f.jobtitle}}</span>
@@ -419,7 +419,7 @@
                   <li>Job Success <strong>95%</strong></li>
                 </ul>
               </div>
-              <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">View Profile <i
+              <a routerLink="/FreelancerProfile/{{f.id}}" class="button button-sliding-icon ripple-effect">View Profile <i
                   class="icon-material-outline-arrow-right-alt"></i></a>
             </div>
           </div>
@@ -428,7 +428,7 @@
       </div>
 
       <div class="col-xl-12">
-       
+
 
         </div>
 

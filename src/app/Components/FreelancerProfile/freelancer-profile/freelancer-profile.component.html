@@ -150,8 +150,10 @@
 				</div>
 
 				<!-- Button -->
-				<a routerLink="#small-dialog" class="apply-now-button popup-with-zoom-anim margin-bottom-50">{{ translate.instant('Make an Offer') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
-	<!-- Widget -->
+			<button (click)="openModel()"><a class="apply-now-button popup-with-zoom-anim margin-bottom-50">{{ translate.instant('Make an Offer') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
+      </button>
+
+        <!-- Widget -->
   <!-- <div class="sidebar-widget">
     <h3>Location</h3>
     <div class="freelancer-socials margin-top-25">

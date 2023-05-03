@@ -8,6 +8,9 @@ import { PortfolioService } from 'src/app/Services/Portfolio_Service/portfolio.s
 import { Portfolio } from 'src/app/Models/Portfolio/Portfolio';
 import { GetProjectById } from 'src/app/Models/Project/get-project-by-id';
 import { ProjectService } from 'src/app/Services/project.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MakeOfferComponent } from '../../make-offer/make-offer.component';
+
 
 @Component({
   selector: 'app-freelancer-profile',
@@ -15,16 +18,20 @@ import { ProjectService } from 'src/app/Services/project.service';
   styleUrls: ['./freelancer-profile.component.css']
 })
 export class FreelancerProfileComponent implements OnInit  {
+  modalRef?: BsModalRef;
 id:any;
 myFreelancer:any ;
 ports:Portfolio[]=[] ;
 myPort:any ;
 myProjects:GetProjectById[]=[];
-  constructor(public myActiveRoute:ActivatedRoute , public freelancer:FreelancerService , public translate: TranslateService , public port:PortfolioService , public projects:ProjectService) {
+  constructor(public myActiveRoute:ActivatedRoute,private modalService: BsModalService , public freelancer:FreelancerService , public translate: TranslateService , public port:PortfolioService , public projects:ProjectService) {
     this.id=myActiveRoute.snapshot.params["Id"]
     translate.setDefaultLang('en');
     translate.use('en');
 
+  }
+  openModel(){
+    this.modalRef = this.modalService.show(MakeOfferComponent);
   }
   switchLanguage(language: string) {
     this.translate.use(language);
