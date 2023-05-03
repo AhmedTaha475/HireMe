@@ -58,15 +58,15 @@
         <div class="col-md-12">
           <ul class="intro-stats margin-top-45 hide-under-992px">
             <li>
-              <strong class="counter">1,586</strong>
-              <span>{{ translate.instant('Jobs Posted') }}</span>
+              <strong class="counter">{{clientCount}}</strong>
+              <span>{{ translate.instant('Clients') }}</span>
             </li>
             <li>
-              <strong class="counter">3,543</strong>
+              <strong class="">{{TasksCount}}</strong>
               <span>{{ translate.instant('Tasks Posted') }}</span>
             </li>
             <li>
-              <strong class="counter">1,232</strong>
+              <strong class="">{{FreeLancerCount}}</strong>
               <span>{{ translate.instant('Freelancers') }}</span>
             </li>
           </ul>
@@ -90,84 +90,94 @@
           </div>
         </div>
 
+        <!-- <div class="col-xl-3 col-md-6" *ngFor="let c of PopCat">
+          <a routerLink="/Category/{{c.id}}" class="photo-box small" data-background-image="{{c.image}}">
+            <div class="photo-box-content">
+              <h3>{{ translate.instant('{{c.name}}') }}</h3>
+              <span>{{FreelancersbyCatCount[4]}}</span>
+            </div>
+          </a>
+        </div> -->
+
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/1" class="photo-box small" data-background-image="assets/css/BackgroundImages/4.jpg">
+          <a routerLink="/Category/15" class="photo-box small" data-background-image="assets/css/BackgroundImages/4.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Smith craft men') }}</h3>
-              <span>612</span>
+              <span>{{FreelancersbyCatCount[4]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/5" class="photo-box small" data-background-image="assets/css/BackgroundImages/5.jpg">
+          <a routerLink="/Category/7" class="photo-box small" data-background-image="assets/css/BackgroundImages/5.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Carpenters') }}</h3>
-              <span>113</span>
+              <span>{{FreelancersbyCatCount[0]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/4" class="photo-box small" data-background-image="assets/css/BackgroundImages/6.jpg">
+          <a routerLink="/Category/12" class="photo-box small" data-background-image="assets/css/BackgroundImages/6.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Plumbers') }}</h3>
-              <span>186</span>
+              <span>{{FreelancersbyCatCount[1]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/3" class="photo-box small" data-background-image="assets/css/BackgroundImages/7.jpg">
+          <a routerLink="/Category/13" class="photo-box small" data-background-image="assets/css/BackgroundImages/7.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Painters') }}</h3>
-              <span>298</span>
+              <span>{{FreelancersbyCatCount[2]}}</span>
+
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/2" class="photo-box small" data-background-image="assets/css/BackgroundImages/8.jpg">
+          <a routerLink="/Category/16" class="photo-box small" data-background-image="assets/css/BackgroundImages/8.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Electricians') }}</h3>
-              <span>549</span>
+              <span>{{FreelancersbyCatCount[5]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/1" class="photo-box small" data-background-image="assets/css/BackgroundImages/9.jpg">
+          <a routerLink="/Category/14" class="photo-box small" data-background-image="assets/css/BackgroundImages/9.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Tailors') }}</h3>
-              <span>873</span>
+              <span>{{FreelancersbyCatCount[3]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/7" class="photo-box small"
+          <a routerLink="/Category/17" class="photo-box small"
             data-background-image="assets/css/BackgroundImages/10.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Delivery men') }}</h3>
-              <span>125</span>
+              <span>{{FreelancersbyCatCount[6]}}</span>
             </div>
           </a>
         </div>
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/6" class="photo-box small"
+          <a routerLink="/Category/24" class="photo-box small"
             data-background-image="assets/css/BackgroundImages/11.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Interior designers') }}</h3>
-              <span>445</span>
+              <span>{{FreelancersbyCatCount[7]}}</span>
             </div>
           </a>
         </div>
@@ -205,7 +215,7 @@
                   <h3 class="task-listing-title">{{p.postTitle}}</h3>
                   <ul class="task-icons">
                     <li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-                    <li><i class="icon-material-outline-access-time"></i> 2 minutes ago</li>
+                    <li><i class="icon-material-outline-access-time"></i>{{p.projectPostDate}}</li>
                   </ul>
                   <div class="task-tags margin-top-15">
                     <span>{{p.description}}</span>
@@ -328,8 +338,6 @@
 
   <!-- Highest Rated Freelancers -->
 
-
-
   <div class="col-xl-12" style="visibility: hidden;">
     <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
 
@@ -338,7 +346,7 @@
         <!-- Details -->
         <ul>
           <li>Location <strong><i class="icon-material-outline-location-on"></i>
-              {{Freelancers[0].city}}</strong></li>
+              00</strong></li>
         </ul>
       </div>
 
@@ -361,13 +369,10 @@
           <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
             }}</a>
         </div>
-      </div>
-
-      <div class="col-xl-12">
         <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
 
           <!--Freelancer -->
-          <div class="freelancer" *ngFor="let f of Freelancers">
+          <div class="freelancer" *ngFor="let f of Freelancers" >
 
             <!-- Overview -->
             <div class="freelancer-overview">
@@ -418,6 +423,10 @@
           </div>
           <!-- Freelancer / End -->
         </div>
+      </div>
+
+      <div class="col-xl-12">
+       
 
         </div>
 
