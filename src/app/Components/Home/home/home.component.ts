@@ -13,7 +13,7 @@ import { ClientService } from 'src/app/Services/client.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  Projects: {averagePrice:number,categoryId:number,description:string,id:number,postTitle:string,projectPostDate:string}[] = [];
+  Projects: {averagePrice:number,categoryId:number,description:string,id:number,postTitle:string,projectPostDate:Date}[] = [];
   Freelancers: Freelancer[] = [];
   AllFreeLancers: Freelancer[] = [];
   cat: any;
