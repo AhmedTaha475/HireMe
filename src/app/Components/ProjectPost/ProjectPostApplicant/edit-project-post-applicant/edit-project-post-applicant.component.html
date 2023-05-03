@@ -1,0 +1,5 @@
+<form [formGroup]="createApplicant" (ngSubmit)="confirmAdd()">
+  <input formGroupName="biddingPrice" type="number">
+  <textarea formGroupName="proposal"cols="30" rows="10"></textarea>
+  <input type="submit" value="Add">
+</form>
