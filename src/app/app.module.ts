@@ -113,9 +113,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FreelancerProjectsComponent,
     FreelancerProfileEditComponent,
     TransactionComponent,
-
     MakeOfferComponent,
-
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
 
