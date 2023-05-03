@@ -52,4 +52,7 @@ export class ClientService {
   public DeleteClientById(clientId: string) {
     return this._httpClient.delete(this.Url + `Users/DeleteClient/${clientId}`);
   }
+  public GetClientCount(){
+    return this._httpClient.get(this.Url+'Users/ClientCount');
+  }
 }
