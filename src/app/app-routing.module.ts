@@ -29,10 +29,11 @@ import { FreelancerHomeComponent } from './Components/FreelanserDashBoard/freela
 import { FreelancerProjectsComponent } from './Components/FreelanserDashBoard/freelancer-projects/freelancer-projects.component';
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 import { TransactionComponent } from './Components/FreelanserDashBoard/transaction/transaction.component';
+import { ClientEntryComponent } from './Components/ClientDashBoard/client-entry/client-entry.component';
+import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/client-home.component';
+import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
-
-
 const routes: Routes = [
   {
     path: '',
@@ -46,8 +47,8 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Update', component: UpdateProjectPostComponent },
       { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
-      { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
+      { path: 'ProjectPod', component: ProjectPostComponent },
+      { path: 'ProjectPost/:st/:iid/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
       { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
       { path: 'plan', component: PlanComponent },
       { path: 'checkout/:PlanId', component: CheckoutComponent },
@@ -83,7 +84,14 @@ const routes: Routes = [
       { path: 'Transaction', component: TransactionComponent },
     ],
   },
-
+  {
+    path: 'client',
+    component: ClientEntryComponent,
+    children: [
+      { path: '', component: ClientHomeComponent },
+      { path: 'updateProfile', component: UpdateClientComponent },
+    ],
+  },
   { path: '**', component: Error404Component },
 ];
 

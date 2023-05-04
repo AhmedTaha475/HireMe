@@ -33,7 +33,7 @@ export class FreelancerService {
     return this._httpClient.put(this.Url + 'Users/UpdateFreelancer',data);
   }
 
-  public UpdateClientMoney(UpdateMoney: UpdateFreelancertMoney) {
+  public UpdateFreelancerMoney(UpdateMoney: UpdateFreelancertMoney) {
     return this._httpClient.put(this.Url + 'Users/UpdateFreelancerMoney',UpdateMoney);
   }
 
@@ -43,5 +43,11 @@ export class FreelancerService {
 
   public DeleteFreelancerById(clientId: string) {
     return this._httpClient.delete(this.Url + `Users/DeleteFreelancer/${clientId}`);
+  }
+  public GetFreelancersByCatId(CatId:number){
+    return this._httpClient.get(this.Url+"Users/GetFreelancersByCatId/"+CatId);
+  }
+  public GetCounts(ids:any){
+    return this._httpClient.post(this.Url+"Users/GetFreelancersCountsByCatIds",ids);
   }
 }

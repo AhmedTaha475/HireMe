@@ -150,7 +150,7 @@
 				</div>
 
 				<!-- Button -->
-			<button (click)="openModel()"><a class="apply-now-button popup-with-zoom-anim margin-bottom-50">{{ translate.instant('Make an Offer') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
+			<button *ngIf="role=='Client' " (click)="openModel()"><a class="apply-now-button popup-with-zoom-anim margin-bottom-50">{{ translate.instant('Make an Offer') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
       </button>
 
         <!-- Widget -->
@@ -260,12 +260,6 @@
 </div>
 <!-- Wrapper / End -->
 
-
-<!-- Make an Offer Popup
-================================================== -->
-
-
-<!-- Make an Offer Popup / End -->
 
 
 

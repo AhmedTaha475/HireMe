@@ -14,4 +14,7 @@ export class MyServiseService {
   CreateClient(User: any) {
     return this.client.post(this.Url + 'Users/RegisterClient', User);
   }
+  changePassword(PasswordObject: any) {
+    return this.client.post(this.Url + 'Users/ChangePassword', PasswordObject);
+  }
 }

@@ -47,7 +47,7 @@ export class CheckoutComponent implements OnInit {
       next: (data) => {
         this.plan = data;
         this.PaymentAmount = this.plan.price;
-        console.log(this.PaymentAmount);
+        console.log(data);
       },
       error: () => {},
     });
@@ -115,10 +115,13 @@ export class CheckoutComponent implements OnInit {
             details
           );
           this.CurrentFreelancer.planId = this.plan.id;
+          this.CurrentFreelancer.bids = this.plan.bids;
+          
           let myData = new FormData();
           myData.append('id', this.CurrentFreelancer.id);
           this.Freelancer.UpdateFreelancer(myData);
           console.log(this.CurrentFreelancer);
+          console.log("ddjnjfe")
 
           this.element = document.getElementById('Success');
           this.element.innerHTML += 'Your Payment Had Succeded...Enjoy';
