@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UpdateFreelancertMoney } from 'src/app/Models/Freelancer/update-freelancert-money';
 import { CreatePPApplicant } from 'src/app/Models/ProjecetPostApplicant/create-ppapplicant';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { ProjectPostApplicantsService } from 'src/app/Services/project-post-applicants.service';
@@ -22,27 +23,32 @@ export class CreateProjectPostApplicantComponent implements OnInit {
       Validators.required,
       Validators.minLength(3)
     ]),
-    
+
   })
   constructor(
     private myRoute:ActivatedRoute,
     private myRouter: Router,
     private applicantService:ProjectPostApplicantsService,
-    private freelancerService: FreelancerService
+    private freelancerService: FreelancerService,
     ){
     this.projectPostId = myRoute.snapshot.params["id"];
   }
   ngOnInit(): void {
     this.freelancerService.GetCurrentFreelancer().subscribe({
-      next:(data)=>{
-        this.freelancer = data;
-        this.freelancerId = this.freelancer.body.id;
+      next:(data:any)=>{
+        this.freelancer = data.body;
+        this.freelancerId = this.freelancer.id;
         console.log(this.freelancerId.body.id);
       },
       error:(err)=>{}
     });
   }
   confirmAdd(){
+    console.log(this.freelancer.bids);
+    if (this.freelancer.bids <=0)
+    {
+      this.myRouter.navigateByUrl('/plan');
+    }
     let applicantData = new CreatePPApplicant(
       this.projectPostId,
       Number(this.createApplicant.get('biddingPrice')?.value) || 0,
@@ -55,10 +61,18 @@ export class CreateProjectPostApplicantComponent implements OnInit {
     {
       this.applicantService.CreateProjectPostApplicant(applicantData).subscribe({
         next:(data)=>{
-          console.log(data);
-          //this.myRouter.navigateByUrl('/')
+          this.freelancerService.UpdateFreelancerMoney(new UpdateFreelancertMoney(
+            null,-1,null,null,null
+          )).subscribe({
+            next:(data)=>{
+              this.myRouter.navigateByUrl('/ProjectPost/'+this.projectPostId)
+            },
+            error:(err)=>{
+              console.log(err)
+            }
+          })
         },
-        error:(err)=>{}
+        error:(err)=>{console.log(err)}
       });
     }
   }
