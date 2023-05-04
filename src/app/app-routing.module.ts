@@ -32,7 +32,8 @@ import { TransactionComponent } from './Components/FreelanserDashBoard/transacti
 import { ClientEntryComponent } from './Components/ClientDashBoard/client-entry/client-entry.component';
 import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/client-home.component';
 import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
-
+import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
+import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
 const routes: Routes = [
   {
     path: '',
@@ -47,6 +48,8 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
+      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
+      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
       { path: 'plan', component: PlanComponent },
       { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },

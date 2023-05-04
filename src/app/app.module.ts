@@ -6,6 +6,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import{ModalModule} from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
 import {
@@ -67,6 +68,12 @@ import { ClientEntryComponent } from './Components/ClientDashBoard/client-entry/
 import { TransactionComponent } from './Components/FreelanserDashBoard/transaction/transaction.component';
 import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
 
+import { MakeOfferComponent } from './Components/make-offer/make-offer.component';
+
+import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
+import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -116,6 +123,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientEntryComponent,
     TransactionComponent,
     UpdateClientComponent,
+    MakeOfferComponent,
+    CreateProjectPostApplicantComponent,
+    EditProjectPostApplicantComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,6 +147,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartModule,
     BrowserAnimationsModule,
     MessagesModule,
+    ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
