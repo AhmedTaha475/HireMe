@@ -11207,7 +11207,7 @@ body.gray .dashboard-content-container .simplebar-scrollbar:hover:before {
 }
 
 .mfp-hide {
-  display: none !important;
+  display: block !important;
 }
 
 .mfp-preloader {

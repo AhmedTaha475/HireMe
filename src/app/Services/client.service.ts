@@ -31,11 +31,7 @@ export class ClientService {
   }
 
   public UpdateClient(data: FormData) {
-    return this._httpClient.put(
-      this.Url + 'Users/UpdateClient',
-      data,
-      this.options
-    );
+    return this._httpClient.put(this.Url + 'Users/UpdateClient', data);
   }
 
   public UpdateClientMoney(UpdateMoney: UpdateClientMoney) {
@@ -52,7 +48,7 @@ export class ClientService {
   public DeleteClientById(clientId: string) {
     return this._httpClient.delete(this.Url + `Users/DeleteClient/${clientId}`);
   }
-  public GetClientCount(){
-    return this._httpClient.get(this.Url+'Users/ClientCount');
+  public GetClientCount() {
+    return this._httpClient.get(this.Url + 'Users/ClientCount');
   }
 }
