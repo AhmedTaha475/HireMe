@@ -6,9 +6,9 @@
 	<!--Tabs -->
 	<div class="sign-in-form">
 
-		<ul class="popup-tabs-nav">
+		<!-- <ul class="popup-tabs-nav">
 			<li><a routerLink="">Make an Offer</a></li>
-		</ul>
+		</ul> -->
 
 		<div class="popup-tabs-container">
 
@@ -17,7 +17,7 @@
 
 				<!-- Welcome Text -->
 				<div class="welcome-text">
-					<h3>Discuss your project with David</h3>
+					<h3>Discuss your project with {{freelancerName}}</h3>
 				</div>
 
 				<!-- Form -->
@@ -25,26 +25,26 @@
 
 					<div class="input-with-icon-left">
 						<i class="icon-material-outline-account-circle"></i>
-						<input type="text" class="input-text with-border" name="name" id="name" placeholder="First and Last Name"/>
+						<input #name type="text" class="input-text with-border" name="name" id="name" placeholder="First and Last Name"/>
 					</div>
 
 					<div class="input-with-icon-left">
 						<i class="icon-material-baseline-mail-outline"></i>
-						<input type="text" class="input-text with-border" name="emailaddress" id="emailaddress" placeholder="Email Address"/>
+						<input #email type="text" class="input-text with-border" name="emailaddress" id="emailaddress" placeholder="Email Address"/>
 					</div>
 
-					<textarea name="textarea" cols="10" placeholder="Message" class="with-border"></textarea>
+					<textarea #msg name="textarea" cols="10" placeholder="Message" class="with-border"></textarea>
 
-					<div class="uploadButton margin-top-25">
+					<!-- <div class="uploadButton margin-top-25">
 						<input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload" multiple/>
 						<label class="uploadButton-button ripple-effect" for="upload">Add Attachments</label>
 						<span class="uploadButton-file-name">Allowed file types: zip, pdf, png, jpg <br> Max. files size: 50 MB.</span>
-					</div>
+					</div> -->
 
 				</form>
 
 				<!-- Button -->
-				<button class="button margin-top-35 full-width button-sliding-icon ripple-effect" type="submit">Make an Offer <i class="icon-material-outline-arrow-right-alt"></i></button>
+				<button (click)="addOffer(name.value,email.value,msg.value)" class="button margin-top-35 full-width button-sliding-icon ripple-effect" type="submit">Make an Offer <i class="icon-material-outline-arrow-right-alt"></i></button>
 
 			</div>
 			<!-- Login -->
