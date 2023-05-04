@@ -25,18 +25,16 @@ export class FreelancersByCategoryComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.myService.GetAllFreelancers().subscribe({
+    this.myService.GetFreelancersByCatId(this.CatId).subscribe({
       next: (data: any) => {
-        // console.log(data.body[0])
-        for (let i = 0; i < data.body.length; i++) {        
-          if (data.body[i].categoryId == this.CatId) {
-            var freelancerTemp = data.body[i];
-            freelancerTemp.image= StaticHelper.ConvertByteArrayToImage(data.body[i].image) ;
-            freelancerTemp.cv = StaticHelper.ConvertByteArrayToPdf(data.body[i].cv);
-this.Freelancers.push(freelancerTemp);
-          }
-        }
-        console.log(this.Freelancers);
+            var freelancerTemp = data; 
+            for(let i=0;i<freelancerTemp.length;i++){
+              freelancerTemp[i].image= StaticHelper.ConvertByteArrayToImage(data[i].image) ;
+              freelancerTemp[i].cv = StaticHelper.ConvertByteArrayToPdf(data[i].cv);
+            }
+
+        console.log(freelancerTemp)   
+        this.Freelancers=freelancerTemp;
       },
       error: (error) => {
 
