@@ -58,7 +58,7 @@
         <div class="col-md-12">
           <ul class="intro-stats margin-top-45 hide-under-992px">
             <li>
-              <strong class="counter">{{clientCount}}</strong>
+              <strong class="">{{clientCount}}</strong>
               <span>{{ translate.instant('Clients') }}</span>
             </li>
             <li>
@@ -219,11 +219,11 @@
                 <div class="task-listing-description">
                   <h3 class="task-listing-title">{{p.postTitle}}</h3>
                   <ul class="task-icons">
-                    <li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-                    <li><i class="icon-material-outline-access-time"></i>{{p.projectPostDate}}</li>
+                    <li><i class="icon-material-outline-location-on"></i> {{p.location}}</li>
+                    <li><i class="icon-material-outline-access-time"></i>{{p.projectPostDate | date:'yyyy-MM-dd'}}</li>
                   </ul>
                   <div class="task-tags margin-top-15">
-                    <span>{{p.description}}</span>
+                    <span>{{p.category_name}}</span>
 
                   </div>
                 </div>
@@ -233,7 +233,7 @@
               <div class="task-listing-bid">
                 <div class="task-listing-bid-inner">
                   <div class="task-offers">
-                    <strong>{{p.averagePrice}} - {{p.averagePrice+50}} EGP</strong>
+                    <strong>{{p.averagePrice}} - {{p.averagePrice+500}} EGP</strong>
                     <span>Fixed Price</span>
                   </div>
                   <span class="button button-sliding-icon ripple-effect">{{ translate.instant('Bid Now') }} <i
