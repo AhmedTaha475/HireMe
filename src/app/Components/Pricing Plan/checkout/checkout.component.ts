@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { UpdateFreelancertMoney } from 'src/app/Models/Freelancer/update-freelancert-money';
 import { CreateTransaction } from 'src/app/Models/Transaction/Create-Transaction';
 import { PlanService } from 'src/app/Services/Plan_Service/plan.service';
 import { TransactionService } from 'src/app/Services/Transaction_Service/transaction.service';
@@ -117,12 +118,14 @@ export class CheckoutComponent implements OnInit {
           this.CurrentFreelancer.planId = this.plan.id;
           this.CurrentFreelancer.bids = this.plan.bids;
           
-          let myData = new FormData();
-          myData.append('id', this.CurrentFreelancer.id);
-          this.Freelancer.UpdateFreelancer(myData);
+          let myData = new UpdateFreelancertMoney(null,
+            this.CurrentFreelancer.bids,null,this.CurrentFreelancer.planId
+            ,null);
+          // myData.append('id', this.CurrentFreelancer.id);
+          this.Freelancer.UpdateFreelancerMoney(myData).subscribe({
+            next:()=>{}
+          })
           console.log(this.CurrentFreelancer);
-          console.log("ddjnjfe")
-
           this.element = document.getElementById('Success');
           this.element.innerHTML += 'Your Payment Had Succeded...Enjoy';
           this.element.classList.add('alert');
