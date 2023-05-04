@@ -80,7 +80,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ProjectPostComponent,
     HeaderComponent,
-    CreateProjectPostComponent,
     FooterComponent,
     HomeComponent,
     SingupComponent,

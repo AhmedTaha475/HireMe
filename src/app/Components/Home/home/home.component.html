@@ -205,7 +205,7 @@
           <div class="tasks-list-container compact-list margin-top-35">
 
             <!-- Task -->
-            <a  class="task-listing" *ngFor="let p of Projects">
+            <a  class="task-listing" *ngFor="let p of Projects" routerLink="ProjectPost/{{p.id}}">
 
               <!-- Job Listing Details -->
               <div class="task-listing-details">
