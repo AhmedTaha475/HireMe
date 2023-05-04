@@ -41,11 +41,7 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { JQueryLoaderDirective } from './CustomDirectives/j-query-loader.directive';
-
 import { PaginatorComponent } from './Components/paginator/paginator.component';
-
-
-
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
@@ -62,7 +58,14 @@ import { FreelancerProfileDashboardComponent } from './Components/FreelanserDash
 import { FreelancerProfileEditComponent } from './Components/FreelanserDashBoard/freelancer-profile-edit/freelancer-profile-edit.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { RouterModule } from '@angular/router';
+import { ConvertToImagePipe } from './CustomPipes/convert-to-image.pipe';
+import { ConvertToPdfPipe } from './CustomPipes/convert-to-pdf.pipe';
+import { ClientHeaderComponent } from './Components/ClientDashBoard/client-header/client-header.component';
+import { ClientSideBarComponent } from './Components/ClientDashBoard/client-side-bar/client-side-bar.component';
+import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/client-home.component';
+import { ClientEntryComponent } from './Components/ClientDashBoard/client-entry/client-entry.component';
 import { TransactionComponent } from './Components/FreelanserDashBoard/transaction/transaction.component';
+import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -70,6 +73,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
+    ConvertToImagePipe,
+    ConvertToPdfPipe,
     AppComponent,
     ProjectPostComponent,
     HeaderComponent,
@@ -105,7 +110,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     FreelancerHomeComponent,
     FreelancerProjectsComponent,
     FreelancerProfileEditComponent,
+    ClientHeaderComponent,
+    ClientSideBarComponent,
+    ClientHomeComponent,
+    ClientEntryComponent,
     TransactionComponent,
+    UpdateClientComponent,
   ],
   imports: [
     BrowserModule,

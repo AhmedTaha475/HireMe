@@ -6,20 +6,22 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
+  styleUrls: ['./transaction.component.css'],
 })
 export class TransactionComponent implements OnInit {
-  constructor(public MyTransactionservice:TransactionService,public myActiveRoute:ActivatedRoute,
-    public freelancer:FreelancerService,)
-    {
-      
-    }
-  transaction:any;
-  
+  constructor(
+    public MyTransactionservice: TransactionService,
+    public myActiveRoute: ActivatedRoute,
+    public freelancer: FreelancerService
+  ) {}
+  transaction: any;
+
   ngOnInit(): void {
     this.MyTransactionservice.GetAllTranscationsByUserId().subscribe({
-      next:(data:any)=>{this.transaction=data},
-      error:()=>{}
-    })
-}
+      next: (data: any) => {
+        this.transaction = data;
+      },
+      error: () => {},
+    });
+  }
 }

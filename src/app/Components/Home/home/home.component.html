@@ -101,7 +101,8 @@
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/15" class="photo-box small" data-background-image="assets/css/BackgroundImages/4.jpg">
+          <a routerLink="/Category/15" class="photo-box small"
+            data-background-image="assets/css/BackgroundImages/4.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Smith craft men') }}</h3>
               <span>{{FreelancersbyCatCount[4]}}</span>
@@ -121,7 +122,8 @@
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/12" class="photo-box small" data-background-image="assets/css/BackgroundImages/6.jpg">
+          <a routerLink="/Category/12" class="photo-box small"
+            data-background-image="assets/css/BackgroundImages/6.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Plumbers') }}</h3>
               <span>{{FreelancersbyCatCount[1]}}</span>
@@ -131,7 +133,8 @@
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/13" class="photo-box small" data-background-image="assets/css/BackgroundImages/7.jpg">
+          <a routerLink="/Category/13" class="photo-box small"
+            data-background-image="assets/css/BackgroundImages/7.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Painters') }}</h3>
               <span>{{FreelancersbyCatCount[2]}}</span>
@@ -142,7 +145,8 @@
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/16" class="photo-box small" data-background-image="assets/css/BackgroundImages/8.jpg">
+          <a routerLink="/Category/16" class="photo-box small"
+            data-background-image="assets/css/BackgroundImages/8.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Electricians') }}</h3>
               <span>{{FreelancersbyCatCount[5]}}</span>
@@ -152,7 +156,8 @@
 
         <div class="col-xl-3 col-md-6">
           <!-- Photo Box -->
-          <a routerLink="/Category/14" class="photo-box small" data-background-image="assets/css/BackgroundImages/9.jpg">
+          <a routerLink="/Category/14" class="photo-box small"
+            data-background-image="assets/css/BackgroundImages/9.jpg">
             <div class="photo-box-content">
               <h3>{{ translate.instant('Tailors') }}</h3>
               <span>{{FreelancersbyCatCount[3]}}</span>
@@ -360,75 +365,75 @@
   <!-- Highest Rated Freelancers / End-->
 
 
-<div style="background-color:#f9f9f9;">
-  <div class="container">
-    <div class="row">
+  <div style="background-color:#f9f9f9;">
+    <div class="container">
+      <div class="row">
 
-      <div class="col-xl-12">
-        <!-- Section Headline -->
-        <div class="section-headline margin-top-0 margin-bottom-25">
-          <h3 style="padding-top: 50px;">{{ translate.instant('Highest Rated Freelancers') }}</h3>
-          <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
-            }}</a>
-        </div>
-        <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
-
-          <!--Freelancer -->
-          <div class="freelancer" *ngFor="let f of Freelancers" >
-
-            <!-- Overview -->
-            <div class="freelancer-overview">
-              <div class="freelancer-overview-inner">
-
-                <!-- Bookmark Icon -->
-                <span class="bookmark-icon"></span>
-
-                <!-- Avatar -->
-                <div class="freelancer-avatar">
-                  <div class="verified-badge"></div>
-                  <a href="single-freelancer-profile.html">
-                    <img *ngIf="f.image ; else staticImage" src="{{f.image}}" alt="">
-                    <ng-template #staticImage>
-                      <img src="../../../../assets/images/photouser.jpg" alt="">
-                    </ng-template>
-                  </a>
-                </div>
-
-                <!-- Name -->
-                <div class="freelancer-name">
-                  <h4><a href="single-freelancer-profile.html">{{f.username}}<img class="flag"
-                        src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
-                  </h4>
-                  <span>{{f.jobtitle}}</span>
-                </div>
-
-                <!-- Rating -->
-                <div class="freelancer-rating">
-                  <div class="star-rating" data-rating="5.0"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Details -->
-            <div class="freelancer-details">
-              <div class="freelancer-details-list">
-                <ul>
-                  <li>Location <strong><i class="icon-material-outline-location-on"></i>
-                      {{f.city}}</strong></li>
-                  <li>Rate <strong>$60 / hr</strong></li>
-                  <li>Job Success <strong>95%</strong></li>
-                </ul>
-              </div>
-              <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">View Profile <i
-                  class="icon-material-outline-arrow-right-alt"></i></a>
-            </div>
+        <div class="col-xl-12">
+          <!-- Section Headline -->
+          <div class="section-headline margin-top-0 margin-bottom-25">
+            <h3 style="padding-top: 50px;">{{ translate.instant('Highest Rated Freelancers') }}</h3>
+            <a href="freelancers-grid-layout.html" class="headline-link">{{ translate.instant('Browse All Freelancers')
+              }}</a>
           </div>
-          <!-- Freelancer / End -->
-        </div>
-      </div>
+          <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
 
-      <div class="col-xl-12">
-       
+            <!--Freelancer -->
+            <div class="freelancer" *ngFor="let f of Freelancers">
+
+              <!-- Overview -->
+              <div class="freelancer-overview">
+                <div class="freelancer-overview-inner">
+
+                  <!-- Bookmark Icon -->
+                  <span class="bookmark-icon"></span>
+
+                  <!-- Avatar -->
+                  <div class="freelancer-avatar">
+                    <div class="verified-badge"></div>
+                    <a href="single-freelancer-profile.html">
+                      <img *ngIf="f.image ; else staticImage" src="{{f.image}}" alt="">
+                      <ng-template #staticImage>
+                        <img src="../../../../assets/images/photouser.jpg" alt="">
+                      </ng-template>
+                    </a>
+                  </div>
+
+                  <!-- Name -->
+                  <div class="freelancer-name">
+                    <h4><a href="single-freelancer-profile.html">{{f.username}}<img class="flag"
+                          src="assets/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a>
+                    </h4>
+                    <span>{{f.jobtitle}}</span>
+                  </div>
+
+                  <!-- Rating -->
+                  <div class="freelancer-rating">
+                    <div class="star-rating" data-rating="5.0"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Details -->
+              <div class="freelancer-details">
+                <div class="freelancer-details-list">
+                  <ul>
+                    <li>Location <strong><i class="icon-material-outline-location-on"></i>
+                        {{f.city}}</strong></li>
+                    <li>Rate <strong>$60 / hr</strong></li>
+                    <li>Job Success <strong>95%</strong></li>
+                  </ul>
+                </div>
+                <a href="single-freelancer-profile.html" class="button button-sliding-icon ripple-effect">View Profile
+                  <i class="icon-material-outline-arrow-right-alt"></i></a>
+              </div>
+            </div>
+            <!-- Freelancer / End -->
+          </div>
+        </div>
+
+        <div class="col-xl-12">
+
 
         </div>
 
@@ -436,8 +441,3 @@
     </div>
   </div>
   <!-- Highest Rated Freelancers / End-->
-
-
-
-
-
