@@ -58,7 +58,7 @@ export class CreateProjectPostApplicantComponent implements OnInit {
           console.log(data);
           //this.myRouter.navigateByUrl('/')
         },
-        error:(err)=>{}
+        error:(err)=>{console.log(err.error)}
       });
     }
   }
