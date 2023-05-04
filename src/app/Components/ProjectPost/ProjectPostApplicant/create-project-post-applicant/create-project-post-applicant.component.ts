@@ -72,7 +72,7 @@ export class CreateProjectPostApplicantComponent implements OnInit {
             }
           })
         },
-        error:(err)=>{console.log(err)}
+        error:(err)=>{console.log(err.error)}
       });
     }
   }
