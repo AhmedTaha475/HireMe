@@ -16,6 +16,9 @@ export class ProjectPostComponent implements OnInit {
   projectPost2:any;
   applicant:any;
   applicantAllData:any;
+  freelancer:any;
+  freelancerId:any;
+  applied:any
   constructor(
     private myActivated:ActivatedRoute,
     private projectPostService:ProjectPostService,
@@ -25,6 +28,16 @@ export class ProjectPostComponent implements OnInit {
     console.log(myActivated);
   }
   ngOnInit(): void {
+    //#region  Get Current Freelancer
+      this.freelancerService.GetCurrentFreelancer().subscribe({
+        next:(data:any)=>{
+          this.freelancer = data.body;
+          this.freelancerId = this.freelancer.id;
+          console.log(this.freelancerId)
+        },
+        error:(err)=>{}
+      })
+    //#endregion
     this.projectPostService.GetProjectPostWithApplicants(this.projectPostId).subscribe({
       next:(data)=>{
         this.projectPost2 = data;
@@ -36,7 +49,52 @@ export class ProjectPostComponent implements OnInit {
           this.projectPost2.categoryId,
           this.projectPost2.projectPostApplicants
           );
-          
+          //#region  application applying button
+          for (let i =0; i<this.projectPost.projectPostApplicants.length;i++){
+              if (this.projectPost.projectPostApplicants[i].freelancerId == this.freelancerId){
+                this.applied = true;
+                const applyBtn = document.getElementById('applyBtn');
+                // Set the href attribute
+                if (applyBtn) {
+                  applyBtn.setAttribute('href', '/ProjectPost/'+this.projectPostId+'/ProjectPostApplicant/Update');
+                  applyBtn.textContent = 'Update Application';
+                }
+                break;
+              }
+              else{
+                console.log("not applied")
+                const applyBtn = document.getElementById('applyBtn');
+                // Set the href attribute
+                if (applyBtn) {
+                  applyBtn.setAttribute('href', '/ProjectPost/'+this.projectPostId+'/ProjectPostApplicant/Create');
+                  applyBtn.textContent = 'Apply Now';
+                }
+              }
+          }
+          // this.projectPost.projectPostApplicants.forEach((applicant:any) => {
+          //   console.log(applicant.freelancerId)
+          //   console.log(this.freelancerId)
+
+          //   if (applicant.freelancerId == this.freelancerId)
+          //   {
+          //     const applyBtn = document.getElementById('applyBtn');
+          //     // Set the href attribute
+          //     if (applyBtn) {
+          //       applyBtn.setAttribute('href', '/ProjectPost/'+this.projectPostId+'/ProjectPostApplicant/Update');
+          //       applyBtn.textContent = 'Update Application';
+          //     }
+          //     return;
+          //   }
+          //   else{
+          //     const applyBtn = document.getElementById('applyBtn');
+          //     // Set the href attribute
+          //     if (applyBtn) {
+          //       applyBtn.setAttribute('href', '/ProjectPost/'+this.projectPostId+'/ProjectPostApplicant/Create');
+          //       applyBtn.textContent = 'Apply Now';
+          //     }
+          //   }
+          // })
+          //#endregion
           this.projectPost.projectPostApplicants.forEach((applicant:any) => {
             this.freelancerService.GetFreelancerById(applicant.freelancerId).subscribe({
               next:(data:any)=>{

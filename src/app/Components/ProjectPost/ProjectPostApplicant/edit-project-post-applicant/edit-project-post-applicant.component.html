@@ -1,5 +1,18 @@
-<form [formGroup]="createApplicant" (ngSubmit)="confirmAdd()">
-  <input formGroupName="biddingPrice" type="number">
-  <textarea formGroupName="proposal"cols="30" rows="10"></textarea>
-  <input type="submit" value="Add">
+
+<form [formGroup]="updateApplicant" (ngSubmit)="confirmUpdate()">
+  <div class="row margin-top-50">
+    <div class="col-xl-3">
+      <div class="submit-field">
+        <h5>Bidding Price</h5>
+        <input formControlName="biddingPrice" type="number"class="with-border">
+      </div>
+    </div>
+    <div class="col-xl-9">
+      <div class="submit-field">
+        <h5>Proposal</h5>
+        <textarea formControlName="proposal"cols="30" rows="10" placeholder="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, cum. Laborum nobis at modi maiores repellendus, aspernatur adipisci consectetur quidem optio culpa ratione laboriosam velit odit! Officiis eveniet aliquid deleniti."></textarea>
+        <input type="submit"class="button ripple-effect big" value="Update Application">
+      </div>
+    </div>
+  </div>
 </form>
