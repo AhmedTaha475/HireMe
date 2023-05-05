@@ -10,6 +10,7 @@ import { GetProjectById } from 'src/app/Models/Project/get-project-by-id';
 import { ProjectService } from 'src/app/Services/project.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { MakeOfferComponent } from '../../make-offer/make-offer.component';
+import { AuthService } from 'src/app/Services/auth.service';
 
 
 @Component({
@@ -24,7 +25,9 @@ myFreelancer:any ;
 ports:Portfolio[]=[] ;
 myPort:any ;
 myProjects:GetProjectById[]=[];
-  constructor(public myActiveRoute:ActivatedRoute,private modalService: BsModalService , public freelancer:FreelancerService , public translate: TranslateService , public port:PortfolioService , public projects:ProjectService) {
+role:any;
+
+  constructor(public myActiveRoute:ActivatedRoute ,public user :AuthService  ,private modalService: BsModalService , public freelancer:FreelancerService , public translate: TranslateService , public port:PortfolioService , public projects:ProjectService) {
     this.id=myActiveRoute.snapshot.params["Id"]
     translate.setDefaultLang('en');
     translate.use('en');
@@ -37,6 +40,10 @@ myProjects:GetProjectById[]=[];
     this.translate.use(language);
   }
   ngOnInit(): void {
+    this.role=  this.user.getRoles()
+    console.log("++++++++++");
+    console.log(this.role);
+    console.log("++++++++++");
 this.port.GetAllPortfolio().subscribe(
   {
 
@@ -49,7 +56,7 @@ this.ports.push(new Portfolio(element.portId,element.freelancerId))
 // console.log(this.ports);
    this.freelancer.GetFreelancerById(this.id).subscribe({
     next:(data:any)=>{this.myFreelancer=data.body;
-      console.log(data.body);
+      console.log(this.myFreelancer);
       this.myFreelancer.cv=StaticHelper.ConvertByteArrayToPdf(data.body.cv);
       this.myFreelancer.image=StaticHelper.ConvertByteArrayToImage(data.body.image);
       this.myPort = this.ports.filter(p=>p.freelancerId==this.myFreelancer.id)[0] ;
@@ -61,14 +68,20 @@ this.ports.push(new Portfolio(element.portId,element.freelancerId))
         next:(mydata:any)=>{mydata.forEach((element:any) => {
 this.myProjects.push(new GetProjectById(element.p_id,element.title,element.description,new Date(element.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }),element.systemproject,element.moneyearned))
   });
-console.log(this.myProjects);
+// console.log(this.myProjects);
 
 }
-        }
-      );
-      },
-    error:(err)=>{console.log(err)}
-   })
+
   }
+
+
+
+        );
+      },
+    error:(err)=>{}
+   })
+
+  }
+
 }
 
