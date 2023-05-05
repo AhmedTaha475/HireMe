@@ -75,6 +75,11 @@ import { EditProjectPostApplicantComponent } from './Components/ProjectPost/Proj
 import { DashboardsfooterComponent } from './Components/ClientDashBoard/dashboardsfooter/dashboardsfooter.component';
 import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
 
+import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
+
+import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -87,7 +92,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ProjectPostComponent,
     HeaderComponent,
-    CreateProjectPostComponent,
     FooterComponent,
     HomeComponent,
     SingupComponent,
@@ -128,8 +132,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     MakeOfferComponent,
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
+
     DashboardsfooterComponent,
     ManagaProjectPostsComponent,
+    AllTasksComponent,
+    OffersComponent,
   ],
   imports: [
     BrowserModule,
