@@ -1,0 +1,120 @@
+<div appJQueryLoader></div>
+
+<div class="dashboard-container">
+  <app-client-side-bar></app-client-side-bar>
+  <div class="dashboard-content-container" data-simplebar>
+    <div class="dashboard-content-inner">
+      <!-- Dashboard Headline -->
+      <div class="dashboard-headline">
+        <h3 class="text-primary">Welcome back {{CurrentClient?.firstname??''}} !</h3>
+
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs" class="dark">
+          <ul>
+            <li><a routerLink="/Home">Home</a></li>
+            <li><a routerLink="/client">Dashboard</a></li>
+            <li>Home</li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Row -->
+      <div class="row">
+        <!-- Dashboard Box -->
+        <div class="col-xl-12">
+          <div class="dashboard-box margin-top-0">
+            <!-- Headline -->
+            <div class="headline">
+              <h3>
+                <i class="icon-material-outline-account-circle"></i> My Account
+              </h3>
+            </div>
+
+            <!-- Fun Facts Container -->
+            <div class="fun-facts-container">
+              <div class="fun-fact" data-fun-fact-color="Red">
+                <div class="fun-fact-text">
+                  <img width="125" height="125"
+                    src="{{CurrentClient?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'}}"
+                    alt="" />
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-add-a-photo"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                <div class="fun-fact-text">
+                  <span>Full Name</span>
+                  <h2>{{ CurrentClient?.firstname??'' }} {{CurrentClient?.lastname??''}}</h2>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-feather-user-check"></i>
+                </div>
+              </div>
+
+              <!-- Last one has to be hidden below 1600px, sorry :( -->
+              <div class="fun-fact" data-fun-fact-color="#2a41e6">
+                <div class="fun-fact-text">
+                  <span>Email</span>
+                  <h2>{{ CurrentClient?.email??'' }}</h2>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-email"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fun Facts Container -->
+            <div class="fun-facts-container" style="margin-top: 30px; margin-bottom: 20px">
+              <div class="fun-fact" data-fun-fact-color="#36bd78">
+                <div class="fun-fact-text">
+                  <span>Location</span>
+                  <h3>{{CurrentClient?.country??''}}/{{ CurrentClient?.city??'' }}/{{CurrentClient?.street??''}}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-location-on"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                <div class="fun-fact-text">
+                  <span>Balance</span>
+                  <!-- <h2 *ngIf="CurrentClient.balance == null">no balance</h2> -->
+                  <h2>{{ CurrentClient?.balance??'0' }}</h2>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-feather-dollar-sign"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#efa80f">
+                <div class="fun-fact-text">
+                  <span>Total money spent</span>
+                  <h2>{{ CurrentClient?.totalMoneySpent??'0' }}</h2>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-feather-dollar-sign"></i>
+                </div>
+              </div>
+
+              <!-- Last one has to be hidden below 1600px, sorry :( -->
+              <div class="fun-fact" data-fun-fact-color="#2a41e6">
+                <div class="fun-fact-text">
+                  <span>Phone number</span>
+                  <h2>{{ CurrentClient?.phonenumber??'' }}</h2>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-line-awesome-mobile"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- Row / End -->
+      <app-dashboardsfooter></app-dashboardsfooter>
+
+    </div>
+  </div>
+
+</div>
