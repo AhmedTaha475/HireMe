@@ -34,7 +34,11 @@ import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/cl
 import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
+
+import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
+
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -56,7 +60,7 @@ const routes: Routes = [
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
-
+      { path: 'AllTasks', component: AllTasksComponent },
       { path: 'FreelancerProfile/:Id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
