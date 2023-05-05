@@ -13,6 +13,7 @@ export class OffersComponent implements OnInit {
 constructor(public Freelancer:FreelancerService,public offerservice:OfferService){
 
 }
+reject=false;
   ngOnInit(): void {
     this.Freelancer.GetCurrentFreelancer().subscribe({
       next:(data:any)=>{this.CurrenFreelancer=data.body.id;console.log(this.CurrenFreelancer);
@@ -25,6 +26,9 @@ constructor(public Freelancer:FreelancerService,public offerservice:OfferService
     })
     
   }
+refuse(id:any){
+this.offerservice.DeleteOffer(id).subscribe(
+  {next:(data:any)=>{console.log(data)},//forbiden
+error:()=>{}})
 
-
-}
+}}

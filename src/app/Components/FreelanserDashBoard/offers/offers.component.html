@@ -47,13 +47,18 @@
                                                 <div class="job-listing-details">        
                                                     <!-- Details -->
                                                     <div class="job-listing-description">
-                                                        <h3 class="job-listing-title"><a href="#">Frontend React Developer</a> <span class="dashboard-status-button green">Pending Approval</span></h3>
+                                                        <h2 class="job-listing-title" style="margin-bottom: 10px;">{{item.fullname}}
+                                                            <button  type="button" class="btn btn-danger" style="margin: 10px; float: right;" (click)="refuse(item.id)">Refuse</button>    
+                                                            <button type="button" class="btn btn-success" style="margin: 10px; float: right;">Accept</button>
+                                                        </h2>
         
                                                         <!-- Job Listing Footer -->
                                                         <div class="job-listing-footer">
                                                             <ul>
-                                                                <li><i class="icon-material-outline-date-range"></i> Posted on 10 July, 2019</li>
-                                                                <li><i class="icon-material-outline-date-range"></i> Expiring on 10 August, 2019</li>
+                                                                <li><i class="icon-material-outline-date-range"></i> Posted on {{item.offerDate}}</li>
+                                                                
+                                                                <h3>{{item.message}}</h3>
+                                                                
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -61,10 +66,8 @@
                                             </div>
         
                                             <!-- Buttons -->
-                                            <div class="buttons-to-right always-visible">
-                                                <a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">0</span></a>
-                                                <a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
-                                                <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                                            <div >
+                                                
                                             </div>
                                         </li>
         
