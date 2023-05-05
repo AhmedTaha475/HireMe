@@ -1,88 +1,96 @@
 <!-- *ngIf="projectPost" -->
 <div>
-<!-- Titlebar
+	<!-- Titlebar
 ================================================== -->
-<div class="single-page-header" data-background-image="images/single-job.jpg">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="single-page-header-inner">
-					<div class="left-side">
-						<div class="header-details">
-              <h3>{{projectPost.postTitle}}</h3>
-							<ul>
-								<li><a href="single-company-profile.html"><i class="icon-material-outline-business"></i> {{projectPost.categoryId}}</a></li>
-							</ul>
+	<div class="single-page-header" data-background-image="images/single-job.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="single-page-header-inner">
+						<div class="left-side">
+							<div class="header-details">
+								<h3>{{projectPost.postTitle}}</h3>
+								<ul>
+									<li><a href="single-company-profile.html"><i
+												class="icon-material-outline-business"></i>
+											{{projectPost.categoryId}}</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div class="right-side">
-						<div class="salary-box">
-							<div class="salary-type">Price</div>
-							<div class="salary-amount">{{projectPost.averagePrice}}</div>
+						<div class="right-side">
+							<div class="salary-box">
+								<div class="salary-type">Price</div>
+								<div class="salary-amount">{{projectPost.averagePrice}}</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
-<!-- Page Content
+	<!-- Page Content
 ================================================== -->
-<div class="container">
-	<div class="row">
+	<div class="container">
+		<div class="row">
 
-		<!-- Content -->
-		<div class="col-xl-8 col-lg-8 content-right-offset">
 
-			<div class="single-page-section">
-				<h3 class="margin-bottom-25">Project Description</h3>
-				<p>{{projectPost.description}}</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore assumenda ratione iste exercitationem aperiam. Ab recusandae quisquam iure necessitatibus ad eum a maxime? Corrupti architecto mollitia vel ea porro rerum.</p>
-      </div>
-      	<!-- Dashboard Content
+			<!-- Content -->
+			<div class="col-xl-8 col-lg-8 content-right-offset">
+
+				<div class="single-page-section">
+					<h3 class="margin-bottom-25">Project Description</h3>
+					<p>{{projectPost.description}}</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore assumenda ratione iste
+						exercitationem aperiam. Ab recusandae quisquam iure necessitatibus ad eum a maxime? Corrupti
+						architecto mollitia vel ea porro rerum.</p>
+				</div>
+				<!-- Dashboard Content
 	================================================== -->
-	<div class="dashboard-content-container" data-simplebar>
-		<div class="dashboard-content-inner" >
+				<div class="dashboard-content-container" data-simplebar>
+					<div class="dashboard-content-inner">
 
-			<!-- Row -->
-			<div class="row">
+						<!-- Row -->
+						<div class="row">
 
-				<!-- Dashboard Box -->
-				<div class="col-xl-12">
-					<div class="dashboard-box margin-top-0">
+							<!-- Dashboard Box -->
+							<div class="col-xl-12">
+								<div class="dashboard-box margin-top-0">
 
-						<!-- Headline -->
-						<div class="headline">
-							<h3><i class="icon-material-outline-supervisor-account"></i>{{projectPost.projectPostApplicants.length}} Candidates {{freelancerArr[0].data.firstname}}</h3>
-						</div>
+									<!-- Headline -->
+									<div class="headline">
+										<h3><i
+												class="icon-material-outline-supervisor-account"></i>{{projectPost.projectPostApplicants.length}}
+											Candidates {{freelancerArr[0].data.firstname}}</h3>
+									</div>
 
-						<div class="content">
-							<ul class="dashboard-box-list">
-								<li>
-									<!-- Overview -->
-									<div class="freelancer-overview manage-candidates">
-										<div class="freelancer-overview-inner">
+									<div class="content">
+										<ul class="dashboard-box-list">
+											<li>
+												<!-- Overview -->
+												<div class="freelancer-overview manage-candidates">
+													<div class="freelancer-overview-inner">
 
-											<!-- Avatar -->
-											<div class="freelancer-avatar">
-												<div class="verified-badge"></div>
-												<a href="#"><img src="images/user-avatar-big-03.jpg" alt=""></a>
-											</div>
-                      <div *ngFor="let item of freelancerArr">
+														<!-- Avatar -->
+														<div class="freelancer-avatar">
+															<div class="verified-badge"></div>
+															<a href="#"><img src="images/user-avatar-big-03.jpg"
+																	alt=""></a>
+														</div>
+														<!-- <div *ngFor="let item of freelancerArr">
                         <p>ID: {{ item.data.id }}</p>
                         <p>Name: {{ item.data.firstname }} {{ item.data.lastname }}</p>
                         <p>Email: {{ item.data.email }}</p>
                         <p>Proposal: {{ item.applicant.proposal }}</p>
                         <p>Bidding Price: {{ item.applicant.biddingPrice }}</p>
-                      </div>
+                      </div> -->
 
-                      <!-- <div *ngFor="let freelancer of freelancerArr">
+														<!-- <div *ngFor="let freelancer of freelancerArr">
 
                       </div> -->
-											<!-- Name -->
-											<!-- <div *ngFor="let freelancer of freelancerArr" class="freelancer-name">
+														<!-- Name -->
+														<!-- <div *ngFor="let freelancer of freelancerArr" class="freelancer-name">
 
                         <h4><a href="#">{{freelancer.data.firstname}} {{freelancer.data.lastname}} class="flag" src="images/flags/au.svg" alt="" title="Australia" data-tippy-placement="top"></a></h4>
                         <p>{{freelancer.applicant.biddingPrice}}</p>
@@ -94,96 +102,128 @@
 												<span class="freelancer-detail-item"><i class="icon-feather-phone"></i> {{freelancer.data.phone}}</span>
 
 											</div> -->
-										</div>
-									</div>
-								</li>
-
-								<li>
-									<!-- Overview -->
-									<div class="freelancer-overview manage-candidates">
-										<div class="freelancer-overview-inner">
-
-											<!-- Avatar -->
-											<div class="freelancer-avatar">
-												<a href="#"><img src="images/user-avatar-placeholder.png" alt=""></a>
-											</div>
-
-											<!-- Name -->
-											<div class="freelancer-name">
-												<h4><a href="#">Sebastiano Piccio <img class="flag" src="images/flags/it.svg" alt="" title="Italy" data-tippy-placement="top"></a></h4>
-
-
-												<!-- Details -->
-												<span class="freelancer-detail-item"><a href="#"><i class="icon-feather-mail"></i> sebastiano@example.com</a></span>
-												<span class="freelancer-detail-item"><i class="icon-feather-phone"></i> (+39) 123-456-789</span>
-
-												<!-- Rating -->
-												<br>
-												<span class="company-not-rated">Minimum of 3 votes required</span>
-
-												<!-- Buttons -->
-												<div class="buttons-to-right always-visible margin-top-25 margin-bottom-5">
-													<a href="#" class="button ripple-effect"><i class="icon-feather-file-text"></i> Download CV</a>
-													<a href="#small-dialog" class="popup-with-zoom-anim button dark ripple-effect"><i class="icon-feather-mail"></i> Send Message</a>
-													<a href="#" class="button gray ripple-effect ico" title="Remove Candidate" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+													</div>
 												</div>
-											</div>
-										</div>
-									</div>
-								</li>
+											</li>
 
-								<li>
-									<!-- Overview -->
-									<div class="freelancer-overview manage-candidates">
-										<div class="freelancer-overview-inner">
+											<li>
+												<!-- Overview -->
+												<div class="freelancer-overview manage-candidates">
+													<div class="freelancer-overview-inner">
 
-											<!-- Avatar -->
-											<div class="freelancer-avatar">
-												<a href="#"><img src="images/user-avatar-placeholder.png" alt=""></a>
-											</div>
+														<!-- Avatar -->
+														<div class="freelancer-avatar">
+															<a href="#"><img src="images/user-avatar-placeholder.png"
+																	alt=""></a>
+														</div>
 
-											<!-- Name -->
-											<div class="freelancer-name">
-												<h4><a href="#">Nikolay Azarov <img class="flag" src="images/flags/ru.svg" alt="" title="Russia" data-tippy-placement="top"></a></h4>
+														<!-- Name -->
+														<div class="freelancer-name">
+															<h4><a href="#">Sebastiano Piccio <img class="flag"
+																		src="images/flags/it.svg" alt="" title="Italy"
+																		data-tippy-placement="top"></a></h4>
 
-												<!-- Details -->
-												<span class="freelancer-detail-item"><a href="#"><i class="icon-feather-mail"></i> nikolay@example.com</a></span>
-												<span class="freelancer-detail-item"><i class="icon-feather-phone"></i> (+7) 123-456-789</span>
 
-												<!-- Rating -->
-												<br>
-												<span class="company-not-rated">Minimum of 3 votes required</span>
+															<!-- Details -->
+															<span class="freelancer-detail-item"><a href="#"><i
+																		class="icon-feather-mail"></i>
+																	sebastiano@example.com</a></span>
+															<span class="freelancer-detail-item"><i
+																	class="icon-feather-phone"></i> (+39)
+																123-456-789</span>
 
-												<!-- Buttons -->
-												<div class="buttons-to-right always-visible margin-top-25 margin-bottom-5">
-													<a href="#" class="button ripple-effect"><i class="icon-feather-file-text"></i> Download CV</a>
-													<a href="#small-dialog" class="popup-with-zoom-anim button dark ripple-effect"><i class="icon-feather-mail"></i> Send Message</a>
-													<a href="#" class="button gray ripple-effect ico" title="Remove Candidate" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+															<!-- Rating -->
+															<br>
+															<span class="company-not-rated">Minimum of 3 votes
+																required</span>
+
+															<!-- Buttons -->
+															<div
+																class="buttons-to-right always-visible margin-top-25 margin-bottom-5">
+																<a href="#" class="button ripple-effect"><i
+																		class="icon-feather-file-text"></i> Download
+																	CV</a>
+																<a href="#small-dialog"
+																	class="popup-with-zoom-anim button dark ripple-effect"><i
+																		class="icon-feather-mail"></i> Send Message</a>
+																<a href="#" class="button gray ripple-effect ico"
+																	title="Remove Candidate"
+																	data-tippy-placement="top"><i
+																		class="icon-feather-trash-2"></i></a>
+															</div>
+														</div>
+													</div>
 												</div>
-											</div>
-										</div>
-									</div>
-								</li>
+											</li>
 
-							</ul>
+											<li>
+												<!-- Overview -->
+												<div class="freelancer-overview manage-candidates">
+													<div class="freelancer-overview-inner">
+
+														<!-- Avatar -->
+														<div class="freelancer-avatar">
+															<a href="#"><img src="images/user-avatar-placeholder.png"
+																	alt=""></a>
+														</div>
+
+														<!-- Name -->
+														<div class="freelancer-name">
+															<h4><a href="#">Nikolay Azarov <img class="flag"
+																		src="images/flags/ru.svg" alt="" title="Russia"
+																		data-tippy-placement="top"></a></h4>
+
+															<!-- Details -->
+															<span class="freelancer-detail-item"><a href="#"><i
+																		class="icon-feather-mail"></i>
+																	nikolay@example.com</a></span>
+															<span class="freelancer-detail-item"><i
+																	class="icon-feather-phone"></i> (+7)
+																123-456-789</span>
+
+															<!-- Rating -->
+															<br>
+															<span class="company-not-rated">Minimum of 3 votes
+																required</span>
+
+															<!-- Buttons -->
+															<div
+																class="buttons-to-right always-visible margin-top-25 margin-bottom-5">
+																<a href="#" class="button ripple-effect"><i
+																		class="icon-feather-file-text"></i> Download
+																	CV</a>
+																<a href="#small-dialog"
+																	class="popup-with-zoom-anim button dark ripple-effect"><i
+																		class="icon-feather-mail"></i> Send Message</a>
+																<a href="#" class="button gray ripple-effect ico"
+																	title="Remove Candidate"
+																	data-tippy-placement="top"><i
+																		class="icon-feather-trash-2"></i></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+
 						</div>
+						<!-- Row / End -->
+
 					</div>
 				</div>
+				<!-- Dashboard Content / End -->
 
 			</div>
-			<!-- Row / End -->
-
-		</div>
-	</div>
-	<!-- Dashboard Content / End -->
-
-		</div>
 
 
-		<!-- Sidebar -->
-		<div class="col-xl-4 col-lg-4">
-			<div class="sidebar-container">
-        <!--
+			<!-- Sidebar -->
+			<div class="col-xl-4 col-lg-4">
+				<div class="sidebar-container">
+					<!--
           routerLink="/ProjectPost/{{projectPostId}}/Update"
           routerLinkActive="router-link-active"
         -->
@@ -191,42 +231,47 @@
 				<a id="applyBtn" href=""   class="apply-now-button popup-with-zoom-anim"><i class="icon-material-outline-arrow-right-alt"></i></a>
 
 
-				<!-- Sidebar Widget -->
-				<div class="sidebar-widget">
-					<h3>Bookmark or Share</h3>
+					<!-- Sidebar Widget -->
+					<div class="sidebar-widget">
+						<h3>Bookmark or Share</h3>
 
-					<!-- Bookmark Button -->
-					<button class="bookmark-button margin-bottom-25">
-						<span class="bookmark-icon"></span>
-						<span class="bookmark-text">Bookmark</span>
-						<span class="bookmarked-text">Bookmarked</span>
-					</button>
+						<!-- Bookmark Button -->
+						<button class="bookmark-button margin-bottom-25">
+							<span class="bookmark-icon"></span>
+							<span class="bookmark-text">Bookmark</span>
+							<span class="bookmarked-text">Bookmarked</span>
+						</button>
 
-					<!-- Copy URL -->
-					<div class="copy-url">
-						<input id="copy-url" type="text" value="" class="with-border">
-						<button class="copy-url-button ripple-effect" data-clipboard-target="#copy-url" title="Copy to Clipboard" data-tippy-placement="top"><i class="icon-material-outline-file-copy"></i></button>
-					</div>
+						<!-- Copy URL -->
+						<div class="copy-url">
+							<input id="copy-url" type="text" value="" class="with-border">
+							<button class="copy-url-button ripple-effect" data-clipboard-target="#copy-url"
+								title="Copy to Clipboard" data-tippy-placement="top"><i
+									class="icon-material-outline-file-copy"></i></button>
+						</div>
 
-					<!-- Share Buttons -->
-					<div class="share-buttons margin-top-25">
-						<div class="share-buttons-trigger"><i class="icon-feather-share-2"></i></div>
-						<div class="share-buttons-content">
-							<span>Interesting? <strong>Share It!</strong></span>
-							<ul class="share-buttons-icons">
-								<li><a href="#" data-button-color="#3b5998" title="Share on Facebook" data-tippy-placement="top"><i class="icon-brand-facebook-f"></i></a></li>
-								<li><a href="#" data-button-color="#1da1f2" title="Share on Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
-								<li><a href="#" data-button-color="#dd4b39" title="Share on Google Plus" data-tippy-placement="top"><i class="icon-brand-google-plus-g"></i></a></li>
-								<li><a href="#" data-button-color="#0077b5" title="Share on LinkedIn" data-tippy-placement="top"><i class="icon-brand-linkedin-in"></i></a></li>
-							</ul>
+						<!-- Share Buttons -->
+						<div class="share-buttons margin-top-25">
+							<div class="share-buttons-trigger"><i class="icon-feather-share-2"></i></div>
+							<div class="share-buttons-content">
+								<span>Interesting? <strong>Share It!</strong></span>
+								<ul class="share-buttons-icons">
+									<li><a href="#" data-button-color="#3b5998" title="Share on Facebook"
+											data-tippy-placement="top"><i class="icon-brand-facebook-f"></i></a></li>
+									<li><a href="#" data-button-color="#1da1f2" title="Share on Twitter"
+											data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
+									<li><a href="#" data-button-color="#dd4b39" title="Share on Google Plus"
+											data-tippy-placement="top"><i class="icon-brand-google-plus-g"></i></a></li>
+									<li><a href="#" data-button-color="#0077b5" title="Share on LinkedIn"
+											data-tippy-placement="top"><i class="icon-brand-linkedin-in"></i></a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
+
 				</div>
-
 			</div>
-		</div>
 
+		</div>
 	</div>
 </div>
-</div>
-
