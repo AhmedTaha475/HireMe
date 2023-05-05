@@ -72,6 +72,8 @@ import { MakeOfferComponent } from './Components/make-offer/make-offer.component
 
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
+import { DashboardsfooterComponent } from './Components/ClientDashBoard/dashboardsfooter/dashboardsfooter.component';
+import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -126,6 +128,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MakeOfferComponent,
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
+    DashboardsfooterComponent,
+    ManagaProjectPostsComponent,
   ],
   imports: [
     BrowserModule,

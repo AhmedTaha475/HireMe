@@ -34,6 +34,7 @@ import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/cl
 import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
+import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
 const routes: Routes = [
   {
     path: '',
@@ -48,8 +49,14 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Create',
+        component: CreateProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Update',
+        component: EditProjectPostApplicantComponent,
+      },
       { path: 'plan', component: PlanComponent },
       { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
@@ -90,6 +97,8 @@ const routes: Routes = [
     children: [
       { path: '', component: ClientHomeComponent },
       { path: 'updateProfile', component: UpdateClientComponent },
+      { path: 'postjob', component: CreateProjectPostComponent },
+      { path: 'managejob', component: ManagaProjectPostsComponent },
     ],
   },
   { path: '**', component: Error404Component },

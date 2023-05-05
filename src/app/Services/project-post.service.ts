@@ -10,7 +10,7 @@ import { CreateProjectPost } from '../Models/ProjectPost/create-projectpost';
 export class ProjectPostService {
   Url: any = StaticURl.URL + 'ProjectPosts/';
   constructor(public client: HttpClient) {}
-  CreateProjectPost(ProjectPost: CreateProjectPost) {
+  CreateProjectPost(ProjectPost: any) {
     return this.client.post(this.Url + 'Create/', ProjectPost);
   }
   UpdateProjectPost(ProjectPostId: number, NewProject: UpdateProjectPost) {
