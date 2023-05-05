@@ -76,6 +76,7 @@ import { EditProjectPostApplicantComponent } from './Components/ProjectPost/Proj
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 
 
@@ -156,6 +157,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartModule,
     BrowserAnimationsModule,
     MessagesModule,
+    NgImageSliderModule,
     ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

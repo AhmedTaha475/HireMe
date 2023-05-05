@@ -17,7 +17,7 @@ export class ProjectService {
   constructor(public client: HttpClient) {}
 
   CreateProject(Project: CreateProject) {
-    return this.client.post(this.Url, Project, this.options);
+    return this.client.post(this.Url, Project);
   }
   GetProjectById(P_Id: number) {
     return this.client.get(this.Url + 'Project/' + P_Id);
