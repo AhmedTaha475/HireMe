@@ -6,7 +6,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import{ModalModule} from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
 import {
@@ -67,9 +67,7 @@ import { ClientHomeComponent } from './Components/ClientDashBoard/client-home/cl
 import { ClientEntryComponent } from './Components/ClientDashBoard/client-entry/client-entry.component';
 import { TransactionComponent } from './Components/FreelanserDashBoard/transaction/transaction.component';
 import { UpdateClientComponent } from './Components/ClientDashBoard/update-client/update-client.component';
-
 import { MakeOfferComponent } from './Components/make-offer/make-offer.component';
-
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
 import { CreateMilestoneComponent } from './Components/ProjectPost/Milestone/create-milestone/create-milestone.component';
@@ -78,13 +76,9 @@ import { DeleteMilestoneComponent } from './Components/ProjectPost/Milestone/del
 import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milestone/project-post-milestones/project-post-milestones.component';
 import { DashboardsfooterComponent } from './Components/ClientDashBoard/dashboardsfooter/dashboardsfooter.component';
 import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
-
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
-
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
 import { NgImageSliderModule } from 'ng-image-slider';
-
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -137,10 +131,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     MakeOfferComponent,
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
+
     CreateMilestoneComponent,
     UpdateMilestoneComponent,
     DeleteMilestoneComponent,
     ProjectPostMilestonesComponent,
+
     DashboardsfooterComponent,
     ManagaProjectPostsComponent,
     AllTasksComponent,

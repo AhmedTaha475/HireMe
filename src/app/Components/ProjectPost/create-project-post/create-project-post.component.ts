@@ -5,6 +5,7 @@ import { CreateProjectPost } from 'src/app/Models/ProjectPost/create-projectpost
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
 import { LookupTableService } from 'src/app/Services/LookupTable_Service/lookup-table.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-project-post',
@@ -30,7 +31,8 @@ export class CreateProjectPostComponent implements OnInit {
     private projectPostService: ProjectPostService,
     private router: Router,
     private lookupTable: LookupTableService,
-    private lookupValue: LookupValueService
+    private lookupValue: LookupValueService,
+    private messageService: MessageService
   ) {}
   ngOnInit(): void {
     this.lookupTable.GetAllLookupTables().subscribe({
@@ -72,8 +74,25 @@ export class CreateProjectPostComponent implements OnInit {
       this.projectPostService.CreateProjectPost(projectPost).subscribe({
         next: (data: any) => {
           console.log(data);
+          this.messageService.clear();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Created',
+            detail: 'Job Created Successfully',
+            life: 1500,
+            key: 'postToast',
+          });
         },
-        error: (err: any) => console.log(err),
+        error: (err: any) => {
+          this.messageService.clear();
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Somethign went wrong......',
+            life: 1500,
+            key: 'postToast',
+          });
+        },
       });
     }
   }
