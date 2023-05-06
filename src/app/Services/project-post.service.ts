@@ -13,8 +13,11 @@ export class ProjectPostService {
   CreateProjectPost(ProjectPost: any) {
     return this.client.post(this.Url + 'Create/', ProjectPost);
   }
-  UpdateProjectPost(ProjectPostId: number, NewProject: UpdateProjectPost) {
-    return this.client.put(this.Url + 'Update/' + ProjectPostId, NewProject);
+  UpdateProjectPost(ProjectPostId: number, UpdatedProject: any) {
+    return this.client.put(
+      this.Url + 'Update/' + ProjectPostId,
+      UpdatedProject
+    );
   }
   DeleteProjectPost(ProjectPostId: number) {
     return this.client.delete(this.Url + 'Delete/' + ProjectPostId);
@@ -24,7 +27,16 @@ export class ProjectPostService {
       this.Url + 'ProjectPostWithApplicants/' + ProjectPostId
     );
   }
+  GetProjectPostById(ProjectPostId: number) {
+    return this.client.get(this.Url + 'GetProjectPostById/' + ProjectPostId);
+  }
   GetAllProjectPosts() {
     return this.client.get(this.Url + 'GetAll');
+  }
+  GetAllProjectsByClientID(id: string) {
+    return this.client.get(this.Url + `GetAllByClientId/${id}`);
+  }
+  GetAllProjectPostsByCurrentClient() {
+    return this.client.get(this.Url + 'GetAllByCurrentClient');
   }
 }

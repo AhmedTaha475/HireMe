@@ -48,8 +48,10 @@
                                                     <!-- Details -->
                                                     <div class="job-listing-description">
                                                         <h2 class="job-listing-title" style="margin-bottom: 10px;">{{item.fullname}}
-                                                            <button  type="button" class="btn btn-danger" style="margin: 10px; float: right;" (click)="refuse(item.id)">Refuse</button>    
-                                                            <button type="button" class="btn btn-success" style="margin: 10px; float: right;">Accept</button>
+                                                            <button *ngIf="item.accepted==null"  type="button" class="btn btn-danger" style="margin: 10px; float: right;" (click)="refuse(item.id)">Refuse</button>    
+                                                            <button  *ngIf="item.accepted==null" type="button" class="btn btn-success" style="margin: 10px; float: right;"  (click)="Accept(item.id)">Accept</button>
+                                                            <h3 *ngIf="item.accepted==true" type="button" class="btn btn-success" style="margin: 10px; float: right;">You Accepted this Offer</h3>
+                                                            <h3  *ngIf="item.accepted==false" type="button" class="btn btn-danger" style="margin: 10px; float: right;">You Refused this offer </h3>
                                                         </h2>
         
                                                         <!-- Job Listing Footer -->

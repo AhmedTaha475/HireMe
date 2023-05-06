@@ -1,107 +1,182 @@
-<div appJQueryLoader></div>
-<div class="dashboard-container">
+<div appJQueryLoader>
+  <div class="dashboard-container">
 
-  <app-client-side-bar></app-client-side-bar>
+    <app-client-side-bar></app-client-side-bar>
 
-  <!-- Dashboard Content
+    <!-- Dashboard Content
 	================================================== -->
-  <div class="dashboard-content-container" data-simplebar>
-    <div class="dashboard-content-inner">
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
 
-      <!-- Dashboard Headline -->
-      <div class="dashboard-headline">
-        <h3>Manage Jobs</h3>
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>Manage Jobs</h3>
 
-        <!-- Breadcrumbs -->
-        <nav id="breadcrumbs" class="dark">
-          <ul>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/client">Dashboard</a></li>
-            <li>Manage Jobs</li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Row -->
-      <div class="row">
-
-        <!-- Dashboard Box -->
-        <div class="col-xl-12">
-          <div class="dashboard-box margin-top-0">
-
-            <!-- Headline -->
-            <div class="headline">
-              <h3><i class="icon-material-outline-business-center"></i> My Job Listings</h3>
-            </div>
-
-            <div class="content">
-
-              <p-table [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-                [tableStyle]="{ 'min-width': '25rem' }"
-                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                [rowsPerPageOptions]="[5,15,50]">
-
-
-                <ng-template pTemplate="header">
-                </ng-template>
-                <ng-template pTemplate="body" let-lookuptable>
-                  <tr>
-
-                  </tr>
-                </ng-template>
-              </p-table>
-
-
-              <ul class="dashboard-box-list">
-                <li>
-                  <!-- Job Listing -->
-                  <div class="job-listing">
-
-                    <!-- Job Listing Details -->
-                    <div class="job-listing-details">
-
-                      <div class="job-listing-description">
-                        <h3 class="job-listing-title"><a href="#">Frontend React Developer</a> <span
-                            class="dashboard-status-button green">Pending Approval</span></h3>
-
-                        <!-- Job Listing Footer -->
-                        <div class="job-listing-footer">
-                          <ul>
-                            <li><i class="icon-material-outline-date-range"></i> Posted on 10 July, 2019</li>
-                            <li><i class="icon-material-outline-date-range"></i> Expiring on 10 August, 2019</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Buttons -->
-                  <div class="buttons-to-right always-visible">
-                    <a href="dashboard-manage-candidates.html" class="button ripple-effect"><i
-                        class="icon-material-outline-supervisor-account"></i> Manage Candidates <span
-                        class="button-info">0</span></a>
-                    <a href="#" class="button gray ripple-effect ico" title="Edit" data-tippy-placement="top"><i
-                        class="icon-feather-edit"></i></a>
-                    <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i
-                        class="icon-feather-trash-2"></i></a>
-                  </div>
-                </li>
-              </ul>
-
-
-            </div>
-          </div>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Manage Jobs</li>
+            </ul>
+          </nav>
         </div>
 
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> My Job Listings</h3>
+              </div>
+
+              <div class="content">
+
+                <p-table [value]="projectPosts" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                  [tableStyle]="{ 'min-width': '25rem' }"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                  [rowsPerPageOptions]="[5,15,50]">
+
+
+                  <ng-template pTemplate="header">
+                  </ng-template>
+                  <ng-template pTemplate="body" let-post>
+                    <tr>
+                      <ul class="dashboard-box-list">
+                        <li style="border-bottom: solid 1px #e4e4e4;">
+                          <!-- Job Listing -->
+                          <div class="job-listing">
+
+                            <!-- Job Listing Details -->
+                            <div class="job-listing-details">
+
+                              <div class="job-listing-description">
+                                <h3 class="job-listing-title"><a href="#">{{post.postTitle}}</a> <span *ngIf="post.done"
+                                    class="dashboard-status-button green">Approved </span>
+                                  <span *ngIf="!post.done" class="dashboard-status-button yellow">Pending Approval
+                                  </span>
+                                </h3>
+                                UpdateProjectPost
+                                <!-- Job Listing Footer -->
+                                <div class="job-listing-footer">
+                                  <ul>
+                                    <li><i class="icon-material-outline-date-range"></i> Posted on
+                                      {{post.projectPostDate| date:'d MMMM, y'}}</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Buttons -->
+                          <div class="buttons-to-right always-visible">
+                            <a routerLink="/client/manageCandidates/{{post.id}}" class="button ripple-effect"><i
+                                class="icon-material-outline-supervisor-account"></i> Manage Candidates</a>
+                            <a (click)="UpdateProjectPost(post.id)" class="button green ripple-effect ico" title="Edit"
+                              data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+                            <a routerLink="/client/RemovePost" class="button red ripple-effect ico" title="Remove"
+                              data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                          </div>
+                        </li>
+                      </ul>
+                    </tr>
+                  </ng-template>
+                </p-table>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
       </div>
-      <!-- Row / End -->
-
-
-      <app-dashboardsfooter></app-dashboardsfooter>
-
-
     </div>
-  </div>
-  <!-- Dashboard Content / End -->
+    <!-- Dashboard Content / End -->
 
+  </div>
+</div>
+
+
+
+
+<div class="card flex justify-content-center">
+  <p-dialog header=" Update Project Post" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+    <form [formGroup]="updatePost" (ngSubmit)="confirmUpdate()" class="row g-3 needs-validation">
+      <div class="col-md-4">
+        <label for="postTitle" class="form-label">Project Title</label>
+        <input type="text" class="form-control " formControlName="postTitle" [style]="{boxShadow:'0px 0px 5px  blue' }"
+          autocomplete="off" id="postTitle">
+        <div *ngIf="updatePost.get('postTitle')?.invalid">
+          <span class="text-danger " *ngIf="updatePost.get('postTitle')?.errors?.['required']">
+            Post title is required
+          </span>
+        </div>
+
+
+      </div>
+
+      <div class="col-md-4">
+        <label for="location" class="form-label">location</label>
+        <input type="text" class="form-control " formControlName="location" [style]="{boxShadow:'0px 0px 5px  blue' }"
+          autocomplete="off" id="location">
+        <div *ngIf="updatePost.get('location')?.invalid">
+          <span class="text-danger " *ngIf="updatePost.get('location')?.errors?.['required']">
+            Location is required
+          </span>
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        <label for="averagePrice" class="form-label">Project Title</label>
+        <input type="text" class="form-control " formControlName="averagePrice"
+          [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="averagePrice">
+        <div *ngIf="updatePost.get('averagePrice')?.invalid">
+          <span class="text-danger " *ngIf="updatePost.get('averagePrice')?.errors?.['required']">
+            Average Price is required
+          </span>
+        </div>
+
+
+      </div>
+      <div class="col-md-4">
+        <label for="ProjectTitle" class="form-label">Category</label>
+        <select formControlName="categoryId">
+          <option *ngFor="let c of categories" [value]="c.valueId">{{c.valueName}}</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label for="description" class="form-label">description</label>
+        <input type="text" class="form-control " formControlName="description"
+          [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="description">
+        <div *ngIf="updatePost.get('description')?.invalid">
+          <span class="text-danger " *ngIf="updatePost.get('description')?.errors?.['required']">
+            Description is required
+          </span>
+        </div>
+
+
+      </div>
+
+
+
+      <div class="col-12">
+        <button class="btn btn-outline-dark" type="submit">Update</button>
+      </div>
+    </form>
+  </p-dialog>
 </div>

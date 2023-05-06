@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-xl-12">
+    <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/Create">Create</a>
+    <table class="margin-top-20">
+      <tr>
+        <th>Milestone Name</th>
+        <th>Value</th>
+        <th>Operations</th>
+      </tr>
+
+      <tr *ngFor="let milestone of milestones">
+        <td>{{milestone.name}}</td> 
+        <td>{{milestone.value}}</td>
+        <td>
+          <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Update">Update</a>
+          <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Delete">Delete</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

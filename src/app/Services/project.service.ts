@@ -16,7 +16,7 @@ export class ProjectService {
   Url: any = StaticURl.URL + 'Projects/';
   constructor(public client: HttpClient) {}
 
-  CreateProject(Project: CreateProject) {
+  CreateProject(Project: any) {
     return this.client.post(this.Url, Project);
   }
   GetProjectById(P_Id: number) {
