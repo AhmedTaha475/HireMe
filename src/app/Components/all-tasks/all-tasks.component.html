@@ -146,10 +146,10 @@
 					<div class="task-listing-bid">
 						<div class="task-listing-bid-inner">
 							<div class="task-offers">
-								<strong>{{p.averagePrice}} - {{p.averagePrice+500}} EGP</strong>
+								<strong>{{p.averagePrice | currency:" ":"symbol-narrow":"1.2-2" }}  - {{p.averagePrice+500 | currency:" ":"symbol-narrow":"1.2-2" }} EGP</strong>
 								<span>Fixed Price</span>
 							</div>
-							<span class="button button-sliding-icon ripple-effect">Bid Now <i class="icon-material-outline-arrow-right-alt"></i></span>
+							<span *ngIf="CurrentRole=='Freelancer' " class="button button-sliding-icon ripple-effect">Bid Now <i class="icon-material-outline-arrow-right-alt"></i></span>
 						</div>
 					</div>
 				</a>

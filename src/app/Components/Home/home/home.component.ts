@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CreateProjectPost } from 'src/app/Models/ProjectPost/create-projectpost';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
@@ -7,6 +7,7 @@ import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup
 import { Freelancer } from 'src/app/Models/Freelancer/freelancer';
 import { StaticHelper } from 'src/app/Helpers/static-helper';
 import { ClientService } from 'src/app/Services/client.service';
+import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   AllProjects: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string }[] = [];
   Freelancers: Freelancer[] = [];
   AllFreeLancers: Freelancer[] = [];
+  responsiveOptions: any[]=[];
   cat: any;
   clientCount: number = 0;
   TasksCount: number = 0;
@@ -25,16 +27,27 @@ export class HomeComponent implements OnInit {
   FreelancersbyCatCount: number[] = [];
   joindata: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string }[] = [];
   Categories: { valueId: number, valueName: string, lookupId: number }[] = [];
-  constructor(public translate: TranslateService, private myService: ProjectPostService, private LookService: LookupValueService, private FLService: FreelancerService, private Clientservice: ClientService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+  lang=localStorage.getItem('Lang');
+  isLoaded: boolean=false;
+  constructor(public translate: TranslateService, private myService: ProjectPostService, private LookService: LookupValueService, private FLService: FreelancerService, private Clientservice: ClientService,private auth:AuthService) {
+    //translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('Lang');
+if (langItem != null) {
+  translate.use(langItem);
+}
+
   }
+ 
+  CurrentRole=this.auth.getRoles();
   ngOnInit(): void {
     //get Clients Counts For counter in Welcome photo
     this.Clientservice.GetClientCount().subscribe({
       next: (data: any) => {
         // console.log(data.clientCount);
         this.clientCount = data.clientCount;
+        if(this.clientCount>0){
+          this.isLoaded=true;
+        }
       },
       error: (err) => {
         console.log(err);
@@ -66,6 +79,23 @@ export class HomeComponent implements OnInit {
 
       },
     })
+    this.responsiveOptions = [
+      {
+          breakpoint: '1400px',
+          numVisible: 3,
+          numScroll: 3
+      },
+      {
+          breakpoint: '1220px',
+          numVisible: 2,
+          numScroll: 2
+      },
+      {
+          breakpoint: '1100px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ];
 
     //Get array Of category Ids to Get FreelancerCounts in them
     this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
@@ -112,9 +142,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+ 
   private counts() {
     this.FLService.GetCounts({ CatIds: this.CategoryIds }).subscribe({
       next: (data: any) => {
@@ -138,6 +166,16 @@ export class HomeComponent implements OnInit {
     }
     return 0;
   }
+//   getSeverity(status: string):string {
+//     switch (status) {
+//         case 'INSTOCK':
+//             return 'success';
+//         case 'LOWSTOCK':
+//             return 'warning';
+//         case 'OUTOFSTOCK':
+//             return 'danger';
+//     }
+// }
 }
 
 

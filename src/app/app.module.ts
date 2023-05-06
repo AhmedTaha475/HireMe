@@ -80,6 +80,11 @@ import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 
+import { CarouselModule } from 'primeng/carousel';
+import { TagModule } from 'primeng/tag';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -139,6 +144,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ManagaProjectPostsComponent,
     AllTasksComponent,
     OffersComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -161,6 +167,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     MessagesModule,
     NgImageSliderModule,
+    CarouselModule,
+    TagModule,
+    ProgressSpinnerModule,
     ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

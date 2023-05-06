@@ -16,7 +16,10 @@ export class LoginComponent {
     private _Router: Router
   ) {
     translate.setDefaultLang('en');
-    translate.use('en');
+    const langItem = localStorage.getItem('Lang');
+if (langItem !== null) {
+  translate.use(langItem);
+}
   }
 
   errormsg: any = '';
