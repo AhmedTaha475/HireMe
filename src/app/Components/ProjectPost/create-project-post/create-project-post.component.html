@@ -1,77 +1,108 @@
-<!-- Dashboard Content
-	================================================== -->
-<div appJQueryLoader>
+<div appJQueryLoader></div>
+<div class="dashboard-container">
+  <!-- Dashboard Sidebar
+    ================================================== -->
+  <app-client-side-bar></app-client-side-bar>
   <div class="dashboard-content-container" data-simplebar>
     <div class="dashboard-content-inner">
 
       <!-- Row -->
       <div class="row">
-        <form [formGroup]="createProjectPost"(ngSubmit)="addProjectPost()">
-        
-        <!-- Row -->
-        <div class="row">
-          <div class="dashboard-headline">
-            <h3>Post a Project</h3>
-          </div>            
+        <form [formGroup]="createProjectPost" (ngSubmit)="addProjectPost()">
 
-          <!-- Dashboard Box -->
-          <div class="col-xl-12">
-            <div class="dashboard-box margin-top-0">
+          <!-- Row -->
+          <div class="row">
+            <div class="dashboard-headline">
+              <h3>Post a Project</h3>
+            </div>
 
-              <!-- Headline -->
-              <div class="headline">
-                <h3><i class="icon-feather-folder-plus"></i> Job Submission Form</h3>
-              </div>
+            <!-- Dashboard Box -->
+            <div class="col-xl-12">
+              <div class="dashboard-box margin-top-0">
 
-              <div class="content with-padding padding-bottom-10">
-                <div class="row">
+                <!-- Headline -->
+                <div class="headline">
+                  <h3><i class="icon-feather-folder-plus"></i> Job Submission Form</h3>
+                </div>
 
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Project Title</h5>
-                      <input formControlName="title" type="text" class="with-border">
-                    </div>
-                  </div>
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Project Category</h5>
-                      <select  formControlName="categoryId" title="Select Category">
-                        <option *ngFor="let option of categories" [value]="option.id">{{option.valueName}}</option>
-                      </select>
-                    </div>
-                  </div>
+                <div class="content with-padding padding-bottom-10">
+                  <div class="row">
 
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Price</h5>
-                      <div class="input-with-icon">
-                        <input formControlName="price" class="with-border" type="text" placeholder="Price">
-                        <i class="currency">USD</i>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Project Title</h5>
+                        <input formControlName="title" type="text" class="with-border">
+                        <span class="text-danger " *ngIf="createProjectPost.get('title')?.errors?.['required']">
+                          Please enter project title
+                        </span>
+                        <span class="text-danger " *ngIf="createProjectPost.get('title')?.errors?.['minlength']">
+                          Title can't be less than 3 characters
+                        </span>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="col-xl-12">
-                    <div class="submit-field">
-                      <h5>Project Description</h5>
-                      <textarea formControlName="description" cols="30" rows="5"></textarea>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Project Category</h5>
+                        <select formControlName="categoryId" title="Select Category">
+                          <option *ngFor="let option of categories" [value]="option.valueId">{{option.valueName}}
+                          </option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
 
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Price</h5>
+                        <div class="input-with-icon">
+                          <input formControlName="price" class="with-border" type="number" placeholder="Price">
+                          <i class="currency">EGP</i>
+                        </div>
+                        <span class="text-danger " *ngIf="createProjectPost.get('price')?.errors?.['required']">
+                          Please enter Price
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Location</h5>
+                        <div class="input-with-icon">
+                          <input formControlName="location" class="with-border" type="text" placeholder="location">
+                          <span class="text-danger " *ngIf="createProjectPost.get('location')?.errors?.['required']">
+                            Please enter Location
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-12">
+                      <div class="submit-field">
+                        <h5>Project Description</h5>
+                        <textarea formControlName="description" cols="30" rows="5"></textarea>
+                        <span class="text-danger " *ngIf="createProjectPost.get('description')?.errors?.['minlength']">
+                          Can't enter less than 10 characters
+                        </span>
+                        <span class="text-danger " *ngIf="createProjectPost.get('description')?.errors?.['required']">
+                          Please enter Project description
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-12">
-            <input type="submit" class="button ripple-effect big margin-top-30" value="Post">
-          </div>
+            <div class="col-xl-12">
+              <input type="submit" class="button ripple-effect big margin-top-30" value="Post">
+            </div>
 
-        </div>
-        <!-- Row / End -->
-      </form>
+          </div>
+          <!-- Row / End -->
+        </form>
       </div>
-
+      <app-dashboardsfooter></app-dashboardsfooter>
     </div>
     <!-- Dashboard Content / End -->
+
   </div>
+</div>

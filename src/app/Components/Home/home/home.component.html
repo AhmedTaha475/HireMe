@@ -203,14 +203,16 @@
           <!-- Section Headline -->
           <div class="section-headline margin-top-0 margin-bottom-35">
             <h3>{{ translate.instant('Recent Jobs') }}</h3>
-            <a href="tasks-list-layout-1.html" class="headline-link">{{ translate.instant('Browse All Jobs') }}</a>
+            <a routerLink="/AllTasks" class="headline-link">{{ translate.instant('Browse All Jobs') }}</a>
           </div>
 
           <!-- Jobs Container -->
           <div class="tasks-list-container compact-list margin-top-35">
 
             <!-- Task -->
-            <a  class="task-listing" *ngFor="let p of Projects">
+
+            <a  class="task-listing" *ngFor="let p of Projects"  routerLink="/ProjectPost/{{p.id}}">
+
 
               <!-- Job Listing Details -->
               <div class="task-listing-details">

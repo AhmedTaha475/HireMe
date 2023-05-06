@@ -38,6 +38,11 @@ import { CreateMilestoneComponent } from './Components/ProjectPost/Milestone/cre
 import { UpdateMilestoneComponent } from './Components/ProjectPost/Milestone/update-milestone/update-milestone.component';
 import { DeleteMilestoneComponent } from './Components/ProjectPost/Milestone/delete-milestone/delete-milestone.component';
 import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milestone/project-post-milestones/project-post-milestones.component';
+import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
+
+import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
+
+import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
 const routes: Routes = [
   {
     path: '',
@@ -58,12 +63,20 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
       { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
       { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Create',
+        component: CreateProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Update',
+        component: EditProjectPostApplicantComponent,
+      },
       { path: 'plan', component: PlanComponent },
       { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
       { path: 'Page403', component: Error403Component },
       { path: 'stripe', component: StripeComponent },
-
+      { path: 'AllTasks', component: AllTasksComponent },
       { path: 'FreelancerProfile/:Id', component: FreelancerProfileComponent },
       { path: 'Category/:id', component: FreelancersByCategoryComponent },
     ],
@@ -90,6 +103,7 @@ const routes: Routes = [
       { path: 'Profile/Update', component: FreelancerProfileEditComponent },
       { path: 'Projects', component: FreelancerProjectsComponent },
       { path: 'Transaction', component: TransactionComponent },
+      { path: 'Offers', component: OffersComponent },
     ],
   },
   {
@@ -98,6 +112,8 @@ const routes: Routes = [
     children: [
       { path: '', component: ClientHomeComponent },
       { path: 'updateProfile', component: UpdateClientComponent },
+      { path: 'postjob', component: CreateProjectPostComponent },
+      { path: 'managejob', component: ManagaProjectPostsComponent },
     ],
   },
   { path: '**', component: Error404Component },

@@ -76,6 +76,14 @@ import { CreateMilestoneComponent } from './Components/ProjectPost/Milestone/cre
 import { UpdateMilestoneComponent } from './Components/ProjectPost/Milestone/update-milestone/update-milestone.component';
 import { DeleteMilestoneComponent } from './Components/ProjectPost/Milestone/delete-milestone/delete-milestone.component';
 import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milestone/project-post-milestones/project-post-milestones.component';
+import { DashboardsfooterComponent } from './Components/ClientDashBoard/dashboardsfooter/dashboardsfooter.component';
+import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
+
+import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
+
+import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -89,7 +97,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ProjectPostComponent,
     HeaderComponent,
-    CreateProjectPostComponent,
     FooterComponent,
     HomeComponent,
     SingupComponent,
@@ -134,6 +141,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateMilestoneComponent,
     DeleteMilestoneComponent,
     ProjectPostMilestonesComponent,
+    DashboardsfooterComponent,
+    ManagaProjectPostsComponent,
+    AllTasksComponent,
+    OffersComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,6 +166,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartModule,
     BrowserAnimationsModule,
     MessagesModule,
+    NgImageSliderModule,
     ModalModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

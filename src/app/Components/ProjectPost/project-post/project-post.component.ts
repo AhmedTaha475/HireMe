@@ -25,7 +25,7 @@ export class ProjectPostComponent implements OnInit {
     private freelancerService: FreelancerService
     ){
     this.projectPostId = myActivated.snapshot.params["id"];
-    console.log(myActivated);
+    
   }
   ngOnInit(): void {
     //#region  Get Current Freelancer
@@ -41,7 +41,7 @@ export class ProjectPostComponent implements OnInit {
     this.projectPostService.GetProjectPostWithApplicants(this.projectPostId).subscribe({
       next:(data)=>{
         this.projectPost2 = data;
-        console.log(this.projectPost2.postTitle);
+        console.log(data);
         this.projectPost = new ProjectPostWithApplicants(
           this.projectPost2.postTitle,
           this.projectPost2.description,

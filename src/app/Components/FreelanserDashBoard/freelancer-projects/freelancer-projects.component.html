@@ -1,79 +1,144 @@
 <!-- Dashboard Container -->
 <div class="dashboard-container">
-
   <app-freelancer-header></app-freelancer-header>
-  
-    <!-- Dashboard Content
+
+  <!-- Dashboard Content
     ================================================== -->
-<div class="dashboard-content-container" data-simplebar>
-  <div class="dashboard-content-inner" >
+  <div class="dashboard-content-container" data-simplebar>
+    <div class="dashboard-content-inner">
+      <div class="dashboard-headline">
+        <h3>Hello ** Freelancer ** 👷🏽‍♂️👷🏽‍♀️</h3>
+        <!-- <h3>Here you can add new projects ..</h3> -->
 
-    <!-- Row -->
-    <div class="row">
-      <div *ngFor="let freelancerProject of freelancerProjects">
-        <!-- Job Listing -->
-        <a href="single-job-page.html" class="job-listing">
-
-          <!-- Job Listing Details -->
-          <div class="job-listing-details">
-              <!-- Details -->
-              <div class="job-listing-description">
-                  <h3 class="job-listing-title">{{freelancerProject.postTitle}}</h3>
-                  <p class="job-listing-text">{{freelancerProject.description}}</p>
-              </div>
-
-              <!-- Bookmark -->
-              <span class="bookmark-icon"></span>
-          </div>
-
-          <!-- Job Listing Footer -->
-          <div class="job-listing-footer">
-              <ul>
-                  <li><i class="icon-material-outline-account-balance-wallet"></i>{{freelancerProject.averagePrice}}</li>
-                  <li><i class="icon-material-outline-access-time"></i>{{freelancerProject.categoryId}}</li>
-              </ul>
-          </div>
-      </a>	
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs" class="dark">
+          <ul>
+            <li><a href="#">Freelancer</a></li>
+            <li><a href="#">Projects</a></li>
+            <li>Add Project</li>
+          </ul>
+        </nav>
       </div>
 
-    </div>
-    <!-- Row / End -->
-
-    <!-- Footer -->
-    <div class="dashboard-footer-spacer"></div>
-    <div class="small-footer margin-top-15">
-      <div class="small-footer-copyrights">
-        © 2019 <strong>Hireo</strong>. All Rights Reserved.
+      <!-- Button to show form to add new project -->
+      <div class="col-xl-12">
+        <a (click)="open()" class="button ripple-effect big margin-top-30"
+          ><i class="icon-feather-plus"></i> New Project</a
+        >
       </div>
-      <ul class="footer-social-links">
-        <li>
-          <a href="#" title="Facebook" data-tippy-placement="top">
-            <i class="icon-brand-facebook-f"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" title="Twitter" data-tippy-placement="top">
-            <i class="icon-brand-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" title="Google Plus" data-tippy-placement="top">
-            <i class="icon-brand-google-plus-g"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" title="LinkedIn" data-tippy-placement="top">
-            <i class="icon-brand-linkedin-in"></i>
-          </a>
-        </li>
-      </ul>
-      <div class="clearfix"></div>
-    </div>
-    <!-- Footer / End -->
 
+      <div *ngIf="opened == true" class="row" id="addNewProject">
+        <!-- Dashboard Box -->
+        <div class="col-xl-12">
+          <div class="dashboard-box margin-top-0">
+            <!-- Headline  for form +  -->
+            <div class="headline">
+              <h3><i class="icon-feather-folder-plus"></i>Project Form</h3>
+            </div>
+
+            <!-- form container  -->
+            <div class="content with-padding padding-bottom-10">
+              <!-- Form ... -->
+              <form [formGroup]="addnewproject" (ngSubmit)="addNewProject()">
+                <!-- Row Container -->
+                <div class="row">
+                  <!-- Project Title -->
+                  <div class="col-xl-4">
+                    <div class="submit-field">
+                      <h5>Project Title</h5>
+                      <input
+                        formControlName="projectTitle"
+                        type="text"
+                        class="with-border"
+                        placeholder="add project title"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Project Date -->
+                  <div class="col-xl-4">
+                    <div class="submit-field">
+                      <h5>Project Date</h5>
+                      <input
+                        formControlName="projectDate"
+                        type="date"
+                        class="with-border"
+                        placeholder="add project date"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Money Earned  -->
+                  <div class="col-xl-4">
+                    <div class="submit-field">
+                      <h5>Money Earned</h5>
+                      <div class="row">
+                        <div class="col-xl-6">
+                          <div class="input-with-icon">
+                            <input
+                              formControlName="moneyEarned"
+                              class="with-border"
+                              type="text"
+                              placeholder=" 0.000 pound "
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Description -->
+                  <div class="col-xl-12">
+                    <div class="submit-field">
+                      <h5>Project Description</h5>
+                      <textarea
+                        formControlName="projectDescription"
+                        placeholder=" add project description"
+                        cols="30"
+                        rows="5"
+                        class="with-border"
+                      ></textarea>
+
+                      <!-- To add attachments like ( photos or files ) -->
+                      <div class="uploadButton margin-top-30">
+                        <input
+                          multiple
+                          (change)="GetImages($event)"
+                          class="uploadButton-input"
+                          type="file"
+                          accept="image/*, application/pdf"
+                          id="upload"
+                        />
+                        <label
+                          class="uploadButton-button ripple-effect"
+                          for="upload"
+                          >Upload Files</label
+                        >
+                        <span class="uploadButton-file-name"
+                          >Images that might be helpful
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-12">
+                  <!-- <a
+                    (click)="addNewProject("Dsad","dsada","adsda","asdas")"
+                    class="button ripple-effect big margin-top-30"
+                    ><i class="icon-feather-plus"></i
+                  ></a> -->
+                  <input
+                    type="submit"
+                    class="button ripple-effect big"
+                    value="Add To Projects"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<!-- Dashboard Content / End -->
-
-<!-- Dashboard Container / End -->
 </div>
