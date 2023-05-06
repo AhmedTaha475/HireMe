@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
+import { AuthService } from 'src/app/Services/auth.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class AllTasksComponent implements OnInit{
   Projects: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string ,done:boolean}[] = [];
   Categories: { valueId: number, valueName: string, lookupId: number }[] = [];
 
-  constructor(private myService: ProjectPostService,private LookService: LookupValueService){
+  constructor(private myService: ProjectPostService,private LookService: LookupValueService,private auth:AuthService){
 }
+CurrentRole=this.auth.getRoles();
   ngOnInit(): void {
     this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
       next: (data: any) => {
