@@ -131,12 +131,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MakeOfferComponent,
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
-
     CreateMilestoneComponent,
     UpdateMilestoneComponent,
     DeleteMilestoneComponent,
     ProjectPostMilestonesComponent,
-
     DashboardsfooterComponent,
     ManagaProjectPostsComponent,
     AllTasksComponent,

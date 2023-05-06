@@ -29,14 +29,14 @@ export class FreelancerProjectsComponent implements OnInit {
   id: any;
   myFreelancer: any;
   ports: Portfolio[] = [];
-  images: any;
+  images: any[] = [];
   myPort: any;
   myProjects: GetProjectById[] = [];
   opened: boolean = false;
   sysProj: any = false;
   addnewproject = new FormGroup({
     projectTitle: new FormControl('', [Validators.required]),
-    projectDate: new FormControl('', [Validators.required]),
+    projectDate: new FormControl(null, [Validators.required]),
     projectDescription: new FormControl('', [Validators.required]),
     moneyEarned: new FormControl('', []),
   });
@@ -72,12 +72,6 @@ export class FreelancerProjectsComponent implements OnInit {
     this.freelancer.GetCurrentFreelancer().subscribe({
       next: (data: any) => {
         this.myFreelancer = data.body;
-
-        // this.myFreelancer.cv=StaticHelper.ConvertByteArrayToPdf(data.body.cv);
-        // this.myFreelancer.image=StaticHelper.ConvertByteArrayToImage(data.body.image);
-
-        // filter to get portofolio of current freelancers from arrays of
-        //prtofolios ..
         this.myPort = this.ports.filter(
           (p) => p.freelancerId == this.myFreelancer.id
         )[0];
@@ -131,22 +125,35 @@ export class FreelancerProjectsComponent implements OnInit {
   }
 
   addNewProject() {
-    const dateValue = this.addnewproject.get('projectDate')?.value;
-    const date: Date = dateValue ? new Date(dateValue) : new Date();
+    const dateValue =
+      this.addnewproject.get('projectDate')?.value ?? new Date();
+    console.log(dateValue);
+    //const date: Date = dateValue ? new Date(dateValue) : new Date();
 
     let newproject = new CreateProject(
       this.addnewproject.get('projectTitle')?.value || '',
       this.addnewproject.get('projectDescription')?.value || '',
-      date,
+      dateValue,
       false,
       '',
       this.myPort.portId,
       Number(this.addnewproject.get('moneyEarned')?.value || 0),
       this.images
     );
-    console.log(newproject);
-
-    this.projects.CreateProject(newproject).subscribe({
+    console.log(newproject.ProjectImgs);
+    var arrayOfImages: any[] = [];
+    arrayOfImages.push(...this.images);
+    var formData = new FormData();
+    formData.append('title', newproject.title);
+    formData.append('description', newproject.description);
+    formData.append('moneyEarned', newproject.MoneyEarned.toString());
+    formData.append('date', newproject.Date.toString());
+    formData.append('systemProject', false.toString());
+    formData.append('clientId', '');
+    formData.append('portfolioId', newproject.PortfolioId.toString());
+    // formData.append('projectImgs', this.images);
+    arrayOfImages.forEach((el: any) => formData.append('projectImgs', el));
+    this.projects.CreateProject(formData).subscribe({
       next: (data: any) => console.log(data),
       error: (err: any) => console.log(err),
     });
