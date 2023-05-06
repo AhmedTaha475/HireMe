@@ -1,0 +1,17 @@
+<form [formGroup]="updateMilestone" (ngSubmit)="confirmUpdate()">
+  <div class="row margin-top-50">
+    <div class="col-xl-6">
+      <div class="submit-field">
+        <h5>Name</h5>
+        <input formControlName="name" type="name"class="with-border" placeholder="Milestone Name">
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="submit-field">
+        <h5>Value</h5>
+        <input formControlName="value" type="number"class="with-border" placeholder="0 EGP">
+      </div>
+    </div>
+  </div>
+  <input type="submit"class="button ripple-effect big" value="Update Milestone">
+</form>
