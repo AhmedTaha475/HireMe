@@ -25,4 +25,16 @@ export class AuthService {
   public getRoles() {
     return localStorage.getItem('Roles');
   }
+  public isAdmin() {
+    if (localStorage.getItem('Roles')=="Admin") return true;
+    return false;
+  }
+  public isClient() {
+    if (localStorage.getItem('Roles')=="Client") return true;
+    return false;
+  }
+  public isFreelancer() {
+    if (localStorage.getItem('Roles')=="Freelancer") return true;
+    return false;
+  }
 }

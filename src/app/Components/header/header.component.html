@@ -21,26 +21,26 @@
                            
                         </li>
 
-                        <li *ngIf="UserRole=='Client'">
+                        <li *ngIf="_authService.isClient()">
                             <a href="#">Find a Freelancer</a>
                             
                         </li>
-                        <li *ngIf="UserRole=='Client'">
+                        <li *ngIf="_authService.isClient()">
                             <a routerLink="/client/postjob">Post a Task</a>
                            
                         </li>
-                        <li *ngIf="UserRole=='Freelancer'">
+                        <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/AllTasks">Browse Tasks</a>
                             
                         </li>
-                        <li *ngIf="UserRole=='Freelancer'">
+                        <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/plan">Plans</a>
                             
                         </li>
                         <li *ngIf="UserRole">
-                            <a *ngIf="UserRole=='Freelancer'" routerLink="/Freelancer">Dashboard</a>
-                            <a *ngIf="UserRole=='Client'" routerLink="/client">Dashboard</a>
-                            <a *ngIf="UserRole=='Admin'" routerLink="/Admin">Dashboard</a>
+                            <a *ngIf="_authService.isFreelancer()" routerLink="/Freelancer">Dashboard</a>
+                            <a *ngIf="_authService.isClient()" routerLink="/client">Dashboard</a>
+                            <a *ngIf="_authService.isAdmin()" routerLink="/Admin">Dashboard</a>
                         </li>
                         <li *ngIf=" !_authService.isLoggedIn()">
                             <a routerLink="/Login">Login</a>
