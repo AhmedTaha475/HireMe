@@ -25,7 +25,8 @@
               "node_modules/primeng/resources/primeng.min.css",
               "src/styles.css",
               "src/assets/css/style.css",
-              "src/assets/css/colors/blue.css"
+              "src/assets/css/colors/blue.css",
+              "src/assets/css/invoice.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.6.0.min.js",

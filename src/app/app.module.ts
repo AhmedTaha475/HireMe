@@ -70,6 +70,10 @@ import { UpdateClientComponent } from './Components/ClientDashBoard/update-clien
 import { MakeOfferComponent } from './Components/make-offer/make-offer.component';
 import { CreateProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/create-project-post-applicant/create-project-post-applicant.component';
 import { EditProjectPostApplicantComponent } from './Components/ProjectPost/ProjectPostApplicant/edit-project-post-applicant/edit-project-post-applicant.component';
+import { CreateMilestoneComponent } from './Components/ProjectPost/Milestone/create-milestone/create-milestone.component';
+import { UpdateMilestoneComponent } from './Components/ProjectPost/Milestone/update-milestone/update-milestone.component';
+import { DeleteMilestoneComponent } from './Components/ProjectPost/Milestone/delete-milestone/delete-milestone.component';
+import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milestone/project-post-milestones/project-post-milestones.component';
 import { DashboardsfooterComponent } from './Components/ClientDashBoard/dashboardsfooter/dashboardsfooter.component';
 import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
@@ -127,6 +131,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     MakeOfferComponent,
     CreateProjectPostApplicantComponent,
     EditProjectPostApplicantComponent,
+
+    CreateMilestoneComponent,
+    UpdateMilestoneComponent,
+    DeleteMilestoneComponent,
+    ProjectPostMilestonesComponent,
+
     DashboardsfooterComponent,
     ManagaProjectPostsComponent,
     AllTasksComponent,

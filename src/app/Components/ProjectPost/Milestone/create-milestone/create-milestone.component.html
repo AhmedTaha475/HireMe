@@ -1,0 +1,25 @@
+<form [formGroup]="createMilestone" (ngSubmit)="confirmAdd()">
+  <div class="row margin-top-50">
+    <div class="col-xl-6">
+      <div class="submit-field">
+        <h5>Name</h5>
+        <input formControlName="name" type="name"class="with-border" placeholder="Milestone Name">
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="submit-field">
+        <h5>Value</h5>
+        <input formControlName="value" type="number"class="with-border" placeholder="0 EGP">
+      </div>
+    </div>
+    <!-- <div class="col-xl-6">
+      <div class="submit-field">
+        <h5>Select Applicant</h5>
+        <select  formControlName="applicantId" title="Select Applicant">
+          <option *ngFor="let option of freelancers" [value]="option.id">{{option.firstname}} {{option.lastname}}</option>
+        </select>
+      </div>
+    </div> -->
+  </div>
+  <input type="submit"class="button ripple-effect big" value="Create Milestone">
+</form>
