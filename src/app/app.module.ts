@@ -84,6 +84,12 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AddFreelancerReviewComponent } from './Components/ProjectPost/Review/add-freelancer-review/add-freelancer-review.component';
+import { AddClientReviewComponent } from './Components/ProjectPost/Review/add-client-review/add-client-review.component';
+import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/freelancer-reviews/freelancer-reviews.component';
+import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-reviews/client-reviews.component';
+import { ProjectReviewComponent } from './Components/ProjectPost/Review/project-review/project-review.component';
+import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -144,7 +150,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ManagaProjectPostsComponent,
     AllTasksComponent,
     OffersComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AddFreelancerReviewComponent,
+    AddClientReviewComponent,
+    FreelancerReviewsComponent,
+    ClientReviewsComponent,
+    ProjectReviewComponent,
+    DepositeMoneyComponent
   ],
   imports: [
     BrowserModule,

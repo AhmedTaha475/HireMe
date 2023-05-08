@@ -73,7 +73,6 @@ export class CreateProjectPostComponent implements OnInit {
       console.log(projectPost);
       this.projectPostService.CreateProjectPost(projectPost).subscribe({
         next: (data: any) => {
-          console.log(data);
           this.messageService.clear();
           this.messageService.add({
             severity: 'success',
