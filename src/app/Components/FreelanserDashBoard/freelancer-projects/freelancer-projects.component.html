@@ -160,7 +160,12 @@
 
           <div class="content">
             <ul class="dashboard-box-list">
-              <li *ngFor="let project of myProjects">
+              <li
+                *ngFor="let project of myProjects"
+                routerLink="/Freelancer/FreelancerProjectDetail/{{
+                  project.P_Id
+                }}"
+              >
                 <!-- Job Listing -->
                 <div class="job-listing">
                   <!-- Job Listing Details -->

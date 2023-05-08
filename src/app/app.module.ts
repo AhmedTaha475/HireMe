@@ -90,6 +90,7 @@ import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/free
 import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-reviews/client-reviews.component';
 import { ProjectReviewComponent } from './Components/ProjectPost/Review/project-review/project-review.component';
 import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
+import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -156,7 +157,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FreelancerReviewsComponent,
     ClientReviewsComponent,
     ProjectReviewComponent,
-    DepositeMoneyComponent
+    DepositeMoneyComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,
