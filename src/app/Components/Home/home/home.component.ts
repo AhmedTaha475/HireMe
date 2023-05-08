@@ -11,50 +11,80 @@ import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  Projects: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string }[] = [];
-  AllProjects: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string }[] = [];
+  Projects: {
+    averagePrice: number;
+    categoryId: number;
+    description: string;
+    id: number;
+    postTitle: string;
+    projectPostDate: Date;
+    location: string;
+    category_name: string;
+  }[] = [];
+  AllProjects: {
+    averagePrice: number;
+    categoryId: number;
+    description: string;
+    id: number;
+    postTitle: string;
+    projectPostDate: Date;
+    location: string;
+  }[] = [];
   Freelancers: Freelancer[] = [];
   AllFreeLancers: Freelancer[] = [];
-  responsiveOptions: any[]=[];
+  responsiveOptions: any[] = [];
   cat: any;
   clientCount: number = 0;
   TasksCount: number = 0;
   FreeLancerCount: number = 0;
   CategoryIds: number[] = [];
   FreelancersbyCatCount: number[] = [];
-  joindata: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string }[] = [];
-  Categories: { valueId: number, valueName: string, lookupId: number }[] = [];
-  lang=localStorage.getItem('Lang');
-  isLoaded: boolean=false;
-  constructor(public translate: TranslateService, private myService: ProjectPostService, private LookService: LookupValueService, private FLService: FreelancerService, private Clientservice: ClientService,private auth:AuthService) {
+  joindata: {
+    averagePrice: number;
+    categoryId: number;
+    description: string;
+    id: number;
+    postTitle: string;
+    projectPostDate: Date;
+    location: string;
+    category_name: string;
+  }[] = [];
+  Categories: { valueId: number; valueName: string; lookupId: number }[] = [];
+  lang = localStorage.getItem('Lang');
+  isLoaded: boolean = false;
+  constructor(
+    public translate: TranslateService,
+    private myService: ProjectPostService,
+    private LookService: LookupValueService,
+    private FLService: FreelancerService,
+    private Clientservice: ClientService,
+    private auth: AuthService
+  ) {
     //translate.setDefaultLang('en');
     const langItem = localStorage.getItem('Lang');
-if (langItem != null) {
-  translate.use(langItem);
-}
-
+    if (langItem != null) {
+      translate.use(langItem);
+    }
   }
- 
-  CurrentRole=this.auth.getRoles();
+
+  CurrentRole = this.auth.getRoles();
   ngOnInit(): void {
     //get Clients Counts For counter in Welcome photo
     this.Clientservice.GetClientCount().subscribe({
       next: (data: any) => {
         // console.log(data.clientCount);
         this.clientCount = data.clientCount;
-        if(this.clientCount>0){
-          this.isLoaded=true;
+        if (this.clientCount > 0) {
+          this.isLoaded = true;
         }
       },
       error: (err) => {
         console.log(err);
       },
     });
-
-
 
     //Get Freelancers Count for welcome part and
     // Get highest rated freelancers
@@ -68,37 +98,39 @@ if (langItem != null) {
           if (data.body[i].rank == 5) {
             var freelancerTemp = data.body[i];
             if (freelancerTemp.image != null)
-              freelancerTemp.image = StaticHelper.ConvertByteArrayToImage(data.body[i].image);
-            freelancerTemp.cv = StaticHelper.ConvertByteArrayToPdf(data.body[i].cv);
+              freelancerTemp.image = StaticHelper.ConvertByteArrayToImage(
+                data.body[i].image
+              );
+            freelancerTemp.cv = StaticHelper.ConvertByteArrayToPdf(
+              data.body[i].cv
+            );
             this.Freelancers.push(freelancerTemp);
           }
         }
         // console.log(this.Freelancers);
       },
-      error: (error) => {
-
-      },
-    })
+      error: (error) => {},
+    });
     this.responsiveOptions = [
       {
-          breakpoint: '1400px',
-          numVisible: 3,
-          numScroll: 3
+        breakpoint: '1400px',
+        numVisible: 3,
+        numScroll: 3,
       },
       {
-          breakpoint: '1220px',
-          numVisible: 2,
-          numScroll: 2
+        breakpoint: '1220px',
+        numVisible: 2,
+        numScroll: 2,
       },
       {
-          breakpoint: '1100px',
-          numVisible: 1,
-          numScroll: 1
-      }
-  ];
+        breakpoint: '1100px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
 
     //Get array Of category Ids to Get FreelancerCounts in them
-    this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
+    this.LookService.GetAllLookupvalueByLookuptableName('Category').subscribe({
       next: (data: any) => {
         this.Categories = data;
         console.log(this.Categories);
@@ -107,53 +139,50 @@ if (langItem != null) {
         }
         console.log(this.CategoryIds);
         this.counts();
-        //Get recent tasks section  
+        //Get recent tasks section
         //Get thier count for counter in welcome photo section
-        this.myService.GetAllProjectPosts().subscribe(
-          {
-            next: (data: any) => {
-              this.TasksCount = data.length;
-              this.AllProjects = data;
-              this.joindata = this.AllProjects.map((d) => {
-                let category = this.Categories.find(c => c.valueId === d.categoryId);
-                let categoryName = category ? category.valueName : '';
+        this.myService.GetAllProjectPosts().subscribe({
+          next: (data: any) => {
+            this.TasksCount = data.length;
+            this.AllProjects = data;
+            this.joindata = this.AllProjects.map((d) => {
+              let category = this.Categories.find(
+                (c) => c.valueId === d.categoryId
+              );
+              let categoryName = category ? category.valueName : '';
 
-                return {
-                  ...d,
-                  category_name: categoryName
-                };
-              })
-              console.log(this.joindata.sort(this.compareByDate));
-              this.Projects = this.joindata.slice(0, 3);
+              return {
+                ...d,
+                category_name: categoryName,
+              };
+            });
+            console.log(this.joindata.sort(this.compareByDate));
+            this.Projects = this.joindata.slice(0, 3);
 
-              console.log(this.TasksCount);
-              console.log(this.Projects);
-            },
-            error: (error) => {
-
-            },
-          }
-        );
+            console.log(this.TasksCount);
+            console.log(this.Projects);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
       },
       error: (err) => {
         console.log(err);
       },
-    })
-
+    });
   }
 
- 
   private counts() {
     this.FLService.GetCounts({ CatIds: this.CategoryIds }).subscribe({
       next: (data: any) => {
-
         console.log(data.counts);
         this.FreelancersbyCatCount = data.counts;
       },
       error: (err) => {
         console.log(err);
       },
-    })
+    });
   }
   private compareByDate(a: any, b: any): number {
     let dateA = new Date(a.projectPostDate);
@@ -166,16 +195,4 @@ if (langItem != null) {
     }
     return 0;
   }
-//   getSeverity(status: string):string {
-//     switch (status) {
-//         case 'INSTOCK':
-//             return 'success';
-//         case 'LOWSTOCK':
-//             return 'warning';
-//         case 'OUTOFSTOCK':
-//             return 'danger';
-//     }
-// }
 }
-
-

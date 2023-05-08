@@ -65,16 +65,7 @@ export class SingupComponent {
   get passwordvalid() {
     return this.formValidation.controls['Password'].valid;
   }
-  // Create(){
-  //   // var User=new Register(
-  //   // this.formValidation.controls["firstName"].value??"",
-  //   // this.formValidation.controls["lastName"].value??"",
-  //   // this.formValidation.controls["UserName"].value??"",
-  //   // this.formValidation.controls["Email"].value ??"",
-  //   // this.formValidation.controls["Password"].value??"",
-  //   // this.formValidation.controls["cpassword"].value??"")
-  //   console.log("Ashraf")
-  // }
+
   Add(
     fname: any,
     lname: any,
@@ -85,6 +76,7 @@ export class SingupComponent {
   ) {
     // console.log(this.formValidation.controls["firstName"].value)
     var user = new Register(fname, lname, uname, email, password, cpassword);
+    console.log(user);
     if (this.checkvalue == 'Freelancer') {
       this.servise.CreateFreelancer(user).subscribe({
         next: (data) => {
@@ -92,9 +84,7 @@ export class SingupComponent {
           this.router.navigate(['/Login']);
         },
         error: (error) => {
-          // this.obj = error.error.errors;
-          // this.Keys = Object.keys(this.obj);
-          // console.log(this.obj);
+          console.log(error);
         },
       });
     } else {

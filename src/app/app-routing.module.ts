@@ -4,8 +4,6 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { SingupComponent } from './Components/singup/singup.component';
 import { LoginComponent } from './Components/Login/login/login.component';
 import { CreateProjectPostComponent } from './Components/ProjectPost/create-project-post/create-project-post.component';
-import { UpdateProjectPostComponent } from './Components/ProjectPost/update-project-post/update-project-post.component';
-import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
 import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
 import { ProjectPostComponent } from './Components/ProjectPost/project-post/project-post.component';
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
@@ -43,6 +41,7 @@ import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
 const routes: Routes = [
   {
     path: '',
@@ -53,16 +52,32 @@ const routes: Routes = [
       { path: 'Login', component: LoginComponent },
       { path: 'SignUp', component: SingupComponent },
       { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
-      { path: 'ProjectPost/:id/Update', component: UpdateProjectPostComponent },
-      { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      { path: 'ProjectPost/:id/Milestone/Create', component: CreateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Update', component: UpdateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Delete', component: DeleteMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {
+        path: 'ProjectPost/:id/Milestone/Create',
+        component: CreateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Update',
+        component: UpdateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Delete',
+        component: DeleteMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/GetAll',
+        component: ProjectPostMilestonesComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Create',
+        component: CreateProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Update',
+        component: EditProjectPostApplicantComponent,
+      },
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',
         component: CreateProjectPostApplicantComponent,
@@ -114,6 +129,7 @@ const routes: Routes = [
       { path: 'updateProfile', component: UpdateClientComponent },
       { path: 'postjob', component: CreateProjectPostComponent },
       { path: 'managejob', component: ManagaProjectPostsComponent },
+      { path: 'manageApplicants/:id', component: PostApplicantsComponent },
     ],
   },
   { path: '**', component: Error404Component },
