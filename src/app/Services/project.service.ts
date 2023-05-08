@@ -34,4 +34,5 @@ export class ProjectService {
   GetAll() {
     return this.client.get(this.Url + 'GetAll');
   }
+  
 }
