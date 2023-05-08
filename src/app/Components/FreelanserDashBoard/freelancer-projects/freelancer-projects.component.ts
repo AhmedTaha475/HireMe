@@ -32,6 +32,7 @@ export class FreelancerProjectsComponent implements OnInit {
   images: any[] = [];
   myPort: any;
   myProjects: GetProjectById[] = [];
+  // projects:any
   opened: boolean = false;
   sysProj: any = false;
   addnewproject = new FormGroup({
@@ -98,11 +99,6 @@ export class FreelancerProjectsComponent implements OnInit {
             });
             console.log(this.myProjects);
             console.log('***********************');
-
-            // let projectsIds = [];
-            // this.myProjects.forEach((element) => {
-            //   element.P_Id;
-            // });
           },
         });
       },
@@ -146,16 +142,21 @@ export class FreelancerProjectsComponent implements OnInit {
     var formData = new FormData();
     formData.append('title', newproject.title);
     formData.append('description', newproject.description);
-    formData.append('moneyEarned', newproject.MoneyEarned.toString());
-    formData.append('date', newproject.Date.toString());
+    formData.append('MoneyEarned', newproject.MoneyEarned.toString());
+    formData.append('date', newproject.Date.toString() || '1000');
     formData.append('systemProject', false.toString());
     formData.append('clientId', '');
     formData.append('portfolioId', newproject.PortfolioId.toString());
     // formData.append('projectImgs', this.images);
     arrayOfImages.forEach((el: any) => formData.append('projectImgs', el));
     this.projects.CreateProject(formData).subscribe({
-      next: (data: any) => console.log(data),
+      next: (data: any) => {
+        window.location.reload();
+        console.log(data);
+        // console.log(data);
+      },
       error: (err: any) => console.log(err),
     });
+    // console.log(formData.get('MoneyEarned'));
   }
 }
