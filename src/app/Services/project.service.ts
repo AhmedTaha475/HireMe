@@ -4,6 +4,7 @@ import { StaticURl } from '../Models/static-url';
 import { CreateProject } from '../Models/Project/create-project';
 // import { GetProjectById } from '../Models/Project/get-project-by-id';
 import { UpdateProject } from '../Models/Project/update-project-by-id';
+// import { url } from 'inspector';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,5 +34,9 @@ export class ProjectService {
   }
   GetAll() {
     return this.client.get(this.Url + 'GetAll');
+  }
+
+  GetProjectWithImage(P_Id: number) {
+    return this.client.get(this.Url + 'GetProjectWithImage/' + P_Id);
   }
 }

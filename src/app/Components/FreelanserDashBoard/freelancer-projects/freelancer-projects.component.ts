@@ -84,7 +84,7 @@ export class FreelancerProjectsComponent implements OnInit {
             mydata.forEach((element: any) => {
               this.myProjects.push(
                 new GetProjectById(
-                  element.p_id,
+                  element.p_Id,
                   element.title,
                   element.description,
                   new Date(element.date).toLocaleDateString('en-US', {
@@ -92,11 +92,20 @@ export class FreelancerProjectsComponent implements OnInit {
                     month: 'long',
                     year: 'numeric',
                   }),
-                  element.systemproject,
-                  element.moneyearned
+                  element.systemProject,
+                  element.moneyEarned
                 )
               );
+              // console.log('***************************');
+              // console.log(mydata);
             });
+            // this.myProjects.forEach((element) => {
+            //   console.log(element.P_Id);
+            //   console.log(element.Date);
+            //   console.log(element.Description);
+            //   console.log(element.MoneyEarned);
+            //   console.log(element.Title);
+            // });
             console.log(this.myProjects);
             console.log('***********************');
           },
@@ -142,8 +151,8 @@ export class FreelancerProjectsComponent implements OnInit {
     var formData = new FormData();
     formData.append('title', newproject.title);
     formData.append('description', newproject.description);
-    formData.append('MoneyEarned', newproject.MoneyEarned.toString());
-    formData.append('date', newproject.Date.toString() || '1000');
+    formData.append('MoneyEarned', newproject.MoneyEarned.toString() || '1000');
+    formData.append('date', newproject.Date.toString());
     formData.append('systemProject', false.toString());
     formData.append('clientId', '');
     formData.append('portfolioId', newproject.PortfolioId.toString());
@@ -153,10 +162,8 @@ export class FreelancerProjectsComponent implements OnInit {
       next: (data: any) => {
         window.location.reload();
         console.log(data);
-        // console.log(data);
       },
       error: (err: any) => console.log(err),
     });
-    // console.log(formData.get('MoneyEarned'));
   }
 }
