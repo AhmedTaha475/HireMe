@@ -82,7 +82,12 @@
                   <span>Freelancer Photo</span>
 
                   <!-- <img src="{{ currentfreelancer.image }}" alt="" /> -->
-                  <img width="125" height="125" src="data:image/png;base64,{{ currentfreelancer.image }}" alt="" />
+                  <img
+                    width="125"
+                    height="125"
+                    src="data:image/png;base64,{{ currentfreelancer.image }}"
+                    alt=""
+                  />
                 </div>
                 <div class="fun-fact-icon">
                   <i class="icon-material-outline-add-a-photo"></i>
@@ -90,51 +95,58 @@
               </div>
               <div class="fun-fact" data-fun-fact-color="#b81b7f">
                 <div class="fun-fact-text">
-                  <span>First Name</span>
-                  <h2>{{ currentfreelancer.firstname }}</h2>
+                  <span>Full Name</span>
+                  <h3>
+                    {{ currentfreelancer.firstname }}
+                    {{ currentfreelancer.lastname }}
+                  </h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-material-outline-business-center"></i>
+                  <i class="icon-material-outline-account-circle"></i>
                 </div>
               </div>
-              <div class="fun-fact" data-fun-fact-color="#efa80f">
+              <!-- <div class="fun-fact" data-fun-fact-color="#efa80f">
                 <div class="fun-fact-text">
                   <span>Last Name</span>
-                  <h2>{{ currentfreelancer.lastname }}</h2>
+                  <h3>{{ currentfreelancer.lastname }}</h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-material-outline-rate-review"></i>
+                  <i class="icon-material-outline-account-circle"></i>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Last one has to be hidden below 1600px, sorry :( -->
               <div class="fun-fact" data-fun-fact-color="#2a41e6">
                 <div class="fun-fact-text">
                   <span>Email</span>
-                  <h2>{{ currentfreelancer.email }}</h2>
+                  <h3>{{ currentfreelancer.email }}</h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-feather-trending-up"></i>
+                  <i class="icon-material-baseline-mail-outline"></i>
                 </div>
               </div>
             </div>
 
             <!-- Fun Facts Container -->
-            <div class="fun-facts-container" style="margin-top: 30px; margin-bottom: 20px">
+            <div
+              class="fun-facts-container"
+              style="margin-top: 30px; margin-bottom: 20px"
+            >
               <div class="fun-fact" data-fun-fact-color="#36bd78">
                 <div class="fun-fact-text">
                   <span>City</span>
                   <h3>{{ currentfreelancer.city }}</h3>
+                  <h3 *ngIf="currentfreelancer.city == null">cairo</h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-material-outline-gavel"></i>
+                  <i class="icon-material-outline-home"></i>
                 </div>
               </div>
               <div class="fun-fact" data-fun-fact-color="#b81b7f">
                 <div class="fun-fact-text">
                   <span>Balance</span>
-                  <h2 *ngIf="currentfreelancer.balance == null">no balance</h2>
-                  <h2>{{ currentfreelancer.balance }}</h2>
+                  <h3 *ngIf="currentfreelancer.balance == null">0</h3>
+                  <h3>{{ currentfreelancer.balance }}</h3>
                 </div>
                 <div class="fun-fact-icon">
                   <i class="icon-material-outline-business-center"></i>
@@ -143,10 +155,10 @@
               <div class="fun-fact" data-fun-fact-color="#efa80f">
                 <div class="fun-fact-text">
                   <span>Bids</span>
-                  <h2>{{ currentfreelancer.bids }}</h2>
+                  <h3>{{ currentfreelancer.bids }}</h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-material-outline-rate-review"></i>
+                  <i class="icon-material-outline-star"></i>
                 </div>
               </div>
 
@@ -154,10 +166,10 @@
               <div class="fun-fact" data-fun-fact-color="#2a41e6">
                 <div class="fun-fact-text">
                   <span>Money Earned</span>
-                  <h2>{{ currentfreelancer.totalmoneyearned }}</h2>
+                  <h3>{{ currentfreelancer.totalmoneyearned }}</h3>
                 </div>
                 <div class="fun-fact-icon">
-                  <i class="icon-feather-trending-up"></i>
+                  <i class="icon-material-outline-monetization-on"></i>
                 </div>
               </div>
             </div>
@@ -165,10 +177,22 @@
             <div class="col-xl-12">
               <div class="submit-field" style="margin-bottom: 0px">
                 <h5>Introduce Yourself</h5>
-                <textarea *ngIf="currentfreelancer.description == null" cols="30" rows="5" class="with-border">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores numquam nihil quas praesentium maiores temporibus illo id quasi suscipit a, voluptates, porro perspiciatis non magnam ducimus optio, unde pariatur molestias.</textarea>
-                <textarea cols="30" rows="5" class="with-border" *ngIf="currentfreelancer.description">{{ currentfreelancer.description }}
-</textarea>
+                <textarea
+                  *ngIf="currentfreelancer.description == null"
+                  cols="30"
+                  rows="5"
+                  class="with-border"
+                >
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores numquam nihil quas praesentium maiores temporibus illo id quasi suscipit a, voluptates, porro perspiciatis non magnam ducimus optio, unde pariatur molestias.</textarea
+                >
+                <textarea
+                  cols="30"
+                  rows="5"
+                  class="with-border"
+                  *ngIf="currentfreelancer.description"
+                  >{{ currentfreelancer.description }}
+</textarea
+                >
               </div>
             </div>
 
