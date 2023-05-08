@@ -39,4 +39,5 @@ export class ProjectService {
   GetProjectWithImage(P_Id: number) {
     return this.client.get(this.Url + 'GetProjectWithImage/' + P_Id);
   }
+
 }

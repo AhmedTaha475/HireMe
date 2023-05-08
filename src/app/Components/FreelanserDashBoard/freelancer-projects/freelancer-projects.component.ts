@@ -52,12 +52,16 @@ export class FreelancerProjectsComponent implements OnInit {
     public imageServ: ProjectImageService // public myrouter: Route
   ) {
     this.id = myActiveRoute.snapshot.params['Id'];
-    translate.setDefaultLang('en');
-    translate.use('en');
+    // translate.setDefaultLang('en');
+    // translate.use('en');
+    const langItem = localStorage.getItem('Lang');
+if (langItem != null) {
+  translate.use(langItem);
+}
   }
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+  // switchLanguage(language: string) {
+  //   this.translate.use(language);
+  // }
   ngOnInit(): void {
     this.port.GetAllPortfolio().subscribe({
       next: (data: any) => {
