@@ -48,6 +48,7 @@ import { AddFreeLancerReview } from './Models/ProjectReview/add-freelancer-revie
 import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/freelancer-reviews/freelancer-reviews.component';
 import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-reviews/client-reviews.component';
 import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
+import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -62,12 +63,22 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Delete', component: DeleteProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      { path: 'ProjectPost/:id/Milestone/Create', component: CreateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Update', component: UpdateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Delete', component: DeleteMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {
+        path: 'ProjectPost/:id/Milestone/Create',
+        component: CreateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Update',
+        component: UpdateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Delete',
+        component: DeleteMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/GetAll',
+        component: ProjectPostMilestonesComponent,
+      },
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',
         component: CreateProjectPostApplicantComponent,
@@ -76,9 +87,23 @@ const routes: Routes = [
         path: 'ProjectPost/:id/ProjectPostApplicant/Update',
         component: EditProjectPostApplicantComponent,
       },
-      { path: 'ProjectPost/:id/ClientReview/Add', component: AddClientReviewComponent},
-      { path: 'ProjectPost/:id/FreelancerReview/Add', component: AddFreeLancerReview},
-      { path: 'ProjectPost/:id/ProjectReview', component: AddFreeLancerReview},
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Create',
+        component: CreateProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Update',
+        component: EditProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ClientReview/Add',
+        component: AddClientReviewComponent,
+      },
+      {
+        path: 'ProjectPost/:id/FreelancerReview/Add',
+        component: AddFreeLancerReview,
+      },
+      { path: 'ProjectPost/:id/ProjectReview', component: AddFreeLancerReview },
       { path: 'plan', component: PlanComponent },
       { path: 'checkout/:PlanId', component: CheckoutComponent },
       { path: 'Page404', component: Error404Component },
@@ -112,7 +137,11 @@ const routes: Routes = [
       { path: 'Projects', component: FreelancerProjectsComponent },
       { path: 'Transaction', component: TransactionComponent },
       { path: 'Offers', component: OffersComponent },
-      { path: 'FreelancerReviews', component: FreelancerReviewsComponent},
+      { path: 'FreelancerReviews', component: FreelancerReviewsComponent },
+      {
+        path: 'FreelancerProjectDetail/:id',
+        component: ProjectDetailsComponent,
+      },
     ],
   },
   {
@@ -123,9 +152,8 @@ const routes: Routes = [
       { path: 'updateProfile', component: UpdateClientComponent },
       { path: 'postjob', component: CreateProjectPostComponent },
       { path: 'managejob', component: ManagaProjectPostsComponent },
-      { path: 'ClientReviews', component: ClientReviewsComponent},
-      { path: 'DepositeMoney', component: DepositeMoneyComponent},
-
+      { path: 'ClientReviews', component: ClientReviewsComponent },
+      { path: 'DepositeMoney', component: DepositeMoneyComponent },
     ],
   },
   { path: '**', component: Error404Component },
