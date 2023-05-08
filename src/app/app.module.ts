@@ -22,8 +22,6 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { SingupComponent } from './Components/singup/singup.component';
 import { LoginComponent } from './Components/Login/login/login.component';
 import { ClientSidebarComponent } from './Client/client-sidebar/client-sidebar.component';
-import { UpdateProjectPostComponent } from './Components/ProjectPost/update-project-post/update-project-post.component';
-import { DeleteProjectPostComponent } from './Components/ProjectPost/delete-project-post/delete-project-post.component';
 import { AllProjectPostsComponent } from './Components/ProjectPost/all-project-posts/all-project-posts.component';
 import { PlanComponent } from './Components/Pricing Plan/plan/plan.component';
 import { CheckoutComponent } from './Components/Pricing Plan/checkout/checkout.component';
@@ -79,11 +77,13 @@ import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
 import { NgImageSliderModule } from 'ng-image-slider';
-
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
+import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
+
 import { AddFreelancerReviewComponent } from './Components/ProjectPost/Review/add-freelancer-review/add-freelancer-review.component';
 import { AddClientReviewComponent } from './Components/ProjectPost/Review/add-client-review/add-client-review.component';
 import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/freelancer-reviews/freelancer-reviews.component';
@@ -91,6 +91,7 @@ import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-r
 import { ProjectReviewComponent } from './Components/ProjectPost/Review/project-review/project-review.component';
 import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
 import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -108,8 +109,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SingupComponent,
     LoginComponent,
     ClientSidebarComponent,
-    UpdateProjectPostComponent,
-    DeleteProjectPostComponent,
     AllProjectPostsComponent,
     CreateProjectPostComponent,
     PlanComponent,
@@ -152,6 +151,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AllTasksComponent,
     OffersComponent,
     SpinnerComponent,
+    PostApplicantsComponent,
     AddFreelancerReviewComponent,
     AddClientReviewComponent,
     FreelancerReviewsComponent,

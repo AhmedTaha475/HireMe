@@ -15,10 +15,7 @@ export class ProjectPostApplicantsService {
     );
   }
 
-  UpdateProjectPostApplicant(
-    applicant: CreatePPApplicant,
-    ProjectPostId: number
-  ) {
+  UpdateProjectPostApplicant(applicant: any, ProjectPostId: number) {
     return this.client.put(this.Url + `Update/${ProjectPostId}`, applicant);
   }
 
