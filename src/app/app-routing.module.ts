@@ -39,6 +39,9 @@ import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milesto
 import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+
+import { BrowseFreelancersComponent } from './browse-freelancers/browse-freelancers.component';
+
 import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
 import { AddClientReviewComponent } from './Components/ProjectPost/Review/add-client-review/add-client-review.component';
 import { AddFreeLancerReview } from './Models/ProjectReview/add-freelancer-review';
@@ -60,6 +63,16 @@ const routes: Routes = [
       { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
+
+      { path: 'ProjectPost/:id/Milestone/Create', component: CreateMilestoneComponent },
+      { path: 'ProjectPost/:id/Milestone/:milestoneId/Update', component: UpdateMilestoneComponent },
+      { path: 'ProjectPost/:id/Milestone/:milestoneId/Delete', component: DeleteMilestoneComponent },
+      { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
+      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
+      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {path: 'AllFreelancers',component:BrowseFreelancersComponent},
+
+
 
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',

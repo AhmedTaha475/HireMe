@@ -81,6 +81,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BrowseFreelancersComponent } from './browse-freelancers/browse-freelancers.component';
 
 import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
 
@@ -153,6 +154,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AllTasksComponent,
     OffersComponent,
     SpinnerComponent,
+
+    BrowseFreelancersComponent,
+
     PostApplicantsComponent,
     AddFreelancerReviewComponent,
     AddClientReviewComponent,
@@ -164,6 +168,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientTransactionComponent,
     ClientMainReviewsComponent,
     CustomDateDirective,
+
   ],
   imports: [
     BrowserModule,

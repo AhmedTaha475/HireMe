@@ -69,6 +69,8 @@ export class LookupValueService {
       this.Url + 'DeleteLookupValueById/' + lookupValueId
     );
   }
-
+GetIdByName(name:string){
+  return this.myclient.get(this.Url+'GetValueIdByName/'+name);
+}
   //#endregion
 }
