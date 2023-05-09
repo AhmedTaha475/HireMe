@@ -1,96 +1,120 @@
-<script>
+<!-- <script>
 
   console.log("++++++++++++++++++")
-</script>
+</script> -->
+<div appJQueryLoader></div>
 <!-- Wrapper -->
 <div>
-
-  <div class="clearfix"></div>
-  <!-- Header Container / End -->
-<!-- Titlebar
+    <div class="clearfix"></div>
+    <!-- Header Container / End -->
+    <!-- Titlebar
 ================================================== -->
-<div class="single-page-header freelancer-header" data-background-image="assets/images/freelancerCover.png">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="single-page-header-inner">
-					<div class="left-side">
-						<div class="header-image freelancer-avatar"><img src="{{myFreelancer.image}}" alt=""></div>
-						<div class="header-details">
-							<h3>{{myFreelancer.username}} <span>{{myFreelancer.jobtitle}}</span><span *ngIf="myFreelancer.age!=0">{{myFreelancer.age}} years old</span></h3>
-							<ul>
-								<li><div class="star-rating" data-rating="5.0" ></div></li>
-								<li><!-- <img class="flag" src="images/flags/de.svg" alt="" >--><span *ngIf="myFreelancer.country!=null"> {{myFreelancer.country}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.city}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.street}}</span> </li>
-								<li><div class="verified-badge-with-title">{{ translate.instant('Verified') }}</div></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+    <div class="single-page-header freelancer-header" data-background-image="assets/images/freelancerCover.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="single-page-header-inner">
+                        <div class="left-side">
+                            <div class="header-image freelancer-avatar">
+                                <img src="{{ myFreelancer.image }}" alt="" />
+                            </div>
+                            <div class="header-details">
+                                <h3>
+                                    {{ myFreelancer.username }}
+                                    <span>{{ myFreelancer.jobtitle }}</span
+                  ><span *ngIf="myFreelancer.age != 0"
+                    >{{ myFreelancer.age }} years old</span
+                  >
+                </h3>
+                <ul>
+                  <li><div class="star-rating" data-rating="5.0"></div></li>
+                  <li>
+                    <!-- <img class="flag" src="images/flags/de.svg" alt="" >--><span
+                      *ngIf="myFreelancer.country != null"
+                    >
+                      {{ myFreelancer.country }}</span
+                    ><span *ngIf="myFreelancer.country != null">
+                      , {{ myFreelancer.city }}</span
+                    ><span *ngIf="myFreelancer.country != null">
+                      , {{ myFreelancer.street }}</span
+                    >
+                  </li>
+                  <li>
+                    <div class="verified-badge-with-title">
+                      {{ translate.instant("Verified") }}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<!-- Page Content
+  <!-- Page Content
 ================================================== -->
-<div class="container">
-	<div class="row">
+  <div class="container">
+    <div class="row">
+      <!-- Content -->
+      <div class="col-xl-8 col-lg-8 content-right-offset">
+        <!-- Page Content -->
+        <div class="single-page-section">
+          <h3 class="margin-bottom-25">{{ translate.instant("About Me") }}</h3>
+          <p>{{ myFreelancer.description }}</p>
 
-		<!-- Content -->
-		<div class="col-xl-8 col-lg-8 content-right-offset">
+          <!-- <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p> -->
+        </div>
 
-			<!-- Page Content -->
-			<div class="single-page-section">
-				<h3 class="margin-bottom-25">{{ translate.instant('About Me') }}</h3>
-				<p> {{myFreelancer.description}}</p>
+        <!-- Boxed List -->
+        <div class="boxed-list margin-bottom-60">
+          <div class="boxed-list-headline">
+            <h3>
+              <i class="icon-material-outline-thumb-up"></i>
+              {{ translate.instant("Work History and Feedback") }}
+            </h3>
+          </div>
+          <ul class="boxed-list-ul">
+            <li *ngFor="let p of myProjects">
+              <div class="boxed-list-item">
+                <!-- Content -->
+                <div class="item-content">
+                  <h4>{{ p.Title }}<span>Rated as Freelancer</span></h4>
+                                    <div class="item-details margin-top-10">
+                                        <div class="star-rating" data-rating="5.0"></div>
+                                        <div class="detail-item">
+                                            <i class="icon-material-outline-date-range" id="date"></i
+                      >{{ p.Date }}
+                    </div>
+                  </div>
+                  <div class="item-description">
+                    <p>{{ p.Description }}</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
 
-				<!-- <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p> -->
-			</div>
-
-			<!-- Boxed List -->
-			<div class="boxed-list margin-bottom-60">
-				<div class="boxed-list-headline">
-					<h3><i class="icon-material-outline-thumb-up"></i> {{ translate.instant('Work History and Feedback') }}</h3>
-				</div>
-				<ul class="boxed-list-ul">
-					<li *ngFor="let p of myProjects">
-						<div class="boxed-list-item">
-							<!-- Content -->
-							<div class="item-content" >
-								<h4 >{{p.Title}}<span>Rated as Freelancer</span></h4>
-								<div class="item-details margin-top-10">
-									<div class="star-rating" data-rating="5.0"></div>
-									<div class="detail-item"><i class="icon-material-outline-date-range" id="date"></i>{{p.Date}}</div>
-								</div>
-								<div class="item-description">
-									<p>{{p.Description}}</p>
-								</div>
-							</div>
-						</div>
-					</li>
-
-				</ul>
-
-				<!-- Pagination -->
-				<!-- <div class="clearfix"></div>
+          <!-- Pagination -->
+          <!-- <div class="clearfix"></div>
 				<div class="pagination-container margin-top-40 margin-bottom-10">
 					<nav class="pagination">
 						<ul>
 							<li><a routerLink="#" class="ripple-effect current-page">1</a></li>
 							<li><a routerLink="#" class="ripple-effect">2</a></li>
-							<li class="pagination-arrow"><a routerLink="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="clearfix"></div> -->
-				<!-- Pagination / End -->
+							<li class="pagination-arrow"><a routerLink="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a>
+                                            </li>
+                                            </ul>
+                                            </nav>
+                                        </div>
+                                        <div class="clearfix"></div> -->
+                                        <!-- Pagination / End -->
+                                    </div>
+                                    <!-- Boxed List / End -->
 
-			</div>
-			<!-- Boxed List / End -->
-
-			<!-- Boxed List -->
-			<!-- <div class="boxed-list margin-bottom-60">
+                                    <!-- Boxed List -->
+                                    <!-- <div class="boxed-list margin-bottom-60">
 				<div class="boxed-list-headline">
 					<h3><i class="icon-material-outline-business"></i>{{ translate.instant('Employment History') }}  </h3>
 				</div>
@@ -133,27 +157,29 @@
 					</li>
 				</ul>
 			</div> -->
-			<!-- Boxed List / End -->
+                                    <!-- Boxed List / End -->
+                            </div>
 
-		</div>
+                            <!-- Sidebar -->
+                            <div class="col-xl-4 col-lg-4">
+                                <div class="sidebar-container">
+                                    <!-- Profile Overview -->
+                                    <div class="profile-overview">
+                                        <div class="overview-item">
+                                            <strong>{{ myFreelancer.bids }}</strong
+              ><span>{{ translate.instant("Remaining Bids") }}</span>
+            </div>
+            <div class="overview-item">
+              <strong>{{ myProjects.length }}</strong
+              ><span>{{ translate.instant("Jobs Done") }}</span>
+            </div>
+            <!-- <div class="overview-item"><strong></strong><span>Rehired</span></div> -->
+                                    </div>
 
+                                    <!-- Button -->
 
-		<!-- Sidebar -->
-		<div class="col-xl-4 col-lg-4">
-			<div class="sidebar-container">
-
-				<!-- Profile Overview -->
-				<div class="profile-overview">
-					<div class="overview-item"><strong>{{myFreelancer.bids}}</strong><span>{{ translate.instant('Remaining Bids') }}</span></div>
-					<div class="overview-item"><strong>{{myProjects.length}}</strong><span>{{ translate.instant('Jobs Done') }}</span></div>
-					<!-- <div class="overview-item"><strong></strong><span>Rehired</span></div> -->
-				</div>
-
-				<!-- Button -->
-
-
-        <!-- Widget -->
-  <!-- <div class="sidebar-widget">
+                                    <!-- Widget -->
+                                    <!-- <div class="sidebar-widget">
     <h3>Location</h3>
     <div class="freelancer-socials margin-top-25">
 
@@ -165,8 +191,8 @@
     </div>
   </div> -->
 
-				<!-- Freelancer Indicators -->
-				<!-- <div class="sidebar-widget">
+                                    <!-- Freelancer Indicators -->
+                                    <!-- <div class="sidebar-widget">
 					<div class="freelancer-indicators">
 
 						<div class="indicator">
@@ -195,27 +221,40 @@
 					</div>
 				</div> -->
 
+                                    <!-- Widget -->
+                                    <div class="sidebar-widget">
+                                        <h3>{{ translate.instant("Contact Info") }}</h3>
+                                        <div class="task-tags">
+                                            <p *ngIf="myFreelancer.phonenumber != null">
+                                                Mobile number : {{ myFreelancer.phonenumber }}
+                                            </p>
+                                            <p *ngIf="myFreelancer.email != null">
+                                                Email :
+                                                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{
+                    myFreelancer.email
+                  }}">{{ myFreelancer.email }}</a
+                >
+              </p>
+            </div>
+          </div>
+          <!-- Sidebar Widget -->
 
-		<!-- Widget -->
-    <div class="sidebar-widget">
-      <h3>{{ translate.instant('Contact Info') }}</h3>
-      <div class="task-tags">
-        <p *ngIf="myFreelancer.phonenumber!=null">Mobile number : {{myFreelancer.phonenumber}}</p>
-        <p *ngIf="myFreelancer.email!=null">Email : <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{myFreelancer.email}}">{{myFreelancer.email}}</a></p>
-      </div>
-    </div>
-    <!-- Sidebar Widget -->
+          <!-- Widget -->
+          <div class="sidebar-widget">
+            <h3>{{ translate.instant("Attachments") }}</h3>
+            <div class="attachments-container">
+              <a
+                href="{{ myFreelancer.cv }}"
+                download="{{ myFreelancer.username }}CV.pdf"
+                class="attachment-box ripple-effect"
+                ><span>{{ translate.instant("CV") }}</span
+                ><i>PDF</i></a
+              >
+              <!-- <a routerLink="#" class="attachment-box ripple-effect"><span>Contract</span><i>DOCX</i></a> -->
+                                        </div>
+                                    </div>
 
-				<!-- Widget -->
-				<div class="sidebar-widget">
-					<h3>{{ translate.instant('Attachments') }}</h3>
-					<div class="attachments-container">
-						<a href="{{myFreelancer.cv}}" download="{{myFreelancer.username}}CV.pdf" class="attachment-box ripple-effect"><span>{{ translate.instant('CV') }}</span><i>PDF</i></a>
-						<!-- <a routerLink="#" class="attachment-box ripple-effect"><span>Contract</span><i>DOCX</i></a> -->
-					</div>
-				</div>
-
-				<!-- <div class="sidebar-widget">
+                                    <!-- <div class="sidebar-widget">
 					<h3>Bookmark or Share</h3>
 
 					<button class="bookmark-button margin-bottom-25">
@@ -242,31 +281,18 @@
 						</div>
 					</div>
 				</div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-			</div>
-		</div>
+                    <!-- Spacer -->
+                    <div class="margin-top-15"></div>
+                    <!-- Spacer / End-->
+                </div>
+                <!-- Wrapper / End -->
 
-	</div>
-</div>
-
-
-<!-- Spacer -->
-<div class="margin-top-15"></div>
-<!-- Spacer / End-->
-
-
-
-</div>
-<!-- Wrapper / End -->
-
-
-
-
-<!-- Scripts
+                <!-- Scripts
 ================================================== -->
 
-
-<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
-
-
-
+                <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
