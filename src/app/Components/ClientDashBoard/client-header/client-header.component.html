@@ -8,8 +8,8 @@
       <div class="left-side">
 
         <!-- Logo -->
-        <div id="logo">
-          <a routerLink="/client"><img src="assets/images/logo.png" alt=""></a>
+        <div id="logo" class="pb-5">
+          <a routerLink="/"><img src="assets/images/logo.png" alt=""></a>
         </div>
 
         <!-- Main Navigation -->
@@ -17,16 +17,18 @@
           <ul id="responsive">
 
             <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="activeHeader"
-                routerLink="/client">Home</a>
+                routerLink="/client">Dashboard</a>
 
             </li>
+            <li><a routerLink="/">Home</a>
 
             <li><a routerLinkActive="activeHeader" routerLink="/client/updateProfile">Update Profile</a>
 
             </li>
-            <li><a routerLink="/client/DepositeMoney">Deposite Money</a></li>
-
-            <li><a href="#">Jobs</a>
+            <li><a routerLinkActive="activeHeader" routerLink="/client/DepositeMoney">Deposite Money</a></li>
+            <li><a routerLinkActive="activeHeader" routerLink="/client/transaction">Transactions</a></li>
+            <li><a routerLinkActive="activeHeader" routerLink="/client/reviews">Reviews</a></li>
+            <li><a>Jobs</a>
               <ul class="dropdown-nav">
                 <li><a routerLink="/client/managejob">Manage Jobs</a></li>
                 <li><a routerLink="/client/postjob">Post a Job</a></li>

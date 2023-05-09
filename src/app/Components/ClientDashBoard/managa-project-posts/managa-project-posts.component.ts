@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
@@ -27,7 +28,8 @@ export class ManagaProjectPostsComponent implements OnInit {
   constructor(
     private projectpostServ: ProjectPostService,
     private lookupvaluesServ: LookupValueService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
   projectPosts: any[] = [];
   categories: any;
@@ -151,7 +153,10 @@ export class ManagaProjectPostsComponent implements OnInit {
           .UpdateProjectPost(id, this.currentProjectPost)
           .subscribe({
             next: (data: any) => {
-              console.log(data);
+              console.log('Updaaaaaaaaaateeee');
+              this.router.navigateByUrl(
+                `/client/ProjectPost/${id}/ClientReview/Add`
+              );
             },
             error: (err: any) => {
               console.log(err);

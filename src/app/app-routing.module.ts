@@ -37,17 +37,16 @@ import { UpdateMilestoneComponent } from './Components/ProjectPost/Milestone/upd
 import { DeleteMilestoneComponent } from './Components/ProjectPost/Milestone/delete-milestone/delete-milestone.component';
 import { ProjectPostMilestonesComponent } from './Components/ProjectPost/Milestone/project-post-milestones/project-post-milestones.component';
 import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa-project-posts/managa-project-posts.component';
-
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
-
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
 import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
 import { AddClientReviewComponent } from './Components/ProjectPost/Review/add-client-review/add-client-review.component';
 import { AddFreeLancerReview } from './Models/ProjectReview/add-freelancer-review';
 import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/freelancer-reviews/freelancer-reviews.component';
-import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-reviews/client-reviews.component';
 import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
 import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
+import { ClientTransactionComponent } from './Components/ClientDashBoard/client-transaction/client-transaction.component';
+import { ClientMainReviewsComponent } from './Components/ClientDashBoard/client-main-reviews/client-main-reviews.component';
 
 const routes: Routes = [
   {
@@ -133,8 +132,8 @@ const routes: Routes = [
       { path: 'postjob', component: CreateProjectPostComponent },
       { path: 'managejob', component: ManagaProjectPostsComponent },
       { path: 'manageApplicants/:id', component: PostApplicantsComponent },
-      { path: 'ClientReviews', component: ClientReviewsComponent },
       { path: 'DepositeMoney', component: DepositeMoneyComponent },
+      { path: 'reviews', component: ClientMainReviewsComponent },
       {
         path: 'ProjectPost/:id/Milestone/Create',
         component: CreateMilestoneComponent,
@@ -154,6 +153,10 @@ const routes: Routes = [
       {
         path: 'ProjectPost/:id/ClientReview/Add',
         component: AddClientReviewComponent,
+      },
+      {
+        path: 'transaction',
+        component: ClientTransactionComponent,
       },
     ],
   },

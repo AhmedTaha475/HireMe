@@ -91,7 +91,9 @@ import { ClientReviewsComponent } from './Components/ProjectPost/Review/client-r
 import { ProjectReviewComponent } from './Components/ProjectPost/Review/project-review/project-review.component';
 import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-money/deposite-money.component';
 import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
-
+import { ClientTransactionComponent } from './Components/ClientDashBoard/client-transaction/client-transaction.component';
+import { ClientMainReviewsComponent } from './Components/ClientDashBoard/client-main-reviews/client-main-reviews.component';
+import { CustomDateDirective } from './CustomDirectives/custom-date.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -158,7 +160,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClientReviewsComponent,
     ProjectReviewComponent,
     DepositeMoneyComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ClientTransactionComponent,
+    ClientMainReviewsComponent,
+    CustomDateDirective,
   ],
   imports: [
     BrowserModule,
