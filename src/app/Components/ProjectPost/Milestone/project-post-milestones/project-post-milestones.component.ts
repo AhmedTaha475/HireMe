@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateFreelancertMoney } from 'src/app/Models/Freelancer/update-freelancert-money';
+import { CreateTransaction } from 'src/app/Models/Transaction/Create-Transaction';
+import { TransactionService } from 'src/app/Services/Transaction_Service/transaction.service';
+import { ClientService } from 'src/app/Services/client.service';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { MilestoneService } from 'src/app/Services/milestone.service';
 import { ProjectPostApplicantsService } from 'src/app/Services/project-post-applicants.service';
@@ -17,13 +20,16 @@ export class ProjectPostMilestonesComponent implements OnInit {
   currentMilestone: any;
   ApplicantsByProjectPost: any[] = [];
   currentProjectPost: any;
+  currentClientId: any;
   constructor(
     private myRoute: ActivatedRoute,
     private myRouter: Router,
     private milestoneService: MilestoneService,
     private freelancerServ: FreelancerService,
     private projectPostApplicantServ: ProjectPostApplicantsService,
-    private projectpostServ: ProjectPostService
+    private projectpostServ: ProjectPostService,
+    private transactionServ: TransactionService,
+    private clientServ: ClientService
   ) {
     this.projectPostId = myRoute.snapshot.params['id'];
   }
@@ -39,6 +45,7 @@ export class ProjectPostMilestonesComponent implements OnInit {
       });
 
     this.GetCurrentProjectPost();
+    this.GetCurrentClientId();
   }
 
   Release(id: number) {
@@ -55,7 +62,16 @@ export class ProjectPostMilestonesComponent implements OnInit {
       },
     });
   }
-
+  private GetCurrentClientId() {
+    this.clientServ.GetCurrentClient().subscribe({
+      next: (data: any) => {
+        this.currentClientId = data.body.id;
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
   private updateMilestone(id: number, updateMilestone: any) {
     this.milestoneService.UpdateMilestone(id, updateMilestone).subscribe({
       next: (data: any) => {
@@ -89,6 +105,7 @@ export class ProjectPostMilestonesComponent implements OnInit {
             .subscribe({
               next: (data: any) => {
                 console.log(data);
+                this.addNewTranscation(freelancerId);
               },
               error: (err: any) => {
                 console.log(err);
@@ -111,5 +128,46 @@ export class ProjectPostMilestonesComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  private addNewTranscation(freelancerId: string) {
+    this.transactionServ
+      .CreateNewTransaction(
+        freelancerId,
+        new CreateTransaction(
+          new Date(),
+          this.currentMilestone.value,
+          `You have recieved the money : ${this.currentMilestone.value} for the Milestone ${this.currentMilestone.name} `
+        )
+      )
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.addNewTranscationForClient(this.currentClientId);
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
+  }
+  private addNewTranscationForClient(clientId: string) {
+    this.transactionServ
+      .CreateNewTransaction(
+        clientId,
+        new CreateTransaction(
+          new Date(),
+          this.currentMilestone.value,
+          `You have Deposited the money : ${this.currentMilestone.value} for the Milestone ${this.currentMilestone.name} `
+        )
+      )
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.myRouter.navigateByUrl('/client/managejob');
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
   }
 }

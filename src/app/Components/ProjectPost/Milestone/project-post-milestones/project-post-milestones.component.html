@@ -8,7 +8,7 @@
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
         <!-- Dashboard Headline -->
-        <div class="dashboard-headline">
+        <div class="dashboard-headline" *ngIf="currentProjectPost">
           <h3>Manage Milestones</h3>
           <button *ngIf="!milestones && !currentProjectPost.done " class="btn btn-success my-3"
             routerLink="/client/ProjectPost/{{projectPostId}}/Milestone/Create">Create New Milestone</button>
