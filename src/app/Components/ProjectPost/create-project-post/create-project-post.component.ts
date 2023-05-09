@@ -68,12 +68,12 @@ export class CreateProjectPostComponent implements OnInit {
         projectPostDate: new Date(),
         categoryId: Number(catId),
         done: false,
+        approved: false,
         location: this.createProjectPost.get('location')?.value || '',
       };
       console.log(projectPost);
       this.projectPostService.CreateProjectPost(projectPost).subscribe({
         next: (data: any) => {
-          console.log(data);
           this.messageService.clear();
           this.messageService.add({
             severity: 'success',
@@ -82,6 +82,7 @@ export class CreateProjectPostComponent implements OnInit {
             life: 1500,
             key: 'postToast',
           });
+          this.createProjectPost.reset();
         },
         error: (err: any) => {
           this.messageService.clear();

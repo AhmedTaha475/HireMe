@@ -30,11 +30,24 @@ export class FreelancerService {
   }
 
   public UpdateFreelancer(data: FormData) {
-    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer',data);
+    return this._httpClient.put(this.Url + 'Users/UpdateFreelancer', data);
   }
 
   public UpdateFreelancerMoney(UpdateMoney: UpdateFreelancertMoney) {
-    return this._httpClient.put(this.Url + 'Users/UpdateFreelancerMoney',UpdateMoney);
+    return this._httpClient.put(
+      this.Url + 'Users/UpdateFreelancerMoney',
+      UpdateMoney
+    );
+  }
+
+  public UpdateFreelancerMoneyById(
+    UpdateMoney: UpdateFreelancertMoney,
+    id: string
+  ) {
+    return this._httpClient.put(
+      this.Url + 'Users/UpdateFreelancerMoneyByFreelancerId/' + id,
+      UpdateMoney
+    );
   }
 
   public DeleteCurrentFreelancer() {
@@ -42,12 +55,19 @@ export class FreelancerService {
   }
 
   public DeleteFreelancerById(clientId: string) {
-    return this._httpClient.delete(this.Url + `Users/DeleteFreelancer/${clientId}`);
+    return this._httpClient.delete(
+      this.Url + `Users/DeleteFreelancer/${clientId}`
+    );
   }
-  public GetFreelancersByCatId(CatId:number){
-    return this._httpClient.get(this.Url+"Users/GetFreelancersByCatId/"+CatId);
+  public GetFreelancersByCatId(CatId: number) {
+    return this._httpClient.get(
+      this.Url + 'Users/GetFreelancersByCatId/' + CatId
+    );
   }
-  public GetCounts(ids:any){
-    return this._httpClient.post(this.Url+"Users/GetFreelancersCountsByCatIds",ids);
+  public GetCounts(ids: any) {
+    return this._httpClient.post(
+      this.Url + 'Users/GetFreelancersCountsByCatIds',
+      ids
+    );
   }
 }

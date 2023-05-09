@@ -1,6 +1,67 @@
-<div>
-  {{milestone.name}}
-  <br>
-  {{milestone.value}}
+<div appJQueryLoader>
+  <div class="dashboard-container">
+
+    <app-client-side-bar></app-client-side-bar>
+
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>Manage Milestone</h3>
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Manage Milestones</li>
+              <li>Create milestone</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12 ">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> Create New Milestone</h3>
+              </div>
+
+              <div class="content container-fluid py-3">
+                <div class="my-3" *ngIf="milestone">
+                  Milestone Name : {{milestone.name}}
+                  <br>
+                  Milestone Value : {{milestone.value}}
+                </div>
+                <button (click)="confirmDelete()" class="btn btn-danger">Delete</button>
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
+      </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
+  </div>
 </div>
-<button (click)="confirmDelete()" class="btn btn-danger">Delete</button>
+
+<p-toast position="center" key="milestone"></p-toast>

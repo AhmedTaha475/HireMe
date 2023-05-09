@@ -1,0 +1,74 @@
+<div appJQueryLoader>
+  <div class="dashboard-container">
+
+    <app-client-side-bar></app-client-side-bar>
+
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>Manage Milestone</h3>
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Add Review</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12 ">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i>Add Review</h3>
+              </div>
+
+              <div class="content container-fluid">
+                <form [formGroup]="addClientReview" (ngSubmit)="confirmAdd()">
+                  <div class="row margin-top-50">
+                    <div class="col-xl-12">
+                      <div class="submit-field">
+                        <h5>Review</h5>
+                        <textarea formControlName="review" class="with-border" cols="30" rows="10"
+                          placeholder="Review"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-xl-12">
+                      <div class="submit-field">
+                        <h5>Stars [1-5]</h5>
+                        <input formControlName="stars" type="number" class="with-border">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="submit" class="button ripple-effect big" value="Add Review">
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
+      </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
+  </div>
+</div>
+
+<p-toast position="center" key="milestone"></p-toast>

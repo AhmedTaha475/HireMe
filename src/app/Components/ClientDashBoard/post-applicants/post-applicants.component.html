@@ -1,0 +1,173 @@
+<div appJQueryLoader></div>
+<div class="dashboard-container">
+  <app-client-side-bar></app-client-side-bar>
+  <!-- Dashboard Content
+    ================================================== -->
+  <div class="dashboard-content-container">
+    <div class="dashboard-content-inner">
+
+      <!-- Dashboard Headline -->
+      <div class="dashboard-headline">
+        <h3>Manage Bidders</h3>
+
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs" class="dark">
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/client">Dashboard</a></li>
+            <li>Manage Candidates</li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Row -->
+      <div class="row">
+
+        <!-- Dashboard Box -->
+        <div class="col-xl-12">
+          <div class="dashboard-box margin-top-0">
+
+            <!-- Headline -->
+            <div class="headline">
+              <h3><i class="icon-material-outline-supervisor-account"></i> {{ApplicantsWithFreelancerData.length}}
+                Candidates</h3>
+              <div class="sort-by">
+                <select class="selectpicker hide-tick">
+                  <option>Highest First</option>
+                  <option>Lowest First</option>
+                  <option>Fastest First</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="content">
+              <p-table [value]="ApplicantsWithFreelancerData" [paginator]="true" [rows]="4"
+                [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '25rem' }"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[4,20,50]">
+
+
+                <ng-template pTemplate="header">
+                </ng-template>
+                <ng-template pTemplate="body" let-applicant>
+                  <tr>
+                    <ul class="dashboard-box-list">
+                      <li style="border-bottom: solid 1px #e4e4e4;">
+                        <!-- Overview -->
+                        <div class="freelancer-overview manage-candidates">
+                          <div class="freelancer-overview-inner">
+
+                            <!-- Avatar -->
+                            <div class="freelancer-avatar">
+                              <div class="verified-badge"></div>
+                              <a><img
+                                  [src]="applicant?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'"
+                                  alt=""></a>
+                            </div>
+
+                            <!-- Name -->
+                            <div class="freelancer-name">
+                              <h4><a>{{applicant.firstname}} {{applicant.lastname}} <img class="flag"
+                                    src="assets/images/flags/eg.svg" alt="" title="Germany"
+                                    data-tippy-placement="top"></a></h4>
+
+                              <!-- Details -->
+                              <span class="freelancer-detail-item"><a href="#"><i class="icon-feather-mail"></i>
+                                  {{applicant.email}}</a></span>
+
+                              <!-- Rating -->
+                              <div class="freelancer-rating">
+                                <div class="btn btn-warning ">Rank:{{applicant.rank}}</div>
+                              </div>
+
+                              <!-- Bid Details -->
+                              <ul class="dashboard-task-info bid-info">
+                                <li><strong>{{applicant.biddingPrice}}</strong><span>Fixed Price</span></li>
+                              </ul>
+
+                              <!-- Buttons -->
+                              <div class="buttons-to-right always-visible margin-top-25 margin-bottom-0">
+                                <a (click)="ApproveApplicant(applicant.pP_ID,applicant.freelancerId)"
+                                  class="popup-with-zoom-anim button ripple-effect text-white"><i
+                                    class="icon-material-outline-check"></i> Accept Offer</a>
+                                <button (click)="OpenDetails(applicant.proposal)"
+                                  class="button dark ripple-effect ico text-white mb-4" title="Details"
+                                  data-tippy-placement="top"><i class="icon-material-outline-info"></i></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+
+
+                    </ul>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Row / End -->
+
+      <!-- Footer -->
+      <div class="dashboard-footer-spacer"></div>
+      <div class="small-footer margin-top-15">
+        <div class="small-footer-copyrights">
+          © 2019 <strong>Hireo</strong>. All Rights Reserved.
+        </div>
+        <ul class="footer-social-links">
+          <li>
+            <a href="#" title="Facebook" data-tippy-placement="top">
+              <i class="icon-brand-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Twitter" data-tippy-placement="top">
+              <i class="icon-brand-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Google Plus" data-tippy-placement="top">
+              <i class="icon-brand-google-plus-g"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="LinkedIn" data-tippy-placement="top">
+              <i class="icon-brand-linkedin-in"></i>
+            </a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <!-- Footer / End -->
+
+    </div>
+  </div>
+  <!-- Dashboard Content / End -->
+
+</div>
+<!-- Dashboard Container / End -->
+
+
+<!-- Wrapper / End -->
+
+<div *ngIf="CurrentProposal" class="card flex justify-content-center">
+  <p-dialog header="Proposal" [(visible)]="DetailsDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+    <div class="my-3">
+      <div class="form-group">
+        <label for="valueId">Current Proposal</label>
+        <p class="form-control">{{CurrentProposal}}</p>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary my-3 me-2" (click)="DetailsDialogVisible=false"> Close</button>
+      </div>
+    </div>
+
+  </p-dialog>
+</div>
+
+
+<p-toast position="center" key="approve"></p-toast>

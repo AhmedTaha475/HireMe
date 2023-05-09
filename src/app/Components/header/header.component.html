@@ -18,24 +18,25 @@
                             <a routerLink="/" class="current">{{
                                 translate.instant("home")
                                 }}</a>
-                           
+
                         </li>
 
                         <li *ngIf="_authService.isClient()">
+
                             <a routerLink="/AllFreelancers">Find a Freelancer</a>
-                            
+ 
                         </li>
                         <li *ngIf="_authService.isClient()">
                             <a routerLink="/client/postjob">Post a Task</a>
-                           
+
                         </li>
                         <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/AllTasks">Browse Tasks</a>
-                            
+
                         </li>
                         <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/plan">Plans</a>
-                            
+
                         </li>
                         <li *ngIf="UserRole">
                             <a *ngIf="_authService.isFreelancer()" routerLink="/Freelancer">Dashboard</a>
@@ -44,11 +45,11 @@
                         </li>
                         <li *ngIf=" !_authService.isLoggedIn()">
                             <a routerLink="/Login">Login</a>
-                            
+
                         </li>
 
 
-                       
+
 
                         <li>
                             <a href="#">{{ translate.instant("language") }}</a>
