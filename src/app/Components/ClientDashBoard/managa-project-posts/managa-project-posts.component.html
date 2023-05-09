@@ -59,7 +59,7 @@
                                     *ngIf="post.approved" class="dashboard-status-button green">Approved </span>
                                   <span *ngIf="!post.approved" class="dashboard-status-button yellow">Pending Approval
                                   </span>
-                                  <span *ngIf="post.done" class="dashboard-status-button grey">Project Done
+                                  <span *ngIf="post.done" class="dashboard-status-button red">Project Done
                                   </span>
                                   <span *ngIf="!post.done" class="dashboard-status-button green">In Progress
                                   </span>
@@ -81,8 +81,16 @@
                             <a *ngIf="!post.approved" routerLink="/client/manageApplicants/{{post.id}}"
                               class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i>
                               Manage Candidates</a>
+                            <a routerLink="/client/ProjectPost/{{post.id}}/Milestone/GetAll"
+                              class="button dark ripple-effect"><i class="icon-material-outline-supervisor-account"></i>
+                              Manage Milestones</a>
+                            <a *ngIf="!post.done && post.approved" (click)="EndProject(post.id)"
+                              class="button red ripple-effect text-white"><i
+                                class="icon-material-outline-supervisor-account"></i>
+                              End Project</a>
                             <a (click)="UpdateProjectPost(post.id)" class="button green ripple-effect ico text-white"
                               title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+
                             <a (click)="proceedToDelete(post.id)" class="button red ripple-effect ico text-white"
                               title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
                           </div>

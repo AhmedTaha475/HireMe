@@ -61,22 +61,7 @@ const routes: Routes = [
       { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      {
-        path: 'ProjectPost/:id/Milestone/Create',
-        component: CreateMilestoneComponent,
-      },
-      {
-        path: 'ProjectPost/:id/Milestone/:milestoneId/Update',
-        component: UpdateMilestoneComponent,
-      },
-      {
-        path: 'ProjectPost/:id/Milestone/:milestoneId/Delete',
-        component: DeleteMilestoneComponent,
-      },
-      {
-        path: 'ProjectPost/:id/Milestone/GetAll',
-        component: ProjectPostMilestonesComponent,
-      },
+
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',
         component: CreateProjectPostApplicantComponent,
@@ -93,10 +78,7 @@ const routes: Routes = [
         path: 'ProjectPost/:id/ProjectPostApplicant/Update',
         component: EditProjectPostApplicantComponent,
       },
-      {
-        path: 'ProjectPost/:id/ClientReview/Add',
-        component: AddClientReviewComponent,
-      },
+
       {
         path: 'ProjectPost/:id/FreelancerReview/Add',
         component: AddFreeLancerReview,
@@ -153,6 +135,26 @@ const routes: Routes = [
       { path: 'manageApplicants/:id', component: PostApplicantsComponent },
       { path: 'ClientReviews', component: ClientReviewsComponent },
       { path: 'DepositeMoney', component: DepositeMoneyComponent },
+      {
+        path: 'ProjectPost/:id/Milestone/Create',
+        component: CreateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Update',
+        component: UpdateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Delete',
+        component: DeleteMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/GetAll',
+        component: ProjectPostMilestonesComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ClientReview/Add',
+        component: AddClientReviewComponent,
+      },
     ],
   },
   { path: '**', component: Error404Component },

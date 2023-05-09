@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { ProjectPostApplicantsService } from 'src/app/Services/project-post-applicants.service';
@@ -23,7 +23,8 @@ export class PostApplicantsComponent implements OnInit {
     private applicantsServ: ProjectPostApplicantsService,
     private freelancerServ: FreelancerService,
     private projectpostSer: ProjectPostService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {
     this.projectPostid = this.activatedRoute.snapshot.params['id'];
     console.log(this.projectPostid);
@@ -103,7 +104,6 @@ export class PostApplicantsComponent implements OnInit {
       .UpdateProjectPostApplicant(applicantToBeUpdated, id)
       .subscribe({
         next: (data: any) => {
-          console.log(data);
           this.GetCurrentProjectPostAndUpdate();
           this.messageService.clear();
           this.messageService.add({
@@ -113,6 +113,9 @@ export class PostApplicantsComponent implements OnInit {
             life: 1500,
             key: 'approve',
           });
+          setTimeout(() => {
+            this.router.navigateByUrl('/client/managejob');
+          }, 1500);
         },
         error: (err: any) => {
           this.messageService.add({

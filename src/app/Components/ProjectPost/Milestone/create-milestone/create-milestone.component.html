@@ -1,25 +1,78 @@
-<form [formGroup]="createMilestone" (ngSubmit)="confirmAdd()">
-  <div class="row margin-top-50">
-    <div class="col-xl-6">
-      <div class="submit-field">
-        <h5>Name</h5>
-        <input formControlName="name" type="name"class="with-border" placeholder="Milestone Name">
+<div appJQueryLoader>
+  <div class="dashboard-container">
+
+    <app-client-side-bar></app-client-side-bar>
+
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>Manage Milestone</h3>
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Manage Milestones</li>
+              <li>Create milestone</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12 ">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> Create New Milestone</h3>
+              </div>
+
+              <div class="content container-fluid">
+                <form [formGroup]="createMilestone" (ngSubmit)="confirmAdd()">
+                  <div class="row margin-top-50">
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Name</h5>
+                        <input formControlName="name" type="name" class="with-border" placeholder="Milestone Name">
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Value</h5>
+                        <input formControlName="value" type="number" class="with-border" placeholder="0 EGP">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="submit" class="button ripple-effect big" value="Create Milestone">
+                </form>
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
       </div>
     </div>
-    <div class="col-xl-6">
-      <div class="submit-field">
-        <h5>Value</h5>
-        <input formControlName="value" type="number"class="with-border" placeholder="0 EGP">
-      </div>
-    </div>
-    <!-- <div class="col-xl-6">
-      <div class="submit-field">
-        <h5>Select Applicant</h5>
-        <select  formControlName="applicantId" title="Select Applicant">
-          <option *ngFor="let option of freelancers" [value]="option.id">{{option.firstname}} {{option.lastname}}</option>
-        </select>
-      </div>
-    </div> -->
+    <!-- Dashboard Content / End -->
+
   </div>
-  <input type="submit"class="button ripple-effect big" value="Create Milestone">
-</form>
+</div>
+
+<p-toast position="center" key="milestone"></p-toast>

@@ -140,4 +140,27 @@ export class ManagaProjectPostsComponent implements OnInit {
     this.postToBeDeleted = id;
     this.DeleteDialogVisible = true;
   }
+
+  EndProject(id: number) {
+    this.projectpostServ.GetProjectPostById(id).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.currentProjectPost = data;
+        this.currentProjectPost.done = true;
+        this.projectpostServ
+          .UpdateProjectPost(id, this.currentProjectPost)
+          .subscribe({
+            next: (data: any) => {
+              console.log(data);
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
 }
