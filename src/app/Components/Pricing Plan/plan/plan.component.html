@@ -48,7 +48,6 @@
         <!-- Plan -->
         <div
           *ngFor="let plan of plans"
-          class="pricing-plan"
           [ngClass]="{
             'pricing-plan': true,
             recommended: plan.name == 'Preimum'
