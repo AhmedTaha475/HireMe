@@ -43,6 +43,7 @@ import { ManagaProjectPostsComponent } from './Components/ClientDashBoard/managa
 import { AllTasksComponent } from './Components/all-tasks/all-tasks.component';
 
 import { OffersComponent } from './Components/FreelanserDashBoard/offers/offers.component';
+import { BrowseFreelancersComponent } from './browse-freelancers/browse-freelancers.component';
 const routes: Routes = [
   {
     path: '',
@@ -63,6 +64,7 @@ const routes: Routes = [
       { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
       { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
       { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
+      {path: 'AllFreelancers',component:BrowseFreelancersComponent},
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',
         component: CreateProjectPostApplicantComponent,

@@ -84,6 +84,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BrowseFreelancersComponent } from './browse-freelancers/browse-freelancers.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -144,7 +145,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ManagaProjectPostsComponent,
     AllTasksComponent,
     OffersComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    BrowseFreelancersComponent
   ],
   imports: [
     BrowserModule,
