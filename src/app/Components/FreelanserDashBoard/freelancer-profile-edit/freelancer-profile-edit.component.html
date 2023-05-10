@@ -18,7 +18,7 @@
 
               <!-- Headline -->
               <div class="headline">
-                <h3><i class="icon-material-outline-account-circle"></i> My Account</h3>
+                <h3><i class="icon-material-outline-account-circle"></i>{{translate.instant("My Account")}}</h3>
               </div>
               <div class="content with-padding padding-bottom-0">
 
@@ -40,52 +40,52 @@
 
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>First Name</h5>
+                          <h5>{{translate.instant("First Name")}}</h5>
                           <input type="text" formControlName="firstname" placeholder="Tom" class="with-border">
                         </div>
                       </div>
 
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Last Name</h5>
+                          <h5>{{translate.instant("Last Name")}}</h5>
                           <input type="text" formControlName="lastname" class="with-border" placeholder="Smith">
                         </div>
                       </div>
 
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Email</h5>
+                          <h5>{{translate.instant("Email")}}</h5>
                           <input type="email" formControlName="email" class="with-border" placeholder="tom@example.com">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Country</h5>
+                          <h5>{{translate.instant("Country")}}</h5>
                           <input type="text" formControlName="country" class="with-border" placeholder="Egypt">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>City</h5>
+                          <h5>{{translate.instant("City")}}</h5>
                           <input type="text" formControlName="city" class="with-border" placeholder="Cairo">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Street</h5>
+                          <h5>{{translate.instant("Street")}}</h5>
                           <input type="text" formControlName="street" class="with-border"
                             placeholder="Gamal Abdel Naser">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Age</h5>
+                          <h5>{{translate.instant("Age")}}</h5>
                           <input type="number" formControlName="age" class="with-border" placeholder="27">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>SSN</h5>
+                          <h5>{{translate.instant("SSN")}}</h5>
                           <input type="number" formControlName="ssn" class="with-border">
                         </div>
                       </div>
@@ -104,7 +104,7 @@
 
               <!-- Headline -->
               <div class="headline">
-                <h3><i class="icon-material-outline-face"></i> My Profile</h3>
+                <h3><i class="icon-material-outline-face"></i> {{translate.instant("My Profile")}}</h3>
               </div>
 
               <div class="content">
@@ -115,7 +115,7 @@
                         <div class="submit-field">
                           <div class="bidding-widget">
                             <!-- Headline -->
-                            <span class="bidding-detail">Set your <strong>minimal hourly rate</strong></span>
+                            <span class="bidding-detail">{{translate.instant("Set your")}} <strong>{{translate.instant("minimal hourly rate")}}</strong></span>
 
                             <!-- Slider -->
 
@@ -127,7 +127,7 @@
 
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Attachments</h5>
+                          <h5>{{translate.instant("Attachments")}}</h5>
 
                           <!-- Attachments -->
                           <a [href]="currentFreelancer?.cv??''|convertToPdf:''"
@@ -135,7 +135,7 @@
 
                             <div class="attachments-container margin-top-0 margin-bottom-0">
                               <div class="attachment-box ripple-effect">
-                                <span>CV</span>
+                                <span>{{translate.instant("CV")}}</span>
                                 <i>PDF</i>
 
                               </div>
@@ -147,8 +147,8 @@
                           <div class="uploadButton margin-top-0">
                             <input class="uploadButton-input" (change)="GetCurrentCv($event)" type="file"
                               accept="image/*, application/pdf" id="upload" />
-                            <label class="uploadButton-button ripple-effect" for="upload">Upload Files</label>
-                            <span class="uploadButton-file-name">Maximum file size: 10 MB</span>
+                            <label class="uploadButton-button ripple-effect" for="upload">{{translate.instant("Upload Files")}}</label>
+                            <span class="uploadButton-file-name">{{translate.instant("Maximum file size: 10 MB")}}</span>
                           </div>
 
                         </div>
@@ -159,15 +159,15 @@
                     <div class="row">
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Job Title</h5>
+                          <h5>{{translate.instant("Job Title")}}</h5>
                           <input formControlName="jobtitle" type="text" class="with-border"
                             placeholder="Job Title">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Category</h5>
-                          
+                          <h5>{{translate.instant("Category")}}</h5>
+
                             <select class="form-control  " formControlName="categoryId">
                               <option *ngFor="let category of allcategorys" [value]="category.valueId">{{category.valueName}}
                               </option>
@@ -176,7 +176,7 @@
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Payment Method</h5>
+                          <h5>{{translate.instant("Payment Method")}}</h5>
                           <select class="form-control  " formControlName="paymentmethodId" >
                             <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
                             </option>
@@ -185,7 +185,7 @@
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
-                          <h5>Phone Number</h5>
+                          <h5>{{translate.instant("Phone Number")}}</h5>
                           <input formControlName="phonenumber" type="number" class="with-border"
                             placeholder="+20 1185341234">
                         </div>
@@ -193,9 +193,9 @@
 
                       <div class="col-xl-12">
                         <div class="submit-field">
-                          <h5>Introduce Yourself</h5>
+                          <h5>{{translate.instant("Introduce Yourself")}}</h5>
                           <textarea formControlName="description" cols="30" rows="5" class="with-border"
-                            placeholder="Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."></textarea>
+                            placeholder="{{translate.instant('about text')}}"></textarea>
                         </div>
                       </div>
                     </div>
@@ -208,7 +208,7 @@
           <div class="col-xl-12">
             <!-- <p-messages [value]="messages"></p-messages> -->
             <p-toast position="center" key="profileToast"></p-toast>
-            <input type="submit" class="button ripple-effect big margin-top-30" value="Save Changes">
+            <input type="submit" class="button ripple-effect big margin-top-30" value="{{translate.instant('Save Changes')}}">
           </div>
 
         </form>
@@ -216,36 +216,7 @@
       <!-- Row / End -->
 
       <!-- Footer -->
-      <div class="dashboard-footer-spacer"></div>
-      <div class="small-footer margin-top-15">
-        <div class="small-footer-copyrights">
-          © 2019 <strong>Hireo</strong>. All Rights Reserved.
-        </div>
-        <ul class="footer-social-links">
-          <li>
-            <a href="#" title="Facebook" data-tippy-placement="top">
-              <i class="icon-brand-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Twitter" data-tippy-placement="top">
-              <i class="icon-brand-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Google Plus" data-tippy-placement="top">
-              <i class="icon-brand-google-plus-g"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" title="LinkedIn" data-tippy-placement="top">
-              <i class="icon-brand-linkedin-in"></i>
-            </a>
-          </li>
-        </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- Footer / End -->
+
 
     </div>
   </div>

@@ -13,7 +13,7 @@
                 <nav id="navigation">
                     <ul id="responsive">
                         <li>
-                            <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="activeHeader" routerLink="/Freelancer">Home</a
+                            <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="activeHeader" routerLink="/Freelancer">{{translate.instant("Home")}}</a
               >
             </li>
 
@@ -21,7 +21,7 @@
               <a
                 routerLinkActive="activeHeader"
                 routerLink="/Freelancer/Profile"
-                >Profile</a
+                >{{translate.instant("Profile")}}</a
               >
             </li>
 
@@ -29,7 +29,7 @@
               <a
                 routerLinkActive="activeHeader"
                 routerLink="/Freelancer/Projects"
-                >Projects</a
+                >{{translate.instant("Projects")}}</a
               >
             </li>
 
@@ -37,7 +37,7 @@
               <a
                 routerLinkActive="activeHeader"
                 routerLink="/Freelancer/Transaction"
-                >Transactions</a
+                >{{translate.instant("Transactions")}}</a
               >
             </li>
           </ul>
@@ -48,60 +48,7 @@
       <!-- Left Side Content / End -->
 
       <!-- Right Side Content / End -->
-      <div class="right-side">
-        <!-- User Menu -->
-        <div class="header-widget">
-          <!-- Messages -->
-          <div class="header-notifications user-menu">
-            <div class="header-notifications-trigger">
-              <a href="#">
-                <div class="user-avatar status-online">
-                  <img src="assets/images/admin.png" alt="" />
-                </div>
-              </a>
-            </div>
 
-            <!-- Dropdown -->
-            <div class="header-notifications-dropdown">
-                <!-- User Status -->
-                <div class="user-status">
-                    <!-- User Name / Avatar -->
-                    <div class="user-details">
-                        <div class="user-avatar status-online">
-                            <img src="assets/images/admin.png" alt="" />
-                        </div>
-                        <div class="user-name">HireMe <span>Admin</span></div>
-                    </div>
-
-                    <!-- User Status Switcher -->
-                    <div class="status-switch" id="snackbar-user-status">
-                        <label class="user-online current-status">Online</label>
-                        <label class="user-invisible">Invisible</label>
-                        <!-- Status Indicator -->
-                        <span class="status-indicator" aria-hidden="true"></span>
-                    </div>
-                </div>
-
-                <ul class="user-menu-small-nav">
-                    <!-- <li>
-                  <button (click)="logout()"><i class="icon-material-outline-power-settings-new"></i>
-                    Logout</button>
-                </li> -->
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- User Menu / End -->
-
-    <!-- Mobile Navigation Button -->
-    <span class="row justify-content-center ps-2 pt-4 ps-md-4 ps-sm-2 pt-sm-4">
-          <span
-            class="fs-2 text-primary d-md-flex d-lg-none justify-content-center col-md-1 col-sm-1 align-content-center"
-          >
-            <!-- <button class="icon-feather-align-justify " (click)="sidebarVisible = true"></button> -->
-          </span>
-    </span>
-    </div>
     <!-- Right Side Content / End -->
     </div>
     </div>
@@ -120,7 +67,7 @@
             <span class="hamburger-inner"></span>
                 </span>
                 </span>
-                <span class="trigger-title">Dashboard Navigation</span>
+                <span class="trigger-title">{{translate.instant("Dashboard Navigation")}}</span>
             </a>
 
             <!-- Navigation -->
@@ -128,35 +75,34 @@
                 <div class="dashboard-nav-inner">
                     <ul data-submenu-title="Start">
                         <li>
-                            <a routerLink="/Freelancer/Home"><i class="icon-material-outline-dashboard"></i> Dashboard</a
+                            <a routerLink="/Freelancer/Home"><i class="icon-material-outline-dashboard"></i> {{translate.instant("Dashboard")}}</a
               >
             </li>
             <li>
               <a routerLink="/Freelancer/Offers"
-                ><i class="icon-material-outline-star-border"></i> Offers</a
+                ><i class="icon-material-outline-star-border"></i>{{translate.instant("Offers")}} </a
               >
             </li>
             <li>
               <a routerLink="/Freelancer/Profile"
                 ><i class="icon-material-outline-question-answer"></i>
-                Profile</a
+                {{translate.instant("Profile")}}   </a
               >
             </li>
             <li>
               <a routerLink="/Freelancer/Profile/Update"
-                ><i class="icon-material-outline-question-answer"></i> Update
-                Profile</a
+                ><i class="icon-material-outline-question-answer"></i>{{translate.instant("Update Profile")}} </a
               >
             </li>
             <li>
               <a routerLink="/Freelancer/Projects"
-                ><i class="icon-material-outline-star-border"></i> Projects</a
+                ><i class="icon-material-outline-star-border"></i>{{translate.instant("Projects")}} </a
               >
             </li>
             <li>
               <a routerLink="/Freelancer/Transaction"
                 ><i class="icon-material-outline-star-border"></i>
-                Transaction</a
+                {{translate.instant("Transactions")}}</a
               >
             </li>
             <li>
@@ -165,7 +111,7 @@
                   class="icon-material-outline-power-settings-new"
                   (click)="logout()"
                 ></i>
-                Logout</a
+                {{translate.instant("Log out")}} </a
               >
             </li>
           </ul>
