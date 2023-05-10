@@ -63,7 +63,6 @@ const routes: Routes = [
       { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-
       { path: 'ProjectPost/:id/Milestone/Create', component: CreateMilestoneComponent },
       { path: 'ProjectPost/:id/Milestone/:milestoneId/Update', component: UpdateMilestoneComponent },
       { path: 'ProjectPost/:id/Milestone/:milestoneId/Delete', component: DeleteMilestoneComponent },
