@@ -77,7 +77,12 @@
   "Don't have an account?":"Don't have an account?",
   "Email is required":"Email is required",
   "Password is required":"Password is required",
-  "Email Or Password Dont Match Any Account":"Email Or Password Dont Match Any Account"
+  "Email Or Password Dont Match Any Account":"Email Or Password Dont Match Any Account",
+  "Profile":"Profile",
+  "Projects":"Projects",
+  "Transactions":"Transactions",
+  "Dashboard Navigation":"Dashboard Navigation",
+  "Offers":"Offers"
 
 
 

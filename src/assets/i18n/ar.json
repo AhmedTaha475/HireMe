@@ -46,7 +46,7 @@
   "Freelancers": "العمال",
   "Logout": "تسجيل الخروج",
   "Settings": "الإعدادات",
-  "Dashboard": "داش بورد",
+  "Dashboard": "لوحة القيادة",
   "Online": " أونلاين",
   "Invisible": "غير مرئي",
   "Verified":"موثق",
@@ -81,7 +81,14 @@
   "Don't have an account?":"لا تمتلك حساب؟",
   "Email is required":"البريد الإلكتروني مطلوب",
   "Password is required":"رقم السر مطلوب",
-  "Email Or Password Dont Match Any Account":"البريد الإلكتروني المستخدم أو كلمة المرور لا تتطابق مع أي حساب"
+  "Email Or Password Dont Match Any Account":"البريد الإلكتروني المستخدم أو كلمة المرور لا تتطابق مع أي حساب",
+  "Profile":"الصفحة الشخصية",
+  "Projects":"المشاريع",
+  "Transactions":"المعاملات",
+  "Dashboard Navigation":"التنقل في لوحة القيادة",
+  "Offers":"العروض"
+
+
 
 
 }
