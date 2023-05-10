@@ -8,12 +8,14 @@ import { ClientService } from 'src/app/Services/client.service';
 })
 export class ClientHomeComponent implements OnInit {
   CurrentClient: any;
+  isLoaded: boolean = false;
   constructor(private _clientServ: ClientService) {}
   ngOnInit(): void {
     this._clientServ.GetCurrentClient().subscribe({
       next: (data: any) => {
         this.CurrentClient = data.body;
         console.log(data);
+        if (this.CurrentClient) this.isLoaded = true;
       },
       error: (err: any) => console.log(err),
     });
