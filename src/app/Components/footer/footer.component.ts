@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/Services/auth.service';
 declare var $: any;
 declare var Snackbar: any;
 declare var google: any;
@@ -8,6 +10,13 @@ declare var google: any;
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
+  constructor(  public translate: TranslateService,  public AuthService:AuthService){
+
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     // Snackbar for user status switcher
     $('#snackbar-user-status label').click(function () {
@@ -46,5 +55,9 @@ export class FooterComponent implements OnInit {
     //     $('.pac-container').prependTo('.intro-search-field.with-autocomplete');
     //   }, 300);
     // }
+  }
+  logOut()
+  {
+this.AuthService.logout();
   }
 }
