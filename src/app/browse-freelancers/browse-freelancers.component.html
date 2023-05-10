@@ -8,24 +8,24 @@
 <div class="container">
 	<div class="row">
 		
-		<div class="col-xl-12 col-lg-9 content-left-offset">
+		<div class="col-xl-10 col-lg-9 content-left-offset">
+<div class="row">
+			<h3 class="col-4 page-title pt-3">Freelancers</h3>
 
-			<h3 class="page-title">Freelancers</h3>
-
-			<div class="notify-box margin-top-15">
+			<div class="notify-box  col-8">
 				<div class="switch-container">
 				</div>
 
-				<div class="sort-by">
-					<span>Filter by category:</span>
-					<select  title="All Categories" (change)="selectOption($event)">
+				<div class="row sort-by">
+					<span class="col-4">Filter by category:</span>
+					<select class="col-8"  title="All Categories" (change)="selectOption($event)">
                         <option *ngFor="let c of CategoryNames" [value]="c">
                                 {{c}}
                         </option>
                       </select>
 				</div>
 			</div>
-			
+		</div>
 			<!-- Freelancers List Container -->
 			<div class="freelancers-container freelancers-list-layout margin-top-35">
 				
