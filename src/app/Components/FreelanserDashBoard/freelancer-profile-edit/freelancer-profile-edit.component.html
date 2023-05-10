@@ -161,21 +161,26 @@
                         <div class="submit-field">
                           <h5>Job Title</h5>
                           <input formControlName="jobtitle" type="text" class="with-border"
-                            placeholder="iOS Expert + Node Dev">
+                            placeholder="Job Title">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
                           <h5>Category</h5>
-                          <input formControlName="categoryId" type="number" class="with-border"
-                            placeholder="iOS Expert + Node Dev">
+                          
+                            <select class="form-control  " formControlName="categoryId">
+                              <option *ngFor="let category of allcategorys" [value]="category.valueId">{{category.valueName}}
+                              </option>
+                            </select>
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
                           <h5>Payment Method</h5>
-                          <input formControlName="paymentmethodId" type="number" class="with-border"
-                            placeholder="iOS Expert + Node Dev">
+                          <select class="form-control  " formControlName="paymentmethodId" >
+                            <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
+                            </option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-xl-6">
@@ -201,8 +206,11 @@
           </div>
           <!-- Button -->
           <div class="col-xl-12">
+            <!-- <p-messages [value]="messages"></p-messages> -->
+            <p-toast position="center" key="profileToast"></p-toast>
             <input type="submit" class="button ripple-effect big margin-top-30" value="Save Changes">
           </div>
+
         </form>
       </div>
       <!-- Row / End -->
