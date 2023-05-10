@@ -4,6 +4,7 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { OfferService } from 'src/app/Services/offer.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { CreateProjectPost } from 'src/app/Models/ProjectPost/create-projectpost';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-offers',
@@ -14,8 +15,11 @@ export class OffersComponent implements OnInit {
   CurrenFreelancer:any;
   AllOffers:any
   updatedoofer:any
-constructor(public Freelancer:FreelancerService,public offerservice:OfferService,private location: Location,public PPost:ProjectPostService){
-
+constructor(public translate:TranslateService ,  public Freelancer:FreelancerService,public offerservice:OfferService,private location: Location,public PPost:ProjectPostService){
+  const langItem = localStorage.getItem('Lang');
+  if (langItem != null) {
+    translate.use(langItem);
+  }
 }
 reject=false;
   ngOnInit(): void {
@@ -24,11 +28,11 @@ reject=false;
         this.offerservice.GetAllByFreelancerId(this.CurrenFreelancer).subscribe({
           next:(data)=>{console.log(data);this.AllOffers=data ;},
           error:()=>{}
-        })     
+        })
       },
       error:()=>{}
     })
-    
+
   }
 refuse(id:any){
 this.offerservice.GetOfferById(id).subscribe(
@@ -39,7 +43,7 @@ this.offerservice.GetOfferById(id).subscribe(
     next:(data:any)=>{this.refresh(); },
     error:()=>{}
   })
-  
+
   },
 error:()=>{}})
 
@@ -71,8 +75,8 @@ Accept(id:any){
           next:(data)=>{console.log(data)},
           error:(error)=>{console.log(error)}
         })
-      
-      
+
+
       },
       error:()=>{}
     })

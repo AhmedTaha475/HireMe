@@ -29,8 +29,10 @@ role:any;
 
   constructor(public myActiveRoute:ActivatedRoute ,public user :AuthService  ,private modalService: BsModalService , public freelancer:FreelancerService , public translate: TranslateService , public port:PortfolioService , public projects:ProjectService) {
     this.id=myActiveRoute.snapshot.params["Id"]
-    translate.setDefaultLang('en');
-    translate.use('en');
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
 
   }
   openModel(){

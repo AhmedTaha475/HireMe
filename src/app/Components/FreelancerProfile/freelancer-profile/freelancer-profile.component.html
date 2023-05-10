@@ -17,7 +17,7 @@
 					<div class="left-side">
 						<div class="header-image freelancer-avatar"><img src="{{myFreelancer.image}}" alt=""></div>
 						<div class="header-details">
-							<h3>{{myFreelancer.username}} <span>{{myFreelancer.jobtitle}}</span><span *ngIf="myFreelancer.age!=0">{{myFreelancer.age}} years old</span></h3>
+							<h3>{{myFreelancer.username}} <span>{{myFreelancer.jobtitle}}</span><span *ngIf="myFreelancer.age!=0">{{myFreelancer.age}}{{ translate.instant('years old') }} </span></h3>
 							<ul>
 								<li><div class="star-rating" data-rating="5.0" ></div></li>
 								<li><!-- <img class="flag" src="images/flags/de.svg" alt="" >--><span *ngIf="myFreelancer.country!=null"> {{myFreelancer.country}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.city}}</span><span *ngIf="myFreelancer.country!=null"> , {{myFreelancer.street}}</span> </li>
@@ -202,7 +202,7 @@
       <h3>{{ translate.instant('Contact Info') }}</h3>
       <div class="task-tags">
         <p *ngIf="myFreelancer.phonenumber!=null">Mobile number : {{myFreelancer.phonenumber}}</p>
-        <p *ngIf="myFreelancer.email!=null">Email : <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{myFreelancer.email}}">{{myFreelancer.email}}</a></p>
+        <p *ngIf="myFreelancer.email!=null">{{ translate.instant('Email') }} : <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to={{myFreelancer.email}}">{{myFreelancer.email}}</a></p>
       </div>
     </div>
     <!-- Sidebar Widget -->

@@ -86,9 +86,37 @@
   "Projects":"المشاريع",
   "Transactions":"المعاملات",
   "Dashboard Navigation":"التنقل في لوحة القيادة",
-  "Offers":"العروض"
-
-
+  "Offers":"العروض",
+  "Freelancer Photo":"الصورة الشخصية",
+  "Full Name":"الاسم بالكامل",
+  "Email":"البريد الالكترونى",
+  "City":"المدينة",
+  "Balance":"الباقى",
+  "Bids":"المزايدت",
+  "Money Earned":"الأموال المكتسبة",
+  "Introduce Yourself":"عرف نفسك",
+  "about text":"أود أن أشارك المزيد من المعلومات حول خبراتي وأهدافي المستقبلية",
+  "First Name":"الاسم الاول",
+  "Last Name":"الاسم الاخير",
+  "Country":"البلد",
+  "Street":"الشارع",
+  "Age":"العمر",
+  "SSN":"الرقم القومى",
+  "minimal hourly rate":"اقل سعر للساعه",
+  "Upload Files":"ارفع ملفات",
+  "Maximum file size: 10 MB":"اقصى مساحى للملف : 10 ميجا بايت",
+  "Job Title":"المسمى الوظيفى",
+  "Category":"التصنيف",
+  "Payment Method":"طريقة الدفع",
+  "Phone Number":"رقم الهاتف",
+  "Set your":"ضع",
+ "Save Changes":"احفظ التعديلات",
+ "years old":"سنة",
+ "Manage Jobs":"قم بادارة اعمالك",
+ "My Offer Listings":"قوائم العروض الخاصة بي",
+ "You Accepted this Offer":"لقد قبلت هذا العرض",
+ "You Refused this offer":"لقد رفضت هذا العرض",
+ "Posted on":"نشر على"
 
 
 }

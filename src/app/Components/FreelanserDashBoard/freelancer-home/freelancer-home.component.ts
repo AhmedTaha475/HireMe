@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 
@@ -13,8 +14,13 @@ export class FreelancerHomeComponent implements OnInit {
   // freelancerid: any;
   constructor(
     private myfreelanceservice: FreelancerService,
-    myactivatelink: ActivatedRoute
-  ) {}
+    myactivatelink: ActivatedRoute , public translate:TranslateService
+  ) {
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     this.myfreelanceservice.GetCurrentFreelancer().subscribe({
       next: (data: any) => {

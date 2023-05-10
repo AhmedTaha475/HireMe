@@ -6,6 +6,7 @@ import { StaticHelper } from 'src/app/Helpers/static-helper';
 import { MessageService } from 'primeng/api';
 import { LookupTableService } from 'src/app/Services/LookupTable_Service/lookup-table.service';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-freelancer-profile-edit',
@@ -13,6 +14,7 @@ import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup
   styleUrls: ['./freelancer-profile-edit.component.css'],
 })
 export class FreelancerProfileEditComponent implements OnInit {
+
   image: any;
   cv: any;
   //#region UpdateRegion
@@ -49,7 +51,12 @@ export class FreelancerProfileEditComponent implements OnInit {
   allcategorys:any
   allPaymentMethods:any
 
-  constructor(private freelancerService: FreelancerService,private messageService: MessageService,public allLookups:LookupValueService) {}
+  constructor(public translate:TranslateService , private freelancerService: FreelancerService,private messageService: MessageService,public allLookups:LookupValueService) {
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     this.allLookups.GetAllLookupvalueByLookuptableId(3).subscribe({
       next:(data:any)=>{console.log(this.allcategorys=data)},
@@ -68,7 +75,7 @@ export class FreelancerProfileEditComponent implements OnInit {
             this.currentFreelancer[controlName] ?? ''
           );
         }
-        
+
       },
       error: (err: any) => {
         console.log('Error');
@@ -99,7 +106,7 @@ export class FreelancerProfileEditComponent implements OnInit {
       myData.append('id', this.currentFreelancer.id);
       myData.append('username', this.currentFreelancer.username);
       myData.append('Bids', this.currentFreelancer.bids);
-      
+
       for (let controlName in this.UpdateProfile.controls) {
         myData.append(controlName, this.UpdateProfile.get(controlName)?.value);
       }
