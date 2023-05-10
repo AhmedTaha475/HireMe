@@ -1,21 +1,96 @@
-<div class="row">
-  <div class="col-xl-12">
-    <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/Create">Create</a>
-    <table class="margin-top-20">
-      <tr>
-        <th>Milestone Name</th>
-        <th>Value</th>
-        <th>Operations</th>
-      </tr>
+<div appJQueryLoader>
+  <div class="dashboard-container">
 
-      <tr *ngFor="let milestone of milestones">
-        <td>{{milestone.name}}</td> 
-        <td>{{milestone.value}}</td>
-        <td>
-          <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Update">Update</a>
-          <a routerLink="/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Delete">Delete</a>
-        </td>
-      </tr>
-    </table>
+    <app-client-side-bar></app-client-side-bar>
+
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline" *ngIf="currentProjectPost">
+          <h3>Manage Milestones</h3>
+          <button *ngIf="!milestones && !currentProjectPost.done " class="btn btn-success my-3"
+            routerLink="/client/ProjectPost/{{projectPostId}}/Milestone/Create">Create New Milestone</button>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li><a routerLink="/client/managejob">Manage Jobs</a></li>
+              <li>Manage Milestones</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> My Milestones</h3>
+              </div>
+
+              <div class="content">
+                <div class="card" *ngIf="milestones">
+                  <p-table [value]="milestones" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                    [tableStyle]="{ 'min-width': '25rem' }"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="[5,15,50]">
+
+
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th pSortableColumn="Milestonename" style="width:20%">Milestone name<p-sortIcon
+                            field="code"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="value" style="width:20%">Value <p-sortIcon field="code"></p-sortIcon>
+                        </th>
+                        <th style="width:50%">Operations</th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-milestone>
+                      <tr>
+                        <td>{{milestone.name}}</td>
+                        <td>{{milestone.value}}</td>
+                        <td>
+                          <div *ngIf="!milestone.released">
+                            <a class="btn btn-primary"
+                              routerLink="/client/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Update">Update</a>
+                            <a class="btn btn-danger mx-3"
+                              routerLink="/client/ProjectPost/{{projectPostId}}/Milestone/{{milestone.id}}/Delete">Delete</a>
+                            <button class="btn btn-dark" (click)="Release(milestone.id)">Release</button>
+                          </div>
+                          <button *ngIf="milestone.released" class="btn btn-danger">Released</button>
+                        </td>
+
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="paginatorleft">
+                      <p-button *ngIf="!currentProjectPost.done" type="button" icon="pi pi-plus"
+                        routerLink="/client/ProjectPost/{{projectPostId}}/Milestone/Create"
+                        styleClass="p-button-text"></p-button>
+                    </ng-template>
+                  </p-table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
+      </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
   </div>
 </div>

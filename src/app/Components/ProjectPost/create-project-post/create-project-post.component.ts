@@ -68,6 +68,7 @@ export class CreateProjectPostComponent implements OnInit {
         projectPostDate: new Date(),
         categoryId: Number(catId),
         done: false,
+        approved: false,
         location: this.createProjectPost.get('location')?.value || '',
       };
       console.log(projectPost);
@@ -81,6 +82,7 @@ export class CreateProjectPostComponent implements OnInit {
             life: 1500,
             key: 'postToast',
           });
+          this.createProjectPost.reset();
         },
         error: (err: any) => {
           this.messageService.clear();

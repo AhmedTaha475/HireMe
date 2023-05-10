@@ -1,0 +1,98 @@
+<div appJQueryLoader>
+  <div class="dashboard-container">
+
+    <app-client-side-bar></app-client-side-bar>
+
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>My Posts Reviews</h3>
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Reviews</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> My Reviews</h3>
+              </div>
+
+              <div class="content">
+                <p-table [value]="ReviewsObject" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                  [tableStyle]="{ 'min-width': '25rem' }"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                  [rowsPerPageOptions]="[5,15,50]">
+
+
+                  <ng-template pTemplate="header">
+
+                  </ng-template>
+                  <ng-template pTemplate="body" let-transaction>
+                    <tr>
+                      <ul class="dashboard-box-list">
+                        <li style="border-bottom: solid 1px #e4e4e4;">
+                          <div class="boxed-list-item">
+                            <!-- Content -->
+                            <div class="item-content">
+                              <div class="user-avatar status-online mb-2"><img src='assets/images/admin.png' alt="">
+                              </div>
+                              <h4>Ahmed Taha</h4>
+                            </div>
+                          </div>
+
+
+                          <div class="boxed-list-item">
+                            <!-- Content -->
+                            <div class="item-content">
+                              <h4>Project Post Title : anything For now</h4>
+                              <div class="item-details margin-top-10">
+                                <div class="btn btn-warning me-3 "> Rating : 5</div>
+                                <div class="detail-item"><i class="icon-material-outline-date-range"></i> May 2019</div>
+                              </div>
+                              <div class="item-description">
+                                <p>Great clarity in specification and communication. I got payment really fast. Really
+                                  recommend this employer for his professionalism. I will work for him again with
+                                  pleasure.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </tr>
+                  </ng-template>
+
+                </p-table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
+      </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
+  </div>
+</div>

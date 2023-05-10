@@ -21,7 +21,13 @@
                         </li>
 
                         <li *ngIf="_authService.isClient()">
+
                             <a href="#">Find a Freelancer</a>
+
+
+                            <a routerLink="/AllFreelancers">Find a Freelancer</a>
+ 
+
                         </li>
                         <li *ngIf="_authService.isClient()">
                             <a routerLink="/client/postjob">Post a Task</a>

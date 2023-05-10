@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 
@@ -25,12 +27,16 @@ export class ManagaProjectPostsComponent implements OnInit {
 
   constructor(
     private projectpostServ: ProjectPostService,
-    private lookupvaluesServ: LookupValueService
+    private lookupvaluesServ: LookupValueService,
+    private messageService: MessageService,
+    private router: Router
   ) {}
   projectPosts: any[] = [];
   categories: any;
   UpdateDialogVisible: boolean = false;
   currentProjectPost: any;
+  DeleteDialogVisible: boolean = false;
+  postToBeDeleted: any;
   ngOnInit(): void {
     this.GetallClientPosts();
     this.GetAllCategories();
@@ -50,8 +56,25 @@ export class ManagaProjectPostsComponent implements OnInit {
         next: (data: any) => {
           console.log(data);
           this.GetallClientPosts();
+          this.messageService.clear();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Updated',
+            detail: 'Job Updated Successfully',
+            life: 1500,
+            key: 'updatePost',
+          });
         },
-        error: (err: any) => {},
+        error: (err: any) => {
+          this.messageService.clear();
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Somethign went wrong......',
+            life: 1500,
+            key: 'updatePost',
+          });
+        },
       });
   }
   UpdateProjectPost(id: number) {
@@ -85,6 +108,63 @@ export class ManagaProjectPostsComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         this.projectPosts = data;
+      },
+    });
+  }
+
+  ConfirmDelete() {
+    this.projectpostServ.DeleteProjectPost(this.postToBeDeleted).subscribe({
+      next: (data: any) => {
+        this.GetallClientPosts();
+        this.DeleteDialogVisible = false;
+        this.messageService.clear();
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Deleted',
+          detail: 'Record Deteled successfully',
+          life: 1500,
+          key: 'DeletePost',
+        });
+      },
+      error: (err: any) => {
+        this.messageService.clear();
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Somethign went wrong......',
+          life: 1500,
+          key: 'DeletePost',
+        });
+      },
+    });
+  }
+  proceedToDelete(id: number) {
+    this.postToBeDeleted = id;
+    this.DeleteDialogVisible = true;
+  }
+
+  EndProject(id: number) {
+    this.projectpostServ.GetProjectPostById(id).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.currentProjectPost = data;
+        this.currentProjectPost.done = true;
+        this.projectpostServ
+          .UpdateProjectPost(id, this.currentProjectPost)
+          .subscribe({
+            next: (data: any) => {
+              console.log('Updaaaaaaaaaateeee');
+              this.router.navigateByUrl(
+                `/client/ProjectPost/${id}/ClientReview/Add`
+              );
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
+      },
+      error: (err: any) => {
+        console.log(err);
       },
     });
   }
