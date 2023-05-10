@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -15,14 +20,12 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
 @Component({
   selector: 'app-deposite-money',
   templateUrl: './deposite-money.component.html',
-  styleUrls: ['./deposite-money.component.css']
+  styleUrls: ['./deposite-money.component.css'],
 })
 export class DepositeMoneyComponent implements OnInit {
   depositeGroup = new FormGroup({
-    depositeAmount: new FormControl('', [
-      Validators.required,
-    ])
-  })
+    depositeAmount: new FormControl('', [Validators.required]),
+  });
   constructor(
     public translate: TranslateService,
     public PlanService: PlanService,
@@ -46,23 +49,25 @@ export class DepositeMoneyComponent implements OnInit {
   element: any;
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean | undefined;
-  client:any;
-  clientId:any;
+  client: any;
+  clientId: any;
 
-  confirmAmount(){
-    if (this.depositeGroup.valid){
+  confirmAmount() {
+    if (this.depositeGroup.valid) {
       this.PaymentAmount = this.depositeGroup.get('depositeAmount')?.value;
     }
   }
   ngOnInit(): void {
     this.initConfig();
     this.clientService.GetCurrentClient().subscribe({
-      next:(data:any)=>{
+      next: (data: any) => {
         this.client = data.body;
         this.clientId = this.client.id;
       },
-      error:(err)=>{console.log(err)}
-    })
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   private initConfig(): void {
@@ -140,7 +145,7 @@ export class DepositeMoneyComponent implements OnInit {
           let newtransaction: CreateTransaction = new CreateTransaction(
             new Date(),
             this.PaymentAmount,
-            "You Have Deposited " + this.PaymentAmount + " Using PayPal"
+            'You Have Deposited ' + this.PaymentAmount + ' Using PayPal'
           );
 
           this.transservice
@@ -149,14 +154,16 @@ export class DepositeMoneyComponent implements OnInit {
               next: (data: any) => {
                 //#region Logic After Payment Success
                 let newBalance = this.PaymentAmount + this.client.balance;
-                let clientData = new UpdateClientMoney (newBalance, null, null);
+                let clientData = new UpdateClientMoney(newBalance, null, null);
                 this.clientService.UpdateClientMoney(clientData).subscribe({
-                  next:(data)=>{
-                    console.log("Success")
+                  next: (data) => {
+                    console.log('Success');
                     console.log(data);
                   },
-                  error:(err)=>{console.log(err)}
-                })
+                  error: (err) => {
+                    console.log(err);
+                  },
+                });
                 this.element = document.getElementById('Success');
                 this.element.innerHTML += 'Your Payment Had Succeded...Enjoy';
                 this.element.classList.add('alert');
@@ -167,15 +174,8 @@ export class DepositeMoneyComponent implements OnInit {
                 console.log(err);
               },
             });
-
-          // const childElement = document.createElement('p');
-          // childElement.textContent = 'Your Payment Had Succeded...Enjoy';
-          // let attr=document.createAttribute("class")
-
-          // this.element.appendChild(childElement);
-
           setTimeout(() => {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/client');
           }, 3000);
         });
       },
@@ -203,4 +203,3 @@ export class DepositeMoneyComponent implements OnInit {
     };
   }
 }
-

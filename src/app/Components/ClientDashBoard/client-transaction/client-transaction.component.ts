@@ -8,12 +8,13 @@ import { TransactionService } from 'src/app/Services/Transaction_Service/transac
 })
 export class ClientTransactionComponent implements OnInit {
   transactions: any[] = [];
+  isLoaded: boolean = false;
   constructor(private transactionServ: TransactionService) {}
   ngOnInit(): void {
     this.transactionServ.GetAllTranscationsByUserId().subscribe({
       next: (data: any) => {
-        console.log(data);
         this.transactions = data;
+        if (this.transactions.length > 0) this.isLoaded = true;
       },
       error: (err: any) => {
         console.log(err);
