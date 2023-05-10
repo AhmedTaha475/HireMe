@@ -1,192 +1,194 @@
 <div appJQueryLoader>
-  <app-admin-header></app-admin-header>
-  <div class="dashboard-container">
+    <app-admin-header></app-admin-header>
+    <div class="dashboard-container">
+        <div class="dashboard-content-container" data-simplebar>
+            <div class="dashboard-content-inner">
+                <!-- Dashboard Headline -->
+                <div class="dashboard-headline">
+                    <h3>Hello, HireMe Admin!</h3>
+                    <span>We are glad to see you again!</span>
 
-    <div class="dashboard-content-container" data-simplebar>
-      <div class="dashboard-content-inner">
+                    <!-- Breadcrumbs -->
+                    <nav id="breadcrumbs" class="dark">
+                        <ul>
+                            <li><a routerLink="/Admin">Home</a></li>
+                            <li>Dashboard</li>
+                        </ul>
+                    </nav>
+                </div>
 
-        <!-- Dashboard Headline -->
-        <div class="dashboard-headline">
-          <h3>Hello, HireMe Admin!</h3>
-          <span>We are glad to see you again!</span>
+                <!-- Fun Facts Container -->
+                <div class="fun-facts-container row justify-content-center">
+                    <div class="fun-fact col-4" data-fun-fact-color="#36bd78">
+                        <div class="fun-fact-text">
+                            <span>Number of Clients</span>
+                            <h4 *ngIf="ClientsCount">{{ ClientsCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon"><i class="icon-feather-user"></i></div>
+                    </div>
+                    <div class="fun-fact col-4" data-fun-fact-color="#b81b7f">
+                        <div class="fun-fact-text">
+                            <span>Number of Freelancers</span>
+                            <h4 *ngIf="FreelancersCount">{{ FreelancersCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon col-3">
+                            <i class="icon-feather-user"></i>
+                        </div>
+                    </div>
+                    <div class="fun-fact col-4" data-fun-fact-color="#efa80f">
+                        <div class="fun-fact-text">
+                            <span>Number of Project Posts</span>
+                            <h4 *ngIf="ProjectPostCount">{{ ProjectPostCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon">
+                            <i class="icon-line-awesome-files-o"></i>
+                        </div>
+                    </div>
 
+                    <div class="fun-fact col-4" data-fun-fact-color="#2a41e6">
+                        <div class="fun-fact-text">
+                            <span>Number of Applicants</span>
+                            <h4 *ngIf="ApplicantsCount">{{ ApplicantsCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon">
+                            <i class="icon-line-awesome-users"></i>
+                        </div>
+                    </div>
+                    <div class="fun-fact col-4" data-fun-fact-color="#2a41e6">
+                        <div class="fun-fact-text">
+                            <span>Number of Plan subscribers</span>
+                            <h4 *ngIf="subscCount">{{ subscCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon">
+                            <i class="icon-line-awesome-paypal"></i>
+                        </div>
+                    </div>
+                    <div class="fun-fact col-4" data-fun-fact-color="#2a41e6">
+                        <div class="fun-fact-text">
+                            <span>Number of projects done on system</span>
+                            <h4 *ngIf="systemProjectCount">{{ systemProjectCount }}</h4>
+                        </div>
+                        <div class="fun-fact-icon">
+                            <i class="icon-material-outline-settings"></i>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <!-- Dashboard Box -->
+                        <div class="dashboard-box main-box-in-row">
+                            <div class="headline">
+                                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+                            </div>
+                            <div class="content d-flex justify-content-center">
+                                <!-- Chart -->
+                                <div class="chart w-100">
+                                    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Box / End -->
+                    </div>
 
-          <!-- Breadcrumbs -->
-          <nav id="breadcrumbs" class="dark">
-            <ul>
-              <li><a routerLink="/Admin">Home</a></li>
-              <li>Dashboard</li>
-            </ul>
-          </nav>
+                    <div class="col-xl-6">
+                        <!-- Dashboard Box -->
+                        <div class="dashboard-box main-box-in-row">
+                            <div class="headline">
+                                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+                            </div>
+                            <div class="content d-flex justify-content-center">
+                                <!-- Chart -->
+                                <div class="chart w-50">
+                                    <p-chart type="pie" [data]="PieCLFL" [options]="PieOptionsCLFL"></p-chart>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Box / End -->
+                    </div>
+
+                    <div class="col-xl-6">
+                        <!-- Dashboard Box -->
+                        <div class="dashboard-box main-box-in-row">
+                            <div class="headline">
+                                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+                            </div>
+                            <div class="content d-flex justify-content-center">
+                                <!-- Chart -->
+                                <div class="chart w-100">
+                                    <p-chart type="bar" [data]="CatData" [options]="CatOption"></p-chart>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Box / End -->
+                    </div>
+
+                    <div class="col-xl-6">
+                        <!-- Dashboard Box -->
+                        <div class="dashboard-box main-box-in-row">
+                            <div class="headline">
+                                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+                            </div>
+                            <div class="content d-flex justify-content-center">
+                                <!-- Chart -->
+                                <div class="chart w-100">
+                                    <p-chart type="line" [data]="RankData" [options]="RankOption"></p-chart>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Box / End -->
+                    </div>
+
+                    <div class="col-xl-6">
+                        <!-- Dashboard Box -->
+                        <div class="dashboard-box main-box-in-row">
+                            <div class="headline">
+                                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
+                            </div>
+                            <div class="content d-flex justify-content-center">
+                                <!-- Chart -->
+                                <div class="chart w-50">
+                                    <p-chart type="pie" [data]="PieChart2Data" [options]="PieChart2Ooptions"></p-chart>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dashboard Box / End -->
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="dashboard-footer-spacer"></div>
+                <div class="small-footer margin-top-15">
+                    <div class="small-footer-copyrights">
+                        © 2019 <strong>Hireo</strong>. All Rights Reserved.
+                    </div>
+                    <ul class="footer-social-links">
+                        <li>
+                            <a href="#" title="Facebook">
+                                <i class="icon-brand-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Twitter">
+                                <i class="icon-brand-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="Google Plus">
+                                <i class="icon-brand-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="LinkedIn">
+                                <i class="icon-brand-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Footer / End -->
+            </div>
         </div>
-
-        <!-- Fun Facts Container -->
-        <div class="fun-facts-container row justify-content-center">
-          <div class="fun-fact col-4" data-fun-fact-color="#36bd78">
-            <div class="fun-fact-text">
-              <span>Number of Clients</span>
-              <h4 *ngIf="ClientsCount">{{ClientsCount}}</h4>
-            </div>
-            <div class="fun-fact-icon"><i class="icon-feather-user
-              "></i></div>
-          </div>
-          <div class="fun-fact col-4" data-fun-fact-color="#b81b7f">
-            <div class="fun-fact-text">
-              <span>Number of Freelancers</span>
-              <h4 *ngIf="FreelancersCount">{{FreelancersCount}}</h4>
-            </div>
-            <div class="fun-fact-icon col-3"><i class="icon-feather-user
-              "></i></div>
-          </div>
-          <div class="fun-fact col-4" data-fun-fact-color="#efa80f">
-            <div class="fun-fact-text">
-              <span>Number of Project Posts</span>
-              <h4 *ngIf="ProjectPostCount">{{ProjectPostCount}}</h4>
-            </div>
-            <div class="fun-fact-icon"><i class="icon-line-awesome-files-o"></i></div>
-          </div>
-
-          <div class="fun-fact col-4" data-fun-fact-color="#2a41e6">
-            <div class="fun-fact-text">
-              <span>Number of Applicants</span>
-              <h4 *ngIf="ApplicantsCount">{{ApplicantsCount}}</h4>
-            </div>
-            <div class="fun-fact-icon"><i class="icon-line-awesome-users"></i></div>
-          </div>
-          <div class="fun-fact col-4 " data-fun-fact-color="#2a41e6">
-            <div class="fun-fact-text">
-              <span>Number of Plan subscribers</span>
-              <h4 *ngIf="subscCount">{{subscCount}}</h4>
-            </div>
-            <div class="fun-fact-icon"><i class="icon-line-awesome-paypal"></i></div>
-          </div>
-          <div class="fun-fact col-4 " data-fun-fact-color="#2a41e6">
-            <div class="fun-fact-text">
-              <span>Number of projects done on system</span>
-              <h4 *ngIf="systemProjectCount">{{systemProjectCount}}</h4>
-            </div>
-            <div class="fun-fact-icon"><i class="icon-material-outline-settings"></i></div>
-          </div>
-        </div>
-
-        <!-- Row -->
-        <div class="row">
-
-          <div class="col-xl-6">
-            <!-- Dashboard Box -->
-            <div class="dashboard-box main-box-in-row">
-              <div class="headline">
-                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
-              </div>
-              <div class="content d-flex justify-content-center">
-                <!-- Chart -->
-                <div class="chart w-100">
-                  <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
-                </div>
-              </div>
-            </div>
-            <!-- Dashboard Box / End -->
-          </div>
-
-          <div class="col-xl-6">
-            <!-- Dashboard Box -->
-            <div class="dashboard-box main-box-in-row">
-              <div class="headline">
-                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
-              </div>
-              <div class="content   d-flex justify-content-center">
-                <!-- Chart -->
-                <div class="chart w-50">
-                  <p-chart type="pie" [data]="PieCLFL" [options]="PieOptionsCLFL"></p-chart>
-                </div>
-              </div>
-            </div>
-            <!-- Dashboard Box / End -->
-          </div>
-
-          <div class="col-xl-6">
-            <!-- Dashboard Box -->
-            <div class="dashboard-box main-box-in-row">
-              <div class="headline">
-                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
-              </div>
-              <div class="content  d-flex justify-content-center">
-                <!-- Chart -->
-                <div class="chart w-100">
-                  <p-chart type="bar" [data]="CatData" [options]="CatOption"></p-chart>
-                </div>
-              </div>
-            </div>
-            <!-- Dashboard Box / End -->
-          </div>
-
-          <div class="col-xl-6">
-            <!-- Dashboard Box -->
-            <div class="dashboard-box main-box-in-row">
-              <div class="headline">
-                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
-              </div>
-              <div class="content  d-flex justify-content-center">
-                <!-- Chart -->
-                <div class="chart w-100">
-                  <p-chart type="line" [data]="RankData" [options]="RankOption"></p-chart>
-                </div>
-              </div>
-            </div>
-            <!-- Dashboard Box / End -->
-          </div>
-
-          <div class="col-xl-6">
-            <!-- Dashboard Box -->
-            <div class="dashboard-box main-box-in-row">
-              <div class="headline">
-                <h3><i class="icon-feather-bar-chart-2"></i> First Chart</h3>
-              </div>
-              <div class="content   d-flex justify-content-center">
-                <!-- Chart -->
-                <div class="chart w-50">
-                  <p-chart type="pie" [data]="PieChart2Data" [options]="PieChart2Ooptions"></p-chart>
-                </div>
-              </div>
-            </div>
-            <!-- Dashboard Box / End -->
-          </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="dashboard-footer-spacer"></div>
-        <div class="small-footer margin-top-15">
-          <div class="small-footer-copyrights">
-            © 2019 <strong>Hireo</strong>. All Rights Reserved.
-          </div>
-          <ul class="footer-social-links">
-            <li>
-              <a href="#" title="Facebook">
-                <i class="icon-brand-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Twitter">
-                <i class="icon-brand-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Google Plus">
-                <i class="icon-brand-google-plus-g"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="LinkedIn">
-                <i class="icon-brand-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-        <!-- Footer / End -->
-
-      </div>
     </div>
-  </div>
 </div>
