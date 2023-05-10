@@ -1,26 +1,21 @@
-<!-- Header Container
-    ================================================== -->
 <header id="header-container" class="fullwidth">
     <!-- Header -->
     <div id="header">
         <div class="container">
+
             <!-- Left Side Content -->
             <div class="left-side">
+
                 <!-- Logo -->
-                <div id="logo">
-                    <a routerLink="/"><img src="assets/images/logo.png" alt="" /></a>
+                <div id="logo" class="pb-5">
+                    <a  routerLink="/"><img src="assets/images/logo.png" alt=""></a>
                 </div>
 
                 <!-- Main Navigation -->
                 <nav id="navigation">
                     <ul id="responsive">
-                        <li>
-                            <a routerLink="/" class="current">{{
-                                translate.instant("home")
-                                }}</a>
 
-                        </li>
-
+                        <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
                         <li *ngIf="_authService.isClient()">
 
                             <a routerLink="/AllFreelancers">Find a Freelancer</a>
@@ -38,11 +33,6 @@
                             <a routerLink="/plan">Plans</a>
 
                         </li>
-                        <li *ngIf="UserRole">
-                            <a *ngIf="_authService.isFreelancer()" routerLink="/Freelancer">Dashboard</a>
-                            <a *ngIf="_authService.isClient()" routerLink="/client">Dashboard</a>
-                            <a *ngIf="_authService.isAdmin()" routerLink="/Admin">Dashboard</a>
-                        </li>
                         <li *ngIf=" !_authService.isLoggedIn()">
                             <a routerLink="/Login">Login</a>
 
@@ -58,122 +48,173 @@
                                 <li><a (click)="switchLanguage('ar')">العربية</a></li>
                             </ul>
                         </li>
+
                     </ul>
                 </nav>
                 <div class="clearfix"></div>
                 <!-- Main Navigation / End -->
+
             </div>
             <!-- Left Side Content / End -->
 
-            <!-- Right Side Content / End -->
-            <div class="right-side">
 
+            <!-- Right Side Content / End -->
+            <div class="right-side" *ngIf="_authService.isLoggedIn()">
+
+              
 
                 <!-- User Menu -->
-                <div class="header-widget">
+                <div class="header-widget" *ngIf="_authService.isClient()">
+
                     <!-- Messages -->
                     <div class="header-notifications user-menu">
                         <div class="header-notifications-trigger">
                             <a href="#">
-                                <div class="user-avatar status-online">
-                                    <img src="assets/images/user-avatar-small-02.jpg" alt="" />
-                                </div>
+                                <div class="user-avatar status-online"><img
+                                        src="{{client.image | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt=""></div>
                             </a>
                         </div>
 
                         <!-- Dropdown -->
                         <div class="header-notifications-dropdown">
+
                             <!-- User Status -->
                             <div class="user-status">
+
                                 <!-- User Name / Avatar -->
                                 <div class="user-details">
-                                    <div class="user-avatar status-online">
-                                        <img src="assets/images/user-avatar-small-02.jpg" alt="" />
+                                    <div class="user-avatar status-online"><img
+                                            src="{{client.image | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt=""></div>
+                                    <div class="user-name">
+                                        {{client.username}} <span>Client</span>
                                     </div>
-                                    <div class="user-name">Tom Smith <span>Freelancer</span></div>
                                 </div>
 
                                 <!-- User Status Switcher -->
-                                <div class="status-switch" id="snackbar-user-status">
-                                    <label class="user-online current-status">Online</label>
-                                    <label class="user-invisible">Invisible</label>
-                                    <!-- Status Indicator -->
-                                    <span class="status-indicator" aria-hidden="true"></span>
-                                </div>
-                                <!--  User Notifications / End -->
-
-                                <!-- User Menu -->
-                                <div class="header-widget">
-                                    <!-- Messages -->
-                                    <div class="header-notifications user-menu">
-                                        <div class="header-notifications-trigger">
-                                            <a href="#">
-                                                <div class="user-avatar status-online">
-                                                    <img src="assets/images/13.enc" alt="" />
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Dropdown -->
-                                        <div class="header-notifications-dropdown">
-                                            <!-- User Status -->
-                                            <div class="user-status">
-                                                <!-- User Name / Avatar -->
-                                                <div class="user-details">
-                                                    <div class="user-avatar status-online">
-                                                        <img src="assets/images/13.enc" alt="" />
-                                                    </div>
-                                                    <div class="user-name">
-                                                        Tom Smith <span>Freelancer</span>
-                                                    </div>
-                                                </div>
-
-                                                <!-- User Status Switcher -->
-                                                <div class="status-switch" id="snackbar-user-status">
-                                                    <label class="user-online current-status">Online</label>
-                                                    <label class="user-invisible">Invisible</label>
-                                                    <!-- Status Indicator -->
-                                                    <span class="status-indicator" aria-hidden="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <ul class="user-menu-small-nav">
-                                                <li>
-                                                    <a href="dashboard.html"><i
-                                                            class="icon-material-outline-dashboard"></i>
-                                                        Dashboard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-settings.html"><i
-                                                            class="icon-material-outline-settings"></i>
-                                                        Settings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-logged-out.html"><i
-                                                            class="icon-material-outline-power-settings-new"></i>
-                                                        Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- User Menu / End -->
-
-                                <!-- Mobile Navigation Button -->
-                                <span class="mmenu-trigger">
-                                    <button class="hamburger hamburger--collapse" type="button">
-                                        <span class="hamburger-box">
-                                            <span class="hamburger-inner"></span>
-                                        </span>
-                                    </button>
-                                </span>
+                               
                             </div>
-                            <!-- Right Side Content / End -->
+
+                            <ul class="user-menu-small-nav">
+                                <li><a href="/client"><i class="icon-material-outline-dashboard"></i>
+                                        Dashboard</a></li>
+                                <li><a (click)="logout()" style="cursor: pointer;"><i
+                                            class="icon-material-outline-power-settings-new"></i> Logout</a>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
+
                 </div>
+                <!-- User Menu / End -->
+
+
+                  
+                <!-- User Menu -->
+                <div class="header-widget" *ngIf="_authService.isFreelancer()">
+
+                    <!-- Messages -->
+                    <div class="header-notifications user-menu">
+                        <div class="header-notifications-trigger">
+                            <a href="#">
+                                <div class="user-avatar status-online"><img
+                                        src="{{freelancer.image | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt=""></div>
+                            </a>
+                        </div>
+
+                        <!-- Dropdown -->
+                        <div class="header-notifications-dropdown">
+
+                            <!-- User Status -->
+                            <div class="user-status">
+
+                                <!-- User Name / Avatar -->
+                                <div class="user-details">
+                                    <div class="user-avatar status-online"><img
+                                            src="{{freelancer.image | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt=""></div>
+                                    <div class="user-name">
+                                        {{freelancer.username}} <span>{{freelancer.jobtitle}}</span>
+                                    </div>
+                                </div>
+
+                                <!-- User Status Switcher -->
+                               
+                            </div>
+
+                            <ul class="user-menu-small-nav">
+                                <li><a href="/Freelancer"><i class="icon-material-outline-dashboard"></i>
+                                        Dashboard</a></li>
+                                <li><a (click)="logout()" style="cursor: pointer;"><i
+                                            class="icon-material-outline-power-settings-new"></i> Logout</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- User Menu / End -->
+
+                <!-- User Menu -->
+                <div class="header-widget" *ngIf="_authService.isAdmin()">
+
+                    <!-- Messages -->
+                    <div class="header-notifications user-menu">
+                        <div class="header-notifications-trigger">
+                            <a href="#">
+                                <div class="user-avatar status-online"><img
+                                        src="assets/images/admin.png" alt=""></div>
+                            </a>
+                        </div>
+
+                        <!-- Dropdown -->
+                        <div class="header-notifications-dropdown">
+
+                            <!-- User Status -->
+                            <div class="user-status">
+
+                                <!-- User Name / Avatar -->
+                                <div class="user-details">
+                                    <div class="user-avatar status-online"><img
+                                            src="assets/images/admin.png" alt=""></div>
+                                    <div class="user-name">
+                                        Admin <span>systemAdmin</span>
+                                    </div>
+                                </div>
+
+                                <!-- User Status Switcher -->
+                               
+                            </div>
+
+                            <ul class="user-menu-small-nav">
+                                <li><a href="/Admin"><i class="icon-material-outline-dashboard"></i>
+                                        Dashboard</a></li>
+                                <li><a (click)="logout()" style="cursor: pointer;"><i
+                                            class="icon-material-outline-power-settings-new"></i> Logout</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- User Menu / End -->
+
+
+                <!-- Mobile Navigation Button -->
+                <span class="mmenu-trigger">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </span>
+
             </div>
+            <!-- Right Side Content / End -->
+
         </div>
     </div>
     <!-- Header / End -->
+
 </header>
