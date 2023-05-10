@@ -3,6 +3,116 @@
   console.log("++++++++++++++++++")
 </script> -->
 <div appJQueryLoader></div>
+
+<header id="header-container" class="fullwidth dashboard-header not-sticky">
+    <!-- Header -->
+    <div id="header">
+        <div class="container">
+            <!-- Left Side Content -->
+            <div class="left-side">
+                <!-- Logo -->
+                <div id="logo" style="height: 55%; width: 180px">
+                    <a routerLink="/Admin/Home"><img src="assets/images/logo.png" alt="" /></a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav id="navigation">
+                    <ul id="responsive">
+                        <li>
+                            <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="activeHeader" routerLink="/Freelancer">Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                routerLinkActive="activeHeader"
+                routerLink="/Freelancer/Profile"
+                >Profile</a
+              >
+            </li>
+
+            <li>
+              <a
+                routerLinkActive="activeHeader"
+                routerLink="/Freelancer/Projects"
+                >Projects</a
+              >
+            </li>
+
+            <li>
+              <a
+                routerLinkActive="activeHeader"
+                routerLink="/Freelancer/Transaction"
+                >Transactions</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="clearfix"></div>
+        <!-- Main Navigation / End -->
+      </div>
+      <!-- Left Side Content / End -->
+
+      <!-- Right Side Content / End -->
+      <div class="right-side">
+        <!-- User Menu -->
+        <div class="header-widget">
+          <!-- Messages -->
+          <div class="header-notifications user-menu">
+            <div class="header-notifications-trigger">
+              <a href="#">
+                <div class="user-avatar status-online">
+                  <img src="assets/images/admin.png" alt="" />
+                </div>
+              </a>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="header-notifications-dropdown">
+                <!-- User Status -->
+                <div class="user-status">
+                    <!-- User Name / Avatar -->
+                    <div class="user-details">
+                        <div class="user-avatar status-online">
+                            <img src="assets/images/admin.png" alt="" />
+                        </div>
+                        <div class="user-name">HireMe <span>Admin</span></div>
+                    </div>
+
+                    <!-- User Status Switcher -->
+                    <div class="status-switch" id="snackbar-user-status">
+                        <label class="user-online current-status">Online</label>
+                        <label class="user-invisible">Invisible</label>
+                        <!-- Status Indicator -->
+                        <span class="status-indicator" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <ul class="user-menu-small-nav">
+                    <!-- <li>
+                  <button (click)="logout()"><i class="icon-material-outline-power-settings-new"></i>
+                    Logout</button>
+                </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- User Menu / End -->
+
+    <!-- Mobile Navigation Button -->
+    <span class="row justify-content-center ps-2 pt-4 ps-md-4 ps-sm-2 pt-sm-4">
+          <span
+            class="fs-2 text-primary d-md-flex d-lg-none justify-content-center col-md-1 col-sm-1 align-content-center"
+          >
+            <!-- <button class="icon-feather-align-justify " (click)="sidebarVisible = true"></button> -->
+          </span>
+    </span>
+    </div>
+    <!-- Right Side Content / End -->
+    </div>
+    </div>
+    <!-- Header / End -->
+</header>
 <!-- Wrapper -->
 <div>
     <div class="clearfix"></div>
