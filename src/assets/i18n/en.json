@@ -72,7 +72,14 @@
   "Account":"Account",
   "Sign Up":"Sign Up",
   "Log in":"Log in",
-  "Log out":"Log out"
+  "Log out":"Log out",
+  "Home":"Home",
+  "Don't have an account?":"Don't have an account?",
+  "Email is required":"Email is required",
+  "Password is required":"Password is required",
+  "Email Or Password Dont Match Any Account":"Email Or Password Dont Match Any Account"
+
+
 
 
 }
