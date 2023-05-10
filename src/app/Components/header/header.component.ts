@@ -1,18 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
+import {ClientService} from 'src/app/Services/client.service'
+import { GetClient } from 'src/app/Models/Client/get-client';
+import { FreelancerService } from 'src/app/Services/freelancer.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   // ClientExist: boolean = false;
   UserRole:string|null;
+  client:any;
+  freelancer:any;
   constructor(
     public translate: TranslateService,
     public _authService: AuthService,
+public clientService : ClientService,
+public freeService :FreelancerService
     //private router: Router
   ) {
     // this.ClientExist =
@@ -24,6 +31,20 @@ export class HeaderComponent {
   if (langItem !== null) {
     translate.use(langItem);}
   }
+  ngOnInit(): void {
+    if(this._authService.isClient()){
+    this.clientService.GetCurrentClient().subscribe({
+      next:(data:any)=>{this.client=data.body},
+      error:(err)=>{console.log(err)}
+    })
+  }
+  if(this._authService.isFreelancer()){
+    this.freeService.GetCurrentFreelancer().subscribe({
+      next:(data:any)=>{this.freelancer=data.body},
+      error:(err)=>{console.log(err)}
+    })
+  }
+  }
   // public get UserRole():string|null{
   //   return this._UserRole;
   // }
@@ -33,9 +54,12 @@ export class HeaderComponent {
   //   //Write your code here
   //   console.log (this.UserRole);
   // }
+  
   switchLanguage(language: string) {
     this.translate.use(language);
     localStorage.setItem('Lang',language);
   }
-  
+  logout(){
+    this._authService.logout();
+  }
 }
