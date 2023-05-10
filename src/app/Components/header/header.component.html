@@ -15,31 +15,31 @@
                 <nav id="navigation">
                     <ul id="responsive">
 
+
                         <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
                         <li *ngIf="_authService.isClient()">
 
+                            <a href="#">Find a Freelancer</a>
+
+
                             <a routerLink="/AllFreelancers">Find a Freelancer</a>
  
+
                         </li>
                         <li *ngIf="_authService.isClient()">
                             <a routerLink="/client/postjob">Post a Task</a>
-
                         </li>
                         <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/AllTasks">Browse Tasks</a>
-
                         </li>
                         <li *ngIf="_authService.isFreelancer()">
                             <a routerLink="/plan">Plans</a>
-
                         </li>
+
                         <li *ngIf=" !_authService.isLoggedIn()">
                             <a routerLink="/Login">Login</a>
 
                         </li>
-
-
-
 
                         <li>
                             <a href="#">{{ translate.instant("language") }}</a>
@@ -59,10 +59,10 @@
 
 
             <!-- Right Side Content / End -->
+
             <div class="right-side" *ngIf="_authService.isLoggedIn()">
 
-              
-
+             
                 <!-- User Menu -->
                 <div class="header-widget" *ngIf="_authService.isClient()">
 
@@ -136,6 +136,7 @@
                                         {{freelancer.username}} <span>{{freelancer.jobtitle}}</span>
                                     </div>
                                 </div>
+
 
                                 <!-- User Status Switcher -->
                                

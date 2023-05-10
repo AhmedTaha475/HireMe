@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartModule } from 'primeng/chart';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
 import { AppRoutingModule } from './app-routing.module';
@@ -165,9 +165,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectReviewComponent,
     DepositeMoneyComponent,
     ProjectDetailsComponent,
+
     ClientTransactionComponent,
     ClientMainReviewsComponent,
     CustomDateDirective,
+
 
   ],
   imports: [
@@ -207,6 +209,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     ConfirmationService,
     MessageService,
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })
