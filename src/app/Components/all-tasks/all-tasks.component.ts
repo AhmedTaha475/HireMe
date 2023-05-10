@@ -13,7 +13,8 @@ export class AllTasksComponent implements OnInit{
   joindata: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string ,done:boolean}[] = [];
   Projects: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string ,done:boolean}[] = [];
   Categories: { valueId: number, valueName: string, lookupId: number }[] = [];
-
+  CategoryNames:string[]=[];
+  isLoaded: boolean=false;
   constructor(private myService: ProjectPostService,private LookService: LookupValueService,private auth:AuthService){
 }
 CurrentRole=this.auth.getRoles();
@@ -47,6 +48,9 @@ CurrentRole=this.auth.getRoles();
                   this.Projects.push(this.joindata[i]);
                 }
               }
+              if(this.Projects.length>0){
+                this.isLoaded=true;
+              }
               console.log(this.Projects);
             },
             error: (error) => {
@@ -59,7 +63,16 @@ CurrentRole=this.auth.getRoles();
         console.log(err);
       },
     })
-
+    this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
+      next: (data: any) => {
+        console.log(data);
+        for(let i=0;i<data.length;i++){
+          this.CategoryNames.push(data[i].valueName);
+        }
+        console.log(this.CategoryNames);
+      },
+      error:(err)=>{console.log(err);}
+    })
   }
   private compareByDate(a: any, b: any): number {
     let dateA = new Date(a.projectPostDate);
@@ -71,5 +84,17 @@ CurrentRole=this.auth.getRoles();
       return -1;
     }
     return 0;
+  }
+  selectOption(event: any) {
+    var name = event.target.value;
+    var P: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string ,done:boolean}[] = [];
+    console.log(name);
+   for(let i =0;i<this.joindata.length;i++){
+    if(this.joindata[i].category_name== name){
+    P.push(this.joindata[i]);
+    }
+   }
+  this.Projects=P;
+  console.log(this.Projects)
   }
 }
