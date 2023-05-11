@@ -1,9 +1,7 @@
 <div appJQueryLoader></div>
 <!-- Dashboard Container -->
 <div class="dashboard-container">
-
-  <app-freelancer-header></app-freelancer-header>
-
+  <app-freelancer-side-bar></app-freelancer-side-bar>
   <!-- Dashboard Content
 	================================================== -->
   <div class="dashboard-content-container" data-simplebar>
@@ -115,7 +113,8 @@
                         <div class="submit-field">
                           <div class="bidding-widget">
                             <!-- Headline -->
-                            <span class="bidding-detail">{{translate.instant("Set your")}} <strong>{{translate.instant("minimal hourly rate")}}</strong></span>
+                            <span class="bidding-detail">{{translate.instant("Set your")}}
+                              <strong>{{translate.instant("minimal hourly rate")}}</strong></span>
 
                             <!-- Slider -->
 
@@ -147,8 +146,10 @@
                           <div class="uploadButton margin-top-0">
                             <input class="uploadButton-input" (change)="GetCurrentCv($event)" type="file"
                               accept="image/*, application/pdf" id="upload" />
-                            <label class="uploadButton-button ripple-effect" for="upload">{{translate.instant("Upload Files")}}</label>
-                            <span class="uploadButton-file-name">{{translate.instant("Maximum file size: 10 MB")}}</span>
+                            <label class="uploadButton-button ripple-effect" for="upload">{{translate.instant("Upload
+                              Files")}}</label>
+                            <span class="uploadButton-file-name">{{translate.instant("Maximum file size: 10
+                              MB")}}</span>
                           </div>
 
                         </div>
@@ -160,24 +161,24 @@
                       <div class="col-xl-6">
                         <div class="submit-field">
                           <h5>{{translate.instant("Job Title")}}</h5>
-                          <input formControlName="jobtitle" type="text" class="with-border"
-                            placeholder="Job Title">
+                          <input formControlName="jobtitle" type="text" class="with-border" placeholder="Job Title">
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
                           <h5>{{translate.instant("Category")}}</h5>
 
-                            <select class="form-control  " formControlName="categoryId">
-                              <option *ngFor="let category of allcategorys" [value]="category.valueId">{{category.valueName}}
-                              </option>
-                            </select>
+                          <select class="form-control  " formControlName="categoryId">
+                            <option *ngFor="let category of allcategorys" [value]="category.valueId">
+                              {{category.valueName}}
+                            </option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-xl-6">
                         <div class="submit-field">
                           <h5>{{translate.instant("Payment Method")}}</h5>
-                          <select class="form-control  " formControlName="paymentmethodId" >
+                          <select class="form-control  " formControlName="paymentmethodId">
                             <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
                             </option>
                           </select>
@@ -208,7 +209,8 @@
           <div class="col-xl-12">
             <!-- <p-messages [value]="messages"></p-messages> -->
             <p-toast position="center" key="profileToast"></p-toast>
-            <input type="submit" class="button ripple-effect big margin-top-30" value="{{translate.instant('Save Changes')}}">
+            <input type="submit" class="button ripple-effect big margin-top-30"
+              value="{{translate.instant('Save Changes')}}">
           </div>
 
         </form>

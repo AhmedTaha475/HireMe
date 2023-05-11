@@ -1,132 +1,125 @@
 <div appJQueryLoader></div>
 <!-- Dashboard Container -->
 <div class="dashboard-container">
-    <app-freelancer-header></app-freelancer-header>
+  <app-freelancer-side-bar> </app-freelancer-side-bar>
 
-    <!-- Dashboard Content
+  <!-- Dashboard Content
 	================================================== -->
-    <div class="dashboard-content-container" data-simplebar>
-        <div class="dashboard-content-inner">
-            <!-- Dashboard Headline -->
-            <div class="dashboard-headline">
-                <h3>{{translate.instant("Settings")}}</h3>
+  <div class="dashboard-content-container" data-simplebar>
+    <div class="dashboard-content-inner">
+      <!-- Dashboard Headline -->
+      <div class="dashboard-headline">
+        <h3>{{translate.instant("Settings")}}</h3>
 
-                <!-- Breadcrumbs -->
-                <nav id="breadcrumbs" class="dark">
-                    <ul>
-                        <li><a href="#">{{translate.instant("Home")}}</a></li>
-                        <li><a href="#">{{translate.instant("Dashboard")}}</a></li>
-                        <li>{{translate.instant("Settings")}}</li>
-                    </ul>
-                </nav>
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs" class="dark">
+          <ul>
+            <li><a href="#">{{translate.instant("Home")}}</a></li>
+            <li><a href="#">{{translate.instant("Dashboard")}}</a></li>
+            <li>{{translate.instant("Settings")}}</li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Row -->
+      <div class="row">
+        <!-- Dashboard Box -->
+        <div class="col-xl-12">
+          <div class="dashboard-box margin-top-0">
+            <!-- Headline -->
+            <div class="headline">
+              <h3>
+                <i class="icon-material-outline-account-circle"></i>{{translate.instant("My Account")}}
+              </h3>
             </div>
 
-            <!-- Row -->
-            <div class="row">
-                <!-- Dashboard Box -->
-                <div class="col-xl-12">
-                    <div class="dashboard-box margin-top-0">
-                        <!-- Headline -->
-                        <div class="headline">
-                            <h3>
-                                <i class="icon-material-outline-account-circle"></i>{{translate.instant("My Account")}}
-                            </h3>
-                        </div>
+            <!-- Fun Facts Container -->
+            <div class="fun-facts-container">
+              <div class="fun-fact" data-fun-fact-color="Red">
+                <div *ngIf="currentfreelancer" class="fun-fact-text">
+                  <img width="125" height="125"
+                    [src]="currentfreelancer?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png' "
+                    alt="" />
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-add-a-photo"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("Full Name")}}</span>
+                  <h3>
+                    {{ currentfreelancer.firstname }} {{ currentfreelancer.lastname }}
+                  </h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-account-circle"></i>
+                </div>
+              </div>
 
-                        <!-- Fun Facts Container -->
-                        <div class="fun-facts-container">
-                            <div class="fun-fact" data-fun-fact-color="Red">
-                                <div *ngIf="currentfreelancer.image" class="fun-fact-text">
-                                    <span>{{translate.instant("Freelancer Photo")}}</span>
+              <!-- Last one has to be hidden below 1600px, sorry :( -->
+              <div class="fun-fact" data-fun-fact-color="#2a41e6">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("Email")}}</span>
+                  <h3>{{ currentfreelancer.email }}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-baseline-mail-outline"></i>
+                </div>
+              </div>
+            </div>
 
-                                    <!-- <img src="{{ currentfreelancer.image }}" alt="" /> -->
-                                    <img width="125" height="125" src="data:image/png;base64,{{ currentfreelancer.image }}" alt="" />
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-add-a-photo"></i>
-                                </div>
-                            </div>
-                            <div class="fun-fact" data-fun-fact-color="#b81b7f">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("Full Name")}}</span>
-                                    <h3>
-                                        {{ currentfreelancer.firstname }} {{ currentfreelancer.lastname }}
-                                    </h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-account-circle"></i>
-                                </div>
-                            </div>
+            <!-- Fun Facts Container -->
+            <div class="fun-facts-container" style="margin-top: 30px; margin-bottom: 20px">
+              <div class="fun-fact" data-fun-fact-color="#36bd78">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("City")}}</span>
+                  <h3>{{ currentfreelancer.city }}</h3>
+                  <h3 *ngIf="currentfreelancer.city == null">{{currentfreelancer.City}}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-home"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("Balance")}}</span>
+                  <h3 *ngIf="currentfreelancer.balance == null">0</h3>
+                  <h3>{{ currentfreelancer.balance }}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-business-center"></i>
+                </div>
+              </div>
+              <div class="fun-fact" data-fun-fact-color="#efa80f">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("Bids")}}</span>
+                  <h3>{{ currentfreelancer.bids }}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-star"></i>
+                </div>
+              </div>
 
-                            <!-- Last one has to be hidden below 1600px, sorry :( -->
-                            <div class="fun-fact" data-fun-fact-color="#2a41e6">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("Email")}}</span>
-                                    <h3>{{ currentfreelancer.email }}</h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-baseline-mail-outline"></i>
-                                </div>
-                            </div>
-                        </div>
+              <!-- Last one has to be hidden below 1600px, sorry :( -->
+              <div class="fun-fact" data-fun-fact-color="#2a41e6">
+                <div class="fun-fact-text">
+                  <span>{{translate.instant("Money Earned")}}</span>
+                  <h3>{{ currentfreelancer.totalmoneyearned }}</h3>
+                </div>
+                <div class="fun-fact-icon">
+                  <i class="icon-material-outline-monetization-on"></i>
+                </div>
+              </div>
+            </div>
 
-                        <!-- Fun Facts Container -->
-                        <div class="fun-facts-container" style="margin-top: 30px; margin-bottom: 20px">
-                            <div class="fun-fact" data-fun-fact-color="#36bd78">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("City")}}</span>
-                                    <h3>{{ currentfreelancer.city }}</h3>
-                                    <h3 *ngIf="currentfreelancer.city == null">{{currentfreelancer.City}}</h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-home"></i>
-                                </div>
-                            </div>
-                            <div class="fun-fact" data-fun-fact-color="#b81b7f">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("Balance")}}</span>
-                                    <h3 *ngIf="currentfreelancer.balance == null">0</h3>
-                                    <h3>{{ currentfreelancer.balance }}</h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-business-center"></i>
-                                </div>
-                            </div>
-                            <div class="fun-fact" data-fun-fact-color="#efa80f">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("Bids")}}</span>
-                                    <h3>{{ currentfreelancer.bids }}</h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-star"></i>
-                                </div>
-                            </div>
-
-                            <!-- Last one has to be hidden below 1600px, sorry :( -->
-                            <div class="fun-fact" data-fun-fact-color="#2a41e6">
-                                <div class="fun-fact-text">
-                                    <span>{{translate.instant("Money Earned")}}</span>
-                                    <h3>{{ currentfreelancer.totalmoneyearned }}</h3>
-                                </div>
-                                <div class="fun-fact-icon">
-                                    <i class="icon-material-outline-monetization-on"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12">
-                            <div class="submit-field" style="margin-bottom: 0px">
-                                <h5>{{translate.instant("Introduce Yourself")}}</h5>
-                                <textarea *ngIf="currentfreelancer.description == null" cols="30" rows="5" class="with-border">
+            <div class="col-xl-12">
+              <div class="submit-field" style="margin-bottom: 0px">
+                <h5>{{translate.instant("Introduce Yourself")}}</h5>
+                <textarea disabled *ngIf="currentfreelancer.description == null" cols="30" rows="5" class="with-border">
                                   {{translate.instant("about text")}}</textarea>
-                <textarea
-                  cols="30"
-                  rows="5"
-                  class="with-border"
-                  *ngIf="currentfreelancer.description"
-                  >{{ currentfreelancer.description }}
-</textarea
-                >
+                <textarea cols="30" rows="5" class="with-border" *ngIf="currentfreelancer.description">{{ currentfreelancer.description }}
+</textarea>
               </div>
             </div>
 
@@ -149,18 +142,18 @@
                         <!-- <h5>Account Type</h5> -->
                         <div class="account-type">
 
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
+            <!-- Row / End -->
+
           </div>
         </div>
-
+        <!-- Dashboard Content / End -->
       </div>
-      <!-- Row / End -->
-
-    </div>
-  </div>
-  <!-- Dashboard Content / End -->
-</div>
-<!-- Dashboard Container / End -->
+      <!-- Dashboard Container / End -->

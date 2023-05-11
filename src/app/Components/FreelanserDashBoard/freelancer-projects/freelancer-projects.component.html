@@ -1,7 +1,7 @@
 <div appJQueryLoader></div>
 <!-- Dashboard Container -->
 <div class="dashboard-container">
-  <app-freelancer-header></app-freelancer-header>
+  <app-freelancer-side-bar></app-freelancer-side-bar>
 
   <!-- Dashboard Content
     ================================================== -->
@@ -25,9 +25,8 @@
 
       <!-- Button to show form to add new project -->
       <div class="col-xl-12">
-        <a style="color: white;" (click)="open()" class="button ripple-effect big margin-top-30"
-          ><i class="icon-feather-plus"></i>{{ translate.instant("New Project") }} </a
-        >
+        <a style="color: white;" (click)="open()" class="button ripple-effect big margin-top-30"><i
+            class="icon-feather-plus"></i>{{ translate.instant("New Project") }} </a>
       </div>
 
       <div *ngIf="opened == true" class="row" id="addNewProject">
@@ -49,12 +48,8 @@
                   <div class="col-xl-4">
                     <div class="submit-field">
                       <h5>{{ translate.instant("Project Title") }}</h5>
-                      <input
-                        formControlName="projectTitle"
-                        type="text"
-                        class="with-border"
-                        placeholder="add project title"
-                      />
+                      <input formControlName="projectTitle" type="text" class="with-border"
+                        placeholder="add project title" />
                     </div>
                   </div>
 
@@ -62,12 +57,8 @@
                   <div class="col-xl-4">
                     <div class="submit-field">
                       <h5>{{ translate.instant("Project Date") }}</h5>
-                      <input
-                        formControlName="projectDate"
-                        type="date"
-                        class="with-border"
-                        placeholder="add project date"
-                      />
+                      <input formControlName="projectDate" type="date" class="with-border"
+                        placeholder="add project date" />
                     </div>
                   </div>
 
@@ -78,12 +69,8 @@
                       <div class="row">
                         <div class="col-xl-6">
                           <div class="input-with-icon">
-                            <input
-                              formControlName="moneyEarned"
-                              class="with-border"
-                              type="text"
-                              placeholder=" 0.000 pound "
-                            />
+                            <input formControlName="moneyEarned" class="with-border" type="text"
+                              placeholder=" 0.000 pound " />
                           </div>
                         </div>
                       </div>
@@ -94,31 +81,15 @@
                   <div class="col-xl-12">
                     <div class="submit-field">
                       <h5>{{ translate.instant("Project Description") }}</h5>
-                      <textarea
-                        formControlName="projectDescription"
-                        placeholder=" add project description"
-                        cols="30"
-                        rows="5"
-                        class="with-border"
-                      ></textarea>
+                      <textarea formControlName="projectDescription" placeholder=" add project description" cols="30"
+                        rows="5" class="with-border"></textarea>
 
                       <!-- To add attachments like ( photos or files ) -->
                       <div class="uploadButton margin-top-30">
-                        <input
-                          multiple
-                          (change)="GetImages($event)"
-                          class="uploadButton-input"
-                          type="file"
-                          accept="image/*, application/pdf"
-                          id="upload"
-                        />
-                        <label
-                          class="uploadButton-button ripple-effect"
-                          for="upload"
-                          >Upload Files</label
-                        >
-                        <span class="uploadButton-file-name"
-                          >{{ translate.instant("Images that might be helpful") }}
+                        <input multiple (change)="GetImages($event)" class="uploadButton-input" type="file"
+                          accept="image/*, application/pdf" id="upload" />
+                        <label class="uploadButton-button ripple-effect" for="upload">Upload Files</label>
+                        <span class="uploadButton-file-name">{{ translate.instant("Images that might be helpful") }}
                         </span>
                       </div>
                     </div>
@@ -131,11 +102,7 @@
                     class="button ripple-effect big margin-top-30"
                     ><i class="icon-feather-plus"></i
                   ></a> -->
-                  <input
-                    type="submit"
-                    class="button ripple-effect big"
-                    value="Add To Projects"
-                  />
+                  <input type="submit" class="button ripple-effect big" value="Add To Projects" />
                 </div>
               </form>
             </div>
@@ -161,12 +128,9 @@
 
           <div class="content">
             <ul class="dashboard-box-list">
-              <li
-                *ngFor="let project of myProjects"
-                routerLink="/Freelancer/FreelancerProjectDetail/{{
+              <li *ngFor="let project of myProjects" routerLink="/Freelancer/FreelancerProjectDetail/{{
                   project.P_Id
-                }}"
-              >
+                }}">
                 <!-- Job Listing -->
                 <div class="job-listing">
                   <!-- Job Listing Details -->
