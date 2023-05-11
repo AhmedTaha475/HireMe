@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     this.UserRole = this._authService.getRoles();
 
     translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('lang');
+    const langItem = localStorage.getItem('Lang');
     if (langItem !== null) {
       translate.use(langItem);
     }

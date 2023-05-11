@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddClientReview } from 'src/app/Models/ProjectReview/add-client-review';
 import { ClientService } from 'src/app/Services/client.service';
+import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { ProjectReviewService } from 'src/app/Services/project-review.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { ProjectReviewService } from 'src/app/Services/project-review.service';
 export class AddClientReviewComponent implements OnInit {
   projectPostId: any;
   clientId: any;
+  currentProjectPost: any;
   addClientReview = new FormGroup({
     review: new FormControl('', [Validators.required, Validators.minLength(5)]),
     stars: new FormControl('', [
@@ -25,15 +27,15 @@ export class AddClientReviewComponent implements OnInit {
     private myRoute: ActivatedRoute,
     private myRouter: Router,
     private reviewService: ProjectReviewService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private projectpostServ: ProjectPostService
   ) {
-    this.projectPostId = myRoute.snapshot.params['id'];
+    this.projectPostId = this.myRoute.snapshot.params['id'];
   }
   ngOnInit(): void {
     this.clientService.GetCurrentClient().subscribe({
       next: (data: any) => {
         this.clientId = data.body.id;
-        console.log(data);
       },
       error: (err: any) => {
         console.log(err);
@@ -50,12 +52,32 @@ export class AddClientReviewComponent implements OnInit {
     console.log(clientReviewData);
     this.reviewService.AddClientReview(clientReviewData).subscribe({
       next: (data) => {
-        console.log('added');
-        this.myRouter.navigateByUrl(
-          '/client/ProjectPost/' + this.projectPostId + '/Milestone/GetAll'
-        );
+        this.EndProject(this.projectPostId);
       },
       error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  EndProject(id: number) {
+    this.projectpostServ.GetProjectPostById(id).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.currentProjectPost = data;
+        this.currentProjectPost.done = true;
+        this.projectpostServ
+          .UpdateProjectPost(id, this.currentProjectPost)
+          .subscribe({
+            next: (data: any) => {
+              this.myRouter.navigateByUrl(`/client/managejob`);
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+          });
+      },
+      error: (err: any) => {
         console.log(err);
       },
     });

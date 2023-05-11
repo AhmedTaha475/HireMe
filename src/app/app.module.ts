@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProjectPostComponent } from './ProjectPost/project-post/project-post.component';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
@@ -96,6 +95,7 @@ import { CustomDateDirective } from './CustomDirectives/custom-date.directive';
 import { ShowReviewsComponent } from './Components/FreelanserDashBoard/show-reviews/show-reviews.component';
 import { AddfreelancerReviewComponent } from './Components/FreelanserDashBoard/addfreelancer-review/addfreelancer-review.component';
 import { FreelancerSideBarComponent } from './Components/FreelanserDashBoard/freelancer-side-bar/freelancer-side-bar.component';
+import { ProjectPostComponent } from './Components/ProjectPost/project-post/project-post.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -106,7 +106,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConvertToImagePipe,
     ConvertToPdfPipe,
     AppComponent,
-    ProjectPostComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -170,6 +169,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShowReviewsComponent,
     AddfreelancerReviewComponent,
     FreelancerSideBarComponent,
+    ProjectPostComponent,
   ],
   imports: [
     BrowserModule,
