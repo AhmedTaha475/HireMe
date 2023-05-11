@@ -156,6 +156,27 @@
   "My Projects List": "قائمة مشاريعى",
   "Date": "التاريخ",
   "Description": "الوصف",
-  "Amount": "المبلغ",
   "Add Review": "أضف تقييم"
+  "Reviews": "تقييم الزبائن",
+  "Summary": "الملخص",
+  "Deposite Amount": "مبلغ الايداع",
+  "Checkout": "الذهاب للدفع",
+  "I agree to the": "اوافق على",
+  "Terms and Conditions": "القوانين و الشروط",
+  "and the": "و",
+  "Automatic Renewal Terms": "شروط التجديد التلقائي",
+  "My Job Listings": "قائمة الاعمال",
+  "Approved": "معتمد",
+  "Project Done": "تم تنفيذ المشروع",
+  "In Progress": "جارى العمل عليه",
+  "Pending Approval": "لم يعتمد الى الان",
+  "UpdateProjectPost": "يمكنك تحديث عملك المطلوب",
+  "Manage Candidates": "إدارة المرشحين للعمل",
+  "Manage Milestones": "إدارة التقدم فى العمل ",
+  "Average Price": "سعر العمل",
+  "Update Job": "حدث العمل",
+  "Are you sure you want to delete this record !!": "!! هل انت متأكد من حذف هذا العمل ",
+  "Confirm Delete": "تأكيد الحذف"
+  "Amount": "المبلغ"
+
 }
