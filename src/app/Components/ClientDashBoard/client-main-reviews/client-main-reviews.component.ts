@@ -28,7 +28,6 @@ export class ClientMainReviewsComponent implements OnInit {
       translate.use(langItem);
     }
   }
-  ) {}
   ngOnInit(): void {
     this.getcurrentclient();
   }
