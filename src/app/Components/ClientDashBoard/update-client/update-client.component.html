@@ -1,274 +1,280 @@
-<div appJQueryLoader></div>
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
 
 
-<div class="dashboard-container">
-  <!-- Dashboard Sidebar
+  <div class="dashboard-container">
+    <!-- Dashboard Sidebar
 	================================================== -->
-  <app-client-side-bar></app-client-side-bar>
+    <app-client-side-bar></app-client-side-bar>
 
-  <!-- Dashboard Sidebar / End -->
-  <!-- Dashboard Content
+    <!-- Dashboard Sidebar / End -->
+    <!-- Dashboard Content
 	================================================== -->
-  <div class="dashboard-content-container" data-simplebar>
-    <div class="dashboard-content-inner">
+    <div class="dashboard-content-container" data-simplebar>
+      <div class="dashboard-content-inner">
 
-      <!-- Dashboard Headline -->
-      <div class="dashboard-headline">
-        <h3>Settings</h3>
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>Settings</h3>
 
-        <!-- Breadcrumbs -->
-        <nav id="breadcrumbs" class="dark">
-          <ul>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/client">Dashboard</a></li>
-            <li>UpdateProfile</li>
-          </ul>
-        </nav>
-      </div>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>UpdateProfile</li>
+            </ul>
+          </nav>
+        </div>
 
-      <form (ngSubmit)="updateClient()" [formGroup]="updateform">
-        <!-- Row -->
-        <div class="row">
+        <form (ngSubmit)="updateClient()" [formGroup]="updateform">
+          <!-- Row -->
+          <div class="row">
 
-          <!-- Dashboard Box -->
-          <div class="col-xl-12">
-            <div class="dashboard-box margin-top-0">
-
-              <!-- Headline -->
-              <div class="headline">
-                <h3><i class="icon-material-outline-account-circle"></i> My Account</h3>
-              </div>
-
-              <div class="content with-padding padding-bottom-0">
-
-                <div class="row">
-
-                  <div class="col-auto">
-                    <div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
-                      <img class="profile-pic"
-                        [src]="currentclient?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'"
-                        alt="" />
-                      <div class="upload-button"></div>
-                      <input (change)="GetCurrentImage($event)" class="file-upload" type="file" accept="image/*" />
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="row">
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>First Name</h5>
-                          <input type="text" class="with-border" formControlName="firstname">
-                          <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['minlength']">
-                            name must be bigger than 3 characters
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['maxlength']">
-                            name must be less than 20 characters
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['required']">
-                            Please enter first name
-                          </span>
-                        </div>
-                      </div>
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>Last Name</h5>
-                          <input type="text" class="with-border" formControlName="lastname">
-                          <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['minlength']">
-                            name must be bigger than 3 characters
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['maxlength']">
-                            name must be less than 20 characters
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['required']">
-                            Please enter last name
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>Email</h5>
-                          <input type="text" class="with-border" formControlName="email">
-                          <span class="text-danger " *ngIf="updateform.get('email')?.errors?.['required']">
-                            Please enter your email
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('email')?.errors?.['email']">
-                            Please enter a valid email address
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>SSN</h5>
-                          <input type="text" class="with-border" formControlName="ssn">
-                          <span class="text-danger " *ngIf="updateform.get('ssn')?.errors?.['required']">
-                            Please enter your SSN
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('ssn')?.errors?.['pattern']">
-                            Please enter a valid SSN
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>Country</h5>
-                          <input type="text" class="with-border" formControlName="country">
-                          <span class="text-danger " *ngIf="updateform.get('country')?.errors?.['required']">
-                            Please enter your country
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>City</h5>
-                          <input type="text" class="with-border" formControlName="city">
-                          <span class="text-danger " *ngIf="updateform.get('city')?.errors?.['required']">
-                            Please enter your city
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>Street</h5>
-                          <input type="text" class="with-border" formControlName="street">
-                          <span class="text-danger " *ngIf="updateform.get('street')?.errors?.['required']">
-                            Please enter your street
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>Age</h5>
-                          <input type="number" class="with-border" formControlName="age">
-                          <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['required']">
-                            Please enter your age
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['min']">
-                            age can't be less than 16
-                          </span>
-                          <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['max']">
-                            age can't be more than 65
-                          </span>
-                        </div>
-                      </div>
-
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>Payment Method</h5>
-                          <select class="form-control  " formControlName="paymentmethodId">
-                            <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <h5>Phone number</h5>
-                          <input type="text" class="with-border" formControlName="phonenumber">
-                          <span class="text-danger " *ngIf="updateform.get('phonenumber')?.errors?.['required']">
-                            Please enter your phone number
-                          </span>
-
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <form [formGroup]="changePasswordForm" (ngSubmit)="editpassword()">
             <!-- Dashboard Box -->
             <div class="col-xl-12">
-              <div id="test1" class="dashboard-box">
+              <div class="dashboard-box margin-top-0">
 
                 <!-- Headline -->
                 <div class="headline">
-                  <h3><i class="icon-material-outline-lock"></i> Password & Security</h3>
+                  <h3><i class="icon-material-outline-account-circle"></i> My Account</h3>
                 </div>
 
-                <div class="content with-padding">
+                <div class="content with-padding padding-bottom-0">
+
                   <div class="row">
-                    <div class="col-xl-4">
-                      <div class="submit-field">
-                        <h5>Current Password</h5>
-                        <input type="password" class="with-border" formControlName="currentPassword">
-                        <span class="text-danger "
-                          *ngIf="changePasswordForm.get('currentPassword')?.errors?.['required']">
-                          Please enter current password
-                        </span>
-                        <span class="text-danger "
-                          *ngIf="changePasswordForm.get('currentPassword')?.errors?.['pattern']">
-                          Password must be between 8 and 15 characters long and contain at least one lowercase letter,
-                          one uppercase letter, one numeric digit, and one non-alphanumeric character.
-                        </span>
+
+                    <div class="col-auto">
+                      <div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
+                        <img class="profile-pic"
+                          [src]="currentclient?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'"
+                          alt="" />
+                        <div class="upload-button"></div>
+                        <input (change)="GetCurrentImage($event)" class="file-upload" type="file" accept="image/*" />
                       </div>
                     </div>
-                    <div formGroupName="newPasswordGroup" class="col-xl-8 row">
+
+                    <div class="col">
+                      <div class="row">
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>First Name</h5>
+                            <input type="text" class="with-border" formControlName="firstname">
+                            <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['minlength']">
+                              name must be bigger than 3 characters
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['maxlength']">
+                              name must be less than 20 characters
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('firstname')?.errors?.['required']">
+                              Please enter first name
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>Last Name</h5>
+                            <input type="text" class="with-border" formControlName="lastname">
+                            <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['minlength']">
+                              name must be bigger than 3 characters
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['maxlength']">
+                              name must be less than 20 characters
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('lastname')?.errors?.['required']">
+                              Please enter last name
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>Email</h5>
+                            <input type="text" class="with-border" formControlName="email">
+                            <span class="text-danger " *ngIf="updateform.get('email')?.errors?.['required']">
+                              Please enter your email
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('email')?.errors?.['email']">
+                              Please enter a valid email address
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>SSN</h5>
+                            <input type="text" class="with-border" formControlName="ssn">
+                            <span class="text-danger " *ngIf="updateform.get('ssn')?.errors?.['required']">
+                              Please enter your SSN
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('ssn')?.errors?.['pattern']">
+                              Please enter a valid SSN
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>Country</h5>
+                            <input type="text" class="with-border" formControlName="country">
+                            <span class="text-danger " *ngIf="updateform.get('country')?.errors?.['required']">
+                              Please enter your country
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>City</h5>
+                            <input type="text" class="with-border" formControlName="city">
+                            <span class="text-danger " *ngIf="updateform.get('city')?.errors?.['required']">
+                              Please enter your city
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>Street</h5>
+                            <input type="text" class="with-border" formControlName="street">
+                            <span class="text-danger " *ngIf="updateform.get('street')?.errors?.['required']">
+                              Please enter your street
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>Age</h5>
+                            <input type="number" class="with-border" formControlName="age">
+                            <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['required']">
+                              Please enter your age
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['min']">
+                              age can't be less than 16
+                            </span>
+                            <span class="text-danger " *ngIf="updateform.get('age')?.errors?.['max']">
+                              age can't be more than 65
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>Payment Method</h5>
+                            <select class="form-control  " formControlName="paymentmethodId">
+                              <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <h5>Phone number</h5>
+                            <input type="text" class="with-border" formControlName="phonenumber">
+                            <span class="text-danger " *ngIf="updateform.get('phonenumber')?.errors?.['required']">
+                              Please enter your phone number
+                            </span>
+
+                          </div>
+                        </div>
 
 
-                      <div class="col-xl-6">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <form [formGroup]="changePasswordForm" (ngSubmit)="editpassword()">
+              <!-- Dashboard Box -->
+              <div class="col-xl-12">
+                <div id="test1" class="dashboard-box">
+
+                  <!-- Headline -->
+                  <div class="headline">
+                    <h3><i class="icon-material-outline-lock"></i> Password & Security</h3>
+                  </div>
+
+                  <div class="content with-padding">
+                    <div class="row">
+                      <div class="col-xl-4">
                         <div class="submit-field">
-                          <h5>New Password</h5>
-                          <input type="password" class="with-border" formControlName="newPassword">
+                          <h5>Current Password</h5>
+                          <input type="password" class="with-border" formControlName="currentPassword">
                           <span class="text-danger "
-                            *ngIf="changePasswordForm.get('newPasswordGroup.newPassword')?.errors?.['required']">
+                            *ngIf="changePasswordForm.get('currentPassword')?.errors?.['required']">
                             Please enter current password
                           </span>
                           <span class="text-danger "
-                            *ngIf="changePasswordForm.get('newPasswordGroup.newPassword')?.errors?.['pattern']">
+                            *ngIf="changePasswordForm.get('currentPassword')?.errors?.['pattern']">
                             Password must be between 8 and 15 characters long and contain at least one lowercase letter,
                             one uppercase letter, one numeric digit, and one non-alphanumeric character.
                           </span>
                         </div>
                       </div>
+                      <div formGroupName="newPasswordGroup" class="col-xl-8 row">
 
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>Repeat New Password</h5>
-                          <input type="password" class="with-border" formControlName="confirmPassword">
-                          <span class="text-danger "
-                            *ngIf="changePasswordForm.get('newPasswordGroup.confirmPassword')?.errors?.['required']">
-                            Please enter password confirmation
-                          </span>
-                          <span class="text-danger "
-                            *ngIf="changePasswordForm.get('newPasswordGroup')?.hasError('mismatch')">
-                            Password doens't match
-                          </span>
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>New Password</h5>
+                            <input type="password" class="with-border" formControlName="newPassword">
+                            <span class="text-danger "
+                              *ngIf="changePasswordForm.get('newPasswordGroup.newPassword')?.errors?.['required']">
+                              Please enter current password
+                            </span>
+                            <span class="text-danger "
+                              *ngIf="changePasswordForm.get('newPasswordGroup.newPassword')?.errors?.['pattern']">
+                              Password must be between 8 and 15 characters long and contain at least one lowercase
+                              letter,
+                              one uppercase letter, one numeric digit, and one non-alphanumeric character.
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>Repeat New Password</h5>
+                            <input type="password" class="with-border" formControlName="confirmPassword">
+                            <span class="text-danger "
+                              *ngIf="changePasswordForm.get('newPasswordGroup.confirmPassword')?.errors?.['required']">
+                              Please enter password confirmation
+                            </span>
+                            <span class="text-danger "
+                              *ngIf="changePasswordForm.get('newPasswordGroup')?.hasError('mismatch')">
+                              Password doens't match
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-xl-12">
+                      <div class="col-xl-12">
 
-                      <input type="submit" class="btn btn-outline-primary" value="Change Password">
+                        <input type="submit" class="btn btn-outline-primary" value="Change Password">
 
 
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </form>
+            <!-- Button -->
+            <div class="col-xl-12">
+              <input type="submit" value="Update Profile" class="button ripple-effect big margin-top-30" />
             </div>
-          </form>
-          <!-- Button -->
-          <div class="col-xl-12">
-            <input type="submit" value="Update Profile" class="button ripple-effect big margin-top-30" />
+
           </div>
+          <!-- Row / End -->
+        </form>
+        <app-dashboardsfooter></app-dashboardsfooter>
 
-        </div>
-        <!-- Row / End -->
-      </form>
-      <app-dashboardsfooter></app-dashboardsfooter>
-
+      </div>
     </div>
+    <!-- Dashboard Content / End -->
   </div>
-  <!-- Dashboard Content / End -->
-</div>
 
-<p-toast position="center" key="passwordToast"></p-toast>
-<p-toast position="center" key="profileToast"></p-toast>
+  <p-toast position="center" key="passwordToast"></p-toast>
+  <p-toast position="center" key="profileToast"></p-toast>
+</div>

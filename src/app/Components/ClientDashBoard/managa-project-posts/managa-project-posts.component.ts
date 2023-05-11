@@ -33,6 +33,7 @@ export class ManagaProjectPostsComponent implements OnInit {
   ) {}
   projectPosts: any[] = [];
   categories: any;
+  isLoaded: boolean = false;
   UpdateDialogVisible: boolean = false;
   currentProjectPost: any;
   DeleteDialogVisible: boolean = false;
@@ -108,6 +109,7 @@ export class ManagaProjectPostsComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         this.projectPosts = data;
+        this.isLoaded = true;
       },
     });
   }

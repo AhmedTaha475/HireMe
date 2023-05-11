@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/Services/client.service';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
+import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { ProjectReviewService } from 'src/app/Services/project-review.service';
 
 @Component({
@@ -9,15 +10,16 @@ import { ProjectReviewService } from 'src/app/Services/project-review.service';
   styleUrls: ['./client-main-reviews.component.css'],
 })
 export class ClientMainReviewsComponent implements OnInit {
-  ReviewsObject: any[] = [];
-  MyCustomData: number = 5;
   reviewList: any[] = [];
-  freelancerData: any;
   currentClientId: any;
+  ProjectPostList: any[] = [];
+  ReviewListObject: any[] = [];
+  isLoaded: boolean = false;
   constructor(
     private freelancerServ: FreelancerService,
     private reviewServ: ProjectReviewService,
-    private clientServ: ClientService
+    private clientServ: ClientService,
+    private projcetPostServ: ProjectPostService
   ) {}
   ngOnInit(): void {
     this.getcurrentclient();
@@ -37,15 +39,42 @@ export class ClientMainReviewsComponent implements OnInit {
   private getallreviews() {
     this.reviewServ.GetAllClientReviews(this.currentClientId).subscribe({
       next: (data: any) => {
-        this.reviewList = data;
         console.log(data);
+        this.reviewList = data.filter((el: any) => {
+          return el.freeLancer.id != null;
+        });
+        console.log(this.reviewList);
+        this.GetAllProjectPosts();
       },
       error: (err: any) => {
         console.log(err);
       },
     });
   }
-  private getFreelancerDataWithReviews() {
-    this.ReviewsObject = this.reviewList.map((el: any) => {});
+  private GetAllProjectPosts() {
+    this.projcetPostServ.GetAllProjectPosts().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.ProjectPostList = data;
+        this.GetReviewObject();
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
+
+  private GetReviewObject() {
+    this.ReviewListObject = this.reviewList.map((el: any) => {
+      const projectPost = this.ProjectPostList.find(
+        (element: any) => element.id == el.projectId
+      );
+      return {
+        ...el,
+        postTitle: projectPost.postTitle,
+        date: projectPost.projectPostDate,
+      };
+    });
+    this.isLoaded = true;
   }
 }

@@ -1,4 +1,8 @@
-<div appJQueryLoader>
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
   <div class="dashboard-container">
 
     <app-client-side-bar></app-client-side-bar>
@@ -120,92 +124,94 @@
     <!-- Dashboard Content / End -->
 
   </div>
+
+
+
+
+  <!-- Update Modal -->
+  <div class="card flex justify-content-center">
+    <p-dialog header=" Update Project Post" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+      [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
+      <form [formGroup]="updatePost" (ngSubmit)="confirmUpdate()" class="row g-3 needs-validation">
+        <div class="col-md-4">
+          <label for="postTitle" class="form-label">Project Title</label>
+          <input type="text" class="form-control " formControlName="postTitle"
+            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="postTitle">
+          <div *ngIf="updatePost.get('postTitle')?.invalid">
+            <span class="text-danger " *ngIf="updatePost.get('postTitle')?.errors?.['required']">
+              Post title is required
+            </span>
+          </div>
+
+
+        </div>
+
+        <div class="col-md-4">
+          <label for="location" class="form-label">location</label>
+          <input type="text" class="form-control " formControlName="location" [style]="{boxShadow:'0px 0px 5px  blue' }"
+            autocomplete="off" id="location">
+          <div *ngIf="updatePost.get('location')?.invalid">
+            <span class="text-danger " *ngIf="updatePost.get('location')?.errors?.['required']">
+              Location is required
+            </span>
+          </div>
+
+
+        </div>
+        <div class="col-md-4">
+          <label for="averagePrice" class="form-label">Project Title</label>
+          <input type="text" class="form-control " formControlName="averagePrice"
+            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="averagePrice">
+          <div *ngIf="updatePost.get('averagePrice')?.invalid">
+            <span class="text-danger " *ngIf="updatePost.get('averagePrice')?.errors?.['required']">
+              Average Price is required
+            </span>
+          </div>
+
+
+        </div>
+        <div class="col-md-4">
+          <label for="ProjectTitle" class="form-label">Category</label>
+          <select formControlName="categoryId">
+            <option *ngFor="let c of categories" [value]="c.valueId">{{c.valueName}}</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="description" class="form-label">description</label>
+          <input type="text" class="form-control " formControlName="description"
+            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="description">
+          <div *ngIf="updatePost.get('description')?.invalid">
+            <span class="text-danger " *ngIf="updatePost.get('description')?.errors?.['required']">
+              Description is required
+            </span>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="col-12">
+          <button class="btn btn-outline-dark" type="submit">Update</button>
+        </div>
+      </form>
+    </p-dialog>
+  </div>
+
+
+
+  <!-- Delete Modal -->
+
+  <div class="card flex justify-content-center">
+    <p-dialog header=" Delete lookup Value" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
+      [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
+      <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
+      <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
+    </p-dialog>
+  </div>
+
+
+  <p-toast position="center" key="updatePost"></p-toast>
+  <p-toast position="center" key="DeletePost"></p-toast>
+
 </div>
-
-
-
-<!-- Update Modal -->
-<div class="card flex justify-content-center">
-  <p-dialog header=" Update Project Post" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
-    [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
-    <form [formGroup]="updatePost" (ngSubmit)="confirmUpdate()" class="row g-3 needs-validation">
-      <div class="col-md-4">
-        <label for="postTitle" class="form-label">Project Title</label>
-        <input type="text" class="form-control " formControlName="postTitle" [style]="{boxShadow:'0px 0px 5px  blue' }"
-          autocomplete="off" id="postTitle">
-        <div *ngIf="updatePost.get('postTitle')?.invalid">
-          <span class="text-danger " *ngIf="updatePost.get('postTitle')?.errors?.['required']">
-            Post title is required
-          </span>
-        </div>
-
-
-      </div>
-
-      <div class="col-md-4">
-        <label for="location" class="form-label">location</label>
-        <input type="text" class="form-control " formControlName="location" [style]="{boxShadow:'0px 0px 5px  blue' }"
-          autocomplete="off" id="location">
-        <div *ngIf="updatePost.get('location')?.invalid">
-          <span class="text-danger " *ngIf="updatePost.get('location')?.errors?.['required']">
-            Location is required
-          </span>
-        </div>
-
-
-      </div>
-      <div class="col-md-4">
-        <label for="averagePrice" class="form-label">Project Title</label>
-        <input type="text" class="form-control " formControlName="averagePrice"
-          [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="averagePrice">
-        <div *ngIf="updatePost.get('averagePrice')?.invalid">
-          <span class="text-danger " *ngIf="updatePost.get('averagePrice')?.errors?.['required']">
-            Average Price is required
-          </span>
-        </div>
-
-
-      </div>
-      <div class="col-md-4">
-        <label for="ProjectTitle" class="form-label">Category</label>
-        <select formControlName="categoryId">
-          <option *ngFor="let c of categories" [value]="c.valueId">{{c.valueName}}</option>
-        </select>
-      </div>
-      <div class="col-md-12">
-        <label for="description" class="form-label">description</label>
-        <input type="text" class="form-control " formControlName="description"
-          [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="description">
-        <div *ngIf="updatePost.get('description')?.invalid">
-          <span class="text-danger " *ngIf="updatePost.get('description')?.errors?.['required']">
-            Description is required
-          </span>
-        </div>
-
-
-      </div>
-
-
-
-      <div class="col-12">
-        <button class="btn btn-outline-dark" type="submit">Update</button>
-      </div>
-    </form>
-  </p-dialog>
-</div>
-
-
-
-<!-- Delete Modal -->
-
-<div class="card flex justify-content-center">
-  <p-dialog header=" Delete lookup Value" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
-    [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
-    <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
-    <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
-  </p-dialog>
-</div>
-
-
-<p-toast position="center" key="updatePost"></p-toast>
-<p-toast position="center" key="DeletePost"></p-toast>
