@@ -15,6 +15,7 @@ export class OffersComponent implements OnInit {
   CurrenFreelancer:any;
   AllOffers:any
   updatedoofer:any
+  
 constructor(public translate:TranslateService ,  public Freelancer:FreelancerService,public offerservice:OfferService,private location: Location,public PPost:ProjectPostService){
   const langItem = localStorage.getItem('Lang');
   if (langItem != null) {
@@ -57,6 +58,7 @@ refresh(): void {
 Accept(id:any){
   this.offerservice.GetOfferById(id).subscribe(
     {next:(data:any)=>{console.log(data);
+      
     this.updatedoofer=data;
     this.updatedoofer.accepted=true;
     this.offerservice.UpdateOffer(this.updatedoofer).subscribe({
@@ -70,8 +72,9 @@ Accept(id:any){
           categoryId: 7,
           done: false,
           location: null,
+
         };
-        this.PPost.CreateProjectPost(projectPost).subscribe({
+        this.PPost.CreateProjectPostForFreelancer(projectPost,this.updatedoofer.clientId).subscribe({
           next:(data)=>{console.log(data)},
           error:(error)=>{console.log(error)}
         })

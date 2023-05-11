@@ -5,7 +5,7 @@ export class CreateOffer {
     public message: string,
     public clientId: string,
     public freelancerId: string,
-    public accepted: boolean,
+    public accepted: any,
     public offerDate: Date
   ) {}
 }
