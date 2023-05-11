@@ -10,7 +10,6 @@ import { ProjectPostService } from 'src/app/Services/project-post.service';
   styleUrls: ['./project-post.component.css'],
 })
 export class ProjectPostComponent implements OnInit {
-  strings: any[] = ['ahmed', 'taga', 'string1'];
   projectPostId: any;
   freelancerArr: any[] = [];
   projectPost: any;
@@ -20,6 +19,9 @@ export class ProjectPostComponent implements OnInit {
   freelancer: any;
   freelancerId: any;
   applied: any;
+  projectpostapplicants: any[] = [];
+  projectPostWithapplicantsData: any[] = [];
+  allfreelancers: any[] = [];
   constructor(
     private myActivated: ActivatedRoute,
     private projectPostService: ProjectPostService,
@@ -27,6 +29,39 @@ export class ProjectPostComponent implements OnInit {
   ) {
     this.projectPostId = myActivated.snapshot.params['id'];
   }
+
+  /*
+
+  private GetAllFreelancers() {
+    this.freelancerServ.GetAllFreelancers().subscribe({
+      next: (data: any) => {
+        this.Freelancers = data.body;
+        console.log(data);
+        this.ApplicantsWithFreelancerData = this.PostApplicants.map(
+          (PostApplicant) => {
+            const item = this.Freelancers.find(
+              (freelancer) => freelancer.id == PostApplicant.freelancerId
+            );
+
+            return {
+              ...PostApplicant,
+              firstname: item.firstname,
+              lastname: item.lastname,
+              phonenumber: item.phonenumber,
+              email: item.email,
+              image: item.image,
+              rank: item.rank,
+            };
+          }
+        );
+        console.log(this.ApplicantsWithFreelancerData);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
+  */
   ngOnInit(): void {
     //#region  Get Current Freelancer
     this.freelancerService.GetCurrentFreelancer().subscribe({
@@ -34,86 +69,54 @@ export class ProjectPostComponent implements OnInit {
         this.freelancer = data.body;
         this.freelancerId = this.freelancer.id;
         console.log(this.freelancerId);
+        this.applyFunction();
       },
       error: (err) => {},
     });
     //#endregion
+
+    console.log(this.freelancerArr);
+  }
+
+  private getAllFreelancers() {
+    this.freelancerService.GetAllFreelancers().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.allfreelancers = data.body;
+        this.projectPostWithapplicantsData = this.projectpostapplicants.map(
+          (applicant: any) => {
+            const freelancer = this.allfreelancers.find(
+              (freelancer: any) => freelancer.id == applicant.freelancerId
+            );
+
+            return { ...applicant, ...freelancer };
+          }
+        );
+      },
+    });
+  }
+
+  private applyFunction() {
     this.projectPostService
       .GetProjectPostWithApplicants(this.projectPostId)
       .subscribe({
-        next: (data) => {
-          this.projectPost2 = data;
-          console.log(data);
-          this.projectPost = new ProjectPostWithApplicants(
-            this.projectPost2.postTitle,
-            this.projectPost2.description,
-            this.projectPost2.averagePrice,
-            this.projectPost2.categoryId,
-            this.projectPost2.projectPostApplicants
-          );
-          //#region  application applying button
-          for (
-            let i = 0;
-            i < this.projectPost.projectPostApplicants.length;
-            i++
-          ) {
-            if (
-              this.projectPost.projectPostApplicants[i].freelancerId ==
-              this.freelancerId
-            ) {
-              this.applied = true;
-              const applyBtn = document.getElementById('applyBtn');
-              // Set the href attribute
-              if (applyBtn) {
-                applyBtn.setAttribute(
-                  'href',
-                  '/ProjectPost/' +
-                    this.projectPostId +
-                    '/ProjectPostApplicant/Update'
-                );
-                applyBtn.textContent = 'Update Application';
-              }
-              break;
-            } else {
-              console.log('not applied');
-              const applyBtn = document.getElementById('applyBtn');
-              // Set the href attribute
-              if (applyBtn) {
-                applyBtn.setAttribute(
-                  'href',
-                  '/ProjectPost/' +
-                    this.projectPostId +
-                    '/ProjectPostApplicant/Create'
-                );
-                applyBtn.textContent = 'Apply Now';
-              }
+        next: (data: any) => {
+          this.projectPost = data;
+          console.log(this.projectPost);
+          this.projectpostapplicants = data.projectPostApplicants;
+          this.getAllFreelancers();
+          var freelancerExists = this.projectpostapplicants.filter(
+            (el: any) => {
+              return el.freelancerId == this.freelancerId;
             }
-          }
-
-          //#endregion
-          this.projectPost.projectPostApplicants.forEach((applicant: any) => {
-            this.freelancerService
-              .GetFreelancerById(applicant.freelancerId)
-              .subscribe({
-                next: (data: any) => {
-                  this.applicantAllData = {
-                    data: data.body,
-                    applicant,
-                  };
-                  this.freelancerArr.push(this.applicantAllData);
-                  console.log('THis is freelancer array');
-                  console.log(this.freelancerArr);
-                },
-                error: (err) => {
-                  console.log(err);
-                },
-              });
-          });
+          );
+          if (freelancerExists) this.applied = true;
+          else this.applied = false;
         },
+
         error: (err) => {
           console.log(err);
         },
       });
-    console.log(this.freelancerArr);
   }
 }

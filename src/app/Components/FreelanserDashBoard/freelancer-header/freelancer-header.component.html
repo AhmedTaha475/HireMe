@@ -1,44 +1,33 @@
 <header id="header-container" class="fullwidth dashboard-header not-sticky">
-    <!-- Header -->
-    <div id="header">
-        <div class="container">
-            <!-- Left Side Content -->
-            <div class="left-side">
-                <!-- Logo -->
-                <div id="logo" style="height: 55%; width: 180px">
-                    <a routerLink="/Admin/Home"><img src="assets/images/logo.png" alt="" /></a>
-                </div>
+  <!-- Header -->
+  <div id="header">
+    <div class="container">
+      <!-- Left Side Content -->
+      <div class="left-side">
+        <!-- Logo -->
+        <div id="logo" style="height: 55%; width: 180px">
+          <a routerLink="/Admin/Home"><img src="assets/images/logo.png" alt="" /></a>
+        </div>
 
-                <!-- Main Navigation -->
-                <nav id="navigation">
-                    <ul id="responsive">
-                        <li>
-                            <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="activeHeader" routerLink="/Freelancer">{{translate.instant("Home")}}</a
-              >
+        <!-- Main Navigation -->
+        <nav id="navigation">
+          <ul id="responsive">
+            <li>
+              <a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="activeHeader"
+                routerLink="/Freelancer">{{translate.instant("Home")}}</a>
             </li>
 
             <li>
-              <a
-                routerLinkActive="activeHeader"
-                routerLink="/Freelancer/Profile"
-                >{{translate.instant("Profile")}}</a
-              >
+              <a routerLinkActive="activeHeader" routerLink="/Freelancer/Profile">{{translate.instant("Profile")}}</a>
             </li>
 
             <li>
-              <a
-                routerLinkActive="activeHeader"
-                routerLink="/Freelancer/Projects"
-                >{{translate.instant("Projects")}}</a
-              >
+              <a routerLinkActive="activeHeader" routerLink="/Freelancer/Projects">{{translate.instant("Projects")}}</a>
             </li>
 
             <li>
-              <a
-                routerLinkActive="activeHeader"
-                routerLink="/Freelancer/Transaction"
-                >{{translate.instant("Transactions")}}</a
-              >
+              <a routerLinkActive="activeHeader"
+                routerLink="/Freelancer/Transaction">{{translate.instant("Transactions")}}</a>
             </li>
           </ul>
         </nav>
@@ -49,76 +38,8 @@
 
       <!-- Right Side Content / End -->
 
-    <!-- Right Side Content / End -->
-    </div>
-    </div>
-    <!-- Header / End -->
-</header>
-
-<!-- Dashboard Sidebar
-	================================================== -->
-<div class="dashboard-sidebar">
-    <div class="dashboard-sidebar-inner" data-simplebar>
-        <div class="dashboard-nav-container">
-            <!-- Responsive Navigation Trigger -->
-            <a href="#" class="dashboard-responsive-nav-trigger">
-                <span class="hamburger hamburger--collapse">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-                </span>
-                </span>
-                <span class="trigger-title">{{translate.instant("Dashboard Navigation")}}</span>
-            </a>
-
-            <!-- Navigation -->
-            <div class="dashboard-nav">
-                <div class="dashboard-nav-inner">
-                    <ul data-submenu-title="Start">
-                        <li>
-                            <a routerLink="/Freelancer/Home"><i class="icon-material-outline-dashboard"></i> {{translate.instant("Dashboard")}}</a
-              >
-            </li>
-            <li>
-              <a routerLink="/Freelancer/Offers"
-                ><i class="icon-material-outline-star-border"></i>{{translate.instant("Offers")}} </a
-              >
-            </li>
-            <li>
-              <a routerLink="/Freelancer/Profile"
-                ><i class="icon-material-outline-question-answer"></i>
-                {{translate.instant("Profile")}}   </a
-              >
-            </li>
-            <li>
-              <a routerLink="/Freelancer/Profile/Update"
-                ><i class="icon-material-outline-question-answer"></i>{{translate.instant("Update Profile")}} </a
-              >
-            </li>
-            <li>
-              <a routerLink="/Freelancer/Projects"
-                ><i class="icon-material-outline-star-border"></i>{{translate.instant("Projects")}} </a
-              >
-            </li>
-            <li>
-              <a routerLink="/Freelancer/Transaction"
-                ><i class="icon-material-outline-star-border"></i>
-                {{translate.instant("Transactions")}}</a
-              >
-            </li>
-            <li>
-              <a href="/"
-                ><i
-                  class="icon-material-outline-power-settings-new"
-                  (click)="logout()"
-                ></i>
-                {{translate.instant("Log out")}} </a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Navigation / End -->
+      <!-- Right Side Content / End -->
     </div>
   </div>
-</div>
-<!-- Dashboard Sidebar / End -->
+  <!-- Header / End -->
+</header>

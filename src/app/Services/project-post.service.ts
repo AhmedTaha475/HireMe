@@ -13,6 +13,9 @@ export class ProjectPostService {
   CreateProjectPost(ProjectPost: any) {
     return this.client.post(this.Url + 'Create/', ProjectPost);
   }
+  CreateProjectPostForFreelancer(ProjectPost: any,id:string) {
+    return this.client.post(this.Url + 'Create/' + id, ProjectPost);
+  }
   UpdateProjectPost(ProjectPostId: number, UpdatedProject: any) {
     return this.client.put(
       this.Url + 'Update/' + ProjectPostId,

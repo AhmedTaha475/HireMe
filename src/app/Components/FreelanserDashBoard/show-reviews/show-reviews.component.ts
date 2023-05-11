@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ClientService } from 'src/app/Services/client.service';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { ProjectReviewService } from 'src/app/Services/project-review.service';
-import { TranslateService } from '@ngx-translate/core';
+
 @Component({
-  selector: 'app-client-main-reviews',
-  templateUrl: './client-main-reviews.component.html',
-  styleUrls: ['./client-main-reviews.component.css'],
+  selector: 'app-show-reviews',
+  templateUrl: './show-reviews.component.html',
+  styleUrls: ['./show-reviews.component.css'],
 })
-export class ClientMainReviewsComponent implements OnInit {
+export class ShowReviewsComponent {
   reviewList: any[] = [];
-  currentClientId: any;
+  currentfreelancerId: any;
   ProjectPostList: any[] = [];
   ReviewListObject: any[] = [];
   isLoaded: boolean = false;
@@ -19,24 +19,17 @@ export class ClientMainReviewsComponent implements OnInit {
     private freelancerServ: FreelancerService,
     private reviewServ: ProjectReviewService,
     private clientServ: ClientService,
-    public translate: TranslateService,
     private projcetPostServ: ProjectPostService
-  ) {
-    translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('Lang');
-    if (langItem !== null) {
-      translate.use(langItem);
-    }
-  }
   ) {}
   ngOnInit(): void {
-    this.getcurrentclient();
+    this.getCurrentFreelancer();
   }
-  private getcurrentclient() {
-    this.clientServ.GetCurrentClient().subscribe({
+
+  private getCurrentFreelancer() {
+    this.freelancerServ.GetCurrentFreelancer().subscribe({
       next: (data: any) => {
+        this.currentfreelancerId = data.body.id;
         console.log(data);
-        this.currentClientId = data.body.id;
         this.getallreviews();
       },
       error: (err: any) => {
@@ -45,24 +38,21 @@ export class ClientMainReviewsComponent implements OnInit {
     });
   }
   private getallreviews() {
-    this.reviewServ.GetAllClientReviews(this.currentClientId).subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.reviewList = data.filter((el: any) => {
-          return el.freeLancer.id != null;
-        });
-        console.log(this.reviewList);
-        this.GetAllProjectPosts();
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
+    this.reviewServ
+      .GetAllFreelancerReviews(this.currentfreelancerId)
+      .subscribe({
+        next: (data: any) => {
+          this.reviewList = data;
+          this.GetAllProjectPosts();
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
   }
   private GetAllProjectPosts() {
     this.projcetPostServ.GetAllProjectPosts().subscribe({
       next: (data: any) => {
-        console.log(data);
         this.ProjectPostList = data;
         this.GetReviewObject();
       },
@@ -83,6 +73,7 @@ export class ClientMainReviewsComponent implements OnInit {
         date: projectPost.projectPostDate,
       };
     });
+    console.log(this.ReviewListObject);
     this.isLoaded = true;
   }
 }

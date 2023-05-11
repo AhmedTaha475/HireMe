@@ -1,4 +1,4 @@
-<div style="background-color: #333; ">
+<div style="background-color: #333; " >
 
 	<!-- Footer Top Section -->
 	<div class="footer-top-section">
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 
-        <div class="col-xl-3 col-lg-3 col-md-12">
+        <div *ngIf="AuthService.isLoggedIn()" class="col-xl-3 col-lg-3 col-md-12">
 					<!-- <h3> Sign Up For a Newsletter</h3>
 					<p>Weekly breaking news, analysis and cutting edge advices on job searching.</p>
 					<form action="#" method="get" class="newsletter">
@@ -126,7 +126,7 @@
 						<button type="submit"><i class="icon-feather-arrow-right"></i></button>
 					</form> -->
 
-          <a routerLink="" (click)="logOut()" class="button margin-top-20 custom-btn ">{{ translate.instant('Log out') }}</a>
+          <a routerLink=""  (click)="logOut()" class="button margin-top-20 custom-btn ">{{ translate.instant('Log out') }}</a>
 				</div>
 				<!-- Newsletter -->
 

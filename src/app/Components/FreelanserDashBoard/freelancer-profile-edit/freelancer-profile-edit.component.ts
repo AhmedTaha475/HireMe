@@ -14,9 +14,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./freelancer-profile-edit.component.css'],
 })
 export class FreelancerProfileEditComponent implements OnInit {
-
   image: any;
   cv: any;
+  isLoaded: boolean = false;
   //#region UpdateRegion
   UpdateProfile = new FormGroup({
     firstname: new FormControl('', [
@@ -47,11 +47,16 @@ export class FreelancerProfileEditComponent implements OnInit {
   myImgUrl: any;
   myCv: any;
   pdfDataUrl?: string;
-  messages: any[] = ["Hello","Hi"];
-  allcategorys:any
-  allPaymentMethods:any
+  messages: any[] = ['Hello', 'Hi'];
+  allcategorys: any;
+  allPaymentMethods: any;
 
-  constructor(public translate:TranslateService , private freelancerService: FreelancerService,private messageService: MessageService,public allLookups:LookupValueService) {
+  constructor(
+    public translate: TranslateService,
+    private freelancerService: FreelancerService,
+    private messageService: MessageService,
+    public allLookups: LookupValueService
+  ) {
     const langItem = localStorage.getItem('Lang');
     if (langItem != null) {
       translate.use(langItem);
@@ -59,9 +64,11 @@ export class FreelancerProfileEditComponent implements OnInit {
   }
   ngOnInit(): void {
     this.allLookups.GetAllLookupvalueByLookuptableId(3).subscribe({
-      next:(data:any)=>{console.log(this.allcategorys=data)},
-      error:()=>{}
-    })
+      next: (data: any) => {
+        console.log((this.allcategorys = data));
+      },
+      error: () => {},
+    });
     this.getAllPaymentMethods();
 
     this.freelancerService.GetCurrentFreelancer().subscribe({
@@ -75,7 +82,7 @@ export class FreelancerProfileEditComponent implements OnInit {
             this.currentFreelancer[controlName] ?? ''
           );
         }
-
+        this.isLoaded = true;
       },
       error: (err: any) => {
         console.log('Error');
@@ -112,7 +119,7 @@ export class FreelancerProfileEditComponent implements OnInit {
       }
       myData.append('image', this.image);
       myData.append('CV', this.cv);
-      console.log(myData.get("Bids"))
+      console.log(myData.get('Bids'));
       this.freelancerService.UpdateFreelancer(myData).subscribe({
         next: (data: any) => {
           this.messageService.clear();
@@ -124,8 +131,7 @@ export class FreelancerProfileEditComponent implements OnInit {
             key: 'profileToast',
           });
           console.log(data);
-          console.log("kjdrjgjdjf");
-
+          console.log('kjdrjgjdjf');
         },
         error: (err: any) => {
           console.log(err);

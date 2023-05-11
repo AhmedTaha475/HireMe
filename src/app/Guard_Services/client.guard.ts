@@ -26,7 +26,7 @@ export class ClientGuard implements CanActivate {
       return true;
     } else {
       this._router.navigateByUrl('/page403');
-      return false;
+      return false; 
     }
   }
 }

@@ -22,6 +22,7 @@ export class UpdateClientComponent implements OnInit {
   cv: any;
   allCategories: any;
   allPaymentMethods: any;
+  isLoaded: boolean = false;
   //#region UpdateForm
   updateform = new FormGroup({
     id: new FormControl(''),
@@ -120,6 +121,7 @@ export class UpdateClientComponent implements OnInit {
             .get(controlName)
             ?.setValue(this.currentclient[controlName] ?? '');
         }
+        this.isLoaded = true;
       },
     });
   }

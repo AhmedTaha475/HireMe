@@ -4,9 +4,7 @@
 </ng-container>
 <div *ngIf="isLoaded" appJQueryLoader>
   <div class="dashboard-container">
-
-    <app-client-side-bar></app-client-side-bar>
-
+    <app-freelancer-side-bar></app-freelancer-side-bar>
     <!-- Dashboard Content
 	================================================== -->
     <div class="dashboard-content-container">
@@ -14,14 +12,14 @@
 
         <!-- Dashboard Headline -->
         <div class="dashboard-headline">
-          <h3>{{translate.instant('My Posts Reviews')}}</h3>
+          <h3>My Posts Reviews</h3>
 
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="dark">
             <ul>
-              <li><a routerLink="/">{{translate.instant('Home')}}</a></li>
-              <li><a routerLink="/client">{{translate.instant('Dashboard')}}</a></li>
-              <li>{{translate.instant('Reviews')}}</li>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/Freelancer">Dashboard</a></li>
+              <li>Reviews</li>
             </ul>
           </nav>
         </div>
@@ -35,7 +33,7 @@
 
               <!-- Headline -->
               <div class="headline">
-                <h3><i class="icon-material-outline-business-center"></i> {{translate.instant('My Reviews')}}</h3>
+                <h3><i class="icon-material-outline-business-center"></i> My Reviews</h3>
               </div>
 
               <div class="content">
@@ -55,11 +53,11 @@
                           <div class="boxed-list-item">
                             <!-- Content -->
                             <div class="item-content">
-                              <div class="user-avatar status-online mb-2"><img
-                                  [src]='rev.freeLancer.img|convertToImage:"assets/images/user-avatar-placeholder.png"'
+                              <div class="user-avatar status-online mb-2"><img width="50" height="50"
+                                  [src]='rev.client.img|convertToImage:"assets/images/user-avatar-placeholder.png"'
                                   alt="">
                               </div>
-                              <h4>{{rev.freeLancer.fName}} {{rev.freeLancer.lName}}</h4>
+                              <h4>{{rev.client.fName}} {{rev.client.lName}}</h4>
                             </div>
                           </div>
 
@@ -69,12 +67,12 @@
                             <div class="item-content">
                               <h4>Project Post Title : {{rev.postTitle}}</h4>
                               <div class="item-details margin-top-10">
-                                <div class="btn btn-warning me-3 "> Rating : {{rev.freeLancerStars}}</div>
+                                <div class="btn btn-warning me-3 "> Rating : {{rev.clientStars}}</div>
                                 <div class="detail-item"><i class="icon-material-outline-date-range"></i>
                                   {{rev.date|date:'MMMM yyyy' }}</div>
                               </div>
                               <div class="item-description">
-                                <p>{{rev.freeLancerReview}}</p>
+                                <p>{{rev.clientReview}}</p>
                               </div>
                             </div>
                           </div>

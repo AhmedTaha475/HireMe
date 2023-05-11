@@ -11,7 +11,6 @@ declare var google: any;
 })
 export class FooterComponent implements OnInit {
   constructor(  public translate: TranslateService,  public AuthService:AuthService){
-
     const langItem = localStorage.getItem('Lang');
     if (langItem != null) {
       translate.use(langItem);

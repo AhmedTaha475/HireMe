@@ -1,67 +1,45 @@
-<div class="dashboard-container">
-    <app-freelancer-header></app-freelancer-header>
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
+  <div class="dashboard-container">
+    <app-freelancer-side-bar></app-freelancer-side-bar>
 
     <!-- Dashboard Content
         ================================================== -->
     <div class="dashboard-content-container" data-simplebar>
-        <div class="dashboard-content-inner">
-            <div style="padding: 10px; text-align: center">
-                <h1>Transaction</h1>
-                <br /><br />
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th style="color: white">Date</th>
-                            <th style="color: white">Amount</th>
-                            <th style="color: white; text-align: center">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <ng-container *ngIf="transaction">
-                            <tr *ngFor="let obj of transaction">
-                                <td>{{ obj.dateOfTransaction }}</td>
-                                <td>{{ obj.amount }}</td>
-                                <td style="text-align: center">{{ obj.description }}</td>
-                            </tr>
-                        </ng-container>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Footer -->
-            <div class="dashboard-footer-spacer"></div>
-            <div class="small-footer margin-top-15">
-                <div class="small-footer-copyrights">
-                    © 2019 <strong>Hireo</strong>. All Rights Reserved.
-                </div>
-                <ul class="footer-social-links">
-                    <li>
-                        <a href="#" title="Facebook" data-tippy-placement="top">
-                            <i class="icon-brand-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Twitter" data-tippy-placement="top">
-                            <i class="icon-brand-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="Google Plus" data-tippy-placement="top">
-                            <i class="icon-brand-google-plus-g"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="LinkedIn" data-tippy-placement="top">
-                            <i class="icon-brand-linkedin-in"></i>
-                        </a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <!-- Footer / End -->
+      <div class="dashboard-content-inner">
+        <div style="padding: 10px; text-align: center">
+          <h1>Transaction</h1>
+          <br /><br />
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th style="color: white">{{ translate.instant("Date") }}</th>
+                <th style="color: white"> {{ translate.instant("Amount") }}</th>
+                <th style="color: white; text-align: center">{{ translate.instant("Description") }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="transaction">
+                <tr *ngFor="let obj of transaction">
+                  <td>{{ obj.dateOfTransaction }}</td>
+                  <td>{{ obj.amount }}</td>
+                  <td style="text-align: center">{{ obj.description }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
         </div>
+
+        <!-- Footer -->
+
+        <!-- Footer / End -->
+      </div>
     </div>
     <!-- Dashboard Content / End -->
 
     <!-- Dashboard Container / End -->
+  </div>
 </div>

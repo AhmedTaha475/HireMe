@@ -33,6 +33,7 @@ export class ManagaProjectPostsComponent implements OnInit {
   ) {}
   projectPosts: any[] = [];
   categories: any;
+  isLoaded: boolean = false;
   UpdateDialogVisible: boolean = false;
   currentProjectPost: any;
   DeleteDialogVisible: boolean = false;
@@ -108,6 +109,7 @@ export class ManagaProjectPostsComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         this.projectPosts = data;
+        this.isLoaded = true;
       },
     });
   }
@@ -141,31 +143,5 @@ export class ManagaProjectPostsComponent implements OnInit {
   proceedToDelete(id: number) {
     this.postToBeDeleted = id;
     this.DeleteDialogVisible = true;
-  }
-
-  EndProject(id: number) {
-    this.projectpostServ.GetProjectPostById(id).subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.currentProjectPost = data;
-        this.currentProjectPost.done = true;
-        this.projectpostServ
-          .UpdateProjectPost(id, this.currentProjectPost)
-          .subscribe({
-            next: (data: any) => {
-              console.log('Updaaaaaaaaaateeee');
-              this.router.navigateByUrl(
-                `/client/ProjectPost/${id}/ClientReview/Add`
-              );
-            },
-            error: (err: any) => {
-              console.log(err);
-            },
-          });
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
   }
 }

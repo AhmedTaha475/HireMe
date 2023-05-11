@@ -1,91 +1,103 @@
-<div class="dashboard-container">
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
+  <div class="dashboard-container">
 
-    <app-freelancer-header></app-freelancer-header>
+    <app-freelancer-side-bar></app-freelancer-side-bar>
 
     <!-- Dashboard Content
           ================================================== -->
     <div class="dashboard-content-container" data-simplebar>
-        <div class="dashboard-content-inner">
+      <div class="dashboard-content-inner">
 
 
 
 
 
-                    <!-- Dashboard Headline -->
-                    <div class="dashboard-headline">
-                        <h3>Offers</h3>
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>{{translate.instant("Offers")}}</h3>
 
-                        <!-- Breadcrumbs -->
-                        <nav id="breadcrumbs" class="dark">
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a href="#">{{translate.instant("Home")}}</a></li>
+              <li><a href="#">{{translate.instant("Dashboard")}}</a></li>
+              <li>{{translate.instant("Manage Jobs")}}</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> {{translate.instant("My Offer Listings")}}
+                </h3>
+              </div>
+
+              <div class="content">
+                <ul class="dashboard-box-list">
+                  <li *ngFor="let item of AllOffers">
+                    <!-- Job Listing -->
+                    <div class="job-listing">
+
+                      <!-- Job Listing Details -->
+                      <div class="job-listing-details">
+                        <!-- Details -->
+                        <div class="job-listing-description">
+                          <h2 class="job-listing-title" style="margin-bottom: 10px;">{{item.fullname}}
+                            <button *ngIf="item.accepted==null" type="button" class="btn btn-danger"
+                              style="margin: 10px; float: right;" (click)="refuse(item.id)">Refuse</button>
+                            <button *ngIf="item.accepted==null" type="button" class="btn btn-success"
+                              style="margin: 10px; float: right;" (click)="Accept(item.id)">Accept</button>
+                            <h3 *ngIf="item.accepted==true" type="button" class="btn btn-success"
+                              style="margin: 10px; float: right;">{{translate.instant("You Accepted this Offer")}}</h3>
+                            <h3 *ngIf="item.accepted==false" type="button" class="btn btn-danger"
+                              style="margin: 10px; float: right;">{{translate.instant("You Refused this offer")}} </h3>
+                          </h2>
+
+                          <!-- Job Listing Footer -->
+                          <div class="job-listing-footer">
                             <ul>
-                                <li><a href="#">{{translate.instant("Home")}}</a></li>
-                                <li><a href="#">{{translate.instant("Dashboard")}}</a></li>
-                                <li>{{translate.instant("Manage Jobs")}}</li>
+                              <li><i class="icon-material-outline-date-range"></i>{{translate.instant("Posted on")}}
+                                {{item.offerDate}}</li>
+
+                              <h3>{{item.message}}</h3>
+
                             </ul>
-                        </nav>
-                    </div>
-
-                    <!-- Row -->
-                    <div class="row">
-
-                        <!-- Dashboard Box -->
-                        <div class="col-xl-12">
-                            <div class="dashboard-box margin-top-0">
-
-                                <!-- Headline -->
-                                <div class="headline">
-                                    <h3><i class="icon-material-outline-business-center"></i> {{translate.instant("My Offer Listings")}}</h3>
-                                </div>
-
-                                <div class="content">
-                                    <ul class="dashboard-box-list">
-                                        <li *ngFor="let item of AllOffers">
-                                            <!-- Job Listing -->
-                                            <div class="job-listing">
-
-                                                <!-- Job Listing Details -->
-                                                <div class="job-listing-details">
-                                                    <!-- Details -->
-                                                    <div class="job-listing-description">
-                                                        <h2 class="job-listing-title" style="margin-bottom: 10px;">{{item.fullname}}
-                                                            <button *ngIf="item.accepted==null"  type="button" class="btn btn-danger" style="margin: 10px; float: right;" (click)="refuse(item.id)">Refuse</button>
-                                                            <button  *ngIf="item.accepted==null" type="button" class="btn btn-success" style="margin: 10px; float: right;"  (click)="Accept(item.id)">Accept</button>
-                                                            <h3 *ngIf="item.accepted==true" type="button" class="btn btn-success" style="margin: 10px; float: right;">{{translate.instant("You Accepted this Offer")}}</h3>
-                                                            <h3  *ngIf="item.accepted==false" type="button" class="btn btn-danger" style="margin: 10px; float: right;">{{translate.instant("You Refused this offer")}} </h3>
-                                                        </h2>
-
-                                                        <!-- Job Listing Footer -->
-                                                        <div class="job-listing-footer">
-                                                            <ul>
-                                                                <li><i class="icon-material-outline-date-range"></i>{{translate.instant("Posted on")}} {{item.offerDate}}</li>
-
-                                                                <h3>{{item.message}}</h3>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Buttons -->
-                                            <div >
-
-                                            </div>
-                                        </li>
-
-
-
-                                    </ul>
-                                </div>
-                            </div>
+                          </div>
                         </div>
+                      </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div>
 
                     </div>
-                    <!-- Row / End -->
+                  </li>
 
 
+
+                </ul>
+              </div>
+            </div>
+          </div>
 
         </div>
+        <!-- Row / End -->
+
+
+
+      </div>
     </div>
 
+  </div>
 </div>

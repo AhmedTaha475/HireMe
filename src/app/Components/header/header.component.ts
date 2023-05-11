@@ -22,8 +22,6 @@ export class HeaderComponent implements OnInit {
     public clientService: ClientService,
     public freeService: FreelancerService //private router: Router
   ) {
-    // this.ClientExist =
-    //   _authService.getRoles()?.split(',').includes('Client') || false;
     this.UserRole = this._authService.getRoles();
 
     translate.setDefaultLang('en');

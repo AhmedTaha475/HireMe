@@ -50,7 +50,7 @@ next:(data:any)=>{this.freelancerName= data.body.firstname}
   {
     let offerDate = new Date();
     console.log(offerDate);
-    let accepted = true ;
+    let accepted = null ;
     let myOffer:CreateOffer = new CreateOffer(fullName ,email,msg,this.clientId,this.freelancerId,accepted,offerDate)
 this.offerService.CreateOffer(myOffer).subscribe({
 next:(data:any)=>{console.log(data)},

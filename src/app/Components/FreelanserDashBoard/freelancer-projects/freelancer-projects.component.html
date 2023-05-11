@@ -1,217 +1,186 @@
-<div appJQueryLoader></div>
-<!-- Dashboard Container -->
-<div class="dashboard-container">
-  <app-freelancer-header></app-freelancer-header>
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <app-freelancer-side-bar></app-freelancer-side-bar>
 
-  <!-- Dashboard Content
+    <!-- Dashboard Content
     ================================================== -->
-  <div class="dashboard-content-container" data-simplebar>
-    <div class="dashboard-content-inner">
-      <div class="dashboard-headline">
-        <h3>
-          Hello {{ myFreelancer.firstname }}{{ myFreelancer.lastname }} 👷🏽‍♂️👷🏽
-        </h3>
-        <!-- <h3>Here you can add new projects ..</h3> -->
+    <div class="dashboard-content-container" data-simplebar>
+      <div class="dashboard-content-inner">
+        <div class="dashboard-headline">
+          <h3>
+            {{ translate.instant("Hello") }} {{ myFreelancer.firstname }}{{ myFreelancer.lastname }} 👷🏽‍♂️
+          </h3>
+          <!-- <h3>Here you can add new projects ..</h3> -->
 
-        <!-- Breadcrumbs -->
-        <nav id="breadcrumbs" class="dark">
-          <ul>
-            <li><a href="#">Freelancer</a></li>
-            <li><a href="#">Projects</a></li>
-            <li>Add Project</li>
-          </ul>
-        </nav>
-      </div>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a href="#">{{ translate.instant("Freelancer") }}</a></li>
+              <li><a href="#">{{ translate.instant("Projects") }}</a></li>
+              <li>{{ translate.instant("Add Project") }}</li>
+            </ul>
+          </nav>
+        </div>
 
-      <!-- Button to show form to add new project -->
-      <div class="col-xl-12">
-        <a (click)="open()" class="button ripple-effect big margin-top-30"
-          ><i class="icon-feather-plus"></i> New Project</a
-        >
-      </div>
-
-      <div *ngIf="opened == true" class="row" id="addNewProject">
-        <!-- Dashboard Box -->
+        <!-- Button to show form to add new project -->
         <div class="col-xl-12">
-          <div class="dashboard-box margin-top-0">
-            <!-- Headline  for form +  -->
-            <div class="headline">
-              <h3><i class="icon-feather-folder-plus"></i>Project Form</h3>
-            </div>
+          <a style="color: white;" (click)="open()" class="button ripple-effect big margin-top-30"><i
+              class="icon-feather-plus"></i>{{ translate.instant("New Project") }} </a>
+        </div>
 
-            <!-- form container  -->
-            <div class="content with-padding padding-bottom-10">
-              <!-- Form ... -->
-              <form [formGroup]="addnewproject" (ngSubmit)="addNewProject()">
-                <!-- Row Container -->
-                <div class="row">
-                  <!-- Project Title -->
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Project Title</h5>
-                      <input
-                        formControlName="projectTitle"
-                        type="text"
-                        class="with-border"
-                        placeholder="add project title"
-                      />
+        <div *ngIf="opened == true" class="row" id="addNewProject">
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+              <!-- Headline  for form +  -->
+              <div class="headline">
+                <h3><i class="icon-feather-folder-plus"></i>{{ translate.instant("Project Form") }}</h3>
+              </div>
+
+              <!-- form container  -->
+              <div class="content with-padding padding-bottom-10">
+                <!-- Form ... -->
+                <form [formGroup]="addnewproject" (ngSubmit)="addNewProject()">
+                  <!-- Row Container -->
+                  <div class="row">
+                    <!-- Project Title -->
+                    <div class="col-xl-4">
+                      <div class="submit-field">
+                        <h5>{{ translate.instant("Project Title") }}</h5>
+                        <input formControlName="projectTitle" type="text" class="with-border"
+                          placeholder="add project title" />
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Project Date -->
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Project Date</h5>
-                      <input
-                        formControlName="projectDate"
-                        type="date"
-                        class="with-border"
-                        placeholder="add project date"
-                      />
+                    <!-- Project Date -->
+                    <div class="col-xl-4">
+                      <div class="submit-field">
+                        <h5>{{ translate.instant("Project Date") }}</h5>
+                        <input formControlName="projectDate" type="date" class="with-border"
+                          placeholder="add project date" />
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Money Earned  -->
-                  <div class="col-xl-4">
-                    <div class="submit-field">
-                      <h5>Money Earned</h5>
-                      <div class="row">
-                        <div class="col-xl-6">
-                          <div class="input-with-icon">
-                            <input
-                              formControlName="moneyEarned"
-                              class="with-border"
-                              type="text"
-                              placeholder=" 0.000 pound "
-                            />
+                    <!-- Money Earned  -->
+                    <div class="col-xl-4">
+                      <div class="submit-field">
+                        <h5>{{ translate.instant("Money Earned") }}</h5>
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <div class="input-with-icon">
+                              <input formControlName="moneyEarned" class="with-border" type="text"
+                                placeholder=" 0.000 pound " />
+                            </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="col-xl-12">
+                      <div class="submit-field">
+                        <h5>{{ translate.instant("Project Description") }}</h5>
+                        <textarea formControlName="projectDescription" placeholder=" add project description" cols="30"
+                          rows="5" class="with-border"></textarea>
+
+                        <!-- To add attachments like ( photos or files ) -->
+                        <div class="uploadButton margin-top-30">
+                          <input multiple (change)="GetImages($event)" class="uploadButton-input" type="file"
+                            accept="image/*, application/pdf" id="upload" />
+                          <label class="uploadButton-button ripple-effect" for="upload">Upload Files</label>
+                          <span class="uploadButton-file-name">{{ translate.instant("Images that might be helpful") }}
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Description -->
                   <div class="col-xl-12">
-                    <div class="submit-field">
-                      <h5>Project Description</h5>
-                      <textarea
-                        formControlName="projectDescription"
-                        placeholder=" add project description"
-                        cols="30"
-                        rows="5"
-                        class="with-border"
-                      ></textarea>
-
-                      <!-- To add attachments like ( photos or files ) -->
-                      <div class="uploadButton margin-top-30">
-                        <input
-                          multiple
-                          (change)="GetImages($event)"
-                          class="uploadButton-input"
-                          type="file"
-                          accept="image/*, application/pdf"
-                          id="upload"
-                        />
-                        <label
-                          class="uploadButton-button ripple-effect"
-                          for="upload"
-                          >Upload Files</label
-                        >
-                        <span class="uploadButton-file-name"
-                          >Images that might be helpful
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-xl-12">
-                  <!-- <a
+                    <!-- <a
                     (click)="addNewProject("Dsad","dsada","adsda","asdas")"
                     class="button ripple-effect big margin-top-30"
                     ><i class="icon-feather-plus"></i
                   ></a> -->
-                  <input
-                    type="submit"
-                    class="button ripple-effect big"
-                    value="Add To Projects"
-                  />
-                </div>
-              </form>
-            </div>
-            <!-- before project list  -->
-            <!-- Dashboard Box -->
+                    <input type="submit" class="button ripple-effect big" value="Add To Projects" />
+                  </div>
+                </form>
+              </div>
+              <!-- before project list  -->
+              <!-- Dashboard Box -->
 
-            <!-- after project list  -->
+              <!-- after project list  -->
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- ************************ * -->
+        <!-- ************************ * -->
 
-      <div class="col-xl-12">
-        <div class="dashboard-box margin-top-5">
-          <!-- Headline -->
-          <div class="headline">
-            <h3>
-              <i class="icon-material-outline-business-center"></i> My Projects
-              List
-            </h3>
-          </div>
+        <div class="col-xl-12">
+          <div class="dashboard-box margin-top-5">
+            <!-- Headline -->
+            <div class="headline">
+              <h3>
+                <i class="icon-material-outline-business-center"></i>{{ translate.instant("My Projects List") }}
 
-          <div class="content">
-            <ul class="dashboard-box-list">
-              <li
-                *ngFor="let project of myProjects"
-                routerLink="/Freelancer/FreelancerProjectDetail/{{
+              </h3>
+            </div>
+
+            <div class="content">
+              <ul class="dashboard-box-list">
+                <li *ngFor="let project of myProjects" routerLink="/Freelancer/FreelancerProjectDetail/{{
                   project.P_Id
-                }}"
-              >
-                <!-- Job Listing -->
-                <div class="job-listing">
-                  <!-- Job Listing Details -->
-                  <div class="job-listing-details">
-                    <!-- Logo -->
-                    <!-- 											<a href="#" class="job-listing-company-logo">
+                }}">
+                  <!-- Job Listing -->
+                  <div class="job-listing">
+                    <!-- Job Listing Details -->
+                    <div class="job-listing-details">
+                      <!-- Logo -->
+                      <!-- 											<a href="#" class="job-listing-company-logo">
 												<img src="images/company-log*ngFor="let project of projects" o-05.png" alt="">
 											</a> -->
 
-                    <!-- Details -->
-                    <div class="job-listing-description">
-                      <h3 class="job-listing-title">
-                        <a href="#">{{ project.Title }}</a>
-                        <span class="dashboard-status-button green">
-                          Finished
-                        </span>
-                      </h3>
+                      <!-- Details -->
+                      <div class="job-listing-description">
+                        <h3 class="job-listing-title">
+                          <a href="#">{{ project.Title }}</a>
+                          <span class="dashboard-status-button green">
+                            {{ translate.instant("Finished") }}
+                          </span>
+                        </h3>
 
-                      <!-- Job Listing Footer -->
-                      <div class="job-listing-footer">
-                        <ul>
-                          <li>
-                            <i class="icon-material-outline-date-range"></i>
-                            Project Date :{{ project.Date }}
-                          </li>
-                          <br />
-                          <li>
-                            <i class="icon-feather-edit"></i>
-                            <span>
-                              Project Description :
-                              {{ project.Description }}
-                            </span>
+                        <!-- Job Listing Footer -->
+                        <div class="job-listing-footer">
+                          <ul>
+                            <li>
+                              <i class="icon-material-outline-date-range"></i>
+                              {{ translate.instant("Project Date :") }} {{ project.Date }}
+                            </li>
                             <br />
-                            <i class="icon-feather-dollar-sign"></i>
-                            <span>
-                              Project Earned Money : {{ project.MoneyEarned }}
-                            </span>
-                          </li>
-                        </ul>
+                            <li>
+                              <i class="icon-feather-edit"></i>
+                              <span>
+                                {{ translate.instant("Project Description :") }}
+                                {{ project.Description }}
+                              </span>
+                              <br />
+                              <i class="icon-feather-dollar-sign"></i>
+                              <span>
+                                {{ translate.instant("Project Earned Money :") }} {{ project.MoneyEarned }}
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
