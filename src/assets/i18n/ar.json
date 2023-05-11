@@ -118,15 +118,14 @@
   "You Refused this offer": "لقد رفضت هذا العرض",
   "Posted on": "نشر على",
 
-
-". All Rights Reserved.":". كل الحقوق محفوظة.",
-"Start":"إبدأ",
-"Deposite Money":"أودع مال",
-"Reviews":"التقيمات",
-"Organize and Manage":"التنظيم و الإدارة",
-"Tasks":"المهمات",
-"Welcome back":"مرحبًا مرة أخرى  ",
-"Total money spent":"إجمالي النقود المنفقة",
+  ". All Rights Reserved.": ". كل الحقوق محفوظة.",
+  "Start": "إبدأ",
+  "Deposite Money": "أودع مال",
+  "Reviews": "التقيمات",
+  "Organize and Manage": "التنظيم و الإدارة",
+  "Tasks": "المهمات",
+  "Welcome back": "مرحبًا مرة أخرى  ",
+  "Total money spent": "إجمالي النقود المنفقة",
   "Login": "تسجيل الدخول",
   "Plans": "خطط الإشتراك",
   "Browse Tasks": "تصفح المهمات",
@@ -157,8 +156,7 @@
   "My Projects List": "قائمة مشاريعى",
   "Date": "التاريخ",
   "Description": "الوصف",
-
- 
+  "Add Review": "أضف تقييم"
   "Reviews": "تقييم الزبائن",
   "Summary": "الملخص",
   "Deposite Amount": "مبلغ الايداع",
@@ -179,7 +177,6 @@
   "Update Job": "حدث العمل",
   "Are you sure you want to delete this record !!": "!! هل انت متأكد من حذف هذا العمل ",
   "Confirm Delete": "تأكيد الحذف"
-
   "Amount": "المبلغ"
 
 }
