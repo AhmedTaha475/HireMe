@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
     // Get highest rated freelancers
     this.FLService.GetAllFreelancers().subscribe({
       next: (data: any) => {
-        console.log(data.body);
+        //console.log(data.body);
         this.AllFreeLancers = data.body;
         this.FreeLancerCount = this.AllFreeLancers.length;
         // console.log(this.FreeLancerCount)
@@ -133,11 +133,11 @@ export class HomeComponent implements OnInit {
     this.LookService.GetAllLookupvalueByLookuptableName('Category').subscribe({
       next: (data: any) => {
         this.Categories = data;
-        console.log(this.Categories);
+        //console.log(this.Categories);
         for (let i = 0; i < data.length; i++) {
           this.CategoryIds.push(data[i].valueId);
         }
-        console.log(this.CategoryIds);
+        //console.log(this.CategoryIds);
         this.counts();
         //Get recent tasks section
         //Get thier count for counter in welcome photo section
@@ -156,11 +156,12 @@ export class HomeComponent implements OnInit {
                 category_name: categoryName,
               };
             });
-            console.log(this.joindata.sort(this.compareByDate));
+            //console.log(this.joindata.sort(this.compareByDate));
+            this.joindata.sort(this.compareByDate)
             this.Projects = this.joindata.slice(0, 3);
 
-            console.log(this.TasksCount);
-            console.log(this.Projects);
+            //console.log(this.TasksCount);
+            //console.log(this.Projects);
           },
           error: (error) => {
             console.log(error);
@@ -176,7 +177,7 @@ export class HomeComponent implements OnInit {
   private counts() {
     this.FLService.GetCounts({ CatIds: this.CategoryIds }).subscribe({
       next: (data: any) => {
-        console.log(data.counts);
+        //console.log(data.counts);
         this.FreelancersbyCatCount = data.counts;
       },
       error: (err) => {

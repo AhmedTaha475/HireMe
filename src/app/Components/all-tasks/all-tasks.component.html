@@ -8,14 +8,14 @@
 			<div class="col-xl-10 col-lg-9 content-left-offset">
 
 				<div class="row">
-					<h3 class="col-4 page-title pt-3">All Tasks</h3>
+					<h3 class="col-4 page-title pt-3">{{translate.instant('All Tasks')}}</h3>
 
 					<div class="notify-box  col-8">
 						<div class="switch-container">
 						</div>
 
 						<div class="row sort-by">
-							<span class="col-4">Filter by category:</span>
+							<span class="col-4">{{translate.instant('Filter by category')}}</span>
 							<select class="col-8" title="All Categories" (change)="selectOption($event)">
 								<option *ngFor="let c of CategoryNames" [value]="c">
 									{{c}}
@@ -56,11 +56,11 @@
 							<div class="task-listing-bid-inner">
 								<div class="task-offers">
 									<strong>{{p.averagePrice | currency:" ":"symbol-narrow":"1.2-2" }} -
-										{{p.averagePrice+500 | currency:" ":"symbol-narrow":"1.2-2" }} EGP</strong>
-									<span>Fixed Price</span>
+										{{p.averagePrice+500 | currency:" ":"symbol-narrow":"1.2-2" }} {{translate.instant('EGP')}}</strong>
+									<span>{{translate.instant('Fixed Price')}}</span>
 								</div>
 								<span *ngIf="CurrentRole=='Freelancer' "
-									class="button button-sliding-icon ripple-effect">Bid Now <i
+									class="button button-sliding-icon ripple-effect">{{translate.instant('Bid Now')}} <i
 										class="icon-material-outline-arrow-right-alt"></i></span>
 							</div>
 						</div>

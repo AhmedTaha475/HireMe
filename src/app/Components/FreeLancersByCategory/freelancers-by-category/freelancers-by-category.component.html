@@ -1,4 +1,8 @@
-<div appJQueryLoader></div>
+<ng-container *ngIf="!isLoaded">
+    <app-spinner>
+    </app-spinner>
+  </ng-container>
+  <div *ngIf="isLoaded " appJQueryLoader>
 <div id="wrapper">
 <div class="full-page-container">
     
@@ -14,8 +18,8 @@
                 <div class="freelancers-container freelancers-grid-layout margin-top-35">
                     
                     <!--Freelancer -->
-                    <div class="freelancer" *ngFor="let f of Freelancers" >
-    
+                    <div class="freelancer" *ngFor="let f of Freelancers">
+
                         <!-- Overview -->
                         <div class="freelancer-overview">
                             <div class="freelancer-overview-inner">
@@ -26,18 +30,17 @@
                                 <!-- Avatar -->
                                 <div class="freelancer-avatar">
                                     <div class="verified-badge"></div>
-                                    <a href="single-freelancer-profile.html"><img src="{{f.image}}" alt=""></a>
+                                    <a routerLink="/FreelancerProfile/{{f.id}}"><img src="{{f.image | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt=""></a>
                                 </div>
     
                                 <!-- Name -->
                                 <div class="freelancer-name">
-                                    <h4><a href="single-freelancer-profile.html">{{f.username}} <img class="flag" src="images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
-                                    <span>{{f.jobtitle}}</span>
-                                </div>
-    
-                                <!-- Rating -->
-                                <div class="freelancer-rating">
-                                    <div class="star-rating" data-rating="4.9"></div>
+                                    <h4><a href="#">{{f.username}} <img class="flag" src="assets/images/flags/eg.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+                                    <span>{{f?.jobtitle??"Freelancer"}}</span>
+                                    <!-- Rating -->
+                                    <!-- <div class="freelancer-rating">
+                                        <div class="star-rating" data-rating="4.9"></div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -46,12 +49,12 @@
                         <div class="freelancer-details">
                             <div class="freelancer-details-list">
                                 <ul>
-                                    <li>Location <strong><i class="icon-material-outline-location-on"></i> {{f.city}}</strong></li>
-                                    <li>Rate <strong>$60 / hr</strong></li>
-                                    <li>Job Success <strong>95%</strong></li>
+                                    <li>{{translate.instant('Location')}} <strong><i class="icon-material-outline-location-on"></i> {{f?.city??"Cairo"}} </strong></li>
+                                    <li>{{translate.instant('Average Rate')}} <strong>{{f?.averagerate??500}} {{translate.instant('EGP')}}</strong></li>
+    
                                 </ul>
                             </div>
-                            <a routerLink="/FreelancerProfile/{{f.id}}" class="button button-sliding-icon ripple-effect">View Profile <i class="icon-material-outline-arrow-right-alt"></i></a>
+                            <a routerLink="/FreelancerProfile/{{f.id}}" class="button button-sliding-icon ripple-effect">{{translate.instant('View Profile')}} <i class="icon-material-outline-arrow-right-alt"></i></a>
                         </div>
                     </div>
                     <!-- Freelancer / End -->
@@ -75,4 +78,4 @@
     
     </div>
     </div>
-    
+    </div>

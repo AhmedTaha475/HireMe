@@ -3,6 +3,7 @@ import { LookupValueService } from '../Services/LookupValues_Service/lookup-valu
 import { FreelancerService } from '../Services/freelancer.service';
 import { Freelancer } from 'src/app/Models/Freelancer/freelancer';
 import { StaticHelper } from '../Helpers/static-helper';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-browse-freelancers',
@@ -10,9 +11,13 @@ import { StaticHelper } from '../Helpers/static-helper';
   styleUrls: ['./browse-freelancers.component.css']
 })
 export class BrowseFreelancersComponent implements OnInit{
-constructor(private lookvalue:LookupValueService,private FreelancerService:FreelancerService
+constructor(private lookvalue:LookupValueService,private FreelancerService:FreelancerService,public translate: TranslateService,
   ){
-
+    translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('lang');
+    if (langItem !== null) {
+      translate.use(langItem);
+    }
 }
 FreeLancers:Freelancer[]=[];
 CategoryNames:string[]=[];
@@ -30,25 +35,25 @@ isLoaded: boolean=false;
 
     this.lookvalue.GetAllLookupvalueByLookuptableName("Category").subscribe({
       next: (data: any) => {
-        console.log(data);
+        //console.log(data);
         for(let i=0;i<data.length;i++){
           this.CategoryNames.push(data[i].valueName);
         }
-        console.log(this.CategoryNames);
+        //console.log(this.CategoryNames);
       },
       error:(err)=>{console.log(err);}
     })
   }
   selectOption(event: any) {
     var name = event.target.value;
-    console.log(name);
+    //console.log(name);
    this.lookvalue.GetIdByName(name).subscribe(
     {
       next: (data: any) => {
-        console.log(data.id);
+        //console.log(data.id);
         this.FreelancerService.GetFreelancersByCatId(data.id).subscribe({
           next: (data: any) => {
-            console.log(data);
+            //console.log(data);
             this.FreeLancers=data;
           },
           error:(err)=>{console.log(err);}
