@@ -88,7 +88,8 @@
                             <a routerLink="/client/ProjectPost/{{post.id}}/Milestone/GetAll"
                               class="button dark ripple-effect"><i class="icon-material-outline-supervisor-account"></i>
                               Manage Milestones</a>
-                            <a *ngIf="!post.done && post.approved" (click)="EndProject(post.id)"
+                            <a *ngIf="!post.done && post.approved"
+                              routerLink="/client/ProjectPost/{{post.id}}/ClientReview/Add"
                               class="button red ripple-effect text-white"><i
                                 class="icon-material-outline-supervisor-account"></i>
                               End Project</a>
