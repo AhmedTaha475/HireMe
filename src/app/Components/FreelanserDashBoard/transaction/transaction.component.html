@@ -1,4 +1,8 @@
-<div appJQueryLoader>
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
   <div class="dashboard-container">
     <app-freelancer-side-bar></app-freelancer-side-bar>
 

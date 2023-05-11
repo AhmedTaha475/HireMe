@@ -16,17 +16,16 @@ export class TransactionComponent implements OnInit {
     public myActiveRoute: ActivatedRoute,
     public freelancer: FreelancerService,
     public datapipe: DatePipe,
-    public translate:TranslateService
+    public translate: TranslateService
   ) {
     const langItem = localStorage.getItem('Lang');
-if (langItem != null) {
-  translate.use(langItem);
-}
-
+    if (langItem != null) {
+      translate.use(langItem);
+    }
   }
   transaction: any;
   transactiondate: any;
-
+  isLoaded: boolean = false;
   transformData(data: any[]): any[] {
     return data.map((item) => {
       const formattedDate = this.datapipe.transform(
@@ -47,8 +46,11 @@ if (langItem != null) {
       next: (data: any) => {
         this.transaction = this.transaction = this.transformData(data);
         console.log(this.transaction);
+        this.isLoaded = true;
       },
-      error: () => {},
+      error: (err: any) => {
+        console.log(err);
+      },
     });
   }
 }

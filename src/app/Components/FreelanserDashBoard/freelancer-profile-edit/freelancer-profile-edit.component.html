@@ -1,228 +1,234 @@
-<div appJQueryLoader></div>
-<!-- Dashboard Container -->
-<div class="dashboard-container">
-  <app-freelancer-side-bar></app-freelancer-side-bar>
-  <!-- Dashboard Content
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <app-freelancer-side-bar></app-freelancer-side-bar>
+    <!-- Dashboard Content
 	================================================== -->
-  <div class="dashboard-content-container" data-simplebar>
-    <div class="dashboard-content-inner">
+    <div class="dashboard-content-container" data-simplebar>
+      <div class="dashboard-content-inner">
 
-      <!-- Row -->
-      <div class="row">
-        <form [formGroup]="UpdateProfile" (ngSubmit)="ConfirmUpdate()">
-          <!-- Dashboard Box -->
-          <div class="col-xl-12">
-            <div class="dashboard-box margin-top-0">
+        <!-- Row -->
+        <div class="row">
+          <form [formGroup]="UpdateProfile" (ngSubmit)="ConfirmUpdate()">
+            <!-- Dashboard Box -->
+            <div class="col-xl-12">
+              <div class="dashboard-box margin-top-0">
 
-              <!-- Headline -->
-              <div class="headline">
-                <h3><i class="icon-material-outline-account-circle"></i>{{translate.instant("My Account")}}</h3>
+                <!-- Headline -->
+                <div class="headline">
+                  <h3><i class="icon-material-outline-account-circle"></i>{{translate.instant("My Account")}}</h3>
+                </div>
+                <div class="content with-padding padding-bottom-0">
+
+                  <div class="row">
+
+                    <div class="col-auto">
+                      <div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
+                        <img
+                          [src]="currentFreelancer?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'"
+                          class="profile-pic" alt="" />
+                        <div class="upload-button"></div>
+                        <input (change)="GetCurrentImage($event)" class="file-upload" type="file" accept="image/*" />
+                      </div>
+                    </div>
+                    <!-- <input formControlName="image"  type="file" > -->
+
+                    <div class="col">
+                      <div class="row">
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("First Name")}}</h5>
+                            <input type="text" formControlName="firstname" placeholder="Tom" class="with-border">
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Last Name")}}</h5>
+                            <input type="text" formControlName="lastname" class="with-border" placeholder="Smith">
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Email")}}</h5>
+                            <input type="email" formControlName="email" class="with-border"
+                              placeholder="tom@example.com">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Country")}}</h5>
+                            <input type="text" formControlName="country" class="with-border" placeholder="Egypt">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("City")}}</h5>
+                            <input type="text" formControlName="city" class="with-border" placeholder="Cairo">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Street")}}</h5>
+                            <input type="text" formControlName="street" class="with-border"
+                              placeholder="Gamal Abdel Naser">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Age")}}</h5>
+                            <input type="number" formControlName="age" class="with-border" placeholder="27">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("SSN")}}</h5>
+                            <input type="number" formControlName="ssn" class="with-border">
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-              <div class="content with-padding padding-bottom-0">
+            </div>
 
-                <div class="row">
+            <!-- Dashboard Box -->
+            <div class="col-xl-12">
+              <div class="dashboard-box">
 
-                  <div class="col-auto">
-                    <div class="avatar-wrapper" data-tippy-placement="bottom" title="Change Avatar">
-                      <img
-                        [src]="currentFreelancer?.image??''|convertToImage:'assets/images/user-avatar-placeholder.png'"
-                        class="profile-pic" alt="" />
-                      <div class="upload-button"></div>
-                      <input (change)="GetCurrentImage($event)" class="file-upload" type="file" accept="image/*" />
-                    </div>
-                  </div>
-                  <!-- <input formControlName="image"  type="file" > -->
-
-                  <div class="col">
-                    <div class="row">
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("First Name")}}</h5>
-                          <input type="text" formControlName="firstname" placeholder="Tom" class="with-border">
-                        </div>
-                      </div>
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Last Name")}}</h5>
-                          <input type="text" formControlName="lastname" class="with-border" placeholder="Smith">
-                        </div>
-                      </div>
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Email")}}</h5>
-                          <input type="email" formControlName="email" class="with-border" placeholder="tom@example.com">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Country")}}</h5>
-                          <input type="text" formControlName="country" class="with-border" placeholder="Egypt">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("City")}}</h5>
-                          <input type="text" formControlName="city" class="with-border" placeholder="Cairo">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Street")}}</h5>
-                          <input type="text" formControlName="street" class="with-border"
-                            placeholder="Gamal Abdel Naser">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Age")}}</h5>
-                          <input type="number" formControlName="age" class="with-border" placeholder="27">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("SSN")}}</h5>
-                          <input type="number" formControlName="ssn" class="with-border">
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+                <!-- Headline -->
+                <div class="headline">
+                  <h3><i class="icon-material-outline-face"></i> {{translate.instant("My Profile")}}</h3>
                 </div>
 
-              </div>
-            </div>
-          </div>
+                <div class="content">
+                  <ul class="fields-ul">
+                    <li>
+                      <div class="row">
+                        <div class="col-xl-4">
+                          <div class="submit-field">
+                            <div class="bidding-widget">
+                              <!-- Headline -->
+                              <span class="bidding-detail">{{translate.instant("Set your")}}
+                                <strong>{{translate.instant("minimal hourly rate")}}</strong></span>
 
-          <!-- Dashboard Box -->
-          <div class="col-xl-12">
-            <div class="dashboard-box">
+                              <!-- Slider -->
 
-              <!-- Headline -->
-              <div class="headline">
-                <h3><i class="icon-material-outline-face"></i> {{translate.instant("My Profile")}}</h3>
-              </div>
-
-              <div class="content">
-                <ul class="fields-ul">
-                  <li>
-                    <div class="row">
-                      <div class="col-xl-4">
-                        <div class="submit-field">
-                          <div class="bidding-widget">
-                            <!-- Headline -->
-                            <span class="bidding-detail">{{translate.instant("Set your")}}
-                              <strong>{{translate.instant("minimal hourly rate")}}</strong></span>
-
-                            <!-- Slider -->
-
-                            <input formControlName="averagerate" class="" type="number" />
-                          </div>
-                        </div>
-                      </div>
-
-
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Attachments")}}</h5>
-
-                          <!-- Attachments -->
-                          <a [href]="currentFreelancer?.cv??''|convertToPdf:''"
-                            download='{{currentFreelancer.firstname}}_Cv.Pdf'>
-
-                            <div class="attachments-container margin-top-0 margin-bottom-0">
-                              <div class="attachment-box ripple-effect">
-                                <span>{{translate.instant("CV")}}</span>
-                                <i>PDF</i>
-
-                              </div>
+                              <input formControlName="averagerate" class="" type="number" />
                             </div>
-                          </a>
-                          <div class="clearfix"></div>
-
-                          <!-- Upload Button -->
-                          <div class="uploadButton margin-top-0">
-                            <input class="uploadButton-input" (change)="GetCurrentCv($event)" type="file"
-                              accept="image/*, application/pdf" id="upload" />
-                            <label class="uploadButton-button ripple-effect" for="upload">{{translate.instant("Upload
-                              Files")}}</label>
-                            <span class="uploadButton-file-name">{{translate.instant("Maximum file size: 10
-                              MB")}}</span>
                           </div>
+                        </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Job Title")}}</h5>
-                          <input formControlName="jobtitle" type="text" class="with-border" placeholder="Job Title">
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Category")}}</h5>
 
-                          <select class="form-control  " formControlName="categoryId">
-                            <option *ngFor="let category of allcategorys" [value]="category.valueId">
-                              {{category.valueName}}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Payment Method")}}</h5>
-                          <select class="form-control  " formControlName="paymentmethodId">
-                            <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-xl-6">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Phone Number")}}</h5>
-                          <input formControlName="phonenumber" type="number" class="with-border"
-                            placeholder="+20 1185341234">
-                        </div>
-                      </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Attachments")}}</h5>
 
-                      <div class="col-xl-12">
-                        <div class="submit-field">
-                          <h5>{{translate.instant("Introduce Yourself")}}</h5>
-                          <textarea formControlName="description" cols="30" rows="5" class="with-border"
-                            placeholder="{{translate.instant('about text')}}"></textarea>
+                            <!-- Attachments -->
+                            <a [href]="currentFreelancer?.cv??''|convertToPdf:''"
+                              download='{{currentFreelancer.firstname}}_Cv.Pdf'>
+
+                              <div class="attachments-container margin-top-0 margin-bottom-0">
+                                <div class="attachment-box ripple-effect">
+                                  <span>{{translate.instant("CV")}}</span>
+                                  <i>PDF</i>
+
+                                </div>
+                              </div>
+                            </a>
+                            <div class="clearfix"></div>
+
+                            <!-- Upload Button -->
+                            <div class="uploadButton margin-top-0">
+                              <input class="uploadButton-input" (change)="GetCurrentCv($event)" type="file"
+                                accept="image/*, application/pdf" id="upload" />
+                              <label class="uploadButton-button ripple-effect" for="upload">{{translate.instant("Upload
+                                Files")}}</label>
+                              <span class="uploadButton-file-name">{{translate.instant("Maximum file size: 10
+                                MB")}}</span>
+                            </div>
+
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Job Title")}}</h5>
+                            <input formControlName="jobtitle" type="text" class="with-border" placeholder="Job Title">
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Category")}}</h5>
+
+                            <select class="form-control  " formControlName="categoryId">
+                              <option *ngFor="let category of allcategorys" [value]="category.valueId">
+                                {{category.valueName}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Payment Method")}}</h5>
+                            <select class="form-control  " formControlName="paymentmethodId">
+                              <option *ngFor="let pay of allPaymentMethods" [value]="pay.valueId">{{pay.valueName}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Phone Number")}}</h5>
+                            <input formControlName="phonenumber" type="number" class="with-border"
+                              placeholder="+20 1185341234">
+                          </div>
+                        </div>
+
+                        <div class="col-xl-12">
+                          <div class="submit-field">
+                            <h5>{{translate.instant("Introduce Yourself")}}</h5>
+                            <textarea formControlName="description" cols="30" rows="5" class="with-border"
+                              placeholder="{{translate.instant('about text')}}"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Button -->
-          <div class="col-xl-12">
-            <!-- <p-messages [value]="messages"></p-messages> -->
-            <p-toast position="center" key="profileToast"></p-toast>
-            <input type="submit" class="button ripple-effect big margin-top-30"
-              value="{{translate.instant('Save Changes')}}">
-          </div>
+            <!-- Button -->
+            <div class="col-xl-12">
+              <!-- <p-messages [value]="messages"></p-messages> -->
+              <p-toast position="center" key="profileToast"></p-toast>
+              <input type="submit" class="button ripple-effect big margin-top-30"
+                value="{{translate.instant('Save Changes')}}">
+            </div>
 
-        </form>
+          </form>
+        </div>
+        <!-- Row / End -->
+
+        <!-- Footer -->
+
+
       </div>
-      <!-- Row / End -->
-
-      <!-- Footer -->
-
-
     </div>
-  </div>
-  <!-- Dashboard Content / End -->
+    <!-- Dashboard Content / End -->
 
+  </div>
+  <!-- Dashboard Container / End -->
 </div>
-<!-- Dashboard Container / End -->
