@@ -33,10 +33,15 @@ export class DepositeMoneyComponent implements OnInit {
     public Freelancer: FreelancerService,
     public router: Router,
     public transservice: TransactionService,
-    public clientService: ClientService
+    public clientService: ClientService,
+    public translatee: TranslateService
   ) {
     translate.setDefaultLang('en');
     translate.use('en');
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
   }
 
   switchLanguage(language: string) {

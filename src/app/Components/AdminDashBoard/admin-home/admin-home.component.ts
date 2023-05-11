@@ -6,6 +6,7 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { ProjectPostApplicantsService } from 'src/app/Services/project-post-applicants.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
 import { ProjectService } from 'src/app/Services/project.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-admin-home',
@@ -60,8 +61,14 @@ export class AdminHomeComponent implements OnInit {
     private ProjectServ: ProjectService,
     private freelancers: FreelancerService,
     private planServ: PlanService,
-    private lookupValuesServ: LookupValueService
-  ) {}
+    private lookupValuesServ: LookupValueService,
+    public translate: TranslateService
+  ) {
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     this.GetFreelancers();
     this.GetClients();
