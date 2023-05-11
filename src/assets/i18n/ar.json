@@ -118,6 +118,15 @@
   "You Refused this offer": "لقد رفضت هذا العرض",
   "Posted on": "نشر على",
 
+
+". All Rights Reserved.":". كل الحقوق محفوظة.",
+"Start":"إبدأ",
+"Deposite Money":"أودع مال",
+"Reviews":"التقيمات",
+"Organize and Manage":"التنظيم و الإدارة",
+"Tasks":"المهمات",
+"Welcome back":"مرحبًا مرة أخرى  ",
+"Total money spent":"إجمالي النقود المنفقة",
   "Login": "تسجيل الدخول",
   "Plans": "خطط الإشتراك",
   "Browse Tasks": "تصفح المهمات",
@@ -149,5 +158,4 @@
   "Date": "التاريخ",
   "Description": "الوصف",
   "Amount": "المبلغ",
-  "Reviews": "تقييم الزبائن"
 }

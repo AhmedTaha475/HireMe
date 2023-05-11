@@ -52,7 +52,7 @@ export class AllTasksComponent implements OnInit {
     public translate: TranslateService
   ) {
     translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('lang');
+    const langItem = localStorage.getItem('Lang');
     if (langItem !== null) {
       translate.use(langItem);
     }

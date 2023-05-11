@@ -17,7 +17,7 @@ export class FreelancersByCategoryComponent implements OnInit {
   constructor(myActivated: ActivatedRoute, private myService: FreelancerService,public translate: TranslateService,) {
     this.CatId = myActivated.snapshot.params["id"];
     translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('lang');
+    const langItem = localStorage.getItem('Lang');
     if (langItem !== null) {
       translate.use(langItem);
     }

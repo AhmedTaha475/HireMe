@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetClient } from 'src/app/Models/Client/get-client';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ClientService } from 'src/app/Services/client.service';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-client-header',
   templateUrl: './client-header.component.html',
@@ -10,10 +10,16 @@ import { ClientService } from 'src/app/Services/client.service';
 })
 export class ClientHeaderComponent implements OnInit {
   currentClient: GetClient | null = null;
-  constructor(
+  constructor(public translate: TranslateService,
     private clientServ: ClientService,
     private authServ: AuthService
-  ) {}
+  ) {
+    translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('Lang');
+    if (langItem !== null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     this.clientServ.GetCurrentClient().subscribe({
       next: (data: any) => {
