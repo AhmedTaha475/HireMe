@@ -10,12 +10,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class ClientTransactionComponent implements OnInit {
   transactions: any[] = [];
   isLoaded: boolean = false;
-  constructor(
-    private transactionServ: TransactionService,
-    public translate: TranslateService
-  ) {
+
+  constructor(private transactionServ: TransactionService,public translate: TranslateService) {
+    translate.setDefaultLang('en');
     const langItem = localStorage.getItem('Lang');
-    if (langItem != null) {
+    if (langItem !== null) {
+
       translate.use(langItem);
     }
   }
@@ -23,10 +23,13 @@ export class ClientTransactionComponent implements OnInit {
     this.transactionServ.GetAllTranscationsByUserId().subscribe({
       next: (data: any) => {
         this.transactions = data;
-        if (this.transactions.length > 0) this.isLoaded = true;
+        console.log(this.transactions)
+        this.isLoaded = true;
+
       },
       error: (err: any) => {
         console.log(err);
+        this.isLoaded=true;
       },
     });
   }

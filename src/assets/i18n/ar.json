@@ -156,6 +156,12 @@
   "My Projects List": "قائمة مشاريعى",
   "Date": "التاريخ",
   "Description": "الوصف",
+
+  " Rating : ":" التقييم : ",
+  "Project Post Title : ":"عنوان المشروع : ",
+  "My Reviews":"تقييماتي",
+  "Amount(EGP)":"المبلغ(ج.م)",
+  "Date of Transaction":"تاريخ المعاملة",
   "Add Review": "أضف تقييم"
   "Reviews": "تقييم الزبائن",
   "Summary": "الملخص",
@@ -176,7 +182,7 @@
   "Average Price": "سعر العمل",
   "Update Job": "حدث العمل",
   "Are you sure you want to delete this record !!": "!! هل انت متأكد من حذف هذا العمل ",
-  "Confirm Delete": "تأكيد الحذف"
+  "Confirm Delete": "تأكيد الحذف",
   "Amount": "المبلغ"
 
 }
