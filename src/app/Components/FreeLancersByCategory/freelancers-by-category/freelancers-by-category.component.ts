@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FreelancerService } from 'src/app/Services/freelancer.service';
 import { Freelancer } from 'src/app/Models/Freelancer/freelancer';
 import { StaticHelper } from 'src/app/Helpers/static-helper';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-freelancers-by-category',
   templateUrl: './freelancers-by-category.component.html',
@@ -11,8 +13,14 @@ import { StaticHelper } from 'src/app/Helpers/static-helper';
 export class FreelancersByCategoryComponent implements OnInit {
   CatId: any;
   Freelancers: Freelancer[]=[];
-  constructor(myActivated: ActivatedRoute, private myService: FreelancerService) {
+  isLoaded:boolean=false;
+  constructor(myActivated: ActivatedRoute, private myService: FreelancerService,public translate: TranslateService,) {
     this.CatId = myActivated.snapshot.params["id"];
+    translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('lang');
+    if (langItem !== null) {
+      translate.use(langItem);
+    }
   }
   first: number = 0;
 
@@ -28,13 +36,13 @@ export class FreelancersByCategoryComponent implements OnInit {
     this.myService.GetFreelancersByCatId(this.CatId).subscribe({
       next: (data: any) => {
             var freelancerTemp = data; 
-            for(let i=0;i<freelancerTemp.length;i++){
-              freelancerTemp[i].image= StaticHelper.ConvertByteArrayToImage(data[i].image) ;
-              freelancerTemp[i].cv = StaticHelper.ConvertByteArrayToPdf(data[i].cv);
-            }
+            
 
-        console.log(freelancerTemp)   
+        //console.log(freelancerTemp)   
         this.Freelancers=freelancerTemp;
+        if(this.Freelancers.length>0){
+          this.isLoaded=true;
+        }
       },
       error: (error) => {
 

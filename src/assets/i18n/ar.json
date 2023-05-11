@@ -16,8 +16,8 @@
   "Tailors": "الترزى",
   "Delivery men": "عامل التوصيل",
   "Interior designers": "مصمم ديكور",
-  "Recent Jobs": "وظائف حديثة",
-  "Browse All Jobs": "تصفح جميع الوظائف",
+  "Recent Jobs": "أحدث المهمات",
+  "Browse All Jobs": "تصفح جميع المهمات",
   "Bid Now": "قم بالمزايدة الآن",
   "Hire experts or be hired.": ".قم بتعيين خبراء أو قدم على وظائف في أي وقت",
   "Huge community": ".مجتمع ضخم من العمال والمصممين والإبداعيين جاهز لخدمتك",
@@ -33,7 +33,7 @@
   "Job Success": "الوظائف الناجحة",
   "View Profile": "عرض الصفحة الشخصية",
   "Hire experts or be hired": ".قم بتعيين خبراء أو قدم على وظائف في أي وقت",
-  "Thousands of small businesses use": "الألاف من الأعمال الصغيرة تستخدم",
+  "Thousands of small businesses use": " الألاف من الأعمال الصغيرة تستخدم ",
   " Hireo ": " وظفني ",
   "to turn their ideas into reality.": "لتحويل أفكارهم الى حقيقة",
   "Where?": "أين؟",
@@ -116,7 +116,21 @@
  "My Offer Listings":"قوائم العروض الخاصة بي",
  "You Accepted this Offer":"لقد قبلت هذا العرض",
  "You Refused this offer":"لقد رفضت هذا العرض",
- "Posted on":"نشر على"
+ "Posted on":"نشر على",
 
 
+ "Login":"تسجيل الدخول",
+ "Plans":"خطط الإشتراك",
+ "Browse Tasks":"تصفح المهمات",
+ "Find a Freelancer":"إبحث عن عامل",
+  "Admin":"المسئول",
+  "Client":"عميل",
+  "systemAdmin":"المسئول عن الموقع",
+  "Bring to the table":"قم بإنشاء حساب و إبدأ على الفور في تصفح العمال و عرض مهماتك و تحكم في صفحتك الشخصية",
+"Efficiently unleash":"أنشر مهمتك التي تحتاج عامل من اجلها و سيقوم نخبة من العمال المصرريين بالمراهنة على مهمتك",
+"Nanotechnology ":"قم بتصفح جميع الرهانات و إختر العرض المناسب لك و إبدأ في تنفيذ مهمتك على الفور",
+"EGP":"ج.م",
+"Fixed Price":"سعر ثابت",
+"Filter by category":"التصفية حسب الفئة: ",
+"Average Rate":"المعدل المتوسط"
 }

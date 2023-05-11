@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-tasks',
@@ -15,14 +16,19 @@ export class AllTasksComponent implements OnInit{
   Categories: { valueId: number, valueName: string, lookupId: number }[] = [];
   CategoryNames:string[]=[];
   isLoaded: boolean=false;
-  constructor(private myService: ProjectPostService,private LookService: LookupValueService,private auth:AuthService){
-}
+  constructor(private myService: ProjectPostService,private LookService: LookupValueService,private auth:AuthService,public translate: TranslateService,){
+    translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('lang');
+    if (langItem !== null) {
+      translate.use(langItem);
+    }
+  }
 CurrentRole=this.auth.getRoles();
   ngOnInit(): void {
     this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
       next: (data: any) => {
         this.Categories = data;
-        console.log(this.Categories);
+        //console.log(this.Categories);
         //Get recent tasks section  
         //Get thier count for counter in welcome photo section
         this.myService.GetAllProjectPosts().subscribe(
@@ -42,7 +48,7 @@ CurrentRole=this.auth.getRoles();
              this.joindata.sort(this.compareByDate);
               //this.Projects = this.joindata.slice(0, 3);
 
-              console.log(this.joindata);
+              //console.log(this.joindata);
               for(let i =0;i<this.joindata.length;i++){
                 if(this.joindata[i].done != true){
                   this.Projects.push(this.joindata[i]);
@@ -51,7 +57,7 @@ CurrentRole=this.auth.getRoles();
               if(this.Projects.length>0){
                 this.isLoaded=true;
               }
-              console.log(this.Projects);
+              //console.log(this.Projects);
             },
             error: (error) => {
 
@@ -65,11 +71,11 @@ CurrentRole=this.auth.getRoles();
     })
     this.LookService.GetAllLookupvalueByLookuptableName("Category").subscribe({
       next: (data: any) => {
-        console.log(data);
+        //console.log(data);
         for(let i=0;i<data.length;i++){
           this.CategoryNames.push(data[i].valueName);
         }
-        console.log(this.CategoryNames);
+        //console.log(this.CategoryNames);
       },
       error:(err)=>{console.log(err);}
     })
@@ -88,13 +94,13 @@ CurrentRole=this.auth.getRoles();
   selectOption(event: any) {
     var name = event.target.value;
     var P: { averagePrice: number, categoryId: number, description: string, id: number, postTitle: string, projectPostDate: Date, location: string, category_name: string ,done:boolean}[] = [];
-    console.log(name);
+    //console.log(name);
    for(let i =0;i<this.joindata.length;i++){
     if(this.joindata[i].category_name== name){
     P.push(this.joindata[i]);
     }
    }
   this.Projects=P;
-  console.log(this.Projects)
+  //console.log(this.Projects)
   }
 }

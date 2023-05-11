@@ -22,22 +22,22 @@
 
 
 
-              <a routerLink="/AllFreelancers">Find a Freelancer</a>
+              <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
 
 
             </li>
             <li *ngIf="_authService.isClient()">
-              <a routerLink="/client/postjob">Post a Task</a>
+              <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
             </li>
             <li *ngIf="_authService.isFreelancer()">
-              <a routerLink="/AllTasks">Browse Tasks</a>
+              <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
             </li>
             <li *ngIf="_authService.isFreelancer()">
-              <a routerLink="/plan">Plans</a>
+              <a routerLink="/plan">{{translate.instant("Plans")}}</a>
             </li>
 
             <li *ngIf=" !_authService.isLoggedIn()">
-              <a routerLink="/Login">Login</a>
+              <a routerLink="/Login">{{translate.instant("Login")}}</a>
 
             </li>
 
@@ -69,7 +69,7 @@
           <!-- Messages -->
           <div class="header-notifications user-menu">
             <div class="header-notifications-trigger">
-              <a href="#">
+              <a style="cursor: pointer;">
                 <div class="user-avatar status-online"><img width="50" height="50"
                     src="{{client?.image??''| convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
                 </div>
@@ -88,7 +88,7 @@
                       src="{{client?.image??'' | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
                   </div>
                   <div class="user-name">
-                    {{client?.firstname??''}} <span>Client</span>
+                    {{client?.firstname??''}} <span>{{translate.instant("Client")}}</span>
                   </div>
                 </div>
 
@@ -98,9 +98,9 @@
 
               <ul class="user-menu-small-nav">
                 <li><a href="/client"><i class="icon-material-outline-dashboard"></i>
-                    Dashboard</a></li>
+                  {{translate.instant("Dashboard")}}</a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i> Logout</a>
+                      class="icon-material-outline-power-settings-new"></i>{{translate.instant("Logout")}} </a>
                 </li>
               </ul>
 
@@ -118,7 +118,7 @@
           <!-- Messages -->
           <div class="header-notifications user-menu">
             <div class="header-notifications-trigger">
-              <a href="#">
+              <a style="cursor: pointer;">
                 <div class="user-avatar status-online"><img width="50" height="50"
                     src="{{freelancer?.image??'' | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
                 </div>
@@ -149,9 +149,9 @@
 
               <ul class="user-menu-small-nav">
                 <li><a href="/Freelancer"><i class="icon-material-outline-dashboard"></i>
-                    Dashboard</a></li>
+                  {{translate.instant("Dashboard")}} </a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i> Logout</a>
+                      class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
                 </li>
               </ul>
 
@@ -167,7 +167,7 @@
           <!-- Messages -->
           <div class="header-notifications user-menu">
             <div class="header-notifications-trigger">
-              <a href="#">
+              <a style="cursor: pointer;">
                 <div class="user-avatar status-online"><img src="assets/images/admin.png" alt=""></div>
               </a>
             </div>
@@ -182,7 +182,7 @@
                 <div class="user-details">
                   <div class="user-avatar status-online"><img src="assets/images/admin.png" alt=""></div>
                   <div class="user-name">
-                    Admin <span>systemAdmin</span>
+                    {{translate.instant("Admin")}} <span>{{translate.instant("systemAdmin")}}</span>
                   </div>
                 </div>
 
@@ -192,9 +192,9 @@
 
               <ul class="user-menu-small-nav">
                 <li><a href="/Admin"><i class="icon-material-outline-dashboard"></i>
-                    Dashboard</a></li>
+                  {{translate.instant("Dashboard")}}</a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i> Logout</a>
+                      class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
                 </li>
               </ul>
 
@@ -229,24 +229,24 @@
 
 <p-sidebar [(visible)]="sidebarVisible" class="my-sidebar">
   <div class="sidebar-header ">
-    <span>SideBar</span>
+    <span>{{translate.instant("SideBar")}}</span>
   </div>
   <ul class=" sidebar-nav">
     <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
     <li *ngIf="_authService.isClient()">
-      <a routerLink="/AllFreelancers">Find a Freelancer</a>
+      <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
     </li>
     <li *ngIf="_authService.isClient()">
-      <a routerLink="/client/postjob">Post a Task</a>
+      <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
     </li>
     <li *ngIf="_authService.isFreelancer()">
-      <a routerLink="/AllTasks">Browse Tasks</a>
+      <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
     </li>
     <li *ngIf="_authService.isFreelancer()">
-      <a routerLink="/plan">Plans</a>
+      <a routerLink="/plan">{{translate.instant("Plans")}}</a>
     </li>
     <li *ngIf=" !_authService.isLoggedIn()">
-      <a routerLink="/Login">Login</a>
+      <a routerLink="/Login">{{translate.instant("Login")}}</a>
     </li>
     <li>
       <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
