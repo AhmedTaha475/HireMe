@@ -30,29 +30,10 @@
         <div class="col-md-12">
           <div class="intro-banner-search-form margin-top-95">
 
-            <!-- Search Field -->
-            <div class="intro-search-field with-autocomplete">
-              <label for="autocomplete-input" class="field-title ripple-effect">{{ translate.instant('Where?')
-                }}</label>
-              <div class="input-with-icon">
-                <input id="autocomplete-input" type="text" placeholder="{{ translate.instant('Online Job') }}">
-                <i class="icon-material-outline-location-on"></i>
-              </div>
-            </div>
-
-            <!-- Search Field -->
-            <div class="intro-search-field">
-              <label for="intro-keywords" class="field-title ripple-effect">{{ translate.instant('What job you want?')
-                }}</label>
-              <input id="intro-keywords" type="text" placeholder="{{ translate.instant('Job Title or Keywords') }}">
-            </div>
+           
 
             <!-- Button -->
-            <div class="intro-search-button">
-              <button class="button ripple-effect"
-                onclick="window.location.href='jobs-list-layout-full-page-map.html'">{{
-                translate.instant('Search') }}</button>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -62,17 +43,27 @@
         <div class="col-md-12">
           <ul class="intro-stats margin-top-45 hide-under-992px">
             <li>
+              <div class="category-box-icon">
+                <i class="icon-material-outline-person-pin"></i>
+              </div>
               <strong class="counter">{{clientCount}}</strong>
               <span>{{ translate.instant('Clients') }}</span>
             </li>
             <li>
-              <strong class="counter">{{TasksCount}}</strong>
-              <span>{{ translate.instant('Tasks Posted') }}</span>
-            </li>
-            <li>
+              <div class="category-box-icon">
+                <i class="icon-material-outline-supervisor-account"></i>
+              </div>
               <strong class="counter">{{FreeLancerCount}}</strong>
               <span>{{ translate.instant('Freelancers') }}</span>
             </li>
+            <li>
+              <div class="category-box-icon">
+                <i class="icon-material-outline-assignment"></i>
+              </div>
+              <strong class="counter">{{TasksCount}}</strong>
+              <span>{{ translate.instant('Tasks Posted') }}</span>
+            </li>
+           
           </ul>
         </div>
       </div>
@@ -274,7 +265,7 @@
                 translate.instant('Get Started') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
             </ng-template>
             <ng-template #UserStart>
-              <a routerLink="/SignUp" class="button button-sliding-icon ripple-effect big margin-top-20">{{
+              <a *ngIf="CurrentRole!='Admin' " routerLink="/SignUp" class="button button-sliding-icon ripple-effect big margin-top-20">{{
                 translate.instant('Get Started') }} <i class="icon-material-outline-arrow-right-alt"></i></a>
             </ng-template>
           </div>
