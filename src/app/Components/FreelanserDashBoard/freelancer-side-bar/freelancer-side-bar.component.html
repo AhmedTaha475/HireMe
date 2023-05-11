@@ -21,7 +21,7 @@
             </li>
             <li>
               <a routerLink="/Freelancer/Offers"><i
-                  class="icon-material-outline-star-border"></i>{{translate.instant("Offers")}} </a>
+                  class="icon-material-outline-local-offer"></i>{{translate.instant("Offers")}} </a>
             </li>
             <!-- <li>
               <a routerLink="/Freelancer/Profile"><i class="icon-material-outline-question-answer"></i>
@@ -36,9 +36,14 @@
                   class="icon-material-outline-star-border"></i>{{translate.instant("Projects")}} </a>
             </li>
             <li>
-              <a routerLink="/Freelancer/Transaction"><i class="icon-material-outline-star-border"></i>
+              <a routerLink="/Freelancer/Transaction"><i class="icon-feather-paperclip"></i>
                 {{translate.instant("Transactions")}}</a>
             </li>
+            <li>
+              <a routerLink="/Freelancer/reviews"><i class="icon-material-outline-rate-review"></i>
+                {{translate.instant("Reviews")}}</a>
+            </li>
+
             <li>
               <a href="/"><i class="icon-material-outline-power-settings-new" (click)="logout()"></i>
                 {{translate.instant("Log out")}} </a>

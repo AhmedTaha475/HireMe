@@ -19,7 +19,7 @@ export class ProjectDetailsComponent implements OnInit {
   images: any;
   image: any;
   Jobimage: any;
-
+  isLoaded: boolean = false;
   constructor(
     public projectservice: ProjectService,
     public myactivate: ActivatedRoute,
@@ -42,14 +42,7 @@ export class ProjectDetailsComponent implements OnInit {
         this.images.forEach((element: any) => {
           console.log(element);
         });
-        // this.image = this.images[0].image;
-        // console.log(this.images);
-
-        // var dateee = this.project.date;
-
-        // var outputDate = dateee.toISOString().slice(0, 10);
-        // this.outdate = outputDate;
-        // console.log(this.outdate);
+        this.isLoaded = true;
       },
       error: (error) => {
         console.log(error);

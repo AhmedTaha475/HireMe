@@ -11,10 +11,12 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
 })
 export class FreelancerHomeComponent implements OnInit {
   currentfreelancer: any;
+  isLoaded: boolean = false;
   // freelancerid: any;
   constructor(
     private myfreelanceservice: FreelancerService,
-    myactivatelink: ActivatedRoute , public translate:TranslateService
+    myactivatelink: ActivatedRoute,
+    public translate: TranslateService
   ) {
     const langItem = localStorage.getItem('Lang');
     if (langItem != null) {
@@ -26,6 +28,7 @@ export class FreelancerHomeComponent implements OnInit {
       next: (data: any) => {
         this.currentfreelancer = data.body;
         console.log(this.currentfreelancer);
+        this.isLoaded = true;
       },
       error: (error: any) => {
         console.log(error);

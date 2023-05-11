@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { StaticHelper } from 'src/app/Helpers/static-helper';
@@ -35,6 +35,7 @@ export class FreelancerProjectsComponent implements OnInit {
   // projects:any
   opened: boolean = false;
   sysProj: any = false;
+  isLoaded: boolean = false;
   addnewproject = new FormGroup({
     projectTitle: new FormControl('', [Validators.required]),
     projectDate: new FormControl(null, [Validators.required]),
@@ -49,15 +50,16 @@ export class FreelancerProjectsComponent implements OnInit {
     public port: PortfolioService,
     public projects: ProjectService,
     public clientServ: ClientService,
-    public imageServ: ProjectImageService // public myrouter: Route
+    public imageServ: ProjectImageService,
+    public router: Router // public myrouter: Route
   ) {
     this.id = myActiveRoute.snapshot.params['Id'];
     // translate.setDefaultLang('en');
     // translate.use('en');
     const langItem = localStorage.getItem('Lang');
-if (langItem != null) {
-  translate.use(langItem);
-}
+    if (langItem != null) {
+      translate.use(langItem);
+    }
   }
   // switchLanguage(language: string) {
   //   this.translate.use(language);
@@ -100,18 +102,8 @@ if (langItem != null) {
                   element.moneyEarned
                 )
               );
-              // console.log('***************************');
-              // console.log(mydata);
             });
-            // this.myProjects.forEach((element) => {
-            //   console.log(element.P_Id);
-            //   console.log(element.Date);
-            //   console.log(element.Description);
-            //   console.log(element.MoneyEarned);
-            //   console.log(element.Title);
-            // });
-            console.log(this.myProjects);
-            console.log('***********************');
+            this.isLoaded = true;
           },
         });
       },
@@ -164,8 +156,8 @@ if (langItem != null) {
     arrayOfImages.forEach((el: any) => formData.append('projectImgs', el));
     this.projects.CreateProject(formData).subscribe({
       next: (data: any) => {
-        window.location.reload();
         console.log(data);
+        this.router.navigateByUrl('/Freelancer/Projects');
       },
       error: (err: any) => console.log(err),
     });
