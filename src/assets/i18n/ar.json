@@ -132,5 +132,22 @@
 "EGP":"ج.م",
 "Fixed Price":"سعر ثابت",
 "Filter by category":"التصفية حسب الفئة: ",
-"Average Rate":"المعدل المتوسط"
+"Average Rate":"المعدل المتوسط",
+"Freelancer":"العامل",
+"Add Project":"اضف مشروع",
+"New Project":"مشروع جديد",
+"Project Form":"نموذج المشروع",
+"Project Title":"عنوان المشروع",
+"Project Date":"تاريخ المشروع",
+"Project Description":"وصف المشروع",
+"Images that might be helpful":"صور قد تكون مفيدة",
+"Finished":"انتهى",
+"Project Date :":"تاريخ المشروع :",
+"Project Description :":"وصف المشروع :",
+"Project Earned Money :":"الاموال المكتسبة من المشروع",
+"Hello":"مرحباً",
+"My Projects List":"قائمة مشاريعى",
+"Date":"التاريخ",
+"Description":"الوصف",
+"Amount":"المبلغ"
 }

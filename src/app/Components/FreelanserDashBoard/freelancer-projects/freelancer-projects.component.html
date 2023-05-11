@@ -9,24 +9,24 @@
     <div class="dashboard-content-inner">
       <div class="dashboard-headline">
         <h3>
-          Hello {{ myFreelancer.firstname }}{{ myFreelancer.lastname }} 👷🏽‍♂️👷🏽
+          {{ translate.instant("Hello") }} {{ myFreelancer.firstname }}{{ myFreelancer.lastname }} 👷🏽‍♂️
         </h3>
         <!-- <h3>Here you can add new projects ..</h3> -->
 
         <!-- Breadcrumbs -->
         <nav id="breadcrumbs" class="dark">
           <ul>
-            <li><a href="#">Freelancer</a></li>
-            <li><a href="#">Projects</a></li>
-            <li>Add Project</li>
+            <li><a href="#">{{ translate.instant("Freelancer") }}</a></li>
+            <li><a href="#">{{ translate.instant("Projects") }}</a></li>
+            <li>{{ translate.instant("Add Project") }}</li>
           </ul>
         </nav>
       </div>
 
       <!-- Button to show form to add new project -->
       <div class="col-xl-12">
-        <a (click)="open()" class="button ripple-effect big margin-top-30"
-          ><i class="icon-feather-plus"></i> New Project</a
+        <a style="color: white;" (click)="open()" class="button ripple-effect big margin-top-30"
+          ><i class="icon-feather-plus"></i>{{ translate.instant("New Project") }} </a
         >
       </div>
 
@@ -36,7 +36,7 @@
           <div class="dashboard-box margin-top-0">
             <!-- Headline  for form +  -->
             <div class="headline">
-              <h3><i class="icon-feather-folder-plus"></i>Project Form</h3>
+              <h3><i class="icon-feather-folder-plus"></i>{{ translate.instant("Project Form") }}</h3>
             </div>
 
             <!-- form container  -->
@@ -48,7 +48,7 @@
                   <!-- Project Title -->
                   <div class="col-xl-4">
                     <div class="submit-field">
-                      <h5>Project Title</h5>
+                      <h5>{{ translate.instant("Project Title") }}</h5>
                       <input
                         formControlName="projectTitle"
                         type="text"
@@ -61,7 +61,7 @@
                   <!-- Project Date -->
                   <div class="col-xl-4">
                     <div class="submit-field">
-                      <h5>Project Date</h5>
+                      <h5>{{ translate.instant("Project Date") }}</h5>
                       <input
                         formControlName="projectDate"
                         type="date"
@@ -74,7 +74,7 @@
                   <!-- Money Earned  -->
                   <div class="col-xl-4">
                     <div class="submit-field">
-                      <h5>Money Earned</h5>
+                      <h5>{{ translate.instant("Money Earned") }}</h5>
                       <div class="row">
                         <div class="col-xl-6">
                           <div class="input-with-icon">
@@ -93,7 +93,7 @@
                   <!-- Description -->
                   <div class="col-xl-12">
                     <div class="submit-field">
-                      <h5>Project Description</h5>
+                      <h5>{{ translate.instant("Project Description") }}</h5>
                       <textarea
                         formControlName="projectDescription"
                         placeholder=" add project description"
@@ -118,7 +118,7 @@
                           >Upload Files</label
                         >
                         <span class="uploadButton-file-name"
-                          >Images that might be helpful
+                          >{{ translate.instant("Images that might be helpful") }}
                         </span>
                       </div>
                     </div>
@@ -154,8 +154,8 @@
           <!-- Headline -->
           <div class="headline">
             <h3>
-              <i class="icon-material-outline-business-center"></i> My Projects
-              List
+              <i class="icon-material-outline-business-center"></i>{{ translate.instant("My Projects List") }}
+
             </h3>
           </div>
 
@@ -181,7 +181,7 @@
                       <h3 class="job-listing-title">
                         <a href="#">{{ project.Title }}</a>
                         <span class="dashboard-status-button green">
-                          Finished
+                          {{ translate.instant("Finished") }}
                         </span>
                       </h3>
 
@@ -190,19 +190,19 @@
                         <ul>
                           <li>
                             <i class="icon-material-outline-date-range"></i>
-                            Project Date :{{ project.Date }}
+                            {{ translate.instant("Project Date :") }} {{ project.Date }}
                           </li>
                           <br />
                           <li>
                             <i class="icon-feather-edit"></i>
                             <span>
-                              Project Description :
+                              {{ translate.instant("Project Description :") }}
                               {{ project.Description }}
                             </span>
                             <br />
                             <i class="icon-feather-dollar-sign"></i>
                             <span>
-                              Project Earned Money : {{ project.MoneyEarned }}
+                              {{ translate.instant("Project Earned Money :") }} {{ project.MoneyEarned }}
                             </span>
                           </li>
                         </ul>
