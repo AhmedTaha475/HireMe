@@ -158,6 +158,11 @@
   "My Projects List": "My Projects List",
   "Date": "Date",
   "Description": "Description",
-  "Amount": "Amount"
+  "Amount": "Amount",
+  " Rating : ":" Rating : ",
+  "Project Post Title : ":"Project Post Title : ",
+  "My Reviews":"My Reviews",
+  "Amount(EGP)":"Amount(EGP)",
+  "Date of Transaction":"Date of Transaction"
 
 }

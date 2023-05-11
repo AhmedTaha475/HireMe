@@ -157,5 +157,11 @@
   "My Projects List": "قائمة مشاريعى",
   "Date": "التاريخ",
   "Description": "الوصف",
-  "Amount": "المبلغ"
+  "Amount": "المبلغ",
+  " Rating : ":" التقييم : ",
+  "Project Post Title : ":"عنوان المشروع : ",
+  "My Reviews":"تقييماتي",
+  "Amount(EGP)":"المبلغ(ج.م)",
+  "Date of Transaction":"تاريخ المعاملة"
+  
 }

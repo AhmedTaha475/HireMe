@@ -14,7 +14,7 @@ export class ClientMainReviewsComponent implements OnInit {
   currentClientId: any;
   ProjectPostList: any[] = [];
   ReviewListObject: any[] = [];
-  isLoaded: boolean = false;
+  isLoaded: boolean = true;
   constructor(
     private freelancerServ: FreelancerService,
     private reviewServ: ProjectReviewService,
@@ -68,6 +68,7 @@ export class ClientMainReviewsComponent implements OnInit {
       },
       error: (err: any) => {
         console.log(err);
+        
       },
     });
   }
@@ -83,6 +84,6 @@ export class ClientMainReviewsComponent implements OnInit {
         date: projectPost.projectPostDate,
       };
     });
-    this.isLoaded = true;
+    
   }
 }
