@@ -20,6 +20,7 @@ export class FreelancerProfileDashboardComponent implements OnInit  {
   ports:Portfolio[]=[] ;
   myPort:any ;
   myProjects:GetProjectById[]=[];
+  isLoaded: boolean = false;
     constructor(
       public myActiveRoute:ActivatedRoute,
       public freelancer:FreelancerService,
@@ -60,7 +61,8 @@ export class FreelancerProfileDashboardComponent implements OnInit  {
           {
           next:(mydata:any)=>{mydata.forEach((element:any) => {
   this.myProjects.push(new GetProjectById(element.p_id,element.title,element.description,new Date(element.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }),element.systemproject,element.moneyearned))
-    });
+  this.isLoaded = true;
+});
   console.log(this.myProjects);
 
   }

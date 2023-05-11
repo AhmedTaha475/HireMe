@@ -30,6 +30,7 @@ export class FreelancerProjectsComponent implements OnInit {
   myFreelancer: any;
   ports: Portfolio[] = [];
   images: any[] = [];
+  isLoaded: boolean = false;
   myPort: any;
   myProjects: GetProjectById[] = [];
   // projects:any
@@ -41,7 +42,6 @@ export class FreelancerProjectsComponent implements OnInit {
     projectDescription: new FormControl('', [Validators.required]),
     moneyEarned: new FormControl('', []),
   });
-
   constructor(
     public myActiveRoute: ActivatedRoute,
     public freelancer: FreelancerService,
@@ -68,6 +68,8 @@ if (langItem != null) {
         data.forEach((element: any) => {
           // console.log(element);
           this.ports.push(new Portfolio(element.portId, element.freelancerId));
+    // this.isLoaded = true;
+
         });
       },
     });
@@ -166,6 +168,7 @@ if (langItem != null) {
       next: (data: any) => {
         window.location.reload();
         console.log(data);
+
       },
       error: (err: any) => console.log(err),
     });

@@ -9,7 +9,9 @@ import { FreelancerService } from 'src/app/Services/freelancer.service';
   templateUrl: './freelancer-home.component.html',
   styleUrls: ['./freelancer-home.component.css'],
 })
+
 export class FreelancerHomeComponent implements OnInit {
+  isLoaded: boolean = false;
   currentfreelancer: any;
   // freelancerid: any;
   constructor(
@@ -25,7 +27,7 @@ export class FreelancerHomeComponent implements OnInit {
     this.myfreelanceservice.GetCurrentFreelancer().subscribe({
       next: (data: any) => {
         this.currentfreelancer = data.body;
-        console.log(this.currentfreelancer);
+        this.isLoaded = true;
       },
       error: (error: any) => {
         console.log(error);
