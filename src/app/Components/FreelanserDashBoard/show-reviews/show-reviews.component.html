@@ -1,0 +1,100 @@
+<ng-container *ngIf="!isLoaded">
+  <app-spinner>
+  </app-spinner>
+</ng-container>
+<div *ngIf="isLoaded" appJQueryLoader>
+  <div class="dashboard-container">
+    <!-- Dashboard Content
+	================================================== -->
+    <div class="dashboard-content-container">
+      <div class="dashboard-content-inner">
+
+        <!-- Dashboard Headline -->
+        <div class="dashboard-headline">
+          <h3>My Posts Reviews</h3>
+
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs" class="dark">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/client">Dashboard</a></li>
+              <li>Reviews</li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+
+          <!-- Dashboard Box -->
+          <div class="col-xl-12">
+            <div class="dashboard-box margin-top-0">
+
+              <!-- Headline -->
+              <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> My Reviews</h3>
+              </div>
+
+              <div class="content">
+                <p-table [value]="ReviewListObject" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                  [tableStyle]="{ 'min-width': '25rem' }"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                  [rowsPerPageOptions]="[5,15,50]">
+
+
+                  <ng-template pTemplate="header">
+
+                  </ng-template>
+                  <ng-template pTemplate="body" let-rev>
+                    <tr>
+                      <ul class="dashboard-box-list">
+                        <li style="border-bottom: solid 1px #e4e4e4;">
+                          <div class="boxed-list-item">
+                            <!-- Content -->
+                            <div class="item-content">
+                              <div class="user-avatar status-online mb-2"><img
+                                  [src]='rev.freeLancer.img|convertToImage:"assets/images/user-avatar-placeholder.png"'
+                                  alt="">
+                              </div>
+                              <h4>{{rev.freeLancer.fName}} {{rev.freeLancer.lName}}</h4>
+                            </div>
+                          </div>
+
+
+                          <div class="boxed-list-item">
+                            <!-- Content -->
+                            <div class="item-content">
+                              <h4>Project Post Title : {{rev.postTitle}}</h4>
+                              <div class="item-details margin-top-10">
+                                <div class="btn btn-warning me-3 "> Rating : {{rev.freeLancerStars}}</div>
+                                <div class="detail-item"><i class="icon-material-outline-date-range"></i>
+                                  {{rev.date|date:'MMMM yyyy' }}</div>
+                              </div>
+                              <div class="item-description">
+                                <p>{{rev.freeLancerReview}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </tr>
+                  </ng-template>
+
+                </p-table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Row / End -->
+
+
+        <app-dashboardsfooter></app-dashboardsfooter>
+
+
+      </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
+  </div>
+</div>

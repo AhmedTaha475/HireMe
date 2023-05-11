@@ -82,9 +82,7 @@ import { TagModule } from 'primeng/tag';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BrowseFreelancersComponent } from './browse-freelancers/browse-freelancers.component';
-
 import { PostApplicantsComponent } from './Components/ClientDashBoard/post-applicants/post-applicants.component';
-
 import { AddFreelancerReviewComponent } from './Components/ProjectPost/Review/add-freelancer-review/add-freelancer-review.component';
 import { AddClientReviewComponent } from './Components/ProjectPost/Review/add-client-review/add-client-review.component';
 import { FreelancerReviewsComponent } from './Components/ProjectPost/Review/freelancer-reviews/freelancer-reviews.component';
@@ -95,6 +93,9 @@ import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/projec
 import { ClientTransactionComponent } from './Components/ClientDashBoard/client-transaction/client-transaction.component';
 import { ClientMainReviewsComponent } from './Components/ClientDashBoard/client-main-reviews/client-main-reviews.component';
 import { CustomDateDirective } from './CustomDirectives/custom-date.directive';
+import { ShowReviewsComponent } from './Components/FreelanserDashBoard/show-reviews/show-reviews.component';
+import { AddfreelancerReviewComponent } from './Components/FreelanserDashBoard/addfreelancer-review/addfreelancer-review.component';
+import { FreelancerSideBarComponent } from './Components/FreelanserDashBoard/freelancer-side-bar/freelancer-side-bar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -154,9 +155,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AllTasksComponent,
     OffersComponent,
     SpinnerComponent,
-
     BrowseFreelancersComponent,
-
     PostApplicantsComponent,
     AddFreelancerReviewComponent,
     AddClientReviewComponent,
@@ -165,12 +164,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectReviewComponent,
     DepositeMoneyComponent,
     ProjectDetailsComponent,
-
     ClientTransactionComponent,
     ClientMainReviewsComponent,
     CustomDateDirective,
-
-
+    ShowReviewsComponent,
+    AddfreelancerReviewComponent,
+    FreelancerSideBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -50,6 +50,8 @@ import { DepositeMoneyComponent } from './Components/ClientDashBoard/deposite-mo
 import { ProjectDetailsComponent } from './Components/FreelanserDashBoard/project-details/project-details.component';
 import { ClientTransactionComponent } from './Components/ClientDashBoard/client-transaction/client-transaction.component';
 import { ClientMainReviewsComponent } from './Components/ClientDashBoard/client-main-reviews/client-main-reviews.component';
+import { ShowReviewsComponent } from './Components/FreelanserDashBoard/show-reviews/show-reviews.component';
+import { AddfreelancerReviewComponent } from './Components/FreelanserDashBoard/addfreelancer-review/addfreelancer-review.component';
 
 const routes: Routes = [
   {
@@ -63,15 +65,31 @@ const routes: Routes = [
       { path: 'ProjectPost/Create', component: CreateProjectPostComponent },
       { path: 'ProjectPost/GetAll', component: AllProjectPostsComponent },
       { path: 'ProjectPost/:id', component: ProjectPostComponent },
-      { path: 'ProjectPost/:id/Milestone/Create', component: CreateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Update', component: UpdateMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/:milestoneId/Delete', component: DeleteMilestoneComponent },
-      { path: 'ProjectPost/:id/Milestone/GetAll', component: ProjectPostMilestonesComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Create', component: CreateProjectPostApplicantComponent },
-      { path: 'ProjectPost/:id/ProjectPostApplicant/Update', component: EditProjectPostApplicantComponent },
-      {path: 'AllFreelancers',component:BrowseFreelancersComponent},
-
-
+      {
+        path: 'ProjectPost/:id/Milestone/Create',
+        component: CreateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Update',
+        component: UpdateMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/:milestoneId/Delete',
+        component: DeleteMilestoneComponent,
+      },
+      {
+        path: 'ProjectPost/:id/Milestone/GetAll',
+        component: ProjectPostMilestonesComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Create',
+        component: CreateProjectPostApplicantComponent,
+      },
+      {
+        path: 'ProjectPost/:id/ProjectPostApplicant/Update',
+        component: EditProjectPostApplicantComponent,
+      },
+      { path: 'AllFreelancers', component: BrowseFreelancersComponent },
 
       {
         path: 'ProjectPost/:id/ProjectPostApplicant/Create',
@@ -132,6 +150,14 @@ const routes: Routes = [
       {
         path: 'FreelancerProjectDetail/:id',
         component: ProjectDetailsComponent,
+      },
+      {
+        path: 'reviews',
+        component: ShowReviewsComponent,
+      },
+      {
+        path: 'addreview',
+        component: AddfreelancerReviewComponent,
       },
     ],
   },
