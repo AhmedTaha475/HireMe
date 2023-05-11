@@ -21,10 +21,15 @@
 
       <!-- Billing Cycle Radios  -->
       <div>
-      <form [formGroup]="depositeGroup"  (ngSubmit)="confirmAmount()">
-          Deposite Amount: <input id="depositeAmount" type="number" formControlName="depositeAmount" >
-          <br>
-          <input class="btn btn-primary" type="submit" value="Confirm Amount">
+        <form [formGroup]="depositeGroup" (ngSubmit)="confirmAmount()">
+          {{ translate.instant("Deposite Amount") }} :
+          <input
+            id="depositeAmount"
+            type="number"
+            formControlName="depositeAmount"
+          />
+          <br />
+          <input class="btn btn-primary" type="submit" value="Confirm Amount" />
         </form>
       </div>
       <!-- Hedline -->
@@ -44,12 +49,13 @@
       <!-- Summary -->
       <div class="boxed-widget summary margin-top-0">
         <div class="boxed-widget-headline">
-          <h3>{{ translate.instant("Summary") }}</h3>
+          <h3>{{ translatee.instant("Summary") }}</h3>
         </div>
         <div class="boxed-widget-inner">
           <ul>
             <li>
-              Deposite Amount <span>{{ PaymentAmount }}</span>
+              {{ translate.instant("Deposite Amount") }}
+              <span>{{ PaymentAmount }}</span>
             </li>
           </ul>
         </div>
@@ -60,9 +66,14 @@
       <div class="checkbox margin-top-30">
         <input type="checkbox" id="two-step" />
         <label for="two-step"
-          ><span class="checkbox-icon"></span> I agree to the
-          <a href="#">Terms and Conditions</a> and the
-          <a href="#">Automatic Renewal Terms</a></label
+          ><span class="checkbox-icon"></span>
+          {{ translate.instant("I agree to the") }}
+          <a href="#"> {{ translate.instant("Terms and Conditions") }}</a>
+          {{ translate.instant("and the") }}
+
+          <a href="#">
+            {{ translate.instant("Automatic Renewal Terms") }}
+          </a></label
         >
       </div>
     </div>

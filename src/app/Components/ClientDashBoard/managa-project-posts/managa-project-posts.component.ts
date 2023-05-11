@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LookupValueService } from 'src/app/Services/LookupValues_Service/lookup-value.service';
 import { ProjectPostService } from 'src/app/Services/project-post.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-managa-project-posts',
@@ -29,8 +30,14 @@ export class ManagaProjectPostsComponent implements OnInit {
     private projectpostServ: ProjectPostService,
     private lookupvaluesServ: LookupValueService,
     private messageService: MessageService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public translate: TranslateService
+  ) {
+    const langItem = localStorage.getItem('Lang');
+    if (langItem != null) {
+      translate.use(langItem);
+    }
+  }
   projectPosts: any[] = [];
   categories: any;
   isLoaded: boolean = false;

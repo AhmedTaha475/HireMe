@@ -1,79 +1,114 @@
 <ng-container *ngIf="!isLoaded">
-  <app-spinner>
-  </app-spinner>
+  <app-spinner> </app-spinner>
 </ng-container>
 <div *ngIf="isLoaded" appJQueryLoader>
   <div class="dashboard-container">
-
     <app-client-side-bar></app-client-side-bar>
 
     <!-- Dashboard Content
 	================================================== -->
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
-
         <!-- Dashboard Headline -->
         <div class="dashboard-headline">
-          <h3>Manage Jobs</h3>
+          <h3>
+            {{ translate.instant("Manage Jobs") }}
+          </h3>
 
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="dark">
             <ul>
-              <li><a routerLink="/">Home</a></li>
-              <li><a routerLink="/client">Dashboard</a></li>
-              <li>Manage Jobs</li>
+              <li>
+                <a routerLink="/">
+                  {{ translate.instant("Home") }}
+                </a>
+              </li>
+              <li>
+                <a routerLink="/client">
+                  {{ translate.instant("Dashboard") }}
+                </a>
+              </li>
+              <li>{{ translate.instant("Manage Jobs") }}</li>
             </ul>
           </nav>
         </div>
 
         <!-- Row -->
         <div class="row">
-
           <!-- Dashboard Box -->
           <div class="col-xl-12">
             <div class="dashboard-box margin-top-0">
-
               <!-- Headline -->
               <div class="headline">
-                <h3><i class="icon-material-outline-business-center"></i> My Job Listings</h3>
+                <h3>
+                  <i class="icon-material-outline-business-center">
+                    {{ translate.instant("My Job Listings") }}
+                  </i>
+                </h3>
               </div>
 
               <div class="content">
-
-                <p-table [value]="projectPosts" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                <p-table
+                  [value]="projectPosts"
+                  [paginator]="true"
+                  [rows]="5"
+                  [showCurrentPageReport]="true"
                   [tableStyle]="{ 'min-width': '25rem' }"
                   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                  [rowsPerPageOptions]="[5,15,50]">
-
-
-                  <ng-template pTemplate="header">
-                  </ng-template>
+                  [rowsPerPageOptions]="[5, 15, 50]"
+                >
+                  <ng-template pTemplate="header"> </ng-template>
                   <ng-template pTemplate="body" let-post>
                     <tr>
                       <ul class="dashboard-box-list">
-                        <li style="border-bottom: solid 1px #e4e4e4;">
+                        <li style="border-bottom: solid 1px #e4e4e4">
                           <!-- Job Listing -->
                           <div class="job-listing">
-
                             <!-- Job Listing Details -->
                             <div class="job-listing-details">
-
                               <div class="job-listing-description">
-                                <h3 class="job-listing-title"><a href="#">{{post.postTitle}}</a> <span
-                                    *ngIf="post.approved" class="dashboard-status-button green">Approved </span>
-                                  <span *ngIf="!post.approved" class="dashboard-status-button yellow">Pending Approval
+                                <h3 class="job-listing-title">
+                                  <a href="#">{{ post.postTitle }}</a>
+                                  <span
+                                    *ngIf="post.approved"
+                                    class="dashboard-status-button green"
+                                  >
+                                    {{ translate.instant("Approved") }}
                                   </span>
-                                  <span *ngIf="post.done" class="dashboard-status-button red">Project Done
+                                  <span
+                                    *ngIf="!post.approved"
+                                    class="dashboard-status-button yellow"
+                                  >
+                                    {{ translate.instant("Pending Approval") }}
                                   </span>
-                                  <span *ngIf="!post.done" class="dashboard-status-button green">In Progress
+                                  <span
+                                    *ngIf="post.done"
+                                    class="dashboard-status-button red"
+                                  >
+                                    {{ translate.instant("Project Done") }}
+                                  </span>
+                                  <span
+                                    *ngIf="!post.done"
+                                    class="dashboard-status-button green"
+                                  >
+                                    {{ translate.instant("In Progress") }}
                                   </span>
                                 </h3>
-                                UpdateProjectPost
+                                {{ translate.instant("UpdateProjectPost") }}
+
                                 <!-- Job Listing Footer -->
                                 <div class="job-listing-footer">
                                   <ul>
-                                    <li><i class="icon-material-outline-date-range"></i> Posted on
-                                      {{post.projectPostDate| date:'d MMMM, y'}}</li>
+                                    <li>
+                                      <i
+                                        class="icon-material-outline-date-range"
+                                      ></i>
+                                      Posted on
+                                      {{
+                                        post.projectPostDate
+                                          | date : "d MMMM, y"
+                                      }}
+                                    </li>
                                   </ul>
                                 </div>
                               </div>
@@ -82,136 +117,211 @@
 
                           <!-- Buttons -->
                           <div class="buttons-to-right always-visible">
-                            <a *ngIf="!post.approved" routerLink="/client/manageApplicants/{{post.id}}"
-                              class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i>
-                              Manage Candidates</a>
-                            <a routerLink="/client/ProjectPost/{{post.id}}/Milestone/GetAll"
-                              class="button dark ripple-effect"><i class="icon-material-outline-supervisor-account"></i>
-                              Manage Milestones</a>
-                            <a *ngIf="!post.done && post.approved" (click)="EndProject(post.id)"
-                              class="button red ripple-effect text-white"><i
-                                class="icon-material-outline-supervisor-account"></i>
-                              End Project</a>
-                            <a (click)="UpdateProjectPost(post.id)" class="button green ripple-effect ico text-white"
-                              title="Edit" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+                            <a
+                              *ngIf="!post.approved"
+                              routerLink="/client/manageApplicants/{{
+                                post.id
+                              }}"
+                              class="button ripple-effect"
+                              ><i
+                                class="icon-material-outline-supervisor-account"
+                              ></i>
+                              {{ translate.instant("Manage Candidates") }}
+                            </a>
+                            <a
+                              routerLink="/client/ProjectPost/{{
+                                post.id
+                              }}/Milestone/GetAll"
+                              class="button dark ripple-effect"
+                              ><i
+                                class="icon-material-outline-supervisor-account"
+                              ></i>
+                              {{ translate.instant("Manage Milestones") }}
+                            </a>
+                            <a
+                              *ngIf="!post.done && post.approved"
+                              (click)="EndProject(post.id)"
+                              class="button red ripple-effect text-white"
+                              ><i
+                                class="icon-material-outline-supervisor-account"
+                              ></i>
+                              End Project</a
+                            >
+                            <a
+                              (click)="UpdateProjectPost(post.id)"
+                              class="button green ripple-effect ico text-white"
+                              title="Edit"
+                              data-tippy-placement="top"
+                              ><i class="icon-feather-edit"></i
+                            ></a>
 
-                            <a (click)="proceedToDelete(post.id)" class="button red ripple-effect ico text-white"
-                              title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                            <a
+                              (click)="proceedToDelete(post.id)"
+                              class="button red ripple-effect ico text-white"
+                              title="Remove"
+                              data-tippy-placement="top"
+                              ><i class="icon-feather-trash-2"></i
+                            ></a>
                           </div>
                         </li>
                       </ul>
                     </tr>
                   </ng-template>
                 </p-table>
-
-
-
-
-
               </div>
             </div>
           </div>
-
         </div>
         <!-- Row / End -->
 
-
         <app-dashboardsfooter></app-dashboardsfooter>
-
-
       </div>
     </div>
     <!-- Dashboard Content / End -->
-
   </div>
-
-
-
 
   <!-- Update Modal -->
   <div class="card flex justify-content-center">
-    <p-dialog header=" Update Project Post" [(visible)]="UpdateDialogVisible" [breakpoints]="{ '960px': '75vw' }"
-      [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  blue' }" [draggable]="true" [resizable]="true">
-      <form [formGroup]="updatePost" (ngSubmit)="confirmUpdate()" class="row g-3 needs-validation">
+    <p-dialog
+      header=" Update Project Post"
+      [(visible)]="UpdateDialogVisible"
+      [breakpoints]="{ '960px': '75vw' }"
+      [style]="{ width: '70vw', boxShadow: '0px 0px 5px  blue' }"
+      [draggable]="true"
+      [resizable]="true"
+    >
+      <form
+        [formGroup]="updatePost"
+        (ngSubmit)="confirmUpdate()"
+        class="row g-3 needs-validation"
+      >
         <div class="col-md-4">
-          <label for="postTitle" class="form-label">Project Title</label>
-          <input type="text" class="form-control " formControlName="postTitle"
-            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="postTitle">
+          <label for="postTitle" class="form-label">
+            {{ translate.instant("Project Title") }}
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="postTitle"
+            [style]="{ boxShadow: '0px 0px 5px  blue' }"
+            autocomplete="off"
+            id="postTitle"
+          />
           <div *ngIf="updatePost.get('postTitle')?.invalid">
-            <span class="text-danger " *ngIf="updatePost.get('postTitle')?.errors?.['required']">
+            <span
+              class="text-danger"
+              *ngIf="updatePost.get('postTitle')?.errors?.['required']"
+            >
               Post title is required
             </span>
           </div>
-
-
         </div>
 
         <div class="col-md-4">
-          <label for="location" class="form-label">location</label>
-          <input type="text" class="form-control " formControlName="location" [style]="{boxShadow:'0px 0px 5px  blue' }"
-            autocomplete="off" id="location">
+          <label for="location" class="form-label">
+            {{ translate.instant("Location") }}
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="location"
+            [style]="{ boxShadow: '0px 0px 5px  blue' }"
+            autocomplete="off"
+            id="location"
+          />
           <div *ngIf="updatePost.get('location')?.invalid">
-            <span class="text-danger " *ngIf="updatePost.get('location')?.errors?.['required']">
+            <span
+              class="text-danger"
+              *ngIf="updatePost.get('location')?.errors?.['required']"
+            >
               Location is required
             </span>
           </div>
-
-
         </div>
         <div class="col-md-4">
-          <label for="averagePrice" class="form-label">Project Title</label>
-          <input type="text" class="form-control " formControlName="averagePrice"
-            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="averagePrice">
+          <label for="averagePrice" class="form-label">
+            {{ translate.instant("Average Price") }}
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="averagePrice"
+            [style]="{ boxShadow: '0px 0px 5px  blue' }"
+            autocomplete="off"
+            id="averagePrice"
+          />
           <div *ngIf="updatePost.get('averagePrice')?.invalid">
-            <span class="text-danger " *ngIf="updatePost.get('averagePrice')?.errors?.['required']">
+            <span
+              class="text-danger"
+              *ngIf="updatePost.get('averagePrice')?.errors?.['required']"
+            >
               Average Price is required
             </span>
           </div>
-
-
         </div>
         <div class="col-md-4">
-          <label for="ProjectTitle" class="form-label">Category</label>
+          <label for="ProjectTitle" class="form-label">
+            {{ translate.instant("Category") }}
+          </label>
           <select formControlName="categoryId">
-            <option *ngFor="let c of categories" [value]="c.valueId">{{c.valueName}}</option>
+            <option *ngFor="let c of categories" [value]="c.valueId">
+              {{ c.valueName }}
+            </option>
           </select>
         </div>
         <div class="col-md-12">
-          <label for="description" class="form-label">description</label>
-          <input type="text" class="form-control " formControlName="description"
-            [style]="{boxShadow:'0px 0px 5px  blue' }" autocomplete="off" id="description">
+          <label for="description" class="form-label">
+            {{ translate.instant("Description") }}
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+            [style]="{ boxShadow: '0px 0px 5px  blue' }"
+            autocomplete="off"
+            id="description"
+          />
           <div *ngIf="updatePost.get('description')?.invalid">
-            <span class="text-danger " *ngIf="updatePost.get('description')?.errors?.['required']">
+            <span
+              class="text-danger"
+              *ngIf="updatePost.get('description')?.errors?.['required']"
+            >
               Description is required
             </span>
           </div>
-
-
         </div>
 
-
-
         <div class="col-12">
-          <button class="btn btn-outline-dark" type="submit">Update</button>
+          <button class="btn btn-outline-dark" type="submit">
+            {{ translate.instant("Update Job") }}
+          </button>
         </div>
       </form>
     </p-dialog>
   </div>
 
-
-
   <!-- Delete Modal -->
 
   <div class="card flex justify-content-center">
-    <p-dialog header=" Delete lookup Value" [(visible)]="DeleteDialogVisible" [breakpoints]="{ '960px': '75vw' }"
-      [style]="{ width: '70vw' ,boxShadow:'0px 0px 5px  red' }" [draggable]="true" [resizable]="true">
-      <h1 class="text-dang my-3">Are you sure you want to delete this record !!</h1>
-      <button class="btn btn-outline-danger" (click)="ConfirmDelete()">Confirm Delete</button>
+    <p-dialog
+      header=" Delete lookup Value"
+      [(visible)]="DeleteDialogVisible"
+      [breakpoints]="{ '960px': '75vw' }"
+      [style]="{ width: '70vw', boxShadow: '0px 0px 5px  red' }"
+      [draggable]="true"
+      [resizable]="true"
+    >
+      <h1 class="text-dang my-3">
+        {{
+          translate.instant("Are you sure you want to delete this record !!")
+        }}
+      </h1>
+      <button class="btn btn-outline-danger" (click)="ConfirmDelete()">
+        {{ translate.instant("Confirm Delete") }}
+      </button>
     </p-dialog>
   </div>
 
-
   <p-toast position="center" key="updatePost"></p-toast>
   <p-toast position="center" key="DeletePost"></p-toast>
-
 </div>
