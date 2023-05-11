@@ -1,17 +1,14 @@
 <ng-container *ngIf="!isLoaded">
-  <app-spinner>
-  </app-spinner>
+  <app-spinner> </app-spinner>
 </ng-container>
 <div *ngIf="isLoaded" appJQueryLoader>
   <div class="dashboard-container">
-
     <app-client-side-bar></app-client-side-bar>
 
     <!-- Dashboard Content
 	================================================== -->
     <div class="dashboard-content-container">
       <div class="dashboard-content-inner">
-
         <!-- Dashboard Headline -->
         <div class="dashboard-headline">
           <h3>Transactions</h3>
@@ -28,58 +25,65 @@
 
         <!-- Row -->
         <div class="row">
-
           <!-- Dashboard Box -->
           <div class="col-xl-12">
             <div class="dashboard-box margin-top-0">
-
               <!-- Headline -->
               <div class="headline">
-                <h3><i class="icon-material-outline-business-center"></i> My Transactions</h3>
+                <h3>
+                  <i class="icon-material-outline-business-center"></i> My
+                  Transactions
+                </h3>
               </div>
 
               <div class="content">
-                <p-table [value]="transactions" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                <p-table
+                  [value]="transactions"
+                  [paginator]="true"
+                  [rows]="5"
+                  [showCurrentPageReport]="true"
                   [tableStyle]="{ 'min-width': '25rem' }"
                   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                  [rowsPerPageOptions]="[5,15,50]">
-
-
+                  [rowsPerPageOptions]="[5, 15, 50]"
+                >
                   <ng-template pTemplate="header">
                     <tr>
-                      <th pSortableColumn="dateOfTransaction" style="width:20%">Date of Transaction<p-sortIcon
-                          field="code"></p-sortIcon>
+                      <th
+                        pSortableColumn="dateOfTransaction"
+                        style="width: 20%"
+                      >
+                        Date of Transaction
+                        <p-sortIcon field="code"></p-sortIcon>
                       </th>
-                      <th pSortableColumn="amount" style="width:20%">Amount(EGP) <p-sortIcon field="code"></p-sortIcon>
+                      <th pSortableColumn="amount" style="width: 20%">
+                        Amount(EGP)
+                        <p-sortIcon field="code"></p-sortIcon>
                       </th>
-                      <th style="width:20%">Description
-                      </th>
+                      <th style="width: 20%">Description</th>
                     </tr>
                   </ng-template>
                   <ng-template pTemplate="body" let-transaction>
                     <tr>
-                      <td>{{ transaction.dateOfTransaction | date:'dd/MM/yyyy / HH:mm':'UTC' }}
+                      <td>
+                        {{
+                          transaction.dateOfTransaction
+                            | date : "dd/MM/yyyy / HH:mm" : "UTC"
+                        }}
                       </td>
-                      <td>{{ transaction.amount |currency : ' '}}</td>
-                      <td>{{transaction.description}}</td>
+                      <td>{{ transaction.amount | currency : " " }}</td>
+                      <td>{{ transaction.description }}</td>
                     </tr>
                   </ng-template>
-
                 </p-table>
               </div>
             </div>
           </div>
-
         </div>
         <!-- Row / End -->
 
-
         <app-dashboardsfooter></app-dashboardsfooter>
-
-
       </div>
     </div>
     <!-- Dashboard Content / End -->
-
   </div>
 </div>
