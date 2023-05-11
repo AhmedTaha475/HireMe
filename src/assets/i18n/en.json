@@ -115,8 +115,6 @@
   "You Accepted this Offer":"You Accepted this Offer",
   "You Refused this offer":"You Refused this offer",
   "Posted on":"Posted on",
-
-
   "Login":"Login",
   "Plans":"Plans",
   "Browse Tasks":"Browse Tasks",
@@ -130,5 +128,26 @@
 "EGP":"EGP",
 "Fixed Price":"Fixed Price",
 "Filter by category":"Filter by category:",
-"Average Rate":"Average Rate"
+"Average Rate":"Average Rate",
+"Freelancer":"Freelancer",
+"Add Project":"Add Project",
+"New Project":"New Project",
+"Project Form":"Project Form",
+"Project Title":"Project Title",
+"Project Date":"Project Date",
+"Project Description":"Project Description",
+"Images that might be helpful":"Images that might be helpful",
+"Finished":"Finished",
+"Project Date :":"Project Date :",
+"Project Description :":"Project Description :",
+"Project Earned Money :":"Project Earned Money :",
+"Hello":"Hello",
+"My Projects List":"My Projects List",
+"Date":"Date",
+"Description":"Description",
+"Amount":"Amount"
+
+
+
+
 }
