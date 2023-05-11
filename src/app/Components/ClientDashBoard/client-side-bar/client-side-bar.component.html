@@ -16,35 +16,42 @@
       <div class="dashboard-nav">
         <div class="dashboard-nav-inner">
 
-          <ul data-submenu-title="Start">
+          <ul >
+            <li style="color: #2a41e8;font-weight: 600;
+            font-size: 14px;padding: 0 35px;margin-bottom: 5px;
+    display: block;">{{translate.instant('Start')}}</li>
             <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/client"><i
-                  class="icon-material-outline-dashboard"></i> Dashboard</a>
+                  class="icon-material-outline-dashboard"></i> {{translate.instant('Dashboard')}}</a>
             </li>
-            <li><a routerLink="/"><i class="icon-material-outline-home"></i> Home</a>
-            <li><a routerLinkActive="active" routerLink="/client/updateProfile"><i class="icon-feather-user"></i> Update
-                Profile</a>
+            <li><a routerLink="/"><i class="icon-material-outline-home"></i> {{translate.instant('Home')}}</a>
+            <li><a routerLinkActive="active" routerLink="/client/updateProfile"><i class="icon-feather-user"></i> {{translate.instant('Update Profile')}}</a>
             </li>
             <li><a routerLinkActive="active" routerLink="/client/DepositeMoney"><i class="icon-line-awesome-money"></i>
-                Deposite Money</a>
+              {{translate.instant('Deposite Money')}}</a>
             </li>
             <li><a routerLinkActive="active" routerLink="/client/transaction"><i class="icon-feather-edit"></i>
-                Transactions</a></li>
+              {{translate.instant('Transactions')}}</a></li>
             <li><a routerLinkActive="active" routerLink="/client/reviews"><i
-                  class="icon-material-outline-rate-review"></i> Reviews</a></li>
+                  class="icon-material-outline-rate-review"></i> {{translate.instant('Reviews')}}</a></li>
           </ul>
 
-          <ul data-submenu-title="Organize and Manage">
-            <li><a><i class="icon-material-outline-business-center"></i> Jobs</a>
+          <ul >
+            <li style="color: #2a41e8;font-weight: 600;
+            font-size: 14px;padding: 0 35px;margin-bottom: 5px;
+    display: block;">{{translate.instant('Organize and Manage')}}</li>
+            <li><a><i class="icon-material-outline-business-center"></i> {{translate.instant('Tasks')}}</a>
               <ul>
-                <li><a routerLink="/client/managejob">Manage Jobs </a></li>
-                <li><a routerLink="/client/postjob">Post a Job</a></li>
+                <li><a routerLink="/client/managejob">{{translate.instant('Manage Jobs')}} </a></li>
+                <li><a routerLink="/client/postjob">{{translate.instant('Post a Job')}}</a></li>
               </ul>
             </li>
           </ul>
 
-          <ul data-submenu-title="Account">
-
-            <li><a (click)="logout()"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+          <ul >
+            <li style="color: #2a41e8;font-weight: 600;
+            font-size: 14px;padding: 0 35px;margin-bottom: 5px;
+    display: block;">{{translate.instant('Account')}}</li>
+            <li><a (click)="logout()"><i class="icon-material-outline-power-settings-new"></i> {{translate.instant('Logout')}}</a></li>
           </ul>
 
         </div>

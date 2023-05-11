@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/Services/client.service';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-client-home',
   templateUrl: './client-home.component.html',
@@ -9,7 +9,13 @@ import { ClientService } from 'src/app/Services/client.service';
 export class ClientHomeComponent implements OnInit {
   CurrentClient: any;
   isLoaded: boolean = false;
-  constructor(private _clientServ: ClientService) {}
+  constructor(private _clientServ: ClientService,public translate: TranslateService) {
+    translate.setDefaultLang('en');
+    const langItem = localStorage.getItem('Lang');
+    if (langItem !== null) {
+      translate.use(langItem);
+    }
+  }
   ngOnInit(): void {
     this._clientServ.GetCurrentClient().subscribe({
       next: (data: any) => {

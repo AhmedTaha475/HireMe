@@ -18,7 +18,7 @@ export class AllTasksComponent implements OnInit{
   isLoaded: boolean=false;
   constructor(private myService: ProjectPostService,private LookService: LookupValueService,private auth:AuthService,public translate: TranslateService,){
     translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('lang');
+    const langItem = localStorage.getItem('Lang');
     if (langItem !== null) {
       translate.use(langItem);
     }

@@ -14,7 +14,7 @@ export class BrowseFreelancersComponent implements OnInit{
 constructor(private lookvalue:LookupValueService,private FreelancerService:FreelancerService,public translate: TranslateService,
   ){
     translate.setDefaultLang('en');
-    const langItem = localStorage.getItem('lang');
+    const langItem = localStorage.getItem('Lang');
     if (langItem !== null) {
       translate.use(langItem);
     }

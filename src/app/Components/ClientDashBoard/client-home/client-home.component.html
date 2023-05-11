@@ -9,13 +9,13 @@
       <div class="dashboard-content-inner">
         <!-- Dashboard Headline -->
         <div class="dashboard-headline">
-          <h3 class="text-primary">Welcome back {{CurrentClient?.firstname??''}} !</h3>
+          <h3 class="text-primary">{{translate.instant('Welcome back')}}{{CurrentClient?.firstname??''}} !</h3>
 
           <!-- Breadcrumbs -->
           <nav id="breadcrumbs" class="dark">
             <ul>
-              <li><a routerLink="/Home">Home</a></li>
-              <li><a routerLink="/client">Dashboard</a></li>
+              <li><a routerLink="/Home">{{translate.instant('Home')}}</a></li>
+              <li><a routerLink="/client">{{translate.instant('Dashboard')}}</a></li>
             </ul>
           </nav>
         </div>
@@ -28,7 +28,7 @@
               <!-- Headline -->
               <div class="headline">
                 <h3>
-                  <i class="icon-material-outline-account-circle"></i> My Account
+                  <i class="icon-material-outline-account-circle"></i>{{translate.instant('My Account')}}
                 </h3>
               </div>
 
@@ -46,7 +46,7 @@
                 </div>
                 <div class="fun-fact" data-fun-fact-color="#b81b7f">
                   <div class="fun-fact-text">
-                    <span>Full Name</span>
+                    <span>{{translate.instant('Full Name')}}</span>
                     <h2>{{ CurrentClient?.firstname??'' }} {{CurrentClient?.lastname??''}}</h2>
                   </div>
                   <div class="fun-fact-icon">
@@ -57,7 +57,7 @@
                 <!-- Last one has to be hidden below 1600px, sorry :( -->
                 <div class="fun-fact" data-fun-fact-color="#2a41e6">
                   <div class="fun-fact-text">
-                    <span>Email</span>
+                    <span>{{translate.instant('Email')}}</span>
                     <h2>{{ CurrentClient?.email??'' }}</h2>
                   </div>
                   <div class="fun-fact-icon">
@@ -70,8 +70,8 @@
               <div class="fun-facts-container" style="margin-top: 30px; margin-bottom: 20px">
                 <div class="fun-fact" data-fun-fact-color="#36bd78">
                   <div class="fun-fact-text">
-                    <span>Location</span>
-                    <h3>{{CurrentClient?.country??''}}/{{ CurrentClient?.city??'' }}/{{CurrentClient?.street??''}}</h3>
+                    <span>{{translate.instant('Location')}}</span>
+                    <h3 class="pt-5">{{CurrentClient?.country??''}}/{{ CurrentClient?.city??'' }}/{{CurrentClient?.street??''}}</h3>
                   </div>
                   <div class="fun-fact-icon">
                     <i class="icon-material-outline-location-on"></i>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="fun-fact" data-fun-fact-color="#b81b7f">
                   <div class="fun-fact-text">
-                    <span>Balance</span>
+                    <span>{{translate.instant('Balance')}}</span>
                     <!-- <h2 *ngIf="CurrentClient.balance == null">no balance</h2> -->
                     <h2>{{ CurrentClient?.balance??'0' }}</h2>
                   </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="fun-fact" data-fun-fact-color="#efa80f">
                   <div class="fun-fact-text">
-                    <span>Total money spent</span>
+                    <span>{{translate.instant('Total money spent')}}</span>
                     <h2>{{ CurrentClient?.totalMoneySpent??'0' }}</h2>
                   </div>
                   <div class="fun-fact-icon">
@@ -100,7 +100,7 @@
                 <!-- Last one has to be hidden below 1600px, sorry :( -->
                 <div class="fun-fact" data-fun-fact-color="#2a41e6">
                   <div class="fun-fact-text">
-                    <span>Phone number</span>
+                    <span>{{translate.instant('Phone number')}}</span>
                     <h2>{{ CurrentClient?.phonenumber??'' }}</h2>
                   </div>
                   <div class="fun-fact-icon">
