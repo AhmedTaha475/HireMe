@@ -50,14 +50,9 @@ export class FreelancerProfileDashboardComponent implements OnInit {
     this.freelancer.GetCurrentFreelancer().subscribe({
       next: (data: any) => {
         this.myFreelancer = data.body;
-        // this.myFreelancer.cv=StaticHelper.ConvertByteArrayToPdf(data.body.cv);
-        // this.myFreelancer.image=StaticHelper.ConvertByteArrayToImage(data.body.image);
         this.myPort = this.ports.filter(
           (p) => p.freelancerId == this.myFreelancer.id
         )[0];
-        // console.log("============")
-        // console.log(this.myPort)
-        // console.log("============")
         this.projects.GetProjectsByPortfolioId(this.myPort.portId).subscribe({
           next: (mydata: any) => {
             mydata.forEach((element: any) => {

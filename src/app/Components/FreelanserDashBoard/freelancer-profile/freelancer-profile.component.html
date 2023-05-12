@@ -329,8 +329,9 @@
           <div class="sidebar-widget">
             <h3>{{ translate.instant("Attachments") }}</h3>
             <div class="attachments-container">
-              <a href="{{ myFreelancer.cv }}" download="{{ myFreelancer.username }}CV.pdf"
-                class="attachment-box ripple-effect"><span>{{ translate.instant("CV") }}</span><i>PDF</i></a>
+              <a [href]=" myFreelancer?.cv??''|convertToPdf:'assets/WrongPdf.pdf'"
+                download="{{ myFreelancer.username }}CV.pdf" class="attachment-box ripple-effect"><span>{{
+                  translate.instant("CV") }}</span><i>PDF</i></a>
               <!-- <a routerLink="#" class="attachment-box ripple-effect"><span>Contract</span><i>DOCX</i></a> -->
             </div>
           </div>
