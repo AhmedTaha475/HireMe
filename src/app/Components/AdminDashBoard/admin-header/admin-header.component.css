@@ -63,7 +63,7 @@
 }
 .activeHeader {
   color: blue !important;
-  box-shadow: 1px 1px 4px blue;
+  /* box-shadow: 1px 1px 4px blue; */
 }
 
 body {
