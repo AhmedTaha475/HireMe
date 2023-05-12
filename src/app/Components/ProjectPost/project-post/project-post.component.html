@@ -104,10 +104,10 @@
               </div>
               <div class="bidding-inner">
                 <!-- Button -->
-                <button *ngIf="applied" routerLink="/ProjectPost/{{projectPostId}}/ProjectPostApplicant/Update"
-                  class="button ripple-effect move-on-hover full-width margin-top-30">Update</button>
-                <button *ngIf="!applied" routerLink="/ProjectPost/{{projectPostId}}/ProjectPostApplicant/Create"
-                  id="applyBtn" class="button ripple-effect move-on-hover full-width margin-top-30">Apply</button>
+                <!-- <button *ngIf="applied" routerLink="/ProjectPost/{{projectPostId}}/ProjectPostApplicant/Update"
+                  class="button ripple-effect move-on-hover full-width margin-top-30">Update</button> -->
+                <button routerLink="/ProjectPost/{{projectPostId}}/ProjectPostApplicant/Create"
+                  class="button ripple-effect move-on-hover full-width margin-top-30">Apply</button>
               </div>
               <div class="bidding-signup">Don't have an account? <a routerLink="/SignUp"
                   class="register-tab sign-in popup-with-zoom-anim">Sign Up</a></div>

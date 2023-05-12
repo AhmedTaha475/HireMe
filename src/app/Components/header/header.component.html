@@ -41,6 +41,7 @@
 
             </li>
 
+
             <li>
               <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
               <ul class="dropdown-nav">
@@ -97,7 +98,7 @@
               </div>
 
               <ul class="user-menu-small-nav">
-                <li><a href="/client"><i class="icon-material-outline-dashboard"></i>
+                <li><a routerLink="/client"><i class="icon-material-outline-dashboard"></i>
                     {{translate.instant("Dashboard")}}</a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
                       class="icon-material-outline-power-settings-new"></i>{{translate.instant("Logout")}} </a>
@@ -148,7 +149,7 @@
               </div>
 
               <ul class="user-menu-small-nav">
-                <li><a href="/Freelancer"><i class="icon-material-outline-dashboard"></i>
+                <li><a routerLink="/Freelancer"><i class="icon-material-outline-dashboard"></i>
                     {{translate.instant("Dashboard")}} </a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
                       class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
@@ -193,7 +194,7 @@
               </div>
 
               <ul class="user-menu-small-nav">
-                <li><a href="/Admin"><i class="icon-material-outline-dashboard"></i>
+                <li><a routerLink="/Admin"><i class="icon-material-outline-dashboard"></i>
                     {{translate.instant("Dashboard")}}</a></li>
                 <li><a (click)="logout()" style="cursor: pointer;"><i
                       class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>

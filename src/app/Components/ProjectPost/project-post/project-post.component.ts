@@ -110,6 +110,7 @@ export class ProjectPostComponent implements OnInit {
               return el.freelancerId == this.freelancerId;
             }
           );
+          console.log(freelancerExists);
           if (freelancerExists) this.applied = true;
           else this.applied = false;
         },
