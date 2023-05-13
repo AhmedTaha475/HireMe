@@ -52,6 +52,7 @@ export class AddClientReviewComponent implements OnInit {
     console.log(clientReviewData);
     this.reviewService.AddClientReview(clientReviewData).subscribe({
       next: (data) => {
+        console.log(data);
         this.EndProject(this.projectPostId);
       },
       error: (err) => {

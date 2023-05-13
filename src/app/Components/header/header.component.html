@@ -1,272 +1,144 @@
-<header id="header-container" class="fullwidth">
-  <!-- Header -->
-  <div id="header">
-    <div class="container">
+<div appJQueryLoader>
+  <header id="header-container" class="fullwidth">
+    <!-- Header -->
+    <div id="header">
+      <div class="container">
 
-      <!-- Left Side Content -->
-      <div class="left-side">
+        <!-- Left Side Content -->
+        <div class="left-side">
 
-        <!-- Logo -->
-        <div id="logo" class="pb-5">
-          <a routerLink="/"><img src="assets/images/logo.png" alt=""></a>
-        </div>
-
-        <!-- Main Navigation -->
-        <nav id="navigation">
-          <ul id="responsive">
-
-
-            <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
-            <li *ngIf="_authService.isClient()">
-
-
-
-
-              <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
-
-
-            </li>
-            <li *ngIf="_authService.isClient()">
-              <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
-            </li>
-            <li *ngIf="_authService.isFreelancer()">
-              <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
-            </li>
-            <li *ngIf="_authService.isFreelancer()">
-              <a routerLink="/plan">{{translate.instant("Plans")}}</a>
-            </li>
-
-            <li *ngIf=" !_authService.isLoggedIn()">
-              <a routerLink="/Login">{{translate.instant("Login")}}</a>
-
-            </li>
-
-
-            <li>
-              <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
-              <ul class="dropdown-nav">
-                <li><a (click)="switchLanguage('en')">English</a></li>
-                <li><a (click)="switchLanguage('ar')">العربية</a></li>
-              </ul>
-            </li>
-
-          </ul>
-        </nav>
-        <div class="clearfix"></div>
-        <!-- Main Navigation / End -->
-
-      </div>
-      <!-- Left Side Content / End -->
-
-
-      <!-- Right Side Content / End -->
-
-      <div class="right-side" *ngIf="_authService.isLoggedIn()">
-
-
-        <!-- User Menu -->
-        <div class="header-widget" *ngIf="_authService.isClient()">
-
-          <!-- Messages -->
-          <div class="header-notifications user-menu">
-            <div class="header-notifications-trigger">
-              <a style="cursor: pointer;">
-                <div class="user-avatar status-online"><img width="50" height="50"
-                    src="{{client?.image??''| convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
-                </div>
-              </a>
-            </div>
-
-            <!-- Dropdown -->
-            <div class="header-notifications-dropdown">
-
-              <!-- User Status -->
-              <div class="user-status">
-
-                <!-- User Name / Avatar -->
-                <div class="user-details">
-                  <div class="user-avatar status-online"><img width="50" height="50"
-                      src="{{client?.image??'' | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
-                  </div>
-                  <div class="user-name">
-                    {{client?.firstname??''}} <span>{{translate.instant("Client")}}</span>
-                  </div>
-                </div>
-
-                <!-- User Status Switcher -->
-
-              </div>
-
-              <ul class="user-menu-small-nav">
-                <li><a routerLink="/client"><i class="icon-material-outline-dashboard"></i>
-                    {{translate.instant("Dashboard")}}</a></li>
-                <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i>{{translate.instant("Logout")}} </a>
-                </li>
-              </ul>
-
-            </div>
+          <!-- Logo -->
+          <div id="logo" class="pb-5">
+            <a routerLink="/"><img src="assets/images/logo.png" alt=""></a>
           </div>
 
-        </div>
-        <!-- User Menu / End -->
+          <!-- Main Navigation -->
+          <nav id="navigation">
+            <ul id="responsive">
+
+
+              <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
+              <li *ngIf="_authService.isClient()">
 
 
 
-        <!-- User Menu -->
-        <div class="header-widget" *ngIf="_authService.isFreelancer()">
 
-          <!-- Messages -->
-          <div class="header-notifications user-menu">
-            <div class="header-notifications-trigger">
-              <a style="cursor: pointer;">
-                <div class="user-avatar status-online"><img width="50" height="50"
-                    src="{{freelancer?.image??'' | convertToImage:'assets/images/user-avatar-placeholder.png'}}" alt="">
-                </div>
-              </a>
-            </div>
-
-            <!-- Dropdown -->
-            <div class="header-notifications-dropdown">
-
-              <!-- User Status -->
-              <div class="user-status">
-
-                <!-- User Name / Avatar -->
-                <div class="user-details">
-                  <div class="user-avatar status-online"><img width="50" height="50"
-                      src="{{freelancer?.image??'' | convertToImage:'assets/images/user-avatar-placeholder.png'}}"
-                      alt="">
-                  </div>
-                  <div class="user-name">
-                    {{freelancer?.firstname??''}} <span>{{freelancer?.jobtitle??''}}</span>
-                  </div>
-                </div>
+                <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
 
 
-                <!-- User Status Switcher -->
+              </li>
+              <li *ngIf="_authService.isClient()">
+                <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
+              </li>
+              <li *ngIf="_authService.isFreelancer()">
+                <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
+              </li>
+              <li *ngIf="_authService.isFreelancer()">
+                <a routerLink="/plan">{{translate.instant("Plans")}}</a>
+              </li>
 
-              </div>
+              <li *ngIf=" !_authService.isLoggedIn()">
+                <a routerLink="/Login">{{translate.instant("Login")}}</a>
 
-              <ul class="user-menu-small-nav">
-                <li><a routerLink="/Freelancer"><i class="icon-material-outline-dashboard"></i>
-                    {{translate.instant("Dashboard")}} </a></li>
-                <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
-                </li>
-              </ul>
+              </li>
 
-            </div>
-          </div>
 
-        </div>
-        <!-- User Menu / End -->
+              <li>
+                <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
+                <ul class="dropdown-nav">
+                  <li><a (click)="switchLanguage('en')">English</a></li>
+                  <li><a (click)="switchLanguage('ar')">العربية</a></li>
+                </ul>
+              </li>
+              <li *ngIf="_authService.isClient()"><a routerLink="/client"><i
+                    class="icon-material-outline-dashboard"></i>
+                  {{translate.instant("Dashboard")}}</a></li>
+              <li *ngIf="_authService.isFreelancer()"><a routerLink="/Freelancer"><i
+                    class="icon-material-outline-dashboard"></i>
+                  {{translate.instant("Dashboard")}} </a></li>
 
-        <!-- User Menu -->
-        <div class="header-widget" *ngIf="_authService.isAdmin()">
+              <li *ngIf="_authService.isAdmin()"><a routerLink="/Admin"><i class="icon-material-outline-dashboard"></i>
+                  {{translate.instant("Dashboard")}}</a></li>
 
-          <!-- Messages -->
-          <div class="header-notifications user-menu">
-            <div class="header-notifications-trigger">
-              <a style="cursor: pointer;">
-                <div class="user-avatar status-online"><img width="80" height="80" src="assets/images/admin.png" alt="">
-                </div>
-              </a>
-            </div>
+              <li *ngIf="_authService.isLoggedIn()"><a (click)="logout()" style="cursor: pointer;"><i
+                    class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
+              </li>
+            </ul>
 
-            <!-- Dropdown -->
-            <div class="header-notifications-dropdown">
-
-              <!-- User Status -->
-              <div class="user-status">
-
-                <!-- User Name / Avatar -->
-                <div class="user-details">
-                  <div class="user-avatar status-online"><img width="80" height="80" src="assets/images/admin.png"
-                      alt=""></div>
-                  <div class="user-name">
-                    {{translate.instant("Admin")}} <span>{{translate.instant("systemAdmin")}}</span>
-                  </div>
-                </div>
-
-                <!-- User Status Switcher -->
-
-              </div>
-
-              <ul class="user-menu-small-nav">
-                <li><a routerLink="/Admin"><i class="icon-material-outline-dashboard"></i>
-                    {{translate.instant("Dashboard")}}</a></li>
-                <li><a (click)="logout()" style="cursor: pointer;"><i
-                      class="icon-material-outline-power-settings-new"></i> {{translate.instant("Logout")}}</a>
-                </li>
-              </ul>
-
-            </div>
-          </div>
+          </nav>
+          <div class="clearfix"></div>
+          <!-- Main Navigation / End -->
 
         </div>
-        <!-- User Menu / End -->
+        <!-- Left Side Content / End -->
 
 
-        <!-- Mobile Navigation Button -->
-        <span class="row justify-content-center ps-2 pt-4 ps-md-4 ps-sm-2 pt-sm-4">
+        <!-- Right Side Content / End -->
 
-          <span
-            class="  fs-2 text-primary d-md-flex d-lg-none justify-content-center  col-md-1 col-sm-1 align-content-center">
-            <button class="icon-feather-align-justify " (click)="sidebarVisible = true"></button>
+        <div class="right-side">
+
+          <!-- User Menu / End -->
+
+
+          <!-- Mobile Navigation Button -->
+          <span class="row justify-content-center ps-2 pt-4 ps-md-4 ps-sm-2 pt-sm-4">
+
+            <span
+              class="  fs-2 text-primary d-md-flex d-lg-none justify-content-center  col-md-1 col-sm-1 align-content-center">
+              <button class="icon-feather-align-justify " (click)="sidebarVisible = true"></button>
+            </span>
           </span>
-        </span>
+
+        </div>
+        <!-- Right Side Content / End -->
 
       </div>
-      <!-- Right Side Content / End -->
-
     </div>
-  </div>
-  <!-- Header / End -->
+    <!-- Header / End -->
 
-</header>
-
-
-
-
-
-<p-sidebar [(visible)]="sidebarVisible" class="my-sidebar">
-  <div class="sidebar-header ">
-    <span>{{translate.instant("SideBar")}}</span>
-  </div>
-  <ul class=" sidebar-nav">
-    <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
-    <li *ngIf="_authService.isClient()">
-      <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
-    </li>
-    <li *ngIf="_authService.isClient()">
-      <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
-    </li>
-    <li *ngIf="_authService.isFreelancer()">
-      <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
-    </li>
-    <li *ngIf="_authService.isFreelancer()">
-      <a routerLink="/plan">{{translate.instant("Plans")}}</a>
-    </li>
-    <li *ngIf=" !_authService.isLoggedIn()">
-      <a routerLink="/Login">{{translate.instant("Login")}}</a>
-    </li>
-    <li>
-      <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
-      <ul class="dropdown-nav">
-        <li><a (click)="switchLanguage('en')">English</a></li>
-        <li><a (click)="switchLanguage('ar')">العربية</a></li>
-      </ul>
-    </li>
-  </ul>
-</p-sidebar>
-
-<!--
+  </header>
 
 
 
 
 
+  <p-sidebar [(visible)]="sidebarVisible" class="my-sidebar">
+    <div class="sidebar-header ">
+      <span>{{translate.instant("SideBar")}}</span>
+    </div>
+    <ul class=" sidebar-nav">
+      <li><a routerLink="/" class="current">{{translate.instant("home")}}</a></li>
+      <li *ngIf="_authService.isClient()">
+        <a routerLink="/AllFreelancers">{{translate.instant("Find a Freelancer")}}</a>
+      </li>
+      <li *ngIf="_authService.isClient()">
+        <a routerLink="/client/postjob">{{translate.instant("Post a Task")}}</a>
+      </li>
+      <li *ngIf="_authService.isFreelancer()">
+        <a routerLink="/AllTasks">{{translate.instant("Browse Tasks")}}</a>
+      </li>
+      <li *ngIf="_authService.isFreelancer()">
+        <a routerLink="/plan">{{translate.instant("Plans")}}</a>
+      </li>
+      <li *ngIf=" !_authService.isLoggedIn()">
+        <a routerLink="/Login">{{translate.instant("Login")}}</a>
+      </li>
+      <li>
+        <a style="cursor: pointer;">{{ translate.instant("language") }}</a>
+        <ul class="dropdown-nav">
+          <li><a (click)="switchLanguage('en')">English</a></li>
+          <li><a (click)="switchLanguage('ar')">العربية</a></li>
+        </ul>
+      </li>
+    </ul>
+  </p-sidebar>
+
+  <!--
+
+
+
+
+</div>
 
 
 

@@ -46,6 +46,7 @@ export class ProjectDetailsComponent implements OnInit {
       },
       error: (error) => {
         console.log(error);
+        this.isLoaded = true;
       },
     });
   }
